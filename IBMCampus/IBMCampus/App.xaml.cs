@@ -13,7 +13,7 @@ namespace IBMCampus
         {
             InitializeComponent();
 
-            MainPage = new IBMCampus.MainPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

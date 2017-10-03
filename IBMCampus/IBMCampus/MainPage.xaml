@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:IBMCampus"
              x:Class="IBMCampus.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
+	<Label Text="Coucou!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
