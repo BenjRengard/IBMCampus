@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,11 @@ namespace IBMCampus
 		public Test ()
 		{
 			InitializeComponent ();
-            var liste = new ListView(ListViewCachingStrategy.RecycleElement);
+            //var liste = new ListView(ListViewCachingStrategy.RecycleElement);
             var repo = new FakeGroupes();
-            BindingContext = repo.Donnees();
+            var groupes = new ObservableCollection<string>() { "Groupe1", "Groupe2" };
+            liste.ItemsSource = repo.Donnees();
 
-            liste.BindingContext = BindingContext;
 		}
 	}
 }
