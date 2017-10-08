@@ -11,16 +11,17 @@ using Xamarin.Forms.Xaml;
 namespace IBMCampus
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Test : ContentPage
+	public partial class PageTousLesGroupes : ContentPage
 	{
-		public Test ()
+
+        public PageTousLesGroupes ()
 		{
 			InitializeComponent ();
             //var liste = new ListView(ListViewCachingStrategy.RecycleElement);
             var repo = new FakeGroupes();
             var groupes = new ObservableCollection<string>() { "Groupe1", "Groupe2" };
-            liste.ItemsSource = repo.Donnees();
 
+            liste.ItemsSource = repo.Donnees();
 		}
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -31,7 +32,7 @@ namespace IBMCampus
                 return;
             }
             var groupe = e.SelectedItem as GroupeModel;
-            await Navigation.PushAsync(new MainPage(groupe));
+            await Navigation.PushAsync(new PageDetailGroupe(groupe));
             liste.SelectedItem = null;
         }
     }

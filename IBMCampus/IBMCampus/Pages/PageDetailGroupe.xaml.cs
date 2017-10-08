@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace IBMCampus
 {
-    public partial class MainPage : ContentPage
+    public partial class PageDetailGroupe : ContentPage
     {
-        public MainPage(GroupeModel groupe)
+        public PageDetailGroupe(GroupeModel groupe)
         {
             if (groupe == null)
             {
