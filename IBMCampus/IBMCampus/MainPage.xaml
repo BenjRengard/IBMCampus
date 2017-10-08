@@ -4,7 +4,13 @@
              xmlns:local="clr-namespace:IBMCampus"
              x:Class="IBMCampus.MainPage"
              Title="{Binding NomGroupe}">
+    <StackLayout>
+        <Label Text="{Binding NomGroupe}"/>
 
-	<Label Text="{Binding NomGroupe}"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Sport: "/>
+            <Label Text="{Binding SportDuGroupe.NomSport}"/>
+        </StackLayout>
+    </StackLayout>
 
 </ContentPage>
