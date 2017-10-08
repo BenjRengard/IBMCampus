@@ -9,9 +9,14 @@ namespace IBMCampus
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(GroupeModel groupe)
         {
+            if (groupe == null)
+            {
+                throw new ArgumentNullException("groupe");
+            }
             InitializeComponent();
+            BindingContext = groupe;
         }
     }
 }

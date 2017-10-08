@@ -22,5 +22,17 @@ namespace IBMCampus
             liste.ItemsSource = repo.Donnees();
 
 		}
-	}
+
+        private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            
+            if (liste.SelectedItem == null)
+            {
+                return;
+            }
+            var groupe = e.SelectedItem as GroupeModel;
+            await Navigation.PushAsync(new MainPage(groupe));
+            liste.SelectedItem = null;
+        }
+    }
 }

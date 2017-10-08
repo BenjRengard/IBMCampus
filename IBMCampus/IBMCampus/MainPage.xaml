@@ -2,10 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IBMCampus"
-             x:Class="IBMCampus.MainPage">
+             x:Class="IBMCampus.MainPage"
+             Title="{Binding NomGroupe}">
 
-	<Label Text="Coucou!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+	<Label Text="{Binding NomGroupe}"/>
 
 </ContentPage>

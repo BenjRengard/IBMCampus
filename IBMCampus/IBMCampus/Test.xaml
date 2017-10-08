@@ -10,7 +10,11 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <Label HorizontalOptions="Center" Text="Tous les groupes"/>
-            <ListView x:Name="liste" HasUnevenRows="True" BackgroundColor="White" IsPullToRefreshEnabled="True">
+            <ListView x:Name="liste" 
+                      HasUnevenRows="True" 
+                      BackgroundColor="White" 
+                      IsPullToRefreshEnabled="True"
+                      ItemSelected="liste_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
