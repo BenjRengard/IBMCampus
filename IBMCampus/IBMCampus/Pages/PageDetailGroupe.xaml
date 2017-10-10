@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:IBMCampus"
              x:Class="IBMCampus.PageDetailGroupe"
              Title="{Binding NomGroupe}">
+    
     <StackLayout HorizontalOptions="FillAndExpand" Padding="0, 20, 0, 0">
         <Label Text="{Binding NomGroupe}" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue"/>
 

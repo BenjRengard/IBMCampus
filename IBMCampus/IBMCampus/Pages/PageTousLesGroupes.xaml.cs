@@ -35,5 +35,10 @@ namespace IBMCampus
             await Navigation.PushAsync(new PageDetailGroupe(groupe));
             liste.SelectedItem = null;
         }
+
+        private void ToolbarItem_Activated(object sender, EventArgs e)
+        {
+
+        }
     }
 }

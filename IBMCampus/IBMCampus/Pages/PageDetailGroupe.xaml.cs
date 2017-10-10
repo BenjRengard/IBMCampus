@@ -11,12 +11,9 @@ namespace IBMCampus
     {
         public PageDetailGroupe(GroupeModel groupe)
         {
-            if (groupe == null)
-            {
-                throw new ArgumentNullException("groupe");
-            }
+            var groupeAAfficher = groupe ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
-            BindingContext = groupe;
+            BindingContext = groupeAAfficher;
             listeUtilisateurGroupe.ItemsSource = groupe.UtilisateursDuGroupe;
         }
 

@@ -4,7 +4,12 @@
              x:Class="IBMCampus.PageTousLesGroupes"
              Padding="20,40,20,20"
              Title="Les Groupes">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Créer" Activated="ToolbarItem_Activated"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
+
+
         <StackLayout BackgroundColor="White">
             <StackLayout Padding="0, 10, 0, 10">
                 <Label HorizontalOptions="Center" Text="Les groupes" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
