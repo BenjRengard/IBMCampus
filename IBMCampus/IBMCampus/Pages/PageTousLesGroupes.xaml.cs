@@ -24,6 +24,13 @@ namespace IBMCampus
             liste.ItemsSource = repo.RecupererTousLesGroupes();
 		}
 
+        public PageTousLesGroupes(FakeGroupes repo)
+        {
+            InitializeComponent();
+
+            liste.ItemsSource = repo.RecupererTousLesGroupes();
+        }
+
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             
@@ -36,9 +43,9 @@ namespace IBMCampus
             liste.SelectedItem = null;
         }
 
-        private void ToolbarItem_Activated(object sender, EventArgs e)
+        private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new FormCreationGroupe());
         }
     }
 }

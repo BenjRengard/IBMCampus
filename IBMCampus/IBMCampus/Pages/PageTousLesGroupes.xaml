@@ -5,7 +5,7 @@
              Padding="20,40,20,20"
              Title="Les Groupes">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Créer" Activated="ToolbarItem_Activated"/>
+        <ToolbarItem Text="Créer un groupe" Activated="ToolbarItem_Activated" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
 
