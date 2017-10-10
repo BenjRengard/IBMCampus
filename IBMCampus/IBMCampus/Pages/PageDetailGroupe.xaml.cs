@@ -17,6 +17,8 @@ namespace IBMCampus
             }
             InitializeComponent();
             BindingContext = groupe;
+            listeUtilisateurGroupe.ItemsSource = groupe.UtilisateursDuGroupe;
         }
+
     }
 }

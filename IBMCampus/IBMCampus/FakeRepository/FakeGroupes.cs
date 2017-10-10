@@ -17,8 +17,27 @@ namespace IBMCampus
 
             var groupe1 = new GroupeModel()
             {
-                NomGroupe = "Groupe 1",
+                NomGroupe = "Groupe de rugbymen d'IBM",
                 SportDuGroupe = new SportModel() { NomSport = "Rugby"},
+                UtilisateursDuGroupe = new List<UtilisateurModel>()
+                {
+                    new UtilisateurModel()
+                    {
+                        NomUtilisateur = "Rengard",
+                        AgeUtilisateur = 25,
+                        PrenomUtilisateur = "Benjamin",
+                        EMailUtilisateur = @"rengard.benjamin-isc.france@ibm.com"
+                        
+                    },
+                     new UtilisateurModel()
+                    {
+                        NomUtilisateur = "Cive",
+                        AgeUtilisateur = 25,
+                        PrenomUtilisateur = "Jean",
+                        EMailUtilisateur = @"jean.cive@ibm.com"
+
+                    }
+                }
                 
             };
 
@@ -26,8 +45,8 @@ namespace IBMCampus
 
             var groupe2 = new GroupeModel()
             {
-                NomGroupe = "Groupe 2",
-                SportDuGroupe = new SportModel() { NomSport = "Rugby" },
+                NomGroupe = "Groupe de mecs qui font du Bad",
+                SportDuGroupe = new SportModel() { NomSport = "Badminton" },
 
             };
 
@@ -35,15 +54,34 @@ namespace IBMCampus
 
             var groupe3 = new GroupeModel()
             {
-                NomGroupe = "Groupe 3",
-                SportDuGroupe = new SportModel() { NomSport = "Foot-Ball" },
+                NomGroupe = "Les footeux",
+                SportDuGroupe = new SportModel() { NomSport = "Football" },
+                UtilisateursDuGroupe = new List<UtilisateurModel>()
+                {
+                    new UtilisateurModel()
+                    {
+                        NomUtilisateur = "Jérôme",
+                        AgeUtilisateur = 25,
+                        PrenomUtilisateur = "Laquay",
+                        EMailUtilisateur = @"jeromelaquay@ibm.com"
+
+                    },
+                     new UtilisateurModel()
+                    {
+                        NomUtilisateur = "Cive",
+                        AgeUtilisateur = 25,
+                        PrenomUtilisateur = "Jean",
+                        EMailUtilisateur = @"jean.cive@ibm.com"
+
+                    }
+                }
 
             };
 
             ListeFauxGroupes.Add(groupe3);
         }
 
-        public ObservableCollection<GroupeModel> Donnees()
+        public ObservableCollection<GroupeModel> RecupererTousLesGroupes()
         {
             return ListeFauxGroupes;
         }

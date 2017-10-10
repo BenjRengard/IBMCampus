@@ -21,7 +21,7 @@ namespace IBMCampus
             var repo = new FakeGroupes();
             var groupes = new ObservableCollection<string>() { "Groupe1", "Groupe2" };
 
-            liste.ItemsSource = repo.Donnees();
+            liste.ItemsSource = repo.RecupererTousLesGroupes();
 		}
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)

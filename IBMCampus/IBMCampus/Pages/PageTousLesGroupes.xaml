@@ -6,7 +6,9 @@
              Title="Les Groupes">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
-            <Label HorizontalOptions="Center" Text="Tous les groupes"/>
+            <StackLayout Padding="0, 10, 0, 10">
+                <Label HorizontalOptions="Center" Text="Les groupes" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
             <ListView x:Name="liste" 
                       HasUnevenRows="True" 
                       BackgroundColor="White" 
@@ -21,8 +23,8 @@
                             </ViewCell.ContextActions>
                             <StackLayout Orientation="Horizontal">
                                 <StackLayout HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding NomGroupe}"/>
-                                    <Label Text="{Binding SportDuGroupe.NomSport}"/>
+                                    <Label Text="{Binding NomGroupe}" FontSize="Medium" TextColor="DeepSkyBlue"/>
+                                    <Label Text="{Binding SportDuGroupe.NomSport}" TextColor="Gray" FontSize="Small"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
