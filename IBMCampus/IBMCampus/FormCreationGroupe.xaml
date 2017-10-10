@@ -4,16 +4,21 @@
              x:Class="IBMCampus.FormCreationGroupe"
              Title="Créer un groupe">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand">
             <TableView Intent="Form">
                 <TableRoot>
                     <TableSection Title="Informations générales">
                         <EntryCell x:Name="NomNouveauGroupe" Label="Nom" Placeholder="Entrer un nom de groupe"/>
                         <EntryCell x:Name="SportNouveauGroupe" Label="Sport" Placeholder="Entrer un nom d'un sport"/>
                     </TableSection>
+                    <TableSection Title="Information membres">
+                        <EntryCell x:Name="NombreParticipantsMax" Label="Participants max" Placeholder="Nombre de participants" Keyboard="Numeric"/>
+                    </TableSection>
                 </TableRoot>
             </TableView>
-            <Button Text="Enregistrer" Clicked="Button_Clicked"/>
+            <StackLayout VerticalOptions="End" HorizontalOptions="End">
+                <Button Text="Enregistrer" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
