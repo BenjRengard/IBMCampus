@@ -19,7 +19,7 @@ namespace IBMCampus
             {
                 NomGroupe = "Groupe de rugbymen d'IBM",
                 SportDuGroupe = new SportModel() { NomSport = "Rugby"},
-                UtilisateursDuGroupe = new List<UtilisateurModel>()
+                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
                 {
                     new UtilisateurModel()
                     {
@@ -56,7 +56,7 @@ namespace IBMCampus
             {
                 NomGroupe = "Les footeux",
                 SportDuGroupe = new SportModel() { NomSport = "Football" },
-                UtilisateursDuGroupe = new List<UtilisateurModel>()
+                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
                 {
                     new UtilisateurModel()
                     {

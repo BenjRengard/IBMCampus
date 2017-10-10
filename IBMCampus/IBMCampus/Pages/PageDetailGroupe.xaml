@@ -29,6 +29,9 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
+        <StackLayout VerticalOptions="End" HorizontalOptions="End">
+            <Button Text="S'inscrire" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

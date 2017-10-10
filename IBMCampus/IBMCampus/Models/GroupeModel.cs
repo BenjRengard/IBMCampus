@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace IBMCampus
 {
@@ -6,11 +7,11 @@ namespace IBMCampus
     {
         public string NomGroupe { get; set; }
 
-        public List<UtilisateurModel> UtilisateursDuGroupe { get; set; }
+        public ObservableCollection<UtilisateurModel> UtilisateursDuGroupe { get; set; }
 
         public SportModel SportDuGroupe { get; set; }
 
-        public List<EvenementsModel> EvenementsDuGroupe { get; set; }
+        public ObservableCollection<EvenementsModel> EvenementsDuGroupe { get; set; }
 
 
     }
