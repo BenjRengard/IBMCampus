@@ -13,7 +13,7 @@ namespace IBMCampus
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage( new PageTousLesGroupes());
+            MainPage = new NavigationPage( new Connexion());
         }
 
         protected override void OnStart()

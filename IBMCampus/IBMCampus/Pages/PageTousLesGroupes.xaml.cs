@@ -47,5 +47,10 @@ namespace IBMCampus
         {
             await Navigation.PushAsync(new FormCreationGroupe());
         }
+
+        private async void ToolbarItem_Activated1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Connexion());
+        }
     }
 }
