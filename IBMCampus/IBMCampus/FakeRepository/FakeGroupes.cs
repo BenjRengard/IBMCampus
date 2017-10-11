@@ -26,7 +26,7 @@ namespace IBMCampus
                         NomUtilisateur = "Rengard",
                         AgeUtilisateur = 25,
                         PrenomUtilisateur = "Benjamin",
-                        EMailUtilisateur = @"rengard.benjamin-isc.france@ibm.com"
+                        EMailUtilisateur = @"rengard.benjamin@fauxmail.fr"
                         
                     },
                      new UtilisateurModel()
@@ -34,7 +34,7 @@ namespace IBMCampus
                         NomUtilisateur = "Cive",
                         AgeUtilisateur = 25,
                         PrenomUtilisateur = "Jean",
-                        EMailUtilisateur = @"jean.cive@ibm.com"
+                        EMailUtilisateur = @"jean.cive@test.com"
 
                     }
                 }
@@ -63,7 +63,7 @@ namespace IBMCampus
                         NomUtilisateur = "Jérôme",
                         AgeUtilisateur = 25,
                         PrenomUtilisateur = "Laquay",
-                        EMailUtilisateur = @"jeromelaquay@ibm.com"
+                        EMailUtilisateur = @"jeromelaquay@bidon.com"
 
                     },
                      new UtilisateurModel()
@@ -71,7 +71,7 @@ namespace IBMCampus
                         NomUtilisateur = "Cive",
                         AgeUtilisateur = 25,
                         PrenomUtilisateur = "Jean",
-                        EMailUtilisateur = @"jean.cive@ibm.com"
+                        EMailUtilisateur = @"jean.cive@test.com"
 
                     }
                 }
