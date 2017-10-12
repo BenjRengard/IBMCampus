@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.Inscription"
+             Title="Inscription">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Start">
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="Informations générales">
+                        <EntryCell x:Name="NomUtilisateur" Label="Nom" Placeholder="Votre Nom" />
+                        <EntryCell x:Name="PrenomUtilisateur" Label="Prénom" Placeholder="Votre Prénom"/>
+                        <EntryCell x:Name="EMailUtilisateur" Label="Mail" Keyboard="Email" Placeholder="Votre E-Mail"/>
+                        <EntryCell x:Name="MdpUser" Label="Mot de passe" Keyboard="Email" Placeholder="Mot de passe"/>
+                        <EntryCell x:Name="TelephoneUtilisateur" Label="Telephone" Keyboard="Numeric" Placeholder="Votre numéro"/>
+                        <EntryCell x:Name="AgeUser" Label="Age" Keyboard="Numeric" Placeholder="Entrez votre age"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                <Button Text="Valider" Clicked="Button_Inscription" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                <Button Clicked="Button_Annuler" Text="Annuler" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

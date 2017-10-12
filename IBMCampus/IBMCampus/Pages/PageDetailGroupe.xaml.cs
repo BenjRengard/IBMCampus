@@ -11,12 +11,20 @@ namespace IBMCampus
     {
         public PageDetailGroupe(GroupeModel groupe)
         {
-            if (groupe == null)
-            {
-                throw new ArgumentNullException("groupe");
-            }
+            var groupeAAfficher = groupe ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
-            BindingContext = groupe;
+            BindingContext = groupeAAfficher;
+            listeUtilisateurGroupe.ItemsSource = groupe.UtilisateursDuGroupe;
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var groupeAffiche = BindingContext as GroupeModel;
+            var AppData= App.Current.BindingContext as FakeGroupes;
+            groupeAffiche.UtilisateursDuGroupe.Add(AppData.User);
+
+            //Ajouter l'utilisateur dans le groupe.
+            DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
         }
     }
 }

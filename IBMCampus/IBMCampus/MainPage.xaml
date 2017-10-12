@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.MainPage"
+            xmlns:local="clr-namespace:IBMCampus"
+            Title="IBM Campus">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Deconnexion" Activated="ToolbarItem_Activated" Order="Secondary"/>
+    </TabbedPage.ToolbarItems>
+  <!--Pages can be added as references or inline-->
+    <local:PageProfilUtilisateur Title="Profil"/>
+    <local:PageTousLesGroupes Title="Mes groupes"/>
+    <local:PageTousLesEvents Title="Mes évènements"/>
+</TabbedPage>

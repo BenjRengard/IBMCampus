@@ -4,12 +4,33 @@
              xmlns:local="clr-namespace:IBMCampus"
              x:Class="IBMCampus.PageDetailGroupe"
              Title="{Binding NomGroupe}">
-    <StackLayout>
-        <Label Text="{Binding NomGroupe}"/>
+    
+    <StackLayout HorizontalOptions="FillAndExpand" Padding="0, 20, 0, 0">
+        <Label Text="{Binding NomGroupe}" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue"/>
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Sport: "/>
+        <StackLayout Padding="20,20,20,20">
+            <Label Text="Sport: " TextColor="DeepSkyBlue" FontSize="Medium"/>
             <Label Text="{Binding SportDuGroupe.NomSport}"/>
+        </StackLayout>
+        <StackLayout Padding="20, 20, 20, 20">
+            <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
+            <ListView x:Name="listeUtilisateurGroupe"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding NomUtilisateur} "/>
+                                <Label Text="{Binding PrenomUtilisateur}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout VerticalOptions="End" HorizontalOptions="End">
+            <Button Text="S'inscrire" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
         </StackLayout>
     </StackLayout>
 
