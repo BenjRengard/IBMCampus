@@ -28,10 +28,12 @@ namespace IBMCampus
                 {
                     NomSport = SportNouveauGroupe.Text
                 },
-                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>() { repo.User }
+                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
+                IdGroupe = (repo.ListeFauxGroupes.Count + 1)
 
             };
             repo.ListeFauxGroupes.Add(nouveauGroupe);
+            repo.User.GroupesUtilisateur.Add(nouveauGroupe.IdGroupe);
             App.Current.BindingContext = repo;
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
             await Navigation.PopAsync();

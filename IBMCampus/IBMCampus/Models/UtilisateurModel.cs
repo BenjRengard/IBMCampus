@@ -30,5 +30,15 @@ namespace IBMCampus
 
         [Required]
         public string MotDePasseUtilisateur { get; set; }
+
+        public UtilisateurModel()
+        {
+            this.AgeUtilisateur = 0;
+            this.EMailUtilisateur = string.Empty;
+            this.EvenementsUtilisateur = new List<EvenementsModel>();
+            this.GroupesUtilisateur = new List<int>();
+            this.LocalisationUtilisateur = string.Empty;
+            
+        }
     }
 }
