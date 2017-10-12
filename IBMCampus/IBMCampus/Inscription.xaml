@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.Inscription"
              Padding="20,40,20,20"
-             Title="Inscription">
+             Title="Inscription"
+             >
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Start">
+        <StackLayout VerticalOptions="StartAndExpand">
             <TableView Intent="Form">
                 <TableRoot>
                     <TableSection Title="Informations générales">

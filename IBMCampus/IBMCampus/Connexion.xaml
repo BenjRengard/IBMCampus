@@ -5,16 +5,15 @@
              x:Class="IBMCampus.Connexion"
              Title="Connexion">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center">
-            <TableView Intent="Form">
-                <TableRoot>
-                    <TableSection>
-                        <EntryCell x:Name="EmailUtilisateur" Label="E-Mail" Placeholder="Votre adresse E-Mail" Keyboard="Email"/>
-                        <EntryCell x:Name="MotDePasse" Label="Mot de passe" Placeholder="Mot de passe"/>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
-            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="Start">
+                <Label Text="E-Mail" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                <Entry x:Name="EmailUtilisateur" Placeholder="Votre adresse E-Mail" Keyboard="Email" HorizontalOptions="Center"/>
+                <Label Text="Mot de passe" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                <Entry x:Name="MotDePasse" Placeholder="Mot de passe" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
                 <Button Text="Connexion" Clicked="Button_Connexion" BackgroundColor="DeepSkyBlue" TextColor="White"/>
                 <Button Text="Inscription" Clicked="Button_Inscription" BackgroundColor="DeepSkyBlue" TextColor="White"/>
             </StackLayout>

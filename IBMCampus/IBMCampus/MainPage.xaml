@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.MainPage"
             xmlns:local="clr-namespace:IBMCampus"
-            Title="IBM Campus">
+            Title="IBM Campus"
+            >
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Deconnexion" Activated="ToolbarItem_Activated" Order="Secondary"/>
     </TabbedPage.ToolbarItems>

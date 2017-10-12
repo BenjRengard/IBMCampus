@@ -15,6 +15,11 @@ namespace IBMCampus
         public PageGroupesDeLUtilisateur()
         {
             InitializeComponent();
+            Load();
+        }
+
+        private void Load()
+        {
             var repo = App.Current.BindingContext as FakeGroupes;
             var user = repo.User as UtilisateurModel;
             liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
@@ -37,6 +42,10 @@ namespace IBMCampus
             await Navigation.PushAsync(new FormCreationGroupe());
         }
 
-
+        private void liste_Refreshing(object sender, EventArgs e)
+        {
+            Load();
+            liste.EndRefresh();
+        }
     }
 }

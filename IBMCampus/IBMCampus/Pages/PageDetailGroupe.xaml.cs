@@ -14,25 +14,34 @@ namespace IBMCampus
             var AppData = App.Current.BindingContext as FakeGroupes;
             var groupeAAfficher = groupe ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
-            BindingContext = groupeAAfficher;
+            Load(groupeAAfficher, AppData);
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            var groupeAffiche = BindingContext as GroupeModel;
+            var AppData= App.Current.BindingContext as FakeGroupes;
+            AppData.User.GroupesUtilisateur.Add(groupeAffiche.IdGroupe);
+            groupeAffiche.UtilisateursDuGroupe.Add(AppData.User);
+
+            Load(groupeAffiche, AppData);
+
+
+            await DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
+            
+        }
+
+        public void Load(GroupeModel groupe, FakeGroupes appData)
+        {
+            BindingContext = groupe;
             listeUtilisateurGroupe.ItemsSource = groupe.UtilisateursDuGroupe;
             foreach (var user in groupe.UtilisateursDuGroupe)
             {
-                if (user == AppData.User)
+                if (user == appData.User)
                 {
                     BoutonInscription.IsVisible = false;
                 }
             }
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            var groupeAffiche = BindingContext as GroupeModel;
-            var AppData= App.Current.BindingContext as FakeGroupes;
-            groupeAffiche.UtilisateursDuGroupe.Add(AppData.User);
-
-            //Ajouter l'utilisateur dans le groupe.
-            DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
         }
     }
 }

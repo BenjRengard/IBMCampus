@@ -17,12 +17,13 @@ namespace IBMCampus
         public PageTousLesGroupes ()
 		{
 			InitializeComponent ();
-            //var liste = new ListView(ListViewCachingStrategy.RecycleElement);
-            var repo = App.Current.BindingContext as FakeGroupes;
-
-            liste.ItemsSource = repo.RecupererTousLesGroupes();
+            Load();
 		}
 
+        /// <summary>
+        /// Constrcuteur obsolète
+        /// </summary>
+        /// <param name="repo"></param>
         public PageTousLesGroupes(FakeGroupes repo)
         {
             InitializeComponent();
@@ -47,6 +48,17 @@ namespace IBMCampus
             await Navigation.PushAsync(new FormCreationGroupe());
         }
 
-        
+        private void liste_Refreshing(object sender, EventArgs e)
+        {
+            Load();
+            liste.EndRefresh();
+        }
+
+        public void Load()
+        {
+            var repo = App.Current.BindingContext as FakeGroupes;
+
+            liste.ItemsSource = repo.RecupererTousLesGroupes();
+        }
     }
 }
