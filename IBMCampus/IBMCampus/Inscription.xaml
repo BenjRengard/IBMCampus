@@ -8,11 +8,11 @@
             <TableView Intent="Form">
                 <TableRoot>
                     <TableSection Title="Informations générales">
-                        <EntryCell x:Name="NomUtilisateur" Label="Nom" Placeholder="Nom" />
-                        <EntryCell x:Name="PrenomUtilisateur" Label="Prénom" Placeholder="Prénom"/>
-                        <EntryCell x:Name="AgeUtilisateur" Label="Age" Placeholder="20"/>
-                        <EntryCell x:Name="TelephoneUtilisateur" Label="Telephone" Placeholder="0684090804"/>
-                        <EntryCell x:Name="EMailUtilisateur" Label="Mail" Placeholder="Jean.dupont@mail.com"/>
+                        <EntryCell x:Name="NomUtilisateur" Label="Nom" Placeholder="Votre Nom" />
+                        <EntryCell x:Name="PrenomUtilisateur" Label="Prénom" Placeholder="Votre Prénom"/>
+                        <EntryCell x:Name="TelephoneUtilisateur" Label="Telephone" Keyboard="Numeric" Placeholder="Votre numéro"/>
+                        <EntryCell x:Name="AgeUser" Label="Age" Keyboard="Numeric" Placeholder="Entrez votre age"/>
+                        <EntryCell x:Name="EMailUtilisateur" Label="Mail" Placeholder="Votre E-Mail"/>
                     </TableSection>
                 </TableRoot>
             </TableView>
