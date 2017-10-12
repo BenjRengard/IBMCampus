@@ -51,7 +51,7 @@
     <CodesignKey>iPhone Developer: teshu@live.fr (7RF6M2438G)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>iOS Team Provisioning Profile: IBMCampus.IBMCampusUITests</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: IBMCampus.IBMCampus</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
