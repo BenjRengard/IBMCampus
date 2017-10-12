@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace IBMCampus
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Inscription : ContentPage
     {
 

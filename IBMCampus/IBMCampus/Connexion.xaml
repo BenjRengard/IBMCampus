@@ -13,7 +13,7 @@
                     </TableSection>
                 </TableRoot>
             </TableView>
-            <StackLayout VerticalOptions="End" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
                 <Button Text="Connexion" Clicked="Button_Connexion" BackgroundColor="DeepSkyBlue" TextColor="White"/>
                 <Button Text="Inscription" Clicked="Button_Inscription" BackgroundColor="DeepSkyBlue" TextColor="White"/>
             </StackLayout>
