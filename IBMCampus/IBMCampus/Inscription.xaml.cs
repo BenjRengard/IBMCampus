@@ -26,13 +26,16 @@ namespace IBMCampus
                 PrenomUtilisateur = PrenomUtilisateur.Text,
                 EMailUtilisateur = EMailUtilisateur.Text,
                 TelephoneUtilisateur = TelephoneUtilisateur.Text,
-                AgeUtilisateur = Convert.ToInt32(AgeUser.Text)
+                AgeUtilisateur = Convert.ToInt32(AgeUser.Text),
+                MotDePasseUtilisateur = MdpUser.Text
             };
 
             var repo = App.Current.BindingContext as FakeGroupes;
+            repo.UtilisateursEnregistres.Add(nouvelUtilisateur);
             repo.User = nouvelUtilisateur;
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new Connexion());
+            Navigation.RemovePage(this);
 
         }
 
