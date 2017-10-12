@@ -18,8 +18,7 @@ namespace IBMCampus
 		{
 			InitializeComponent ();
             //var liste = new ListView(ListViewCachingStrategy.RecycleElement);
-            var repo = new FakeGroupes();
-            var groupes = new ObservableCollection<string>() { "Groupe1", "Groupe2" };
+            var repo = App.Current.BindingContext as FakeGroupes;
 
             liste.ItemsSource = repo.RecupererTousLesGroupes();
 		}

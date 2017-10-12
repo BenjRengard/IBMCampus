@@ -10,12 +10,20 @@ namespace IBMCampus
     public class FakeGroupes
     {
         public ObservableCollection<GroupeModel> ListeFauxGroupes = new ObservableCollection<GroupeModel>();
-        public UtilisateurModel FauxUser = new UtilisateurModel();
+        public UtilisateurModel User = new UtilisateurModel();
 
         public FakeGroupes()
         {
             //this.ListeFauxGroupes = new ObservableCollection<GroupeModel>();
             //this.FauxUser = new UtilisateurModel();
+
+            this.User = new UtilisateurModel()
+            {
+                NomUtilisateur = "Wayne",
+                PrenomUtilisateur = "Bruce",
+                AgeUtilisateur = 30,
+                EMailUtilisateur = @"batman@batman.com"
+            };
 
             var groupe1 = new GroupeModel()
             {

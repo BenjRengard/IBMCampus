@@ -29,7 +29,7 @@ namespace IBMCampus
             };
 
             FakeGroupes repo = new FakeGroupes();
-            repo.FauxUser = nouvelUtilisateur;
+            repo.User = nouvelUtilisateur;
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
             await Navigation.PushAsync(new Connexion());
 

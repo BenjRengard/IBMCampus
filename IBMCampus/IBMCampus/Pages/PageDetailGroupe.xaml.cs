@@ -20,15 +20,11 @@ namespace IBMCampus
         private void Button_Clicked(object sender, EventArgs e)
         {
             var groupeAffiche = BindingContext as GroupeModel;
-
-            groupeAffiche.UtilisateursDuGroupe.Add(new UtilisateurModel()
-            {
-                NomUtilisateur = "Utilisateur",
-                PrenomUtilisateur = "Actuel"
-            });
+            var user = App.Current.BindingContext as UtilisateurModel;
+            groupeAffiche.UtilisateursDuGroupe.Add(user);
 
             //Ajouter l'utilisateur dans le groupe.
-            DisplayAlert(groupeAffiche.NomGroupe, string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
+            DisplayAlert(string.Format("Monsieur {0}",user.NomUtilisateur), string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
         }
     }
 }
