@@ -9,6 +9,7 @@
     </TabbedPage.ToolbarItems>
   <!--Pages can be added as references or inline-->
     <local:PageProfilUtilisateur Title="Profil"/>
-    <local:PageTousLesGroupes Title="Mes groupes"/>
+    <local:PageGroupesDeLUtilisateur Title="Mes groupes"/>
+    <local:PageTousLesGroupes Title="Les groupes"/>
     <local:PageTousLesEvents Title="Mes évènements"/>
 </TabbedPage>

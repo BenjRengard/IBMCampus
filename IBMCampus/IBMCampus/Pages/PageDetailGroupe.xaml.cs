@@ -11,10 +11,18 @@ namespace IBMCampus
     {
         public PageDetailGroupe(GroupeModel groupe)
         {
+            var AppData = App.Current.BindingContext as FakeGroupes;
             var groupeAAfficher = groupe ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
             BindingContext = groupeAAfficher;
             listeUtilisateurGroupe.ItemsSource = groupe.UtilisateursDuGroupe;
+            foreach (var user in groupe.UtilisateursDuGroupe)
+            {
+                if (user == AppData.User)
+                {
+                    BoutonInscription.IsVisible = false;
+                }
+            }
         }
 
         private void Button_Clicked(object sender, EventArgs e)

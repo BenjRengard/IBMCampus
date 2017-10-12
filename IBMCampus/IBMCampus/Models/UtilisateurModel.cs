@@ -20,9 +20,9 @@ namespace IBMCampus
         [Required]
         public string EMailUtilisateur { get; set; }
 
-        public List<GroupeModel> GroupesUtilisateur { get; set; }
+        public List<int> GroupesUtilisateur { get; set; }
 
-        public List<SportModel> SportsUtilisateur { get; set; }
+        public List<int> SportsUtilisateur { get; set; }
 
         public List<EvenementsModel> EvenementsUtilisateur { get; set; }
 

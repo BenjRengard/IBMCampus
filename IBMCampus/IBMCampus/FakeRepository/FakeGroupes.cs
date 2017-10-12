@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -39,7 +40,8 @@ namespace IBMCampus
                     alex,
                     bat
                     
-                }
+                },
+                IdGroupe = 1
 
             };
 
@@ -53,8 +55,9 @@ namespace IBMCampus
                 {
                     superman,
                     cive
-                }
-
+                },
+                IdGroupe = 2
+                
             };
 
             ListeFauxGroupes.Add(groupe2);
@@ -68,11 +71,39 @@ namespace IBMCampus
                    aurel,
                    thibaut,
                    jerome
-                }
+                },
+                IdGroupe = 3
 
             };
 
             ListeFauxGroupes.Add(groupe3);
+
+            var groupe4 = new GroupeModel()
+            {
+                NomGroupe = "Les joueur",
+                SportDuGroupe = new SportModel() { NomSport = "Escrime" },
+                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
+                {
+                   benj,
+                   thibaut,
+                   bat
+                },
+                IdGroupe = 4
+
+            };
+
+            ListeFauxGroupes.Add(groupe4);
+        }
+
+        internal ObservableCollection<GroupeModel>RecupererGroupesUtilisateur(UtilisateurModel user)
+        {
+            var listeARetourner = new ObservableCollection<GroupeModel>();
+            foreach (var idgroupe in user.GroupesUtilisateur)
+            {
+                var groupe = ListeFauxGroupes.FirstOrDefault(g => g.IdGroupe == idgroupe);
+                listeARetourner.Add(groupe);
+            }
+            return listeARetourner;
         }
 
         public ObservableCollection<GroupeModel> RecupererTousLesGroupes()
