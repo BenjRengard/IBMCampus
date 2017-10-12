@@ -57,6 +57,7 @@ namespace IBMCampus
             {
                 NomGroupe = "Groupe de mecs qui font du Bad",
                 SportDuGroupe = new SportModel() { NomSport = "Badminton" },
+                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
 
             };
 

@@ -18,9 +18,9 @@ namespace IBMCampus
 
         }
 
-        private void ToolbarItem_Activated(object sender, EventArgs e)
+        private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
-
+            await Navigation.PopAsync();
         }
     }
 }
