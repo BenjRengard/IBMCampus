@@ -27,7 +27,8 @@ namespace IBMCampus
                 EMailUtilisateur = EMailUtilisateur.Text,
                 TelephoneUtilisateur = TelephoneUtilisateur.Text,
                 AgeUtilisateur = Convert.ToInt32(AgeUser.Text),
-                MotDePasseUtilisateur = MdpUser.Text
+                MotDePasseUtilisateur = MdpUser.Text,
+                Vehicule = Conducteur.On
             };
 
             var repo = App.Current.BindingContext as FakeGroupes;

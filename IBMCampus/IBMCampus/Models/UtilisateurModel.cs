@@ -30,5 +30,9 @@ namespace IBMCampus
 
         [Required]
         public string MotDePasseUtilisateur { get; set; }
+
+        public bool Vehicule { get; set; }
+
+        public int NombrePlaces { get; set; }
     }
 }
