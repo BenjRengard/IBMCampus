@@ -14,13 +14,13 @@ namespace IBMCampus
     {
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
 
         }
 
         private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Connexion());
+            await Navigation.PopAsync();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IBMCampus.FakeRepository;
 
 namespace IBMCampus
 {
@@ -11,44 +12,35 @@ namespace IBMCampus
     {
         public ObservableCollection<GroupeModel> ListeFauxGroupes = new ObservableCollection<GroupeModel>();
         public UtilisateurModel User = new UtilisateurModel();
+        public ObservableCollection<UtilisateurModel> UtilisateursEnregistres = new ObservableCollection<UtilisateurModel>();
 
         public FakeGroupes()
         {
-            //this.ListeFauxGroupes = new ObservableCollection<GroupeModel>();
-            //this.FauxUser = new UtilisateurModel();
+            var repoUser = new FakeUtilisateurs();
+            UtilisateursEnregistres = repoUser.Utilisateurs;
 
-            this.User = new UtilisateurModel()
-            {
-                NomUtilisateur = "Wayne",
-                PrenomUtilisateur = "Bruce",
-                AgeUtilisateur = 30,
-                EMailUtilisateur = @"batman@batman.com"
-            };
+            var benj = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Rengard");
+            var alex = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Moorels");
+            var bat = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Wayne");
+            var superman = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Kent");
+            var thibaut = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Chauchoy");
+            var jerome = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Laquay");
+            var aurel = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Ducloy");
+            var cive = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Cive");
 
             var groupe1 = new GroupeModel()
             {
                 NomGroupe = "Groupe de rugbymen d'IBM",
-                SportDuGroupe = new SportModel() { NomSport = "Rugby"},
+                SportDuGroupe = new SportModel() { NomSport = "Rugby" },
                 UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
                 {
-                    new UtilisateurModel()
-                    {
-                        NomUtilisateur = "Rengard",
-                        AgeUtilisateur = 25,
-                        PrenomUtilisateur = "Benjamin",
-                        EMailUtilisateur = @"rengard.benjamin@fauxmail.fr"
-                        
-                    },
-                     new UtilisateurModel()
-                    {
-                        NomUtilisateur = "Cive",
-                        AgeUtilisateur = 25,
-                        PrenomUtilisateur = "Jean",
-                        EMailUtilisateur = @"jean.cive@test.com"
-
-                    }
+                    benj,
+                    cive,
+                    alex,
+                    bat
+                    
                 }
-                
+
             };
 
             ListeFauxGroupes.Add(groupe1);
@@ -57,6 +49,11 @@ namespace IBMCampus
             {
                 NomGroupe = "Groupe de mecs qui font du Bad",
                 SportDuGroupe = new SportModel() { NomSport = "Badminton" },
+                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
+                {
+                    superman,
+                    cive
+                }
 
             };
 
@@ -68,22 +65,9 @@ namespace IBMCampus
                 SportDuGroupe = new SportModel() { NomSport = "Football" },
                 UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
                 {
-                    new UtilisateurModel()
-                    {
-                        NomUtilisateur = "Jérôme",
-                        AgeUtilisateur = 25,
-                        PrenomUtilisateur = "Laquay",
-                        EMailUtilisateur = @"jeromelaquay@bidon.com"
-
-                    },
-                     new UtilisateurModel()
-                    {
-                        NomUtilisateur = "Cive",
-                        AgeUtilisateur = 25,
-                        PrenomUtilisateur = "Jean",
-                        EMailUtilisateur = @"jean.cive@test.com"
-
-                    }
+                   aurel,
+                   thibaut,
+                   jerome
                 }
 
             };
