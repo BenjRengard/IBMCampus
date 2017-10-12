@@ -9,11 +9,17 @@ namespace IBMCampus
 {
     public partial class App : Application
     {
+
+        public FakeGroupes Repo = new FakeGroupes();
+
         public App()
         {
             InitializeComponent();
+             
+            
+            BindingContext = Repo;
 
-            MainPage = new NavigationPage(new Inscription());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

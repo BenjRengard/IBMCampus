@@ -4,6 +4,9 @@
              x:Class="IBMCampus.MainPage"
             xmlns:local="clr-namespace:IBMCampus"
             Title="IBM Campus">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Deconnexion" Activated="ToolbarItem_Activated" Order="Secondary"/>
+    </TabbedPage.ToolbarItems>
   <!--Pages can be added as references or inline-->
     <local:PageProfilUtilisateur Title="Profil"/>
     <local:PageTousLesGroupes Title="Mes groupes"/>

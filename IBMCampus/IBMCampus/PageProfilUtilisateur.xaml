@@ -3,10 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.PageProfilUtilisateur">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Bruce Wayne"
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="0, 20, 0, 0">
+            <Label Text="Informations du profil" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue"/>
+
+            <StackLayout Padding="20,20,20,20">
+                <Label Text="Nom: " TextColor="DeepSkyBlue" FontSize="Medium"/>
+                <Label Text="{Binding NomUtilisateur}"/>
+            </StackLayout>
+            <StackLayout Padding="20,20,20,20">
+                <Label Text="Prenom: " TextColor="DeepSkyBlue" FontSize="Medium"/>
+                <Label Text="{Binding PrenomUtilisateur}"/>
+            </StackLayout>
+            <StackLayout Padding="20,20,20,20">
+                <Label Text="Age:  " TextColor="DeepSkyBlue" FontSize="Medium"/>
+                <Label Text="{Binding AgeUtilisateur}"/>
+            </StackLayout>
+            <StackLayout Padding="20,20,20,20">
+                <Label Text="Mail: " TextColor="DeepSkyBlue" FontSize="Medium"/>
+                <Label Text="{Binding EMailUtilisateur}"/>
+            </StackLayout>
+            <!--<StackLayout Padding="20, 20, 20, 20">
+                <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
+                <ListView x:Name="listeUtilisateurGroupe"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding NomUtilisateur} "/>
+                                    <Label Text="{Binding PrenomUtilisateur}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="End">
+                <Button Text="S'inscrire" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>-->
+        </StackLayout>
+        <!--<StackLayout>
+            <Label Text="{Binding NomUtilisateur}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
