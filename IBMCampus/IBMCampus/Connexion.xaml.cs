@@ -26,7 +26,7 @@ namespace IBMCampus
             };
 
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-            await Navigation.PushAsync(new PageTousLesGroupes());
+            await Navigation.PushAsync(new MainPage());
         }
 
         private async void Button_Inscription(object sender, EventArgs e)
