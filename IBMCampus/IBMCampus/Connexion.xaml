@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.Connexion"
+             Title="Connexion">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection>
+                        <EntryCell x:Name="NomUtilisateur" Label="Nom" Placeholder="Nom"/>
+                        <EntryCell x:Name="Mdp" Label="Prénom" Placeholder="Prénom"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <StackLayout VerticalOptions="End" HorizontalOptions="Center">
+                <Button Text="Connexion" Clicked="Button_Connexion" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                <Button Text="Inscription" Clicked="Button_Inscription" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

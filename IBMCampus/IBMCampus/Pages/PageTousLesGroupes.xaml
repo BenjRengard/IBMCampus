@@ -6,6 +6,7 @@
              Title="Les Groupes">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Créer un groupe" Activated="ToolbarItem_Activated" Order="Secondary"/>
+        <ToolbarItem Text="Deconnexion" Activated="ToolbarItem_Activated1" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
 
