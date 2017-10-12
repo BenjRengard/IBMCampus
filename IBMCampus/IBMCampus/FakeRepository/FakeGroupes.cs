@@ -22,7 +22,8 @@ namespace IBMCampus
                 NomUtilisateur = "Wayne",
                 PrenomUtilisateur = "Bruce",
                 AgeUtilisateur = 30,
-                EMailUtilisateur = @"batman@batman.com"
+                EMailUtilisateur = @"batman@batman.com",
+                MotDePasseUtilisateur = "123bat"
             };
 
             var groupe1 = new GroupeModel()

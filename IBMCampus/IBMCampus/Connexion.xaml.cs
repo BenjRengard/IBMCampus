@@ -15,6 +15,9 @@ namespace IBMCampus
         public Connexion()
         {
             InitializeComponent();
+            NomUtilisateur.Text = @"batman@batman.com";
+            Mdp.Text = "123bat";
+            
         }
 
         private async void Button_Connexion(object sender, EventArgs e)
@@ -22,11 +25,20 @@ namespace IBMCampus
             UtilisateurModel nouvelUtilisateur = new UtilisateurModel()
             {
                 NomUtilisateur = NomUtilisateur.Text,
-                Mdp = Mdp.Text
+                MotDePasseUtilisateur = Mdp.Text
             };
 
-            //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-            await Navigation.PushAsync(new MainPage());
+            var repo = App.Current.BindingContext as FakeGroupes;
+            if (NomUtilisateur.Text != repo.User.EMailUtilisateur || Mdp.Text != repo.User.MotDePasseUtilisateur)
+            {
+                await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+            }
+            else
+            {
+                await Navigation.PushAsync(new MainPage());
+
+            }
+
         }
 
         private async void Button_Inscription(object sender, EventArgs e)

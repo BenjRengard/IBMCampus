@@ -27,6 +27,6 @@ namespace IBMCampus
         public string LocalisationUtilisateur { get; set; }
 
         //A voir comment gérer le mot de passe
-        public string Mdp { get; set; }
+        public string MotDePasseUtilisateur { get; set; }
     }
 }

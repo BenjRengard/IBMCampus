@@ -8,8 +8,8 @@
             <TableView Intent="Form">
                 <TableRoot>
                     <TableSection>
-                        <EntryCell x:Name="NomUtilisateur" Label="Nom" Placeholder="Nom"/>
-                        <EntryCell x:Name="Mdp" Label="Prénom" Placeholder="Prénom"/>
+                        <EntryCell x:Name="NomUtilisateur" Label="E-Mail" Placeholder="Votre adresse E-Mail"/>
+                        <EntryCell x:Name="Mdp" Label="Mot de passe" Placeholder="Mot de passe"/>
                     </TableSection>
                 </TableRoot>
             </TableView>
