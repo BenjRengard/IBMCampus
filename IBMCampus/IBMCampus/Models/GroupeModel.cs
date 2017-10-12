@@ -13,6 +13,8 @@ namespace IBMCampus
 
         public ObservableCollection<EvenementsModel> EvenementsDuGroupe { get; set; }
 
+        public int IdGroupe { get; set; }
+
 
     }
 }

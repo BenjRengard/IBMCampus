@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IBMCampus"
+             Padding="20,40,20,20"
              x:Class="IBMCampus.PageDetailGroupe"
              Title="{Binding NomGroupe}">
     
@@ -30,7 +31,7 @@
             </ListView>
         </StackLayout>
         <StackLayout VerticalOptions="End" HorizontalOptions="End">
-            <Button Text="S'inscrire" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            <Button x:Name="BoutonInscription" Text="S'inscrire" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
         </StackLayout>
     </StackLayout>
 

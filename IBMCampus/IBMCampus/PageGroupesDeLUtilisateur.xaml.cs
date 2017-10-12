@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,30 +9,25 @@ using Xamarin.Forms.Xaml;
 
 namespace IBMCampus
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PageTousLesGroupes : ContentPage
-	{
-
-        public PageTousLesGroupes ()
-		{
-			InitializeComponent ();
-            Load();
-		}
-
-        /// <summary>
-        /// Constrcuteur obsolète
-        /// </summary>
-        /// <param name="repo"></param>
-        public PageTousLesGroupes(FakeGroupes repo)
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PageGroupesDeLUtilisateur : ContentPage
+    {
+        public PageGroupesDeLUtilisateur()
         {
             InitializeComponent();
+            Load();
+        }
 
-            liste.ItemsSource = repo.RecupererTousLesGroupes();
+        private void Load()
+        {
+            var repo = App.Current.BindingContext as FakeGroupes;
+            var user = repo.User as UtilisateurModel;
+            liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
         }
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            
+
             if (liste.SelectedItem == null)
             {
                 return;
@@ -52,13 +46,6 @@ namespace IBMCampus
         {
             Load();
             liste.EndRefresh();
-        }
-
-        public void Load()
-        {
-            var repo = App.Current.BindingContext as FakeGroupes;
-
-            liste.ItemsSource = repo.RecupererTousLesGroupes();
         }
     }
 }
