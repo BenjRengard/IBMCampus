@@ -15,8 +15,8 @@ namespace IBMCampus
         public Connexion()
         {
             InitializeComponent();
-            NomUtilisateur.Text = @"batman@batman.com";
-            Mdp.Text = "123bat";
+            EmailUtilisateur.Text = @"batman@batman.com";
+            MotDePasse.Text = "123bat";
 
         }
 
@@ -24,14 +24,14 @@ namespace IBMCampus
         {
             var repo = App.Current.BindingContext as FakeGroupes;
 
-            var utilisateur = repo.UtilisateursEnregistres.First(u => u.EMailUtilisateur == NomUtilisateur.Text);
+            var utilisateur = repo.UtilisateursEnregistres.First(u => u.EMailUtilisateur == EmailUtilisateur.Text);
             if (utilisateur == null)
             {
                 await DisplayAlert("Problème de connexion", "Le user est incorrect", "Réessayer");
 
             }
 
-            if (Mdp.Text == (utilisateur.MotDePasseUtilisateur))
+            if (MotDePasse.Text == (utilisateur.MotDePasseUtilisateur))
             {
                 repo.User = utilisateur;
                 await Navigation.PushAsync(new MainPage());
