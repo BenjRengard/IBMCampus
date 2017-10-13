@@ -45,10 +45,7 @@ namespace IBMCampus
             Navigation.PopModalAsync();
             
         }
-        protected override bool OnBackButtonPressed()
-        {
-            return false;
-        }
+        
 
 
     }
