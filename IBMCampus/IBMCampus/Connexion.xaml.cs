@@ -34,7 +34,7 @@ namespace IBMCampus
             if (MotDePasse.Text == (utilisateur.MotDePasseUtilisateur))
             {
                 repo.User = utilisateur;
-                await Navigation.PushAsync(new MainPage());
+                await Navigation.PushModalAsync(new MasterDetailPage1());
 
 
             }
