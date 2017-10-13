@@ -10,16 +10,15 @@ using Xamarin.Forms.Xaml;
 namespace IBMCampus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageProfilUtilisateur : ContentPage
+    public partial class TabbedPageUtilisateurAutre : TabbedPage
     {
-        public PageProfilUtilisateur()
+        public TabbedPageUtilisateurAutre()
         {
             InitializeComponent();
-            var repoApp = App.Current.BindingContext as FakeGroupes;
-            BindingContext = repoApp.User;
+            
         }
 
-        public PageProfilUtilisateur(UtilisateurModel user)
+        public TabbedPageUtilisateurAutre(UtilisateurModel user)
         {
             InitializeComponent();
             BindingContext = user;

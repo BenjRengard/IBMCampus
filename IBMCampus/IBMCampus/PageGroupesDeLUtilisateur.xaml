@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.PageGroupesDeLUtilisateur"
              Padding="20,40,20,20"
-             Title="Mes groupes">
+             Title="Groupes perso">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Créer un groupe" Activated="ToolbarItem_Activated" Icon="Plus.png"/>
     </ContentPage.ToolbarItems>
@@ -12,7 +12,7 @@
 
         <StackLayout BackgroundColor="White">
             <StackLayout Padding="0, 10, 0, 10">
-                <Label HorizontalOptions="Center" Text="Mes groupes" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
+                <Label HorizontalOptions="Center" Text="Groupes perso" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
             <ListView x:Name="liste" 
                       HasUnevenRows="True" 

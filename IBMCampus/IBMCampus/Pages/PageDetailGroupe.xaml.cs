@@ -76,5 +76,16 @@ namespace IBMCampus
             await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");
 
         }
+
+        private async void listeUtilisateurGroupe_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (listeUtilisateurGroupe.SelectedItem == null)
+            {
+                return;
+            }
+            var userSelected = e.SelectedItem as UtilisateurModel;
+            await Navigation.PushAsync(new TabbedPageUtilisateurAutre(userSelected));
+            listeUtilisateurGroupe.SelectedItem = null;
+        }
     }
 }
