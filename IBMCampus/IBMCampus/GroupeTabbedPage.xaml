@@ -4,6 +4,6 @@
              x:Class="IBMCampus.GroupeTabbedPage"
             xmlns:local="clr-namespace:IBMCampus">
   <!--Pages can be added as references or inline-->
-    <local:PageGroupesDeLUtilisateur Title="Mes groupes"/>
     <local:PageTousLesGroupes Title="Tous les groupes"/>
+    <local:PageGroupesDeLUtilisateur Title="Mes groupes"/>
 </TabbedPage>

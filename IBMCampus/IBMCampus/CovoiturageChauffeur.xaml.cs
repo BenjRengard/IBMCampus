@@ -30,7 +30,8 @@ namespace IBMCampus
 
             };
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-            await Navigation.PushAsync(new MainPage());
+            await DisplayAlert("Covoiturage", "Votre demande a bien été prise en compte", "Retour");
+            await Navigation.PopAsync();
         }
 
         private async void Button_Annuler(object sender, EventArgs e)

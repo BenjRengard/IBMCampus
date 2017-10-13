@@ -15,6 +15,16 @@ namespace IBMCampus
 
         public int IdGroupe { get; set; }
 
+        public int ParticipantsMax { get; set; }
+
+        public int ParticipantsActuels
+        {
+            get
+            {
+                return this.UtilisateursDuGroupe.Count; 
+            }
+        }
+
 
     }
 }

@@ -6,5 +6,5 @@
             Title="Evènements">
   <!--Pages can be added as references or inline-->
     <local:PageEvenementsPerso Title="Mes évènements"/>
-    <local:PageTousLesEvents Title="Tous les évènements"/>
+    <local:PageTousLesEvents Title="Les évènements de mes groupes"/>
 </TabbedPage>

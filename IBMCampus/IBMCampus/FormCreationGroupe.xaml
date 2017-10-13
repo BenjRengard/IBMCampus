@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Padding="20,40,20,20"
+             Padding="10,20,10,10"
              x:Class="IBMCampus.FormCreationGroupe"
              Title="Créer un groupe">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
             <TableView Intent="Form">
                 <TableRoot>
                     <TableSection Title="Informations générales">

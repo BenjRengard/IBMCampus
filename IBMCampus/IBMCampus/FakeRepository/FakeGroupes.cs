@@ -41,7 +41,8 @@ namespace IBMCampus
                     bat
                     
                 },
-                IdGroupe = 1
+                IdGroupe = 1,
+                ParticipantsMax = 10
 
             };
 
@@ -56,8 +57,10 @@ namespace IBMCampus
                     superman,
                     cive
                 },
-                IdGroupe = 2
-                
+                IdGroupe = 2,
+                ParticipantsMax = 2
+
+
             };
 
             ListeFauxGroupes.Add(groupe2);
@@ -72,7 +75,8 @@ namespace IBMCampus
                    thibaut,
                    jerome
                 },
-                IdGroupe = 3
+                IdGroupe = 3,
+                ParticipantsMax = 10
 
             };
 
@@ -80,7 +84,7 @@ namespace IBMCampus
 
             var groupe4 = new GroupeModel()
             {
-                NomGroupe = "Les joueur",
+                NomGroupe = "Les joueurs",
                 SportDuGroupe = new SportModel() { NomSport = "Escrime" },
                 UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
                 {
@@ -88,7 +92,9 @@ namespace IBMCampus
                    thibaut,
                    bat
                 },
-                IdGroupe = 4
+                IdGroupe = 4,
+                ParticipantsMax = 10
+
 
             };
 

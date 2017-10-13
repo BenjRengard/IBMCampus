@@ -22,6 +22,9 @@ namespace IBMCampus
         {
             var groupeAffiche = BindingContext as GroupeModel;
             var AppData = App.Current.BindingContext as FakeGroupes;
+            
+
+            
             AppData.User.GroupesUtilisateur.Add(groupeAffiche.IdGroupe);
             groupeAffiche.UtilisateursDuGroupe.Add(AppData.User);
 
@@ -60,6 +63,10 @@ namespace IBMCampus
                         BoutonDesinscription.IsVisible = false;
                     }
                 }
+            }
+            if (groupe.ParticipantsActuels == groupe.ParticipantsMax)
+            {
+                BoutonInscription.IsVisible = false;
             }
         }
 
