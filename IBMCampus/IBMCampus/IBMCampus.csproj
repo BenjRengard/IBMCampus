@@ -71,6 +71,9 @@
     <Compile Include="Models\ChauffeurModel.cs" />
     <Compile Include="Models\EvenementsModel.cs" />
     <Compile Include="Models\GroupeModel.cs" />
+    <Compile Include="PageEvenementsPerso.xaml.cs">
+      <DependentUpon>PageEvenementsPerso.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageGroupesDeLUtilisateur.xaml.cs">
       <DependentUpon>PageGroupesDeLUtilisateur.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,12 @@
     <Compile Include="Models\UtilisateurModel.cs" />
     <Compile Include="Pages\PageTousLesGroupes.xaml.cs">
       <DependentUpon>PageTousLesGroupes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabbedPageEvenements.xaml.cs">
+      <DependentUpon>TabbedPageEvenements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabbedPageInformationsPerso.xaml.cs">
+      <DependentUpon>TabbedPageInformationsPerso.xaml</DependentUpon>
     </Compile>
     <Compile Include="TabbedPageUtilisateurAutre.xaml.cs">
       <DependentUpon>TabbedPageUtilisateurAutre.xaml</DependentUpon>
@@ -201,6 +210,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TabbedPageUtilisateurAutre.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TabbedPageInformationsPerso.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PageEvenementsPerso.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TabbedPageEvenements.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

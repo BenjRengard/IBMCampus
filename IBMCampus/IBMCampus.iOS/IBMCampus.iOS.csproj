@@ -162,10 +162,18 @@
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22447367_1840433665997498_628066787_n.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22471396_1840433682664163_868044017_n.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22471467_1840433672664164_1035100148_n.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22538017_1840433675997497_1354694404_n.png" />
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22447367_1840433665997498_628066787_n.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22471396_1840433682664163_868044017_n.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22471467_1840433672664164_1035100148_n.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22538017_1840433675997497_1354694404_n.png">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\22471467_1840433672664164_1035100148_n.png" />
