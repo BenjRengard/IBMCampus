@@ -162,6 +162,18 @@
       <InProject>false</InProject>
     </ImageAsset>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\22447613_1840424335998431_1103821217_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\22471356_1840424342665097_2126578674_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\22471561_1840424415998423_901881692_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\22523623_1840424339331764_543142758_n.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
