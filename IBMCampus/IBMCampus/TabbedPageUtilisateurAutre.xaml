@@ -5,7 +5,7 @@
             xmlns:local="clr-namespace:IBMCampus"
             Title="Détail utilisateur">
     <!--Pages can be added as references or inline-->
-    <local:PageProfilUtilisateur Title="Profil"/>
-    <local:PageGroupesDeLUtilisateur Title="Ses groupes"/>
+    <!--<local:PageProfilUtilisateur Title="Profil"/>-->
+    <!--<local:PageGroupesDeLUtilisateur Title="Ses groupes"/>-->
 </TabbedPage>
     

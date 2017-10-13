@@ -22,6 +22,8 @@ namespace IBMCampus
         {
             InitializeComponent();
             BindingContext = user;
+            this.Children.Add(new PageProfilUtilisateur(user));
+            this.Children.Add(new PageGroupesDeLUtilisateur(user));
         }
     }
 }
