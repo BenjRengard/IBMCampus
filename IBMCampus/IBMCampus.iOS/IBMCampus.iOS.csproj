@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IBMCampus\IBMCampus.csproj">
-      <Project>{4fc72ed0-fcac-4ec0-9542-f116a4ddb3ae}</Project>
+      <Project>{5B72C983-EE68-46F0-B6EE-0DC5CB8A6EF4}</Project>
       <Name>IBMCampus</Name>
     </ProjectReference>
   </ItemGroup>
@@ -162,18 +162,22 @@
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22447367_1840433665997498_628066787_n.png" />
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22471396_1840433682664163_868044017_n.png" />
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22471467_1840433672664164_1035100148_n.png" />
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\22538017_1840433675997497_1354694404_n.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\22447613_1840424335998431_1103821217_n.jpg" />
+    <BundleResource Include="Resources\22471467_1840433672664164_1035100148_n.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\22471356_1840424342665097_2126578674_n.jpg" />
+    <BundleResource Include="Resources\22538017_1840433675997497_1354694404_n.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\22471561_1840424415998423_901881692_n.jpg" />
+    <BundleResource Include="Resources\22471396_1840433682664163_868044017_n.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\22523623_1840424339331764_543142758_n.jpg" />
+    <BundleResource Include="Resources\22447367_1840433665997498_628066787_n.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

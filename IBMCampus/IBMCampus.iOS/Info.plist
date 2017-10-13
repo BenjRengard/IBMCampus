@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>IBMCampus</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.IBMCampus</string>
+	<string>IBMCampus.IBMCampus</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFiles</key>
@@ -52,5 +52,7 @@
 	<string>Resources/Media.xcassets/LaunchImages.launchimage</string>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleName</key>
+	<string>IBMCampus</string>
 </dict>
 </plist>
