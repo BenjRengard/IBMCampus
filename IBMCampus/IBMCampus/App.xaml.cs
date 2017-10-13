@@ -20,6 +20,7 @@ namespace IBMCampus
             BindingContext = Repo;
 
             MainPage = new NavigationPage(new Connexion());
+            //MainPage = new MasterDetailPage1();
         }
 
         protected override void OnStart()

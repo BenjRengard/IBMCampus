@@ -32,6 +32,7 @@
         </StackLayout>
         <StackLayout VerticalOptions="End" HorizontalOptions="End">
             <Button x:Name="BoutonInscription" Text="S'inscrire" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            <Button x:Name="BoutonDesinscription" Text="Desinscrire" Clicked="BoutonDesinscription_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
         </StackLayout>
     </StackLayout>
 

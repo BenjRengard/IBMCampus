@@ -4,13 +4,19 @@
              x:Class="IBMCampus.MainPage"
             xmlns:local="clr-namespace:IBMCampus"
             Title="IBM Campus"
+            xmlns:toolkit="clr-namespace:Xamarin.FormsBook.Toolkit;assembly=Xamarin.FormsBook.Toolkit"
+            
             >
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Deconnexion" Activated="ToolbarItem_Activated" Order="Secondary"/>
     </TabbedPage.ToolbarItems>
+    
+    
+    
   <!--Pages can be added as references or inline-->
     <local:PageProfilUtilisateur Title="Profil"/>
     <local:PageGroupesDeLUtilisateur Title="Mes groupes"/>
     <local:PageTousLesGroupes Title="Les groupes"/>
     <local:PageTousLesEvents Title="Mes évènements"/>
+    <local:CovoiturageChauffeur Title="Covoiturage Chauffeur"/>
 </TabbedPage>

@@ -24,7 +24,7 @@ namespace IBMCampus
         {
             var repo = App.Current.BindingContext as FakeGroupes;
 
-            var utilisateur = repo.UtilisateursEnregistres.First(u => u.EMailUtilisateur == EmailUtilisateur.Text);
+            var utilisateur = repo.UtilisateursEnregistres.FirstOrDefault(u => u.EMailUtilisateur == EmailUtilisateur.Text);
             if (utilisateur == null)
             {
                 await DisplayAlert("Problème de connexion", "Le user est incorrect", "Réessayer");
@@ -34,7 +34,7 @@ namespace IBMCampus
             if (MotDePasse.Text == (utilisateur.MotDePasseUtilisateur))
             {
                 repo.User = utilisateur;
-                await Navigation.PushAsync(new MainPage());
+                await Navigation.PushModalAsync(new MasterDetailPage1());
 
 
             }

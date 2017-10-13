@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.CovoiturageChauffeur">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="Start">
+                <Label Text="Enregistrement Chauffeur" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="DeepSkyBlue"/>
+                <StackLayout HeightRequest="25"></StackLayout>
+                <Label Text="Nombre de places" HorizontalOptions="Center" FontSize="Medium" />
+                <Entry x:Name="NombreDePlace" Placeholder="3" Keyboard="Text" HorizontalOptions="Center" HorizontalTextAlignment="Center" WidthRequest="200"/>
+                <Label Text="Rendez-vous" HorizontalOptions="Center" FontSize="Medium"  FontAttributes="Bold"/>
+                <Entry x:Name="Batiment" Placeholder="Terraneo/Lomme" HorizontalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="200"/>
+                <Label Text="Heure" HorizontalOptions="Center" FontSize="Medium"  FontAttributes="Bold"/>
+                <Entry x:Name="Horaire" HorizontalOptions="Center" HorizontalTextAlignment="Center" Placeholder="12:00" WidthRequest="200"/>
+                <Label Text="N° Téléphone visible Non/Oui" HorizontalOptions="Center" FontSize="Medium"  FontAttributes="Bold"/>
+                <Switch x:Name="TelephoneVisible" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout HeightRequest="25"></StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
+                <Button Text="Valider" Clicked="Button_Enregistrer" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                <Button Text="Annuler" Clicked="Button_Annuler" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
