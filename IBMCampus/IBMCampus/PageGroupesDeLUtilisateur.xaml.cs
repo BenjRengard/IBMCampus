@@ -24,6 +24,14 @@ namespace IBMCampus
             Load(repo);
         }
 
+        public PageGroupesDeLUtilisateur(UtilisateurModel user)
+        {
+            InitializeComponent();
+            var repo = App.Current.BindingContext as FakeGroupes;
+
+            liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
+        }
+
         private void Load()
         {
             var repo = App.Current.BindingContext as FakeGroupes;

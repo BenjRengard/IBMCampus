@@ -7,19 +7,19 @@
         <StackLayout HorizontalOptions="FillAndExpand" Padding="0, 20, 0, 0">
             <Label Text="Informations du profil" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue" FontAttributes="Bold"/>
 
-            <StackLayout Padding="20,20,20,20">
+            <StackLayout Padding="20,20,20,0">
                 <Label Text="Nom: " TextColor="DeepSkyBlue" FontSize="Medium"/>
                 <Label Text="{Binding NomUtilisateur}"/>
             </StackLayout>
-            <StackLayout Padding="20,20,20,20">
+            <StackLayout Padding="20,20,20,0">
                 <Label Text="Prenom: " TextColor="DeepSkyBlue" FontSize="Medium"/>
                 <Label Text="{Binding PrenomUtilisateur}"/>
             </StackLayout>
-            <StackLayout Padding="20,20,20,20">
+            <StackLayout Padding="20,20,20,0">
                 <Label Text="Age:  " TextColor="DeepSkyBlue" FontSize="Medium"/>
                 <Label Text="{Binding AgeUtilisateur}"/>
             </StackLayout>
-            <StackLayout Padding="20,20,20,20">
+            <StackLayout Padding="20,20,20,0">
                 <Label Text="Mail: " TextColor="DeepSkyBlue" FontSize="Medium"/>
                 <Label Text="{Binding EMailUtilisateur}"/>
             </StackLayout>
