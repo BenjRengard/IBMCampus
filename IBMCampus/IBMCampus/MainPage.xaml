@@ -13,4 +13,5 @@
     <local:PageGroupesDeLUtilisateur Title="Mes groupes"/>
     <local:PageTousLesGroupes Title="Les groupes"/>
     <local:PageTousLesEvents Title="Mes évènements"/>
+    <local:CovoiturageChauffeur Title="Covoiturage Chauffeur"/>
 </TabbedPage>

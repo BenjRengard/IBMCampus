@@ -8,11 +8,11 @@
         <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
             <StackLayout VerticalOptions="Start">
                 <Label Text="E-Mail" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
-                <Entry x:Name="EmailUtilisateur" Placeholder="Votre adresse E-Mail" Keyboard="Email" HorizontalOptions="Center"/>
+                <Entry x:Name="EmailUtilisateur" Placeholder="Votre adresse E-Mail" Keyboard="Email" HorizontalOptions="Center" HorizontalTextAlignment="Center" WidthRequest="200"/>
                 <Label Text="Mot de passe" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
-                <Entry x:Name="MotDePasse" Placeholder="Mot de passe" HorizontalOptions="Center"/>
+                <Entry x:Name="MotDePasse" Placeholder="Mot de passe" HorizontalOptions="Center" IsPassword="True" HorizontalTextAlignment="Center" WidthRequest="200"/>
             </StackLayout>
-
+            <StackLayout HeightRequest="25"></StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
                 <Button Text="Connexion" Clicked="Button_Connexion" BackgroundColor="DeepSkyBlue" TextColor="White"/>
                 <Button Text="Inscription" Clicked="Button_Inscription" BackgroundColor="DeepSkyBlue" TextColor="White"/>
