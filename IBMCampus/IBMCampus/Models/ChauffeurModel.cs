@@ -9,6 +9,8 @@ namespace IBMCampus.Models
 {
     public class ChauffeurModel : ContentPage
     {
+        public string NomChauffeur { get; set; }
+
         public int NombrePlace { get; set; }
 
         public string Localisation { get; set; }

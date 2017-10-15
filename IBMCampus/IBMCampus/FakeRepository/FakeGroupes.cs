@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IBMCampus.FakeRepository;
+using IBMCampus.Models;
 
 namespace IBMCampus
 {
@@ -14,6 +15,8 @@ namespace IBMCampus
         public ObservableCollection<GroupeModel> ListeFauxGroupes = new ObservableCollection<GroupeModel>();
         public UtilisateurModel User = new UtilisateurModel();
         public ObservableCollection<UtilisateurModel> UtilisateursEnregistres = new ObservableCollection<UtilisateurModel>();
+        public ObservableCollection<UtilisateurModel> ChauffeurEnregistres = new ObservableCollection<UtilisateurModel>();
+        public ObservableCollection<ChauffeurModel> ListeFauxChauffeur = new ObservableCollection<ChauffeurModel>();
 
         public FakeGroupes()
         {
@@ -28,6 +31,19 @@ namespace IBMCampus
             var jerome = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Laquay");
             var aurel = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Ducloy");
             var cive = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Cive");
+
+            var Chauffeur1 = new ChauffeurModel()
+            {
+                NomChauffeur = benj.NomUtilisateur,
+                NombrePlace = 3,
+                Localisation = "Teraneo",
+                HeureRdv = new DateTime(2017, 10, 16, 12, 05, 00),
+                VisibiliteTelephone = true,
+
+
+            };
+
+            ListeFauxChauffeur.Add(Chauffeur1);
 
             var groupe1 = new GroupeModel()
             {
@@ -115,6 +131,11 @@ namespace IBMCampus
         public ObservableCollection<GroupeModel> RecupererTousLesGroupes()
         {
             return ListeFauxGroupes;
+        }
+
+        public ObservableCollection<ChauffeurModel> RecupererTousChauffeurs()
+        {
+            return ListeFauxChauffeur;
         }
 
 

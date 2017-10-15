@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.ListeChauffeursCovoiturage"
+             Padding="10,20,10,10"
+             Title="ListeChauffeursCovoiturage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout>
+                <Label HorizontalOptions="Center" Text="Liste des chauffeurs" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+            <ListView x:Name="liste" 
+                      HasUnevenRows="True" 
+                      BackgroundColor="White" 
+                IsPullToRefreshEnabled="True"
+                Refreshing="liste_Refreshing">
+                <!--      ItemSelected="liste_ItemSelected">-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="5,5,5,5">
+                                <StackLayout HorizontalOptions="Start">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Chauffeur : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding NomChauffeur}" FontSize="Small" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Places disponible : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding NombrePlace}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Départ : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding Localisation}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Heure du départ : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding HeureRdv}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Passager Non/Oui" TextColor="Gray" FontSize="Small"/>
+                                        <Switch x:Name="Inscrit"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
