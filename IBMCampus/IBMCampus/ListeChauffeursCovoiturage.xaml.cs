@@ -1,4 +1,5 @@
 ﻿using IBMCampus.FakeRepository;
+using IBMCampus.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,7 +21,6 @@ namespace IBMCampus
             Load();
         }
         
-
         public void Load()
         {
             var repo = App.Current.BindingContext as FakeGroupes;
@@ -33,6 +33,19 @@ namespace IBMCampus
             Load();
             liste.EndRefresh();
         }
+
+        private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+            if (liste.SelectedItem == null)
+            {
+                return;
+            }
+            var chauffeur = e.SelectedItem as ChauffeurModel;
+            await Navigation.PushAsync(new DetailChauffeur(chauffeur));
+            liste.SelectedItem = null;
+        }
+
     }
 
 }

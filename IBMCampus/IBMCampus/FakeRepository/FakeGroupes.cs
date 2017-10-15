@@ -39,6 +39,10 @@ namespace IBMCampus
                 Localisation = "Teraneo",
                 HeureRdv = new DateTime(2017, 10, 16, 12, 05, 00),
                 VisibiliteTelephone = true,
+                ListePassager = new List<UtilisateurModel>()
+                {
+                    alex
+                },
 
 
             };

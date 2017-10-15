@@ -22,5 +22,7 @@ namespace IBMCampus.Models
         public string LocalisationEvenement { get; set; }
 
         public bool IsRecurentHebdo { get; set; }
+
+        public List<UtilisateurModel> ListePassager { get; set; }
     }
 }

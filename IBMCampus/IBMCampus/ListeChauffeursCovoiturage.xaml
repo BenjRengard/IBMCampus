@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.ListeChauffeursCovoiturage"
              Padding="10,20,10,10"
-             Title="ListeChauffeursCovoiturage">
+             Title="Liste des chauffeurs">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <StackLayout>
@@ -13,8 +13,8 @@
                       HasUnevenRows="True" 
                       BackgroundColor="White" 
                 IsPullToRefreshEnabled="True"
-                Refreshing="liste_Refreshing">
-                <!--      ItemSelected="liste_ItemSelected">-->
+                Refreshing="liste_Refreshing"
+                      ItemSelected="liste_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -35,10 +35,6 @@
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Heure du départ : " TextColor="Gray" FontSize="Small"/>
                                         <Label Text="{Binding HeureRdv}" TextColor="Gray" FontSize="Small"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Passager Non/Oui" TextColor="Gray" FontSize="Small"/>
-                                        <Switch x:Name="Inscrit"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
