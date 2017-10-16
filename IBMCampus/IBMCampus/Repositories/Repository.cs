@@ -86,7 +86,7 @@ namespace IBMCampus.Repositories
 
         /*
         * 
-        *EXEMPLE POUR FAIRE UNE MAJ DE DONNEES DE LA BDD
+        *EXEMPLE POUR FAIRE LA SUPPRESSION 
         * 
         * 
         * 
@@ -102,5 +102,10 @@ namespace IBMCampus.Repositories
         * 
         * 
         */
+
+
+
+       
+
     }
 }
