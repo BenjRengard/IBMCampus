@@ -42,6 +42,7 @@ namespace IBMCampus
         private void Load(FakeGroupes repo)
         {
             var user = repo.User as UtilisateurModel;
+            liste.ItemsSource = null;
             liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
         }
 
@@ -66,6 +67,12 @@ namespace IBMCampus
         {
             Load();
             liste.EndRefresh();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Load();
         }
     }
 }

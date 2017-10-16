@@ -33,6 +33,8 @@ namespace IBMCampus
 
             await DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
 
+            Refresh();
+
         }
 
         public void Load(GroupeModel groupe, FakeGroupes appData)
@@ -81,7 +83,7 @@ namespace IBMCampus
 
 
             await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");
-            
+            Refresh();
 
         }
 
@@ -94,6 +96,14 @@ namespace IBMCampus
             var userSelected = e.SelectedItem as UtilisateurModel;
             await Navigation.PushAsync(new TabbedPageUtilisateurAutre(userSelected));
             listeUtilisateurGroupe.SelectedItem = null;
+        }
+
+        private void Refresh()
+        {
+            var groupeAffiche = BindingContext as GroupeModel;
+            var AppData = App.Current.BindingContext as FakeGroupes;
+            InitializeComponent();
+            Load(groupeAffiche, AppData);
         }
     }
 }
