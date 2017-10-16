@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.PageUtilisateurTest"
@@ -19,11 +19,11 @@
                                 <StackLayout HorizontalOptions="Start">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Nom : " TextColor="Gray" FontSize="Small"/>
-                                        <Label Text="{Binding usr_firstname}" FontSize="Small" />
+                                        <Label Text="{Binding usr_lastname}" FontSize="Small" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Prénom : " TextColor="Gray" FontSize="Small"/>
-                                        <Label Text="{Binding usr_lastname}" TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding usr_firstname}" TextColor="Gray" FontSize="Small"/>
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Tel : " TextColor="Gray" FontSize="Small"/>
