@@ -81,6 +81,7 @@ namespace IBMCampus
 
 
             await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");
+            
 
         }
 
