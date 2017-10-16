@@ -2,21 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IBMCampus"
+             Padding="10,20,10,10"
              x:Class="IBMCampus.PageDetailGroupe"
              Title="{Binding NomGroupe}">
     
-    <StackLayout HorizontalOptions="FillAndExpand" Padding="0, 20, 0, 0">
+    <StackLayout HorizontalOptions="FillAndExpand" Padding="0, 10, 0, 0" BackgroundColor="White">
         <Label Text="{Binding NomGroupe}" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue"/>
 
-        <StackLayout Padding="20,20,20,20">
+        <StackLayout Padding="20,20,20,0">
             <Label Text="Sport: " TextColor="DeepSkyBlue" FontSize="Medium"/>
             <Label Text="{Binding SportDuGroupe.NomSport}"/>
         </StackLayout>
-        <StackLayout Padding="20, 20, 20, 20">
+        <StackLayout Padding="20,10,20,0">
+            <Label Text="Nombre de participants " TextColor="DeepSkyBlue" FontSize="Medium"/>
+            <Label Text="{Binding ParticipantsActuels}"/>
+        </StackLayout>
+        <StackLayout Padding="20,10,20,0">
+            <Label Text="Nombre de participants maximum" TextColor="DeepSkyBlue" FontSize="Medium"/>
+            <Label Text="{Binding ParticipantsMax}"/>
+        </StackLayout>
+        <StackLayout Padding="20, 10, 20, 10">
             <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
             <ListView x:Name="listeUtilisateurGroupe"
                       HasUnevenRows="True"
-                      SeparatorVisibility="None">
+                      SeparatorVisibility="None"
+                      ItemSelected="listeUtilisateurGroupe_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -28,6 +38,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </StackLayout>
+        <StackLayout VerticalOptions="End" HorizontalOptions="End">
+            <Button x:Name="BoutonInscription" Text="S'inscrire" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            <Button x:Name="BoutonDesinscription" Text="Desinscrire" Clicked="BoutonDesinscription_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
         </StackLayout>
     </StackLayout>
 

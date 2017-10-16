@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IBMCampus.FakeRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,19 @@ namespace IBMCampus
 {
     public partial class App : Application
     {
+
+        public FakeGroupes Repo = new FakeGroupes();
+        
+
         public App()
         {
             InitializeComponent();
+             
+            
+            BindingContext = Repo;
 
-            MainPage = new NavigationPage( new PageTousLesGroupes());
+            MainPage = new NavigationPage(new Connexion());
+            //MainPage = new MasterDetailPage1();
         }
 
         protected override void OnStart()

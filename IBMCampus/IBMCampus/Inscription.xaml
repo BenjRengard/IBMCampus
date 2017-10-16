@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.Inscription"
+             Padding="20,40,20,20"
+             Title="Inscription"
+             >
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
+            <StackLayout VerticalOptions="FillAndExpand">
+            <!--<TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="Informations générales">
+                        <EntryCell x:Name="NomUtilisateur" Label="Nom" Placeholder="Votre Nom" />
+                        <EntryCell x:Name="PrenomUtilisateur" Label="Prénom" Placeholder="Votre Prénom"/>
+                        <EntryCell x:Name="EMailUtilisateur" Label="Mail" Keyboard="Email" Placeholder="Votre E-Mail"/>
+                        <EntryCell x:Name="MdpUser" Label="Mot de passe" Keyboard="Email" Placeholder="Mot de passe"/>
+                        <EntryCell x:Name="TelephoneUtilisateur" Label="Telephone" Keyboard="Numeric" Placeholder="Votre numéro"/>
+                        <EntryCell x:Name="AgeUser" Label="Age" Keyboard="Numeric" Placeholder="Entrez votre age"/>
+                        <SwitchCell x:Name="Conducteur" Text="Conducteur Non/Oui"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>-->
+            <Label Text="Informations générales" FontSize="Large" TextColor="DeepSkyBlue"/>
+            <Label Text="Nom" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Entry x:Name="NomUtilisateur" Placeholder="Votre Nom"/>
+            <Label Text="Prénom" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Entry x:Name="PrenomUtilisateur" Placeholder="Votre Prénom"/>
+            <Label Text="Mail" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Entry x:Name="EMailUtilisateur" Placeholder="Votre E-Mail"/>
+            <Label Text="Mot de passe" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Entry x:Name="MdpUser" Placeholder="Mot de passe"/>
+            <Label Text="Téléphone" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Entry x:Name="TelephoneUtilisateur" Keyboard="Numeric" Placeholder="Votre numéro"/>
+            <Label Text="Age" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Entry x:Name="AgeUser" Placeholder="Entrez votre age"/>
+            <Label Text="Conducteur Non/Oui" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Switch x:Name="Conducteur"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                <Button Text="Valider" Clicked="Button_Inscription" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                <Button Clicked="Button_Annuler" Text="Annuler" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

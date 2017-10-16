@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Padding="20,40,20,20"
+             x:Class="IBMCampus.Connexion"
+             Title="Connexion">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="Start">
+                <Label Text="E-Mail" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                <Entry x:Name="EmailUtilisateur" Placeholder="Votre adresse E-Mail" Keyboard="Email" HorizontalOptions="Center" HorizontalTextAlignment="Center" WidthRequest="200"/>
+                <Label Text="Mot de passe" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                <Entry x:Name="MotDePasse" Placeholder="Mot de passe" HorizontalOptions="Center" IsPassword="True" HorizontalTextAlignment="Center" WidthRequest="200"/>
+            </StackLayout>
+            <StackLayout HeightRequest="25"></StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
+                <Button Text="Connexion" Clicked="Button_Connexion" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                <Button Text="Inscription" Clicked="Button_Inscription" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

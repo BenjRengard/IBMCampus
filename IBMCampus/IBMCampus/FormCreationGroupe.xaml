@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Padding="10,20,10,10"
+             x:Class="IBMCampus.FormCreationGroupe"
+             Title="Créer un groupe">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="Informations générales">
+                        <EntryCell x:Name="NomNouveauGroupe" Label="Nom" Placeholder="Entrer un nom de groupe"/>
+                        <EntryCell x:Name="SportNouveauGroupe" Label="Sport" Placeholder="Entrer un nom d'un sport"/>
+                    </TableSection>
+                    <TableSection Title="Information membres">
+                        <EntryCell x:Name="NombreParticipantsMax" Label="Participants max" Placeholder="Nombre de participants" Keyboard="Numeric"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <StackLayout VerticalOptions="End" HorizontalOptions="End">
+                <Button Text="Enregistrer" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

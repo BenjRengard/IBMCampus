@@ -38,17 +38,74 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CovoiturageChauffeur.xaml.cs">
+      <DependentUpon>CovoiturageChauffeur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DetailChauffeur.xaml.cs">
+      <DependentUpon>DetailChauffeur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListeChauffeursCovoiturage.xaml.cs">
+      <DependentUpon>ListeChauffeursCovoiturage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FakeRepository\FakeGroupes.cs" />
+    <Compile Include="Connexion.xaml.cs">
+      <DependentUpon>Connexion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FakeRepository\FakeUtilisateurs.cs" />
+    <Compile Include="GroupeTabbedPage.xaml.cs">
+      <DependentUpon>GroupeTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription.xaml.cs">
+      <DependentUpon>Inscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreationGroupe.xaml.cs">
+      <DependentUpon>FormCreationGroupe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDetailPage1.xaml.cs">
+      <DependentUpon>MasterDetailPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDetailPage1Detail.xaml.cs">
+      <DependentUpon>MasterDetailPage1Detail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDetailPage1Master.xaml.cs">
+      <DependentUpon>MasterDetailPage1Master.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDetailPage1MenuItem.cs" />
+    <Compile Include="Models\ChauffeurModel.cs" />
     <Compile Include="Models\EvenementsModel.cs" />
     <Compile Include="Models\GroupeModel.cs" />
+    <Compile Include="PageEvenementsPerso.xaml.cs">
+      <DependentUpon>PageEvenementsPerso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageGroupesDeLUtilisateur.xaml.cs">
+      <DependentUpon>PageGroupesDeLUtilisateur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageProfilUtilisateur.xaml.cs">
+      <DependentUpon>PageProfilUtilisateur.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageDetailGroupe.xaml.cs">
       <DependentUpon>PageDetailGroupe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageTousLesEvents.xaml.cs">
+      <DependentUpon>PageTousLesEvents.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\SportModel.cs" />
     <Compile Include="Models\UtilisateurModel.cs" />
     <Compile Include="Pages\PageTousLesGroupes.xaml.cs">
       <DependentUpon>PageTousLesGroupes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabbedPageEvenements.xaml.cs">
+      <DependentUpon>TabbedPageEvenements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabbedPageInformationsPerso.xaml.cs">
+      <DependentUpon>TabbedPageInformationsPerso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabbedPageUtilisateurAutre.xaml.cs">
+      <DependentUpon>TabbedPageUtilisateurAutre.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +125,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.282\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -80,6 +143,112 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormCreationGroupe.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PageProfilUtilisateur.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PageTousLesEvents.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Connexion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inscription.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PageGroupesDeLUtilisateur.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CovoiturageChauffeur.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MasterDetailPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MasterDetailPage1Master.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MasterDetailPage1Detail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GroupeTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TabbedPageUtilisateurAutre.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TabbedPageInformationsPerso.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PageEvenementsPerso.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TabbedPageEvenements.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ListeChauffeursCovoiturage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DetailChauffeur.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

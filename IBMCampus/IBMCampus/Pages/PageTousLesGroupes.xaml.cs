@@ -17,12 +17,19 @@ namespace IBMCampus
         public PageTousLesGroupes ()
 		{
 			InitializeComponent ();
-            //var liste = new ListView(ListViewCachingStrategy.RecycleElement);
-            var repo = new FakeGroupes();
-            var groupes = new ObservableCollection<string>() { "Groupe1", "Groupe2" };
+            Load();
+		}
+
+        /// <summary>
+        /// Constrcuteur obsolète
+        /// </summary>
+        /// <param name="repo"></param>
+        public PageTousLesGroupes(FakeGroupes repo)
+        {
+            InitializeComponent();
 
             liste.ItemsSource = repo.RecupererTousLesGroupes();
-		}
+        }
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -36,9 +43,28 @@ namespace IBMCampus
             liste.SelectedItem = null;
         }
 
-        private void ToolbarItem_Activated(object sender, EventArgs e)
+        private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new FormCreationGroupe());
+        }
 
+        private void liste_Refreshing(object sender, EventArgs e)
+        {
+            Load();
+            liste.EndRefresh();
+        }
+
+        public void Load()
+        {
+            var repo = App.Current.BindingContext as FakeGroupes;
+            liste.ItemsSource = null;
+            liste.ItemsSource = repo.RecupererTousLesGroupes();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Load();
         }
     }
 }
