@@ -58,6 +58,7 @@ namespace IBMCampus
                     {
                         BoutonInscription.IsVisible = false;
                         BoutonDesinscription.IsVisible = true;
+                        break;
                     }
                     else
                     {
