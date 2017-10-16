@@ -25,7 +25,8 @@
               Grid.Column="1"
               Grid.Row="2"
               Text="IBM Campus - Menu"
-              Style="{DynamicResource SubtitleStyle}"/>
+              Style="{DynamicResource SubtitleStyle}"
+              TextColor="White"/>
         </Grid>
       </ListView.Header>
       <ListView.ItemTemplate>

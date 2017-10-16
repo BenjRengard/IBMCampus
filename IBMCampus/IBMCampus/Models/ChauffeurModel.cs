@@ -9,6 +9,8 @@ namespace IBMCampus.Models
 {
     public class ChauffeurModel : ContentPage
     {
+        public string NomChauffeur { get; set; }
+
         public int NombrePlace { get; set; }
 
         public string Localisation { get; set; }
@@ -20,5 +22,7 @@ namespace IBMCampus.Models
         public string LocalisationEvenement { get; set; }
 
         public bool IsRecurentHebdo { get; set; }
+
+        public List<UtilisateurModel> ListePassager { get; set; }
     }
 }

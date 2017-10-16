@@ -33,11 +33,11 @@ namespace IBMCampus
             {
                 MenuItems = new ObservableCollection<MasterDetailPage1MenuItem>(new[]
                 {
-                    new MasterDetailPage1MenuItem { Id = 0, Title = "Profil", TargetType=typeof(PageProfilUtilisateur) },
+                    new MasterDetailPage1MenuItem { Id = 0, Title = "Mes données", TargetType=typeof(TabbedPageInformationsPerso) },
                     new MasterDetailPage1MenuItem { Id = 1, Title = "Groupes", TargetType=typeof(GroupeTabbedPage)},
                     //new MasterDetailPage1MenuItem { Id = 2, Title = "Tous les groupes", TargetType=typeof(PageTousLesGroupes)},
-                    new MasterDetailPage1MenuItem { Id = 3, Title = "Evenements", TargetType=typeof(PageTousLesEvents)},
-                    new MasterDetailPage1MenuItem { Id = 4, Title = "Covoiturage", TargetType=typeof(CovoiturageChauffeur)},
+                    new MasterDetailPage1MenuItem { Id = 3, Title = "Evenements", TargetType=typeof(TabbedPageEvenements)},
+                    new MasterDetailPage1MenuItem { Id = 4, Title = "Covoiturage chauffeur", TargetType=typeof(CovoiturageChauffeur)},
                 });
             }
 

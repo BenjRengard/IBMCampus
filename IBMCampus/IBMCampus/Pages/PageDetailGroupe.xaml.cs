@@ -22,6 +22,9 @@ namespace IBMCampus
         {
             var groupeAffiche = BindingContext as GroupeModel;
             var AppData = App.Current.BindingContext as FakeGroupes;
+            
+
+            
             AppData.User.GroupesUtilisateur.Add(groupeAffiche.IdGroupe);
             groupeAffiche.UtilisateursDuGroupe.Add(AppData.User);
 
@@ -29,6 +32,8 @@ namespace IBMCampus
 
 
             await DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
+
+            Refresh();
 
         }
 
@@ -61,6 +66,10 @@ namespace IBMCampus
                     }
                 }
             }
+            if (groupe.ParticipantsActuels == groupe.ParticipantsMax)
+            {
+                BoutonInscription.IsVisible = false;
+            }
         }
 
         private async void BoutonDesinscription_Clicked(object sender, EventArgs e)
@@ -74,6 +83,7 @@ namespace IBMCampus
 
 
             await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");
+            Refresh();
 
         }
 
@@ -87,5 +97,15 @@ namespace IBMCampus
             await Navigation.PushAsync(new TabbedPageUtilisateurAutre(userSelected));
             listeUtilisateurGroupe.SelectedItem = null;
         }
+
+        private void Refresh()
+        {
+            var groupeAffiche = BindingContext as GroupeModel;
+            var AppData = App.Current.BindingContext as FakeGroupes;
+            InitializeComponent();
+            Load(groupeAffiche, AppData);
+        }
+
+        
     }
 }

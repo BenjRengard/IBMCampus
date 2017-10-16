@@ -34,7 +34,7 @@ namespace IBMCampus
                 TelephoneUtilisateur = TelephoneUtilisateur.Text,
                 AgeUtilisateur = age,
                 MotDePasseUtilisateur = MdpUser.Text,
-                Vehicule = Conducteur.On
+                Vehicule = Conducteur.IsToggled
             };
 
             var repo = App.Current.BindingContext as FakeGroupes;

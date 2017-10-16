@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IBMCampus.GroupeTabbedPage"
-            xmlns:local="clr-namespace:IBMCampus">
+             x:Class="IBMCampus.TabbedPageInformationsPerso"
+            xmlns:local="clr-namespace:IBMCampus"
+            Title="Mes infos">
   <!--Pages can be added as references or inline-->
-    <local:PageTousLesGroupes Title="Tous les groupes"/>
+    <local:PageProfilUtilisateur Title="Mon profil"/>
     <local:PageGroupesDeLUtilisateur Title="Mes groupes"/>
+    <local:PageEvenementsPerso Title="Mes évènements"/>
 </TabbedPage>

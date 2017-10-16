@@ -57,8 +57,14 @@ namespace IBMCampus
         public void Load()
         {
             var repo = App.Current.BindingContext as FakeGroupes;
-
+            liste.ItemsSource = null;
             liste.ItemsSource = repo.RecupererTousLesGroupes();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Load();
         }
     }
 }

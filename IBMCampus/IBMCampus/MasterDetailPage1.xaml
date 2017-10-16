@@ -14,7 +14,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <pages:PageProfilUtilisateur Title="Profil" />
+                <pages:TabbedPageInformationsPerso Title="Mes données" />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

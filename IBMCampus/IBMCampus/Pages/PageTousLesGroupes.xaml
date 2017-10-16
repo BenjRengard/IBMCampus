@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.PageTousLesGroupes"
-             Padding="20,40,20,20"
+             Padding="10,20,10,10"
              Title="Les Groupes">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Créer un groupe" Activated="ToolbarItem_Activated" Icon="Plus.png"/>
@@ -11,7 +11,7 @@
 
 
         <StackLayout BackgroundColor="White">
-            <StackLayout Padding="0, 10, 0, 10">
+            <StackLayout>
                 <Label HorizontalOptions="Center" Text="Tous les groupes" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
             <ListView x:Name="liste" 
@@ -23,14 +23,26 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.ContextActions>
+                            <!--<ViewCell.ContextActions>
                                 <MenuItem Text="Suivre"/>
                                 <MenuItem Text="Détails"/>
-                            </ViewCell.ContextActions>
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout HorizontalOptions="StartAndExpand">
+                            </ViewCell.ContextActions>-->
+                            <StackLayout Orientation="Vertical" 
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5,5,5,5">
+                                <StackLayout HorizontalOptions="Start">
                                     <Label Text="{Binding NomGroupe}" FontSize="Medium" TextColor="DeepSkyBlue"/>
-                                    <Label Text="{Binding SportDuGroupe.NomSport}" TextColor="Gray" FontSize="Small"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                        <Label Text="Participants: " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding ParticipantsActuels}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="End">
+                                        <Label Text="{Binding SportDuGroupe.NomSport}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IBMCampus.FakeRepository;
+using IBMCampus.Models;
 
 namespace IBMCampus
 {
@@ -14,6 +15,8 @@ namespace IBMCampus
         public ObservableCollection<GroupeModel> ListeFauxGroupes = new ObservableCollection<GroupeModel>();
         public UtilisateurModel User = new UtilisateurModel();
         public ObservableCollection<UtilisateurModel> UtilisateursEnregistres = new ObservableCollection<UtilisateurModel>();
+        public ObservableCollection<UtilisateurModel> ChauffeurEnregistres = new ObservableCollection<UtilisateurModel>();
+        public ObservableCollection<ChauffeurModel> ListeFauxChauffeur = new ObservableCollection<ChauffeurModel>();
 
         public FakeGroupes()
         {
@@ -29,6 +32,24 @@ namespace IBMCampus
             var aurel = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Ducloy");
             var cive = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Cive");
 
+            var Chauffeur1 = new ChauffeurModel()
+            {
+                NomChauffeur = benj.NomUtilisateur,
+                NombrePlace = 3,
+                Localisation = "Teraneo",
+                HeureRdv = new DateTime(2017, 10, 16, 12, 05, 00),
+                VisibiliteTelephone = true,
+                ListePassager = new List<UtilisateurModel>()
+                {
+                    alex
+                },
+                
+
+
+            };
+
+            ListeFauxChauffeur.Add(Chauffeur1);
+
             var groupe1 = new GroupeModel()
             {
                 NomGroupe = "Groupe de rugbymen d'IBM",
@@ -41,7 +62,13 @@ namespace IBMCampus
                     bat
                     
                 },
-                IdGroupe = 1
+                IdGroupe = 1,
+                ParticipantsMax = 10,
+                LocalisationNumero = "120",
+                LocalisationTypeVoie = "Avenue de",
+                LocalisationNomRue = "Joie",
+                LocalisationCodePostal = "59000",
+                LocalisationVille = "Lille"
 
             };
 
@@ -56,8 +83,15 @@ namespace IBMCampus
                     superman,
                     cive
                 },
-                IdGroupe = 2
-                
+                IdGroupe = 2,
+                ParticipantsMax = 2,
+                LocalisationNumero = "12",
+                LocalisationTypeVoie = "Rue de",
+                LocalisationNomRue = "courbier",
+                LocalisationCodePostal = "59800",
+                LocalisationVille = "Lille"
+
+
             };
 
             ListeFauxGroupes.Add(groupe2);
@@ -72,7 +106,8 @@ namespace IBMCampus
                    thibaut,
                    jerome
                 },
-                IdGroupe = 3
+                IdGroupe = 3,
+                ParticipantsMax = 10
 
             };
 
@@ -80,7 +115,7 @@ namespace IBMCampus
 
             var groupe4 = new GroupeModel()
             {
-                NomGroupe = "Les joueur",
+                NomGroupe = "Les joueurs",
                 SportDuGroupe = new SportModel() { NomSport = "Escrime" },
                 UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
                 {
@@ -88,7 +123,9 @@ namespace IBMCampus
                    thibaut,
                    bat
                 },
-                IdGroupe = 4
+                IdGroupe = 4,
+                ParticipantsMax = 10
+
 
             };
 
@@ -109,6 +146,11 @@ namespace IBMCampus
         public ObservableCollection<GroupeModel> RecupererTousLesGroupes()
         {
             return ListeFauxGroupes;
+        }
+
+        public ObservableCollection<ChauffeurModel> RecupererTousChauffeurs()
+        {
+            return ListeFauxChauffeur;
         }
 
 
