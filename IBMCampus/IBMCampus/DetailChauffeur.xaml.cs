@@ -66,6 +66,7 @@ namespace IBMCampus
 
 
             await DisplayAlert("Désinscription", string.Format("Vous avez été retiré de la voiture de {0}", chauffeur.NomChauffeur), "Retour");
+            OnAppearing();
 
         }
 
@@ -74,6 +75,7 @@ namespace IBMCampus
         {
 
             BindingContext = chauffeur;
+            liste.ItemsSource = null;
             liste.ItemsSource = chauffeur.ListePassager;
             if (!chauffeur.ListePassager.Any())
             {
@@ -103,6 +105,15 @@ namespace IBMCampus
             {
                 BoutonInscription.IsVisible = false;
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var chauffeur = BindingContext as ChauffeurModel;
+            chauffeur.NombrePlace++;
+            var AppData = App.Current.BindingContext as FakeGroupes;
+            Load(chauffeur, AppData);
         }
     }
 }

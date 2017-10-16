@@ -24,6 +24,7 @@ namespace IBMCampus
         public void Load()
         {
             var repo = App.Current.BindingContext as FakeGroupes;
+            liste.ItemsSource = null;
             liste.ItemsSource = repo.RecupererTousChauffeurs();
             
         }
@@ -44,6 +45,12 @@ namespace IBMCampus
             var chauffeur = e.SelectedItem as ChauffeurModel;
             await Navigation.PushAsync(new DetailChauffeur(chauffeur));
             liste.SelectedItem = null;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Load();
         }
 
     }

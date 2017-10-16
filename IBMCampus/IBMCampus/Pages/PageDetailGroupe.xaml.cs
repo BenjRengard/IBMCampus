@@ -105,5 +105,7 @@ namespace IBMCampus
             InitializeComponent();
             Load(groupeAffiche, AppData);
         }
+
+        
     }
 }
