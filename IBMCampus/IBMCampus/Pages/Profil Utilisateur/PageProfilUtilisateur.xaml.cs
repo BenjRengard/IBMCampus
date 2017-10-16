@@ -24,5 +24,12 @@ namespace IBMCampus
             InitializeComponent();
             BindingContext = user;
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            
+            //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
+            await Navigation.PushAsync(new PageUtilisateurTest());
+        }
     }
 }

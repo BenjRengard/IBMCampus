@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.PageUtilisateurTest"
+             Padding="10,20,10,10"
+             Title="Liste des chauffeurs">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout>
+                <Label HorizontalOptions="Center" Text="Liste des chauffeurs" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+            <ListView x:Name="liste" 
+                      HasUnevenRows="True" 
+                      BackgroundColor="White" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="5,5,5,5">
+                                <StackLayout HorizontalOptions="Start">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Nom : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding usr_firstname}" FontSize="Small" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Prénom : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding usr_lastname}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Tel : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding usr_phonenumber}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Mail : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding usr_mail}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<StackLayout Orientation="Vertical" VerticalOptions="End">
+                <Button Text="test" Clicked="Button_Clicked"  BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
