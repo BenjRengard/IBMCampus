@@ -21,16 +21,16 @@ namespace IBMCampus
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var repo = App.Current.BindingContext as FakeGroupes;
+
             int nbParticip;
             var result = int.TryParse(NombreParticipantsMax.Text, out nbParticip);
+
             if (!result)
-            {
                 nbParticip = 1;
-            }
+            
             if (nbParticip <= 0)
-            {
                 nbParticip = 1;
-            }
+            
             GroupeModel nouveauGroupe = new GroupeModel()
             {
                 NomGroupe = NomNouveauGroupe.Text,
