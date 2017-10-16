@@ -20,17 +20,17 @@ namespace IBMCampus
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
+
             int nbParticip;
             var result = int.TryParse(NombreParticipantsMax.Text, out nbParticip);
+
             if (!result)
-            {
                 nbParticip = 1;
-            }
+            
             if (nbParticip <= 0)
-            {
                 nbParticip = 1;
-            }
+            
             GroupeModel nouveauGroupe = new GroupeModel()
             {
                 NomGroupe = NomNouveauGroupe.Text,
@@ -40,7 +40,12 @@ namespace IBMCampus
                 },
                 UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
                 IdGroupe = (repo.ListeFauxGroupes.Count + 1),
-                ParticipantsMax = nbParticip
+                ParticipantsMax = nbParticip,
+                LocalisationCodePostal = CodePostal.Text,
+                LocalisationNomRue = NomVoie.Text,
+                LocalisationNumero = NumeroVoie.Text,
+                LocalisationTypeVoie = TypeVoie.Text,
+                LocalisationVille = Ville.Text
 
             };
             repo.ListeFauxGroupes.Add(nouveauGroupe);

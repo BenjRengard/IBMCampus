@@ -5,12 +5,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IBMCampus.FakeRepository;
+//using IBMCampus.FakeRepository;
 using IBMCampus.Models;
 
 namespace IBMCampus
 {
-    public class FakeGroupes
+    public class FakeRepository
     {
         public ObservableCollection<GroupeModel> ListeFauxGroupes = new ObservableCollection<GroupeModel>();
         public UtilisateurModel User = new UtilisateurModel();
@@ -18,7 +18,7 @@ namespace IBMCampus
         public ObservableCollection<UtilisateurModel> ChauffeurEnregistres = new ObservableCollection<UtilisateurModel>();
         public ObservableCollection<ChauffeurModel> ListeFauxChauffeur = new ObservableCollection<ChauffeurModel>();
 
-        public FakeGroupes()
+        public FakeRepository()
         {
             var repoUser = new FakeUtilisateurs();
             UtilisateursEnregistres = repoUser.Utilisateurs;
@@ -43,6 +43,7 @@ namespace IBMCampus
                 {
                     alex
                 },
+                
 
 
             };
@@ -62,7 +63,12 @@ namespace IBMCampus
                     
                 },
                 IdGroupe = 1,
-                ParticipantsMax = 10
+                ParticipantsMax = 10,
+                LocalisationNumero = "120",
+                LocalisationTypeVoie = "Avenue de",
+                LocalisationNomRue = "Joie",
+                LocalisationCodePostal = "59000",
+                LocalisationVille = "Lille"
 
             };
 
@@ -78,7 +84,12 @@ namespace IBMCampus
                     cive
                 },
                 IdGroupe = 2,
-                ParticipantsMax = 2
+                ParticipantsMax = 2,
+                LocalisationNumero = "12",
+                LocalisationTypeVoie = "Rue de",
+                LocalisationNomRue = "courbier",
+                LocalisationCodePostal = "59800",
+                LocalisationVille = "Lille"
 
 
             };

@@ -25,6 +25,21 @@ namespace IBMCampus
             }
         }
 
+        public string LocalisationNomRue { get; set; }
+
+        public string LocalisationTypeVoie { get; set; }
+
+        public string LocalisationNumero { get; set; }
+
+        public string LocalisationCodePostal { get; set; }
+
+        public string LocalisationVille { get; set; }
+
+        public string LocalisationComplete { get
+            {
+                return string.Format("{0} {1} {2}\n{3} {4}", LocalisationNumero, LocalisationTypeVoie, LocalisationNomRue, LocalisationCodePostal, LocalisationVille);
+            } }
+
 
 
 

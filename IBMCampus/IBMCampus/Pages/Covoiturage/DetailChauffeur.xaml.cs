@@ -19,7 +19,7 @@ namespace IBMCampus
 
         public DetailChauffeur(ChauffeurModel chauffeur)
         {
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
             var chauffeurAAfficher = chauffeur ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
             Load(chauffeurAAfficher, AppData);
@@ -36,7 +36,7 @@ namespace IBMCampus
         {
             var chauffeur = BindingContext as ChauffeurModel;
             chauffeur.NombrePlace--;
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
 
 
 
@@ -56,7 +56,7 @@ namespace IBMCampus
         {
             var chauffeur = BindingContext as ChauffeurModel;
             chauffeur.NombrePlace++;
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
             chauffeur.ListePassager.Remove(AppData.User);
 
             AppData.ListeFauxChauffeur.Remove(chauffeur);
@@ -71,7 +71,7 @@ namespace IBMCampus
         }
 
 
-        public void Load(ChauffeurModel chauffeur, FakeGroupes appData)
+        public void Load(ChauffeurModel chauffeur, FakeRepository appData)
         {
 
             BindingContext = chauffeur;
@@ -112,7 +112,7 @@ namespace IBMCampus
             base.OnAppearing();
             var chauffeur = BindingContext as ChauffeurModel;
             chauffeur.NombrePlace++;
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
             Load(chauffeur, AppData);
         }
     }
