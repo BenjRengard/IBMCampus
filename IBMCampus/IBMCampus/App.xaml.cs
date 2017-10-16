@@ -1,4 +1,4 @@
-﻿using IBMCampus.FakeRepository;
+﻿//using IBMCampus.FakeRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace IBMCampus
     public partial class App : Application
     {
 
-        public FakeGroupes Repo = new FakeGroupes();
+        public FakeRepository Repo = new FakeRepository();
         
 
         public App()

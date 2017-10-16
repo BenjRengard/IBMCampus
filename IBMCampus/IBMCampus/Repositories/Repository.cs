@@ -18,15 +18,14 @@ namespace IBMCampus.Repositories
          * EXEMPLE POUR CONSOMMER UNE API
          * 
          * 
-        
-
-        //public async void MaMethodeBidon()
-        //{
-        //    var url = "https://ceciestuneapibidon/recupdedonnes";
-        //    var retourApi = await _client.GetStringAsync(url);
-        //    var result = JsonConvert.DeserializeObject<ObjetDRresultat>(retourApi);
-        //}
-
-        */
+         * 
+         *  //public async void MaMethodeBidon()
+         *  //{
+         *  //    var url = "https://ceciestuneapibidon/recupdedonnes";
+         *  //    var retourApi = await _client.GetStringAsync(url);
+         *  //    var result = JsonConvert.DeserializeObject<ObjetDRresultat>(retourApi);
+         *  //}
+         * 
+         */
     }
 }

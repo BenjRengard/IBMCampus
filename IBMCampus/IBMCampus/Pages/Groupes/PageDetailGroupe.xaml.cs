@@ -11,7 +11,7 @@ namespace IBMCampus
     {
         public PageDetailGroupe(GroupeModel groupe)
         {
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
             var groupeAAfficher = groupe ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
             Load(groupeAAfficher, AppData);
@@ -21,7 +21,7 @@ namespace IBMCampus
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var groupeAffiche = BindingContext as GroupeModel;
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
             
 
             
@@ -37,7 +37,7 @@ namespace IBMCampus
 
         }
 
-        public void Load(GroupeModel groupe, FakeGroupes appData)
+        public void Load(GroupeModel groupe, FakeRepository appData)
         {
 
             BindingContext = groupe;
@@ -76,7 +76,7 @@ namespace IBMCampus
         private async void BoutonDesinscription_Clicked(object sender, EventArgs e)
         {
             var groupeAffiche = BindingContext as GroupeModel;
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
             groupeAffiche.UtilisateursDuGroupe.Remove(AppData.User);
             AppData.User.GroupesUtilisateur.Remove(groupeAffiche.IdGroupe);
 
@@ -102,7 +102,7 @@ namespace IBMCampus
         private void Refresh()
         {
             var groupeAffiche = BindingContext as GroupeModel;
-            var AppData = App.Current.BindingContext as FakeGroupes;
+            var AppData = App.Current.BindingContext as FakeRepository;
             InitializeComponent();
             Load(groupeAffiche, AppData);
         }

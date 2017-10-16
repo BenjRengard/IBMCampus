@@ -24,7 +24,7 @@ namespace IBMCampus
         /// Constrcuteur obsolète
         /// </summary>
         /// <param name="repo"></param>
-        public PageTousLesGroupes(FakeGroupes repo)
+        public PageTousLesGroupes(FakeRepository repo)
         {
             InitializeComponent();
 
@@ -56,7 +56,7 @@ namespace IBMCampus
 
         public void Load()
         {
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
             liste.ItemsSource = null;
             liste.ItemsSource = repo.RecupererTousLesGroupes();
         }

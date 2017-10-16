@@ -37,7 +37,7 @@ namespace IBMCampus
                 Vehicule = Conducteur.IsToggled
             };
 
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
             repo.UtilisateursEnregistres.Add(nouvelUtilisateur);
             //repo.User = nouvelUtilisateur;
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
