@@ -15,6 +15,13 @@
                     <TableSection Title="Information membres">
                         <EntryCell x:Name="NombreParticipantsMax" Label="Participants max" Placeholder="Nombre de participants" Keyboard="Numeric"/>
                     </TableSection>
+                    <TableSection Title="Localisation privilégiée">
+                        <EntryCell x:Name="NumeroVoie" Label="Numéro de la voie" Placeholder="100"/>
+                        <EntryCell x:Name="TypeVoie" Label="Type de la voie" Placeholder="Rue de" />
+                        <EntryCell x:Name="NomVoie" Label="Nom de la voie" Placeholder="joie" />
+                        <EntryCell x:Name="CodePostal" Label="Code postal" Placeholder="75000" />
+                        <EntryCell x:Name="Ville" Label="Ville" Placeholder="Paris" />
+                    </TableSection>
                 </TableRoot>
             </TableView>
             <StackLayout VerticalOptions="End" HorizontalOptions="End">

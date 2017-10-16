@@ -43,6 +43,7 @@ namespace IBMCampus
                 {
                     alex
                 },
+                
 
 
             };
@@ -62,7 +63,12 @@ namespace IBMCampus
                     
                 },
                 IdGroupe = 1,
-                ParticipantsMax = 10
+                ParticipantsMax = 10,
+                LocalisationNumero = "120",
+                LocalisationTypeVoie = "Avenue de",
+                LocalisationNomRue = "Joie",
+                LocalisationCodePostal = "59000",
+                LocalisationVille = "Lille"
 
             };
 
@@ -78,7 +84,12 @@ namespace IBMCampus
                     cive
                 },
                 IdGroupe = 2,
-                ParticipantsMax = 2
+                ParticipantsMax = 2,
+                LocalisationNumero = "12",
+                LocalisationTypeVoie = "Rue de",
+                LocalisationNomRue = "courbier",
+                LocalisationCodePostal = "59800",
+                LocalisationVille = "Lille"
 
 
             };

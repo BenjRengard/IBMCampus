@@ -40,7 +40,12 @@ namespace IBMCampus
                 },
                 UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
                 IdGroupe = (repo.ListeFauxGroupes.Count + 1),
-                ParticipantsMax = nbParticip
+                ParticipantsMax = nbParticip,
+                LocalisationCodePostal = CodePostal.Text,
+                LocalisationNomRue = NomVoie.Text,
+                LocalisationNumero = NumeroVoie.Text,
+                LocalisationTypeVoie = TypeVoie.Text,
+                LocalisationVille = Ville.Text
 
             };
             repo.ListeFauxGroupes.Add(nouveauGroupe);

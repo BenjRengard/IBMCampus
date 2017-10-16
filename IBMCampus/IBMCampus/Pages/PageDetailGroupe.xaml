@@ -21,6 +21,10 @@
             <Label Text="Nombre de participants maximum" TextColor="DeepSkyBlue" FontSize="Medium"/>
             <Label Text="{Binding ParticipantsMax}"/>
         </StackLayout>
+        <StackLayout Padding="20,10,20,0">
+            <Label Text="Localisation" TextColor="DeepSkyBlue" FontSize="Medium"/>
+            <Label Text="{Binding LocalisationComplete}"/>
+        </StackLayout>
         <StackLayout Padding="20, 10, 20, 10">
             <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
             <ListView x:Name="listeUtilisateurGroupe"
