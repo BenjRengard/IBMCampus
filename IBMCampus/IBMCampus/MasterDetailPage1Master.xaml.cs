@@ -37,7 +37,7 @@ namespace IBMCampus
                     new MasterDetailPage1MenuItem { Id = 1, Title = "Groupes", TargetType=typeof(GroupeTabbedPage)},
                     //new MasterDetailPage1MenuItem { Id = 2, Title = "Tous les groupes", TargetType=typeof(PageTousLesGroupes)},
                     new MasterDetailPage1MenuItem { Id = 3, Title = "Evenements", TargetType=typeof(TabbedPageEvenements)},
-                    new MasterDetailPage1MenuItem { Id = 4, Title = "Covoiturage", TargetType=typeof(CovoiturageChauffeur)},
+                    new MasterDetailPage1MenuItem { Id = 4, Title = "Covoiturage chauffeur", TargetType=typeof(CovoiturageChauffeur)},
                 });
             }
 

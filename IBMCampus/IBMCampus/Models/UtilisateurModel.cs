@@ -9,6 +9,8 @@ namespace IBMCampus
 {
     public class UtilisateurModel
     {
+        public int IdUtilisateur { get; set; }
+
         public string NomUtilisateur { get; set; }
 
         public string PrenomUtilisateur { get; set; }
