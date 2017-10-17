@@ -54,5 +54,10 @@
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleName</key>
 	<string>IBMCampus</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
