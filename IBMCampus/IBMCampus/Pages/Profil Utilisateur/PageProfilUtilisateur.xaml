@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:IBMCampus;assembly=IBMCampus"
              Padding="10,20,10,10"
              x:Class="IBMCampus.PageProfilUtilisateur"
              Title="Profil">
@@ -8,22 +9,21 @@
         <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White">
             <Label Text="Informations du profil" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue" FontAttributes="Bold"/>
 
-            <StackLayout Padding="20,20,20,0">
-                <Label Text="Nom: " TextColor="DeepSkyBlue" FontSize="Medium"/>
-                <Label Text="{Binding NomUtilisateur}"/>
-            </StackLayout>
-            <StackLayout Padding="20,20,20,0">
-                <Label Text="Prenom: " TextColor="DeepSkyBlue" FontSize="Medium"/>
-                <Label Text="{Binding PrenomUtilisateur}"/>
-            </StackLayout>
-            <StackLayout Padding="20,20,20,0">
-                <Label Text="Age:  " TextColor="DeepSkyBlue" FontSize="Medium"/>
-                <Label Text="{Binding AgeUtilisateur}"/>
-            </StackLayout>
-            <StackLayout Padding="20,20,20,0">
-                <Label Text="Mail: " TextColor="DeepSkyBlue" FontSize="Medium"/>
-                <Label Text="{Binding EMailUtilisateur}"/>
-            </StackLayout>
+            <AbsoluteLayout>
+                <StackLayout Padding="20,10,20,0" >
+                    <Image Source="{local:ImageResource IBMCampus.FakeRepositories.profil.png}"/>
+                </StackLayout>
+                <StackLayout Padding="150,10,20,0">
+                    <Label Text="Informations : " TextColor="DeepSkyBlue" FontSize="Medium"/>
+                    <Label Text="{Binding NomUtilisateur}"/>
+                    <Label Text="{Binding PrenomUtilisateur}"/>
+                    <Label Text="{Binding AgeUtilisateur, StringFormat='{0:F0} ans'}"/>
+                </StackLayout>
+                <StackLayout Padding="20,150,20,0">
+                    <Label Text="Coordonnées : " TextColor="DeepSkyBlue" FontSize="Medium"/>
+                    <Label Text="{Binding EMailUtilisateur, StringFormat='Mail :  {0:F0}'}"/>
+                </StackLayout>
+            </AbsoluteLayout>
             <!--<StackLayout Padding="20, 20, 20, 20">
                 <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
                 <ListView x:Name="listeUtilisateurGroupe"
