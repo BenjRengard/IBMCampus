@@ -190,6 +190,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\22447367_1840433665997498_628066787_n.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\profil.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
