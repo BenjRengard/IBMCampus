@@ -28,10 +28,19 @@ namespace IBMCampus
 
         protected override async void OnAppearing()
         {
-            var content = await _client.GetStringAsync(Url);
-            var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(content);
-            _utilisateur = new ObservableCollection<UtilisateurTestModel>(user);
-            liste.ItemsSource = _utilisateur;
+            try
+            {
+                var content = await _client.GetStringAsync(Url);
+                var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(content);
+                _utilisateur = new ObservableCollection<UtilisateurTestModel>(user);
+                liste.ItemsSource = _utilisateur;
+            }
+            catch (Exception )
+            {
+                await DisplayAlert("Problème", "Problème de connexion au serveur", "OK");
+                //throw;
+            }
+           
 
             base.OnAppearing();
         }
