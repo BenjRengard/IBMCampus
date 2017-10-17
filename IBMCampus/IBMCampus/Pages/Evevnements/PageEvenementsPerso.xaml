@@ -1,12 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IBMCampus.PageEvenementsPerso">
+             x:Class="IBMCampus.PageEvenementsPerso"
+             Title="Mes évèvements personnels">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Créer un évènement" Activated="ToolbarItem_Activated" Icon="Plus.png"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+
+        <ListView x:Name="liste" 
+                      HasUnevenRows="True" 
+                      BackgroundColor="White" 
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="liste_Refreshing"
+                      ItemSelected="liste_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!--<ViewCell.ContextActions>
+                                <MenuItem Text="Suivre"/>
+                                <MenuItem Text="Détails"/>
+                            </ViewCell.ContextActions>-->
+                        <StackLayout Orientation="Vertical" 
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5,5,5,5">
+
+                            <StackLayout HorizontalOptions="Start">
+                                
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Nom de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding NomEvenement}" TextColor="Gray" FontSize="Small"/>
+                                </StackLayout>
+                                
+                                <StackLayout Orientation="Horizontal">
+                                    <!--<Label Text="Participants: " TextColor="Gray" FontSize="Small"/>-->
+                                    <Label Text="Début de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding DebutEvenement}" TextColor="Gray" FontSize="Small"/>
+                                </StackLayout>
+                                
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Fin de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding FinEvenement}}" TextColor="Gray" FontSize="Small"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Aura lieu à : " TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding LocalisationEvenement}" TextColor="Gray" FontSize="Small"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Nombre de participant(s) : " TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding NombreParticipants}" TextColor="Gray" FontSize="Small"/>
+                                </StackLayout>
+
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="S'agit-il d'un évènement hebdomadaire ?" TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding IsRecurentHebdo}" TextColor="Gray" FontSize="Small"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
