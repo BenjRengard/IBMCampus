@@ -49,6 +49,12 @@
       <DependentUpon>ListeChauffeursCovoiturage.xaml</DependentUpon>
     </Compile>
     <Compile Include="FakeRepositories\FakeRepository.cs" />
+    <Compile Include="Pages\Evevnements\PageDetailEvent.xaml.cs">
+      <DependentUpon>PageDetailEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Evevnements\FormCreationEvent.xaml.cs">
+      <DependentUpon>FormCreationEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Identification\Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
@@ -272,6 +278,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FakeRepositories\profil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Evevnements\FormCreationEvent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Evevnements\PageDetailEvent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

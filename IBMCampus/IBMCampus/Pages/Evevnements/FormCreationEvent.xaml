@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.Pages.FormCreationEvent"
+             Title="Créer un évènement">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="Informations générales">
+                        <EntryCell x:Name="NomNouvelEvent" Label="Nom" Placeholder="Entrer un nom d'évènement"/>
+                        <EntryCell x:Name="GroupeEvent" Label="Groupe" Placeholder="Entrer le nom d'un groupe"/>
+                    </TableSection>
+                    <TableSection Title="Information membres">
+                        <EntryCell x:Name="NombreParticipantsMax" Label="Participants max" Placeholder="Nombre de participants" Keyboard="Numeric"/>
+                    </TableSection>
+                    <TableSection Title="Autres informations">
+                        <EntryCell x:Name="EventDebut" Label="Début de l'évènement" Placeholder="27/10/2057"/>
+                        <EntryCell x:Name="EventFin" Label="Type de la voie" Placeholder="28/10/2058"/>
+                        <EntryCell x:Name="Lieu" Label="Lieu" Placeholder="Lomme" />
+                        <Label Text="Cet évènement est récurrent ?"/>
+                        <Switch x:Name="Hebdo" HorizontalOptions="Center"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <StackLayout VerticalOptions="End" HorizontalOptions="End">
+                <Button Text="Enregistrer" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
