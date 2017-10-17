@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IBMCampus.FakeRepository
+namespace IBMCampus
 {
     public class FakeUtilisateurs
     {

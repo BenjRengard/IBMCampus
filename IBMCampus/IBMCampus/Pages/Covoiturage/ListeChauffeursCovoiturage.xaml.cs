@@ -1,4 +1,4 @@
-﻿using IBMCampus.FakeRepository;
+﻿//using IBMCampus.FakeRepository;
 using IBMCampus.Models;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace IBMCampus
         
         public void Load()
         {
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
             liste.ItemsSource = null;
             liste.ItemsSource = repo.RecupererTousChauffeurs();
             

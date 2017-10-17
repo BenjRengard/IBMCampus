@@ -39,7 +39,7 @@ namespace IBMCampus
 
         private void ToolbarItem_Activated(object sender, EventArgs e)
         {
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
             repo.User = new UtilisateurModel();
             //Detail = new Connexion();
             Navigation.PopModalAsync();

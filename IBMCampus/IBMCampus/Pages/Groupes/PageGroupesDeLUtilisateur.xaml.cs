@@ -18,7 +18,7 @@ namespace IBMCampus
             Load();
         }
 
-        public PageGroupesDeLUtilisateur(FakeGroupes repo)
+        public PageGroupesDeLUtilisateur(FakeRepository repo)
         {
             InitializeComponent();
             Load(repo);
@@ -27,19 +27,19 @@ namespace IBMCampus
         public PageGroupesDeLUtilisateur(UtilisateurModel user)
         {
             InitializeComponent();
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
 
             liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
         }
 
         private void Load()
         {
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
             var user = repo.User as UtilisateurModel;
             liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
         }
 
-        private void Load(FakeGroupes repo)
+        private void Load(FakeRepository repo)
         {
             var user = repo.User as UtilisateurModel;
             liste.ItemsSource = null;

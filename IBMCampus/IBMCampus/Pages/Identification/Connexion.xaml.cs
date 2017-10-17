@@ -22,7 +22,7 @@ namespace IBMCampus
 
         private async void Button_Connexion(object sender, EventArgs e)
         {
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
 
             var utilisateur = repo.UtilisateursEnregistres.FirstOrDefault(u => u.EMailUtilisateur == EmailUtilisateur.Text);
             if (utilisateur == null)

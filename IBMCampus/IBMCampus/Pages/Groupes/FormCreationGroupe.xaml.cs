@@ -20,7 +20,7 @@ namespace IBMCampus
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            var repo = App.Current.BindingContext as FakeGroupes;
+            var repo = App.Current.BindingContext as FakeRepository;
 
             int nbParticip;
             var result = int.TryParse(NombreParticipantsMax.Text, out nbParticip);
