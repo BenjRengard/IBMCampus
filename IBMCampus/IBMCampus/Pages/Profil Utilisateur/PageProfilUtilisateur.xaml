@@ -24,31 +24,9 @@
                     <Label Text="{Binding EMailUtilisateur, StringFormat='Mail :  {0:F0}'}"/>
                 </StackLayout>
             </AbsoluteLayout>
-            <!--<StackLayout Padding="20, 20, 20, 20">
-                <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
-                <ListView x:Name="listeUtilisateurGroupe"
-                      HasUnevenRows="True"
-                      SeparatorVisibility="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding NomUtilisateur} "/>
-                                    <Label Text="{Binding PrenomUtilisateur}"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>-->
             <StackLayout VerticalOptions="End" HorizontalOptions="End">
                 <Button Text="test" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
             </StackLayout>
         </StackLayout>
-        <!--<StackLayout>
-            <Label Text="{Binding NomUtilisateur}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
