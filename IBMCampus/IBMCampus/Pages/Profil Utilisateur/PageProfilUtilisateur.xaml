@@ -6,7 +6,7 @@
              x:Class="IBMCampus.PageProfilUtilisateur"
              Title="Profil">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Modifier Profil" Icon="iconPen.png" />
+        <ToolbarItem Text="Modifier Profil" Activated="ToolbarItem_Activated" Icon="iconPen.png" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">

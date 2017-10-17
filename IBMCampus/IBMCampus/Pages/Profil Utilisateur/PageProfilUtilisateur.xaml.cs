@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IBMCampus.Pages.Profil_Utilisateur;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,11 @@ namespace IBMCampus
         {
             InitializeComponent();
             BindingContext = user;
+        }
+
+        private async void ToolbarItem_Activated(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ModificationProfil());
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

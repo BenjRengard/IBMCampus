@@ -59,6 +59,9 @@
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
     <Compile Include="FakeRepositories\FakeUtilisateurs.cs" />
+    <Compile Include="Pages\Profil Utilisateur\ModificationProfil.xaml.cs">
+      <DependentUpon>ModificationProfil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageUtilisateurTest.xaml.cs">
       <DependentUpon>PageUtilisateurTest.xaml</DependentUpon>
     </Compile>
@@ -287,6 +290,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Evevnements\PageDetailEvent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Profil Utilisateur\ModificationProfil.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
