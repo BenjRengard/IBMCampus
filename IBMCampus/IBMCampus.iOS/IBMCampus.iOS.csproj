@@ -193,6 +193,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\profil.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconPen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
