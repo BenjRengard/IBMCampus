@@ -17,6 +17,7 @@ namespace IBMCampus
         public ObservableCollection<UtilisateurModel> UtilisateursEnregistres = new ObservableCollection<UtilisateurModel>();
         public ObservableCollection<UtilisateurModel> ChauffeurEnregistres = new ObservableCollection<UtilisateurModel>();
         public ObservableCollection<ChauffeurModel> ListeFauxChauffeur = new ObservableCollection<ChauffeurModel>();
+        public ObservableCollection<EvenementsModel> ListeFauxEvent = new ObservableCollection<EvenementsModel>();
 
         public FakeRepository()
         {
@@ -31,6 +32,44 @@ namespace IBMCampus
             var jerome = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Laquay");
             var aurel = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Ducloy");
             var cive = repoUser.Utilisateurs.First(u => u.NomUtilisateur == "Cive");
+
+            var event1 = new EvenementsModel()
+            {
+                NomEvenement = "Airsoft",
+                DebutEvenement = new DateTime(2017, 10, 16, 12, 05, 00),
+                FinEvenement = new DateTime(2017, 10, 16, 12, 05, 00),
+                IsRecurentHebdo = true,
+                LocalisationEvenement = "Lambersart",
+                Participants = new List<UtilisateurModel>()
+                {
+                    alex,
+                    benj,
+                    bat,
+                    superman,
+                    aurel
+                },
+                NombreMaximumParticipant = 15,
+                NombreParticipants = 5
+            };
+
+            var event2 = new EvenementsModel()
+            {
+                NomEvenement = "Raclette",
+                DebutEvenement = new DateTime(2017, 11, 16, 12, 30, 00),
+                FinEvenement = new DateTime(2017, 11, 16, 12, 40, 00),
+                IsRecurentHebdo = true,
+                LocalisationEvenement = "Lomme",
+                Participants = new List<UtilisateurModel>()
+                {
+                    superman,
+                    cive
+                },
+                NombreMaximumParticipant = 5,
+                NombreParticipants = 2
+            };
+
+            ListeFauxEvent.Add(event1);
+            ListeFauxEvent.Add(event2);
 
             var Chauffeur1 = new ChauffeurModel()
             {
@@ -153,6 +192,10 @@ namespace IBMCampus
             return ListeFauxChauffeur;
         }
 
+        public ObservableCollection<EvenementsModel> RecupererTousLesEvents()
+        {
+            return ListeFauxEvent;
+        }
 
     }
 }
