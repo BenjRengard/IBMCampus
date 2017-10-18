@@ -43,12 +43,22 @@ namespace IBMCampus
                     usr_firstname = PrenomUtilisateur.Text,
                     usr_mail = EMailUtilisateur.Text,
                     usr_password = MdpUser.Text,
-                    usr_phonenumber = TelephoneUtilisateur.Text
+                    usr_phonenumber = TelephoneUtilisateur.Text,
+                    usr_driver = Conducteur.IsToggled ? 1 : 0
                 };
+                //Coder controle User, et double saisie mdp
+
                 string content = JsonConvert.SerializeObject(nouvelUser);
-                string test = Url + "id=" + nouvelUser.usr_Id + "&firstname=" + nouvelUser.usr_firstname + "&lastname=" + nouvelUser.usr_lastname + "&mail=" + nouvelUser.usr_mail + "&password=" + nouvelUser.usr_password;
+                string test = Url + "firstname=" + nouvelUser.usr_firstname 
+                                  + "&lastname=" + nouvelUser.usr_lastname 
+                                  + "&mail=" + nouvelUser.usr_mail 
+                                  + "&password=" + nouvelUser.usr_password 
+                                  + "&phoneNumber=" + nouvelUser.usr_phonenumber
+                                  +"&driver=" + nouvelUser.usr_driver;
+
                 await _client.GetStringAsync(test);
                 
+
 
             }
             catch (Exception err)
