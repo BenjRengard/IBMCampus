@@ -5,6 +5,9 @@
              Padding="10,20,10,10"
              x:Class="IBMCampus.PageProfilUtilisateur"
              Title="Profil">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Modifier Profil" Activated="ToolbarItem_Activated" Icon="iconPen.png" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
             <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White">
@@ -25,32 +28,10 @@
                         <Label Text="{Binding EMailUtilisateur, StringFormat='Mail :  {0:F0}'}"/>
                     </StackLayout>
                 </AbsoluteLayout>
-                <!--<StackLayout Padding="20, 20, 20, 20">
-                <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
-                <ListView x:Name="listeUtilisateurGroupe"
-                      HasUnevenRows="True"
-                      SeparatorVisibility="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding NomUtilisateur} "/>
-                                    <Label Text="{Binding PrenomUtilisateur}"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>-->
                 <StackLayout VerticalOptions="End" HorizontalOptions="End">
                     <Button Text="test" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
                 </StackLayout>
             </StackLayout>
-            <!--<StackLayout>
-            <Label Text="{Binding NomUtilisateur}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>-->
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
