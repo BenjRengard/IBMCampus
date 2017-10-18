@@ -38,7 +38,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ErreursModel.cs" />
     <Compile Include="Models\UtilisateurTestModel.cs" />
     <Compile Include="Pages\Evevnements\PageFormCreationEvent.xaml.cs">
       <DependentUpon>PageFormCreationEvent.xaml</DependentUpon>

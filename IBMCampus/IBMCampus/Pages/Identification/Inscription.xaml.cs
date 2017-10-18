@@ -19,7 +19,6 @@ namespace IBMCampus
         private const string Url = "http://mooguer.fr/inscription.php?";
         private HttpClient _client = new HttpClient();
         private ObservableCollection<UtilisateurTestModel> _utilisateur;
-        private ObservableCollection<ErreursModel> erreur;
 
         public Inscription()
         {
@@ -36,7 +35,7 @@ namespace IBMCampus
                 {
                     age = 0;
                 }
-                ErreursModel erreur = new ErreursModel();
+
                 UtilisateurTestModel nouvelUser = new UtilisateurTestModel
                 {
                     usr_Id = string.Empty,
