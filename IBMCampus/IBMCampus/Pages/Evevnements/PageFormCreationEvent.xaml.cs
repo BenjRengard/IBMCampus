@@ -14,6 +14,11 @@ namespace IBMCampus
     {
         public PageFormCreationEvent()
         {
+
+        }
+
+        public PageFormCreationEvent(GroupeModel groupe)
+        {
             InitializeComponent();
         }
 

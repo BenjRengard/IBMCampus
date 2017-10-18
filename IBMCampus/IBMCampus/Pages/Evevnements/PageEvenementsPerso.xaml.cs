@@ -19,6 +19,12 @@ namespace IBMCampus
             Load();
 		}
 
+        public PageEvenementsPerso(UtilisateurModel user)
+        {
+            var repo = App.Current.BindingContext as FakeRepository;
+            liste.ItemsSource = repo.RecupererEvenementUtilisateur(user);
+        }
+
         private void liste_Refreshing(object sender, EventArgs e)
         {
             Load();

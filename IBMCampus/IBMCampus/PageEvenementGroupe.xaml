@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IBMCampus.PageEvenementGroupe"
+             Title="Evenements du groupe"
+             Padding="10,20,10,10">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Gréer un évènement au groupe" Activated="ToolbarItem_Activated" Icon="Plus.png" x:Name="boutonAjout"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+
+        <StackLayout BackgroundColor="White">
+            <StackLayout>
+                <Label HorizontalOptions="Center" Text="Evènements du groupe" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+            <ListView x:Name="liste" 
+                      HasUnevenRows="True" 
+                      BackgroundColor="White" 
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="liste_Refreshing"
+                      ItemSelected="liste_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<ViewCell.ContextActions>
+                                <MenuItem Text="Suivre"/>
+                                <MenuItem Text="Détails"/>
+                            </ViewCell.ContextActions>-->
+                            <StackLayout Orientation="Vertical" 
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5,5,5,5">
+                                <StackLayout HorizontalOptions="Start">
+                                    <Label Text="{Binding NomEvenement}" FontSize="Medium" TextColor="DeepSkyBlue"/>
+
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="Début de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding DebutEvenement}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Fin de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding FinEvenement}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Lieu : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding LocalisationEvenement}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Nombre de participants maximum : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding NombreMaximumParticipant}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Evènement hebdo : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding IsRecurentHebdo}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
