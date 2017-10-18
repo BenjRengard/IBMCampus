@@ -15,7 +15,10 @@ namespace IBMCampus
         public ObservableCollection<GroupeModel> ListeFauxGroupes = new ObservableCollection<GroupeModel>();
         public UtilisateurModel User = new UtilisateurModel();
         public ObservableCollection<UtilisateurModel> UtilisateursEnregistres = new ObservableCollection<UtilisateurModel>();
+
+       
         public ObservableCollection<UtilisateurModel> ChauffeurEnregistres = new ObservableCollection<UtilisateurModel>();
+
         public ObservableCollection<ChauffeurModel> ListeFauxChauffeur = new ObservableCollection<ChauffeurModel>();
         public ObservableCollection<EvenementsModel> ListeFauxEvent = new ObservableCollection<EvenementsModel>();
 
@@ -195,6 +198,18 @@ namespace IBMCampus
         public ObservableCollection<EvenementsModel> RecupererTousLesEvents()
         {
             return ListeFauxEvent;
+        }
+
+        public ObservableCollection<EvenementsModel> RecupererEvenementUtilisateur(UtilisateurModel user)
+        {
+            return ListeFauxEvent;
+            //throw new NotImplementedException();
+        }
+
+        internal ObservableCollection<EvenementsModel> RecupererEvenementGroupe(GroupeModel groupe)
+        {
+            return ListeFauxEvent;
+            //throw new NotImplementedException();
         }
 
     }

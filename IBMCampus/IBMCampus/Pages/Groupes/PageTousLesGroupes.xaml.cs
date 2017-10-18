@@ -39,7 +39,7 @@ namespace IBMCampus
                 return;
             }
             var groupe = e.SelectedItem as GroupeModel;
-            await Navigation.PushAsync(new PageDetailGroupe(groupe));
+            await Navigation.PushAsync(new TabbedPageDetailCompletGroupe(groupe));
             liste.SelectedItem = null;
         }
 

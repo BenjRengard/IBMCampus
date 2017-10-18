@@ -16,7 +16,7 @@ namespace IBMCampus
     //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Inscription : ContentPage
     {
-        private const string Url = "http://mooguer.fr/inscription.php?json=";
+        private const string Url = "http://mooguer.fr/inscription.php?";
         private HttpClient _client = new HttpClient();
         private ObservableCollection<UtilisateurTestModel> _utilisateur;
 
@@ -38,15 +38,27 @@ namespace IBMCampus
 
                 UtilisateurTestModel nouvelUser = new UtilisateurTestModel
                 {
+                    usr_Id = string.Empty,
                     usr_lastname = NomUtilisateur.Text,
                     usr_firstname = PrenomUtilisateur.Text,
                     usr_mail = EMailUtilisateur.Text,
                     usr_password = MdpUser.Text,
-                    usr_phonenumber = TelephoneUtilisateur.Text
+                    usr_phonenumber = TelephoneUtilisateur.Text,
+                    usr_driver = Conducteur.IsToggled ? 1 : 0
                 };
-                
+                //Coder controle User, et double saisie mdp
+
                 string content = JsonConvert.SerializeObject(nouvelUser);
-                await _client.PostAsync(Url, new StringContent(content));
+                string test = Url + "firstname=" + nouvelUser.usr_firstname 
+                                  + "&lastname=" + nouvelUser.usr_lastname 
+                                  + "&mail=" + nouvelUser.usr_mail 
+                                  + "&password=" + nouvelUser.usr_password 
+                                  + "&phoneNumber=" + nouvelUser.usr_phonenumber
+                                  +"&driver=" + nouvelUser.usr_driver;
+
+                await _client.GetStringAsync(test);
+                
+
 
             }
             catch (Exception err)
