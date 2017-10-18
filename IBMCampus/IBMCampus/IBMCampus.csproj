@@ -40,6 +40,9 @@
     </Compile>
     <Compile Include="ErreursModel.cs" />
     <Compile Include="Models\UtilisateurTestModel.cs" />
+    <Compile Include="Pages\Evevnements\PageFormCreationEvent.xaml.cs">
+      <DependentUpon>PageFormCreationEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Covoiturage\CovoiturageChauffeur.xaml.cs">
       <DependentUpon>CovoiturageChauffeur.xaml</DependentUpon>
     </Compile>
@@ -52,9 +55,6 @@
     <Compile Include="FakeRepositories\FakeRepository.cs" />
     <Compile Include="Pages\Evevnements\PageDetailEvent.xaml.cs">
       <DependentUpon>PageDetailEvent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Evevnements\FormCreationEvent.xaml.cs">
-      <DependentUpon>FormCreationEvent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Identification\Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
@@ -284,12 +284,6 @@
     <EmbeddedResource Include="FakeRepositories\profil.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Evevnements\FormCreationEvent.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Pages\Evevnements\PageDetailEvent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -297,6 +291,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Profil Utilisateur\ModificationProfil.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Evevnements\PageFormCreationEvent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

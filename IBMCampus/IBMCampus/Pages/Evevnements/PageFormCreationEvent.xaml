@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IBMCampus.Pages.FormCreationEvent"
+             x:Class="IBMCampus.PageFormCreationEvent"
              Title="Créer un évènement">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
@@ -18,8 +18,8 @@
                         <EntryCell x:Name="EventDebut" Label="Début de l'évènement" Placeholder="27/10/2057"/>
                         <EntryCell x:Name="EventFin" Label="Type de la voie" Placeholder="28/10/2058"/>
                         <EntryCell x:Name="Lieu" Label="Lieu" Placeholder="Lomme" />
-                        <Label Text="Cet évènement est récurrent ?"/>
-                        <Switch x:Name="Hebdo" HorizontalOptions="Center"/>
+                        <!--<Label Text="Cet évènement est récurrent ?"/>
+                        <Switch x:Name="Hebdo" HorizontalOptions="Center"/>-->
                     </TableSection>
                 </TableRoot>
             </TableView>
