@@ -16,7 +16,8 @@ namespace IBMCampus
     //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Inscription : ContentPage
     {
-        private const string Url = "http://mooguer.fr/inscription.php?";
+        private const string UrlInsert = "http://mooguer.fr/inscription.php?";
+        private const string UrlControle = "http://mooguer.fr/VerifUserUnique.php?";
         private HttpClient _client = new HttpClient();
         private ObservableCollection<UtilisateurTestModel> _utilisateur;
 
@@ -27,48 +28,77 @@ namespace IBMCampus
 
         private async void Button_Inscription(object sender, EventArgs e)
         {
-            try
+
+            int age;
+            var result = int.TryParse(AgeUser.Text, out age);
+            if (result == false)
             {
-                int age;
-                var result = int.TryParse(AgeUser.Text, out age);
-                if (result == false)
+                age = 0;
+            }
+
+            UtilisateurTestModel nouvelUser = new UtilisateurTestModel
+            {
+                usr_Id = string.Empty,
+                usr_lastname = NomUtilisateur.Text,
+                usr_firstname = PrenomUtilisateur.Text,
+                usr_mail = EMailUtilisateur.Text,
+                usr_password = MdpUser.Text,
+                usr_phonenumber = TelephoneUtilisateur.Text,
+                usr_driver = Conducteur.IsToggled ? 1 : 0
+            };
+
+            var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + nouvelUser.usr_mail + '"');
+            var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(controle);
+            _utilisateur = new ObservableCollection<UtilisateurTestModel>(user);
+
+            if (MdpUser.Text != MdpUser1.Text)
+            {
+                await DisplayAlert("Problème", "Mot de passe différent", "OK");
+
+                NomUtilisateur.Text = nouvelUser.usr_lastname;
+                PrenomUtilisateur.Text = nouvelUser.usr_lastname;
+                TelephoneUtilisateur.Text = nouvelUser.usr_lastname;
+                EMailUtilisateur.Text = nouvelUser.usr_mail;
+            }
+            else
+
+            if (_utilisateur.Count > 0)
+            {
+                await DisplayAlert("Problème", "Email déjà utilisé", "OK");
+
+                NomUtilisateur.Text = nouvelUser.usr_lastname;
+                PrenomUtilisateur.Text = nouvelUser.usr_lastname;
+                TelephoneUtilisateur.Text = nouvelUser.usr_lastname;
+
+            }
+            else
+            {
+                try
                 {
-                    age = 0;
+                    string content = JsonConvert.SerializeObject(nouvelUser);
+                    string insert = UrlInsert + "firstname=" + nouvelUser.usr_firstname
+                                      + "&lastname=" + nouvelUser.usr_lastname
+                                      + "&mail=" + nouvelUser.usr_mail
+                                      + "&password=" + nouvelUser.usr_password
+                                      + "&phoneNumber=" + nouvelUser.usr_phonenumber
+                                      + "&driver=" + nouvelUser.usr_driver;
+
+                    await _client.GetStringAsync(insert);
+                    
                 }
-
-                UtilisateurTestModel nouvelUser = new UtilisateurTestModel
+                catch (Exception err)
                 {
-                    usr_Id = string.Empty,
-                    usr_lastname = NomUtilisateur.Text,
-                    usr_firstname = PrenomUtilisateur.Text,
-                    usr_mail = EMailUtilisateur.Text,
-                    usr_password = MdpUser.Text,
-                    usr_phonenumber = TelephoneUtilisateur.Text,
-                    usr_driver = Conducteur.IsToggled ? 1 : 0
-                };
-                //Coder controle User, et double saisie mdp
+                    Log.Warning("download", err.ToString());
 
-                string content = JsonConvert.SerializeObject(nouvelUser);
-                string test = Url + "firstname=" + nouvelUser.usr_firstname 
-                                  + "&lastname=" + nouvelUser.usr_lastname 
-                                  + "&mail=" + nouvelUser.usr_mail 
-                                  + "&password=" + nouvelUser.usr_password 
-                                  + "&phoneNumber=" + nouvelUser.usr_phonenumber
-                                  +"&driver=" + nouvelUser.usr_driver;
 
-                await _client.GetStringAsync(test);
+                    await DisplayAlert("Problème", "Problème de connexion au serveur", "OK");
+                    //throw;
+                }
                 
-
+                await Navigation.PopAsync();
 
             }
-            catch (Exception err)
-           {
-                Log.Warning("download", err.ToString());
-
-
-            await DisplayAlert("Problème", "Problème de connexion au serveur", "OK");
-                //throw;
-            }
+            
             //int age;
             //var result = int.TryParse(AgeUser.Text, out age);
             //if (result == false)
@@ -91,7 +121,6 @@ namespace IBMCampus
             //repo.User = nouvelUtilisateur;
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
 
-            await Navigation.PopAsync();
 
         }
 
