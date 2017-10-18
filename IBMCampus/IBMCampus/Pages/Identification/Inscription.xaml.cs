@@ -48,6 +48,7 @@ namespace IBMCampus
                 string content = JsonConvert.SerializeObject(nouvelUser);
                 string test = Url + "id=" + nouvelUser.usr_Id + "&firstname=" + nouvelUser.usr_firstname + "&lastname=" + nouvelUser.usr_lastname + "&mail=" + nouvelUser.usr_mail + "&password=" + nouvelUser.usr_password;
                 await _client.GetStringAsync(test);
+                
 
             }
             catch (Exception err)

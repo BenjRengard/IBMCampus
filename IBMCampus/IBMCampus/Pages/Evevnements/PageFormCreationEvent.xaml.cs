@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace IBMCampus.Pages
+namespace IBMCampus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FormCreationEvent : ContentPage
+    public partial class PageFormCreationEvent : ContentPage
     {
-        public FormCreationEvent()
+        public PageFormCreationEvent()
         {
             InitializeComponent();
         }
@@ -39,7 +38,7 @@ namespace IBMCampus.Pages
                 //GroupeDeLevenement = GroupeEvent.Text,
                 NombreMaximumParticipant = nbParticip,
                 LocalisationEvenement = Lieu.Text,
-                IsRecurentHebdo = Hebdo.IsToggled
+                //IsRecurentHebdo = Hebdo.IsToggled
             };
 
 
