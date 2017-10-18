@@ -39,7 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\UtilisateurTestModel.cs" />
-    <Compile Include="PageEvenementGroupe.xaml.cs">
+    <Compile Include="Pages\Groupes\PageEvenementGroupe.xaml.cs">
       <DependentUpon>PageEvenementGroupe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Evevnements\PageFormCreationEvent.xaml.cs">
@@ -124,7 +124,7 @@
     <Compile Include="Regroupement de pages\TabbedPageUtilisateurAutre.xaml.cs">
       <DependentUpon>TabbedPageUtilisateurAutre.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TabbedPageDetailCompletGroupe.xaml.cs">
+    <Compile Include="Regroupement de pages\TabbedPageDetailCompletGroupe.xaml.cs">
       <DependentUpon>TabbedPageDetailCompletGroupe.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -307,13 +307,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TabbedPageDetailCompletGroupe.xaml">
+    <EmbeddedResource Include="Regroupement de pages\TabbedPageDetailCompletGroupe.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PageEvenementGroupe.xaml">
+    <EmbeddedResource Include="Pages\Groupes\PageEvenementGroupe.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
