@@ -24,7 +24,7 @@ namespace IBMCampus
 
         public string usr_office { get; set; }
 
-        public string usr_driver { get; set; }
+        public int usr_driver { get; set; }
 
         public string usr_picture { get; set; }
 

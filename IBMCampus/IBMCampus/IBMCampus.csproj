@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ErreursModel.cs" />
     <Compile Include="Models\UtilisateurTestModel.cs" />
     <Compile Include="Pages\Covoiturage\CovoiturageChauffeur.xaml.cs">
       <DependentUpon>CovoiturageChauffeur.xaml</DependentUpon>
