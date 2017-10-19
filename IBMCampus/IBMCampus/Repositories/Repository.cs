@@ -176,7 +176,15 @@ namespace IBMCampus
             throw new NotImplementedException();
         }
 
-        
+        /// <summary>
+        /// Méthode pour récupérer tous les utilisateurs d'un groupe.
+        /// </summary>
+        /// <param name="groupe">Groupe dont on veut récupérer les utilisateurs.</param>
+        /// <returns>Liste en observablecollection d'utilisateurmodel.</returns>
+        public ObservableCollection<UtilisateurModel> RecupererUtilisateursGroupe(GroupeModel groupe)
+        {
+            throw new NotImplementedException();
+        }
 
 
 
