@@ -157,7 +157,7 @@ namespace IBMCampus
             }
             catch (Exception)
             {
-                MessageErreur = "Problème!";
+                MessageErreur = "Problème lors de la récupération des données.";
                 return null;
             }
         }
@@ -183,7 +183,7 @@ namespace IBMCampus
             }
             catch (Exception)
             {
-                MessageErreur = "Problème!";
+                MessageErreur = "Problème lors de la récupération des données.";
                 return null;
             }
 
