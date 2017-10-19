@@ -8,7 +8,7 @@ namespace IBMCampus
 {
     public class UtilisateurProxy
     {
-        public string usr_Id { get; set; }
+        public int usr_Id { get; set; }
 
         public string usr_firstname { get; set; }
 

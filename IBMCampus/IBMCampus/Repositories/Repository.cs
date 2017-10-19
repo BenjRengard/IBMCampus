@@ -121,6 +121,155 @@ namespace IBMCampus
 
         #endregion
 
+
+        #region Méthodes pour récupérer les id
+
+        /// <summary>
+        /// Méthode pour lister les id des évènements.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<int>> ListerTousLesIdEvenement()
+        {
+            var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
+            var resultat = await _client.GetStringAsync(Url);
+
+            return null;
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour lister les id des groupes.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ObservableCollection<int>> ListerTousLesIdGroupe()
+        {
+            try
+            {
+                var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
+                var json = await _client.GetStringAsync(Url);
+                var resultatApi = JsonConvert.DeserializeObject<List<GroupeProxy>>(json);
+                var listeIdGroupeSport = new ObservableCollection<int>();
+                foreach (var id in resultatApi)
+                {
+                    listeIdGroupeSport.Add(id.gs_Id);
+                }
+                return listeIdGroupeSport;
+            }
+            catch (Exception)
+            {
+                MessageErreur = "Problème!";
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour lister les id des utilisateurs.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ObservableCollection<int>> ListerTousLesIdUtilisateur()
+        {
+            try
+            {
+                var Url = "http://mooguer.fr/SelectIdUser.php";
+                var json = await _client.GetStringAsync(Url);
+                var resultatApi = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(json);
+                //ListeId = idUser;
+                var idUsers = new ObservableCollection<int>();
+                foreach (var user in resultatApi)
+                {
+                    idUsers.Add(user.usr_Id);
+                }
+                return idUsers;
+            }
+            catch (Exception)
+            {
+                MessageErreur = "Problème!";
+                return null;
+            }
+
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les id des utilisateurs d'un groupe.
+        /// </summary>
+        /// <param name="groupe"></param>
+        /// <returns></returns>
+        public async Task<ObservableCollection<int>> ListerIdUtilisateursGroupe(GroupeModel groupe)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les id des évènements d'un groupe.
+        /// </summary>
+        /// <param name="groupe"></param>
+        /// <returns></returns>
+        public async Task<ObservableCollection<int>> ListerIdEvenementGroupe(GroupeModel groupe)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les id des groupes d'un utilisateur.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public async Task<ObservableCollection<int>> ListerIdGroupesUtilisateur(UtilisateurModel user)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les id des évènements d'un utilisateur.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public async Task<ObservableCollection<int>> ListerIdEvenementUtilisateur(UtilisateurModel user)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+        #region Méthodes pour convertir les id en Objets
+
+
+        /// <summary>
+        /// Méthode pour récupérer les infos d'un user.
+        /// </summary>
+        /// <param name="id">Id du user</param>
+        /// <returns>Utilisateur model</returns>
+        public UtilisateurModel RecupererInfosUtilisateur(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les infos du groupe.
+        /// </summary>
+        /// <param name="id">Id du groupe</param>
+        /// <returns></returns>
+        public GroupeModel RecupererInfosGroupe(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les infos d'un évènement.
+        /// </summary>
+        /// <param name="id">Id de l'évènement</param>
+        /// <returns></returns>
+        public EvenementsModel RecupererInfosEnvement(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+        #region Méthodes pour retourner des listes d'objets
+
         /// <summary>
         /// Méthode pour récupérer les groupes de l'utilisateur
         /// </summary>
@@ -136,6 +285,15 @@ namespace IBMCampus
         /// </summary>
         /// <returns>Liste en observablecollection de groupemodel</returns>
         public ObservableCollection<GroupeModel> RecupererTousLesGroupes()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer tout les utilisateurs en base.
+        /// </summary>
+        /// <returns></returns>
+        public ObservableCollection<UtilisateurModel> RecupererTousLesUtilisateurs()
         {
             throw new NotImplementedException();
         }
@@ -188,105 +346,6 @@ namespace IBMCampus
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Méthode pour récupérer les infos d'un user.
-        /// </summary>
-        /// <param name="id">Id du user</param>
-        /// <returns>Utilisateur model</returns>
-        public UtilisateurModel RecupererInfosUtilisateur(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Méthode pour récupérer les infos du groupe.
-        /// </summary>
-        /// <param name="id">Id du groupe</param>
-        /// <returns></returns>
-        public GroupeModel RecupererInfosGroupe(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Méthode pour récupérer les infos d'un évènement.
-        /// </summary>
-        /// <param name="id">Id de l'évènement</param>
-        /// <returns></returns>
-        public EvenementsModel RecupererInfosEnvement(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Méthode pour lister les id des utilisateurs.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<ObservableCollection<int>> ListerTousLesIdUtilisateur()
-        {
-            try
-            {
-                var Url = "http://mooguer.fr/SelectIdUser.php";
-                var resultat = await _client.GetStringAsync(Url);
-                var Users = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(resultat);
-                //ListeId = idUser;
-                var idUsers = new ObservableCollection<int>();
-                foreach (var user in Users)
-                {
-                    idUsers.Add(Convert.ToInt32(user.usr_Id));
-                }
-                return idUsers;
-            }
-            catch (Exception)
-            {
-                MessageErreur = "Problème!";
-                return null;
-            }
-           
-        }
-
-        /// <summary>
-        /// Méthode pour lister les id des groupes.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<ObservableCollection<int>> ListerTousLesIdGroupe()
-        {
-            try
-            {
-                var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
-                var resultat = await _client.GetStringAsync(Url);
-                var idGroupeSport = JsonConvert.DeserializeObject<List<GroupeProxy>>(resultat);
-                var listeIdGroupeSport = new ObservableCollection<int>();
-                foreach (var id in idGroupeSport)
-                {
-                    listeIdGroupeSport.Add(id.gs_Id);
-                }
-                return listeIdGroupeSport;
-            }
-            catch (Exception)
-            {
-
-                MessageErreur = "Problème!";
-                return null;
-            }
-           
-
-        }
-
-        /// <summary>
-        /// Méthode pour lister les id des évènements.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<List<int>> ListerTousLesIdEvenement()
-        {
-            var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
-            var resultat = await _client.GetStringAsync(Url);
-
-            return null;
-            throw new NotImplementedException();
-        }
-
-
-
+        #endregion
     }
 }
