@@ -24,7 +24,53 @@ namespace IBMCampus.Pages.Profil_Utilisateur
             NomUtilisateur.Text = user.NomUtilisateur;
             PrenomUtilisateur.Text = user.PrenomUtilisateur;
             EMailUtilisateur.Text = user.EMailUtilisateur;
-            AgeUser.Text = ""+user.AgeUtilisateur;
+            AgeUser.Text = user.AgeUtilisateur.ToString();
+            Conducteur.IsToggled = user.Vehicule;
         }
-	}
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            var user = BindingContext as UtilisateurModel;
+
+            if (user.NomUtilisateur != NomUtilisateur.Text)
+                user.NomUtilisateur = NomUtilisateur.Text;
+
+            if (user.PrenomUtilisateur != PrenomUtilisateur.Text)
+                user.PrenomUtilisateur = PrenomUtilisateur.Text;
+
+            if (user.EMailUtilisateur != EMailUtilisateur.Text)
+                user.EMailUtilisateur = EMailUtilisateur.Text;
+
+            if (user.AgeUtilisateur.ToString() != AgeUser.Text)
+            {
+                int age;
+                var result = int.TryParse(AgeUser.Text, out age);
+                if (result)
+                {
+                    if (age <= 0)
+                    {
+                        await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
+                    }
+                    user.AgeUtilisateur = age;
+                }
+                else
+                {
+                    await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
+                }
+            }
+                
+
+            if (user.Vehicule != Conducteur.IsToggled)
+                user.Vehicule = Conducteur.IsToggled;
+
+            await DisplayAlert("Modification du profil", "Votre profil a été modifié", "OK");
+            await Navigation.PopAsync();
+
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+    }
 }

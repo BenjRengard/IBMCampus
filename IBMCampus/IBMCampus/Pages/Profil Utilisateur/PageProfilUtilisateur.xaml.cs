@@ -48,7 +48,8 @@ namespace IBMCampus
 
         private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ModificationProfil());
+            var user = BindingContext as UtilisateurModel;
+            await Navigation.PushAsync(new ModificationProfil(user));
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

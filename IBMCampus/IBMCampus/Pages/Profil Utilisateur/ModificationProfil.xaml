@@ -19,8 +19,8 @@
                 <Label Text="Conducteur Non/Oui" FontSize="Small" TextColor="DeepSkyBlue"/>
                 <Switch x:Name="Conducteur"/>
                 <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
-                    <Button Text="Valider"  BackgroundColor="DeepSkyBlue" TextColor="White"/>
-                    <Button Text="Annuler"  BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                    <Button Text="Valider" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                    <Button Text="Annuler" Clicked="Button_Clicked_1" BackgroundColor="DeepSkyBlue" TextColor="White"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
