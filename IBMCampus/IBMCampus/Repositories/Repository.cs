@@ -220,9 +220,12 @@ namespace IBMCampus
         /// Méthode pour lister les id des utilisateurs.
         /// </summary>
         /// <returns></returns>
-        public List<int> ListerIdUtilisateur()
+        public async void ListerIdUtilisateur(List<int> ListeId)
         {
-            throw new NotImplementedException();
+            var Url = "http://mooguer.fr/VerifUserUnique.php";
+            var controle = await _client.GetStringAsync(Url);
+            var idUser = JsonConvert.DeserializeObject<List<int>>(controle);
+            ListeId = idUser;
         }
 
         /// <summary>
