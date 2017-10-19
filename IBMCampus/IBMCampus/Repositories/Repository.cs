@@ -222,9 +222,9 @@ namespace IBMCampus
         /// <returns></returns>
         public async void ListerIdUtilisateur(List<int> ListeId)
         {
-            var Url = "http://mooguer.fr/VerifUserUnique.php";
-            var controle = await _client.GetStringAsync(Url);
-            var idUser = JsonConvert.DeserializeObject<List<int>>(controle);
+            var Url = "http://mooguer.fr/SelectIdUser.php";
+            var resultat = await _client.GetStringAsync(Url);
+            var idUser = JsonConvert.DeserializeObject<List<int>>(resultat);
             ListeId = idUser;
         }
 
@@ -232,9 +232,12 @@ namespace IBMCampus
         /// Méthode pour lister les id des groupes.
         /// </summary>
         /// <returns></returns>
-        public List<int> ListerIdGroupe()
+        public async void ListerIdGroupe(List<int> ListeIdGroupeSport)
         {
-            throw new NotImplementedException();
+            var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
+            var resultat = await _client.GetStringAsync(Url);
+            var idGroupeSport = JsonConvert.DeserializeObject<List<int>>(resultat);
+            ListeIdGroupeSport = idGroupeSport;
         }
 
         /// <summary>
