@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IBMCampus
 {
-    public class UtilisateurTestModel
+    public class UtilisateurProxy
     {
         public string usr_Id { get; set; }
 
@@ -35,7 +35,7 @@ namespace IBMCampus
 
         //public int NombrePlaces { get; set; }
 
-        public UtilisateurTestModel()
+        public UtilisateurProxy()
         {
 
         }

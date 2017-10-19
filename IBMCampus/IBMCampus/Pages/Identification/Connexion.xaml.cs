@@ -18,7 +18,7 @@ namespace IBMCampus
         private const string UrlInsert = "http://mooguer.fr/inscription.php?";
         private const string UrlControle = "http://mooguer.fr/VerifUserUnique.php?";
         private HttpClient _client = new HttpClient();
-        private UtilisateurTestModel _utilisateur;
+        private UtilisateurProxy _utilisateur;
 
         //private string url = "http:/9.129.126.182/api/Profil";
         //private HttpClient _client = new HttpClient();
@@ -53,7 +53,7 @@ namespace IBMCampus
             //J'ai pas compris pq
 
             var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
-            var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(controle);
+            var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(controle);
 
             if (user.Count > 0)
             {

@@ -19,7 +19,7 @@ namespace IBMCampus
         private const string UrlInsert = "http://mooguer.fr/inscription.php?";
         private const string UrlControle = "http://mooguer.fr/VerifUserUnique.php?";
         private HttpClient _client = new HttpClient();
-        private ObservableCollection<UtilisateurTestModel> _utilisateur;
+        private ObservableCollection<UtilisateurProxy> _utilisateur;
 
         public Inscription()
         {
@@ -30,7 +30,7 @@ namespace IBMCampus
         {
 
 
-            UtilisateurTestModel nouvelUser = new UtilisateurTestModel
+            UtilisateurProxy nouvelUser = new UtilisateurProxy
             {
                 usr_Id = string.Empty,
                 usr_lastname = NomUtilisateur.Text,
@@ -42,8 +42,8 @@ namespace IBMCampus
             };
 
             var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + nouvelUser.usr_mail + '"');
-            var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(controle);
-            _utilisateur = new ObservableCollection<UtilisateurTestModel>(user);
+            var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(controle);
+            _utilisateur = new ObservableCollection<UtilisateurProxy>(user);
 
             if (MdpUser.Text != MdpUser1.Text)
             {

@@ -18,7 +18,7 @@ namespace IBMCampus
     {
         private const string Url = "http://mooguer.fr/api.php";
         private HttpClient _client = new HttpClient();
-        private ObservableCollection<UtilisateurTestModel> _utilisateur;
+        private ObservableCollection<UtilisateurProxy> _utilisateur;
 
         public PageUtilisateurTest()
         {
@@ -31,8 +31,8 @@ namespace IBMCampus
             try
             {
                 var content = await _client.GetStringAsync(Url);
-                var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(content);
-                _utilisateur = new ObservableCollection<UtilisateurTestModel>(user);
+                var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(content);
+                _utilisateur = new ObservableCollection<UtilisateurProxy>(user);
                 liste.ItemsSource = _utilisateur;
             }
             catch (Exception )
