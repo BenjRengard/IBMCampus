@@ -177,7 +177,7 @@ namespace IBMCampus
                 var idUsers = new ObservableCollection<int>();
                 foreach (var user in resultatApi)
                 {
-                    idUsers.Add(user.usr_Id);
+                    idUsers.Add(Convert.ToInt32(user.usr_Id));
                 }
                 return idUsers;
             }
@@ -240,30 +240,42 @@ namespace IBMCampus
         /// </summary>
         /// <param name="id">Id du user</param>
         /// <returns>Utilisateur model</returns>
-        public UtilisateurModel RecupererInfosUtilisateur(int id)
+        public async Task<UtilisateurModel> RecupererUniqueUtilisateur(int id)
         {
-            throw new NotImplementedException();
+            UtilisateurProxy utilisateurEnBase = await RechercheUtilisateurParId(id);
+
+            return Convertisseur.ConvertirUtilisateurProxyEnModel(utilisateurEnBase);
         }
+
+       
 
         /// <summary>
         /// Méthode pour récupérer les infos du groupe.
         /// </summary>
         /// <param name="id">Id du groupe</param>
         /// <returns></returns>
-        public GroupeModel RecupererInfosGroupe(int id)
+        public async Task<GroupeModel> RecupererUniqueGroupe(int id)
         {
-            throw new NotImplementedException();
+            GroupeProxy groupeEnBase = await RechercheGroupeParId(id);
+
+            return Convertisseur.ConvertirGroupeProxyEnModel(groupeEnBase);
+
         }
+
 
         /// <summary>
         /// Méthode pour récupérer les infos d'un évènement.
         /// </summary>
         /// <param name="id">Id de l'évènement</param>
         /// <returns></returns>
-        public EvenementsModel RecupererInfosEnvement(int id)
+        public async Task<EvenementsModel> RecupererUniqueEnvement(int id)
         {
-            throw new NotImplementedException();
+            EvenementProxy evenementEnBase = await RechercheEvenementParId(id);
+
+            return Convertisseur.ConvertirEvenementProxyEnModel(evenementEnBase);
         }
+
+        
 
         #endregion
 
@@ -284,9 +296,22 @@ namespace IBMCampus
         /// Méthode pour récupérer tous les groupes à afficher (on ne gèrera pas la limitation pour le moment)
         /// </summary>
         /// <returns>Liste en observablecollection de groupemodel</returns>
-        public ObservableCollection<GroupeModel> RecupererTousLesGroupes()
+        public async Task<ObservableCollection<GroupeModel>> RecupererTousLesGroupes()
         {
-            throw new NotImplementedException();
+            // Instanciation de la liste à retourner.
+            var listeARetourner = new ObservableCollection<GroupeModel>();
+            
+            //Récupération de tous les id.
+            var listeId = await ListerTousLesIdGroupe();
+
+            //Pour chacun des id de la liste, rechercher l'objet en base, et le reformater en Model.
+            foreach (var id in listeId)
+            {
+                //Ajouter à la liste à retourner.
+                listeARetourner.Add(await RecupererUniqueGroupe(id));
+            }
+
+            return listeARetourner;
         }
 
         /// <summary>
@@ -344,6 +369,56 @@ namespace IBMCampus
         public ObservableCollection<UtilisateurModel> RecupererUtilisateursGroupe(GroupeModel groupe)
         {
             throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+        #region Rechercher un objet par id
+
+        /// <summary>
+        /// Méthode pour rechercher un groupe via son id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<GroupeProxy> RechercheGroupeParId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour rechercher un évènement via son id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<EvenementProxy> RechercheEvenementParId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour rechercher un utilisateur via son id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<UtilisateurProxy> RechercheUtilisateurParId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+        #region Méthodes de création
+
+        public async void CreationGroupe()
+        {
+
+        }
+
+        public async void CreationEvenement()
+        {
+
         }
 
         #endregion

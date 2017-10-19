@@ -41,7 +41,12 @@ namespace IBMCampus
             } }
 
 
-
+        public GroupeModel()
+        {
+            UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>();
+            SportDuGroupe = new SportModel();
+            EvenementsDuGroupe = new ObservableCollection<EvenementsModel>();
+        }
 
 
     }

@@ -38,6 +38,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\Convertisseur.cs" />
+    <Compile Include="Proxies\EvenementProxy.cs" />
     <Compile Include="Proxies\UtilisateurProxy.cs" />
     <Compile Include="Pages\Groupes\PageEvenementGroupe.xaml.cs">
       <DependentUpon>PageEvenementGroupe.xaml</DependentUpon>
