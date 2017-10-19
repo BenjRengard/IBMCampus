@@ -11,9 +11,9 @@ namespace IBMCampus
     public partial class App : Application
     {
 
-        public FakeRepository Repo = new FakeRepository();
-        //public UtilisateurModel Repo = new UtilisateurModel();
-        
+        //public FakeRepository Repo = new FakeRepository();
+        public UtilisateurModel Repo = new UtilisateurModel();
+
 
         public App()
         {

@@ -52,61 +52,61 @@ namespace IBMCampus
             // Ce code fonctionne mais plante arrivé sur la MasterDetailPage1 méthode initializeComponent..
             //J'ai pas compris pq
 
-            //    var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
-            //    var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(controle);
-            //    _utilisateur = user.First();
+            var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
+            var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(controle);
+            _utilisateur = user.First();
 
-            //    if(_utilisateur != null)
-            //    {
-            //        if(MotDePasse.Text == _utilisateur.usr_password)
-
-            //        {
-            //            var repo = App.Current.BindingContext as UtilisateurModel;
-            //            repo.NomUtilisateur = _utilisateur.usr_firstname;
-            //            repo.PrenomUtilisateur = _utilisateur.usr_lastname;
-            //            repo.EMailUtilisateur = _utilisateur.usr_mail;
-            //            repo.TelephoneUtilisateur = _utilisateur.usr_phonenumber;
-            //            repo.LocalisationUtilisateur = _utilisateur.usr_office;
-            //            repo.Vehicule = Convert.ToBoolean(_utilisateur.usr_driver);
-
-            //            await Navigation.PushModalAsync(new MasterDetailPage1());
-            //        }
-
-            //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
-
-            //    }
-
-            //    await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
-            //   }
-
-            
-
-            //Fin de mon code
-
-            var repo = App.Current.BindingContext as FakeRepository;
-
-            var utilisateur = repo.UtilisateursEnregistres.FirstOrDefault(u => u.EMailUtilisateur == EmailUtilisateur.Text);
-            if (utilisateur == null)
+            if (_utilisateur != null)
             {
-                await DisplayAlert("Problème de connexion", "Le user est incorrect", "Réessayer");
+                if (MotDePasse.Text == _utilisateur.usr_password)
 
-            }
+                {
+                    var repo = App.Current.BindingContext as UtilisateurModel;
+                    repo.NomUtilisateur = _utilisateur.usr_firstname;
+                    repo.PrenomUtilisateur = _utilisateur.usr_lastname;
+                    repo.EMailUtilisateur = _utilisateur.usr_mail;
+                    repo.TelephoneUtilisateur = _utilisateur.usr_phonenumber;
+                    repo.LocalisationUtilisateur = _utilisateur.usr_office;
+                    repo.Vehicule = Convert.ToBoolean(_utilisateur.usr_driver);
 
-            if (MotDePasse.Text == (utilisateur.MotDePasseUtilisateur))
-            {
-                repo.User = utilisateur;
-                await Navigation.PushModalAsync(new MasterDetailPage1());
+                    await Navigation.PushModalAsync(new MasterDetailPage1());
+                }
 
-
-            }
-            else
-            {
                 await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
 
             }
 
-
+            await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
         }
+
+
+
+        //Fin de mon code
+
+        //var repo = App.Current.BindingContext as FakeRepository;
+
+        //    var utilisateur = repo.UtilisateursEnregistres.FirstOrDefault(u => u.EMailUtilisateur == EmailUtilisateur.Text);
+        //    if (utilisateur == null)
+        //    {
+        //        await DisplayAlert("Problème de connexion", "Le user est incorrect", "Réessayer");
+
+        //    }
+
+        //    if (MotDePasse.Text == (utilisateur.MotDePasseUtilisateur))
+        //    {
+        //        repo.User = utilisateur;
+        //        await Navigation.PushModalAsync(new MasterDetailPage1());
+
+
+        //    }
+        //    else
+        //    {
+        //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+
+        //    }
+
+
+        //}
 
         private async void Button_Inscription(object sender, EventArgs e)
         {
