@@ -68,7 +68,7 @@
     <Compile Include="PageUtilisateurTest.xaml.cs">
       <DependentUpon>PageUtilisateurTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\GroupeTabbedPage.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\GroupeTabbedPage.xaml.cs">
       <DependentUpon>GroupeTabbedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Identification\Inscription.xaml.cs">
@@ -80,16 +80,16 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1.xaml.cs">
       <DependentUpon>MasterDetailPage1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1Detail.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Detail.xaml.cs">
       <DependentUpon>MasterDetailPage1Detail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1Master.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Master.xaml.cs">
       <DependentUpon>MasterDetailPage1Master.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1MenuItem.cs" />
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1MenuItem.cs" />
     <Compile Include="Models\ChauffeurModel.cs" />
     <Compile Include="Models\EvenementsModel.cs" />
     <Compile Include="Models\GroupeModel.cs" />
@@ -115,16 +115,16 @@
       <DependentUpon>PageTousLesGroupes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Regroupement de pages\TabbedPageEvenements.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\TabbedPageEvenements.xaml.cs">
       <DependentUpon>TabbedPageEvenements.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\TabbedPageInformationsPerso.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\TabbedPageInformationsPerso.xaml.cs">
       <DependentUpon>TabbedPageInformationsPerso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\TabbedPageUtilisateurAutre.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\TabbedPageUtilisateurAutre.xaml.cs">
       <DependentUpon>TabbedPageUtilisateurAutre.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\TabbedPageDetailCompletGroupe.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\TabbedPageDetailCompletGroupe.xaml.cs">
       <DependentUpon>TabbedPageDetailCompletGroupe.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -220,37 +220,37 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\Menu\MasterDetailPage1.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\Menu\MasterDetailPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\Menu\MasterDetailPage1Master.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Master.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\Menu\MasterDetailPage1Detail.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Detail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\GroupeTabbedPage.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\GroupeTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\TabbedPageUtilisateurAutre.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageUtilisateurAutre.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\TabbedPageInformationsPerso.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageInformationsPerso.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -262,7 +262,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\TabbedPageEvenements.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageEvenements.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -307,7 +307,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\TabbedPageDetailCompletGroupe.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageDetailCompletGroupe.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
