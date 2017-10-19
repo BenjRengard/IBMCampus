@@ -19,6 +19,7 @@ namespace IBMCampus
         private const string Url = "http://mooguer.fr/api.php";
         private HttpClient _client = new HttpClient();
         private ObservableCollection<UtilisateurProxy> _utilisateur = new ObservableCollection<UtilisateurProxy>();
+        private ObservableCollection<EvenementProxy> _evenement = new ObservableCollection<EvenementProxy>();
 
 
         public PageUtilisateurTest()
@@ -44,26 +45,42 @@ namespace IBMCampus
             Repository repo = new Repository();
             //var listeId = new List<int>();
             //await repo.ListerIdUtilisateur(listeId);
-            var listeId = await repo.ListerTousLesIdUtilisateur();
+            var listeIdUser = await repo.ListerTousLesIdUtilisateur();
+            var listeIdEvent = await repo.ListerTousLesIdEvenement();
             //if (repo.MessageErreur != null)
             //{
             //    await DisplayAlert("Méthode", repo.MessageErreur, "OK");
             //}
-            if (listeId == null)
+            if (listeIdUser == null)
             {
                 await DisplayAlert(repo.MessageErreur, "Problème de connexion au serveur", "OK");
-                _utilisateur.Add(new UtilisateurProxy() { usr_Id = "Aucun résultat" });
+                _utilisateur.Add(new UtilisateurProxy() { usr_Id = 0 });
             }
             else
             {
-                foreach (var id in listeId)
+                foreach (var id in listeIdUser)
                 {
-                    _utilisateur.Add(new UtilisateurProxy() { usr_Id = id.ToString() });
+                    _utilisateur.Add(new UtilisateurProxy() { usr_Id = id });
                 }
             }
+
+
             liste.ItemsSource = _utilisateur;
 
+            if (listeIdEvent == null)
+            {
+                await DisplayAlert(repo.MessageErreur, "Problème de connexion au serveur", "OK");
+                _evenement.Add(new EvenementProxy() { es_Id = 0 });
+            }
+            else
+            {
+                foreach (var id in listeIdEvent)
+                {
+                    _evenement.Add(new EvenementProxy() { es_Id = id });
+                }
+            }
 
+            liste.ItemsSource = _evenement;
             base.OnAppearing();
         }
 

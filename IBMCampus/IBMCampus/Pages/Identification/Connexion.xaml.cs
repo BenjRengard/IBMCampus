@@ -49,8 +49,6 @@ namespace IBMCampus
 
         private async void Button_Connexion(object sender, EventArgs e)
         {
-            // Ce code fonctionne mais plante arrivé sur la MasterDetailPage1 méthode initializeComponent..
-            //J'ai pas compris pq
             try
             {
                 var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');

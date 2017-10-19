@@ -130,11 +130,24 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task<List<int>> ListerTousLesIdEvenement()
         {
-            var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
-            var resultat = await _client.GetStringAsync(Url);
-
-            return null;
-            throw new NotImplementedException();
+            try
+            {
+                var Url = "http://mooguer.fr/SelectIdEvent.php";
+                var json = await _client.GetStringAsync(Url);
+                var resultatApi = JsonConvert.DeserializeObject<List<EvenementProxy>>(json);
+                //ListeId = idUser;
+                var idEvent = new List<int>();
+                foreach (var evenement in resultatApi)
+                {
+                    idEvent.Add(Convert.ToInt32(evenement.es_Id));
+                }
+                return idEvent;
+            }
+            catch (Exception)
+            {
+                MessageErreur = "Problème lors de la récupération des données.";
+                return null;
+            }
         }
 
         /// <summary>
@@ -196,8 +209,10 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task<ObservableCollection<int>> ListerIdUtilisateursGroupe(GroupeModel groupe)
         {
+
             throw new NotImplementedException();
         }
+
 
         /// <summary>
         /// Méthode pour récupérer les id des évènements d'un groupe.
@@ -207,6 +222,7 @@ namespace IBMCampus
         public async Task<ObservableCollection<int>> ListerIdEvenementGroupe(GroupeModel groupe)
         {
             throw new NotImplementedException();
+
         }
 
         /// <summary>
@@ -214,10 +230,42 @@ namespace IBMCampus
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public async Task<ObservableCollection<int>> ListerIdGroupesUtilisateur(UtilisateurModel user)
+        public async Task<ObservableCollection<ListeGroupeUtilisateurProxy>> ListerIdGroupesUtilisateur(UtilisateurModel user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var Url = "http://mooguer.fr/SelectGroupeUser.php?";
+                var json = await _client.GetStringAsync(Url + "id=" + user.IdUtilisateur);
+                var resultatApi = JsonConvert.DeserializeObject<List<ListeGroupeUtilisateurProxy>>(json);
+                //ListeId = idUser;
+                var GroupeUser = new ObservableCollection<ListeGroupeUtilisateurProxy>();
+
+                if (resultatApi.Count > 0)
+                {
+                    foreach (var groupe in resultatApi)
+                    {
+                        GroupeUser.Add(groupe);
+                    }
+                    return GroupeUser;
+
+                }
+                else
+                {
+                    MessageErreur = "Vous n'avez pas de groupe.";
+                    return null;
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageErreur = "Problème lors de la récupération des données.";
+                return null;
+            }
+
+
         }
+
+
 
         /// <summary>
         /// Méthode pour récupérer les id des évènements d'un utilisateur.
@@ -247,7 +295,7 @@ namespace IBMCampus
             return Convertisseur.ConvertirUtilisateurProxyEnModel(utilisateurEnBase);
         }
 
-       
+
 
         /// <summary>
         /// Méthode pour récupérer les infos du groupe.
@@ -275,7 +323,7 @@ namespace IBMCampus
             return Convertisseur.ConvertirEvenementProxyEnModel(evenementEnBase);
         }
 
-        
+
 
         #endregion
 
@@ -300,7 +348,7 @@ namespace IBMCampus
         {
             // Instanciation de la liste à retourner.
             var listeARetourner = new ObservableCollection<GroupeModel>();
-            
+
             //Récupération de tous les id.
             var listeId = await ListerTousLesIdGroupe();
 
@@ -403,24 +451,53 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task<UtilisateurProxy> RechercheUtilisateurParId(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var Url = "http://mooguer.fr/SelectUserUnique.php?";
+                var json = await _client.GetStringAsync(Url + "id=" + id);
+                var resultatApi = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(json);
+                var user = new UtilisateurProxy();
+
+                user = resultatApi.First();
+                return user;
+                //if (resultatApi != null)
+                //{
+                //    user = resultatApi;
+                //    return GroupeUser;
+
+                //}
+                //else
+                //{
+                //    MessageErreur = "Vous n'avez pas de groupe.";
+                //    return null;
+
+                //}
+            }
+            catch (Exception)
+            {
+                MessageErreur = "Problème lors de la récupération des données.";
+                return null;
+            }
+
+
         }
-
-        #endregion
-
-
-        #region Méthodes de création
-
-        public async void CreationGroupe()
-        {
-
-        }
-
-        public async void CreationEvenement()
-        {
-
-        }
-
-        #endregion
     }
+
+    #endregion
+
+
+    #region Méthodes de création
+
+    //public async void CreationGroupe()
+    //{
+
+    //}
+
+    //public async void CreationEvenement()
+    //{
+
+    //}
+
+    #endregion
 }
+

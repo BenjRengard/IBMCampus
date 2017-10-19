@@ -32,7 +32,6 @@ namespace IBMCampus
 
             UtilisateurProxy nouvelUser = new UtilisateurProxy
             {
-                usr_Id = string.Empty,
                 usr_lastname = NomUtilisateur.Text,
                 usr_firstname = PrenomUtilisateur.Text,
                 usr_mail = EMailUtilisateur.Text,

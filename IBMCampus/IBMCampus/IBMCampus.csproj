@@ -38,6 +38,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Proxies\ItinairaireProxy.cs" />
+    <Compile Include="Proxies\ListeChauffeursProxy.cs" />
+    <Compile Include="Proxies\EvenementUtilisateur.cs" />
+    <Compile Include="Proxies\ListeGroupeUtilisateurProxy.cs" />
+    <Compile Include="Proxies\PassagerVoitureProxy.cs" />
+    <Compile Include="Proxies\VoitureProxy.cs" />
+    <Compile Include="Proxies\SportProxy.cs" />
     <Compile Include="Repositories\Convertisseur.cs" />
     <Compile Include="Proxies\EvenementProxy.cs" />
     <Compile Include="Proxies\UtilisateurProxy.cs" />

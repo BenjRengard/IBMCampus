@@ -20,6 +20,7 @@
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Nom : " TextColor="Gray" FontSize="Small"/>
                                         <Label Text="{Binding usr_Id}" FontSize="Small" />
+                                        <Label Text="{Binding es_Id}" FontSize="Small" />
                                     </StackLayout>
                                     <!--<StackLayout Orientation="Horizontal">
                                         <Label Text="Prénom : " TextColor="Gray" FontSize="Small"/>
