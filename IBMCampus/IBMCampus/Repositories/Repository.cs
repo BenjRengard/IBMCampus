@@ -186,6 +186,63 @@ namespace IBMCampus
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Méthode pour récupérer les infos d'un user.
+        /// </summary>
+        /// <param name="id">Id du user</param>
+        /// <returns>Utilisateur model</returns>
+        public UtilisateurModel RecupererInfosUtilisateur(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les infos du groupe.
+        /// </summary>
+        /// <param name="id">Id du groupe</param>
+        /// <returns></returns>
+        public GroupeModel RecupererInfosGroupe(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les infos d'un évènement.
+        /// </summary>
+        /// <param name="id">Id de l'évènement</param>
+        /// <returns></returns>
+        public EvenementsModel RecupererInfosEnvement(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour lister les id des utilisateurs.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> ListerIdUtilisateur()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour lister les id des groupes.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> ListerIdGroupe()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour lister les id des évènements.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> ListerIdEvenement()
+        {
+            throw new NotImplementedException();
+        }
+
 
 
     }

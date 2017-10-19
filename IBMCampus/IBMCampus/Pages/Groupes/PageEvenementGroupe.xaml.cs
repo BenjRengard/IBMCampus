@@ -49,7 +49,7 @@ namespace IBMCampus
                     break;
                 }
             }
-            if (match == false)
+            if (!match)
             {
                 await DisplayAlert("Action", "Vous ne pouvez pas créer un évènement dans un groupe auquel nous n'appartenez pas", "OK");
             }
