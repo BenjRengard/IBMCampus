@@ -7,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace IBMCampus.Repositories
+namespace IBMCampus
 {
     public class Repository
     {
         private HttpClient _client = new HttpClient();
+        public UtilisateurModel User = new UtilisateurModel();
 
         /*
          * 
@@ -105,7 +106,7 @@ namespace IBMCampus.Repositories
 
 
 
-       
+
 
     }
 }

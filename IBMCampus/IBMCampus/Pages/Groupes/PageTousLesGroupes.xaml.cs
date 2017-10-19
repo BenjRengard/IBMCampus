@@ -24,11 +24,11 @@ namespace IBMCampus
         /// Constrcuteur obsolète
         /// </summary>
         /// <param name="repo"></param>
-        public PageTousLesGroupes(FakeRepository repo)
+        public PageTousLesGroupes(Repository repo)
         {
             InitializeComponent();
 
-            liste.ItemsSource = repo.RecupererTousLesGroupes();
+            liste.ItemsSource = new FakeRepository().RecupererTousLesGroupes();
         }
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -56,9 +56,9 @@ namespace IBMCampus
 
         public void Load()
         {
-            var repo = App.Current.BindingContext as FakeRepository;
+            var repo = App.Current.BindingContext as Repository;
             liste.ItemsSource = null;
-            liste.ItemsSource = repo.RecupererTousLesGroupes();
+            liste.ItemsSource = new FakeRepository().RecupererTousLesGroupes();
         }
 
         protected override void OnAppearing()

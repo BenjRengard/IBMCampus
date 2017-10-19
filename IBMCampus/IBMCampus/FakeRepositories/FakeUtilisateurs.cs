@@ -17,7 +17,7 @@ namespace IBMCampus
             {
                 NomUtilisateur = "Wayne",
                 PrenomUtilisateur = "Bruce",
-                AgeUtilisateur = 30,
+                //AgeUtilisateur = 30,
                 EMailUtilisateur = @"batman@batman.com",
                 MotDePasseUtilisateur = "123bat",
                 GroupesUtilisateur = new List<int> { 1, 4}
@@ -29,7 +29,7 @@ namespace IBMCampus
             {
                 NomUtilisateur = "Kent",
                 PrenomUtilisateur = "Clark",
-                AgeUtilisateur = 28,
+                //AgeUtilisateur = 28,
                 EMailUtilisateur = @"superman@batman.com",
                 MotDePasseUtilisateur = "123sm",
                 GroupesUtilisateur = new List<int> { 2 }
@@ -40,7 +40,7 @@ namespace IBMCampus
             var benj = new UtilisateurModel()
             {
                 NomUtilisateur = "Rengard",
-                AgeUtilisateur = 25,
+                //AgeUtilisateur = 25,
                 PrenomUtilisateur = "Benjamin",
                 EMailUtilisateur = @"rengard.benjamin@fauxmail.fr",
                 MotDePasseUtilisateur = "123benj",
@@ -52,7 +52,7 @@ namespace IBMCampus
             var cive = new UtilisateurModel()
             {
                 NomUtilisateur = "Cive",
-                AgeUtilisateur = 25,
+                //AgeUtilisateur = 25,
                 PrenomUtilisateur = "Jean",
                 EMailUtilisateur = @"jean.cive@test.com",
                 MotDePasseUtilisateur = "123cive",
@@ -64,7 +64,7 @@ namespace IBMCampus
             var jerome = new UtilisateurModel()
             {
                 NomUtilisateur = "Laquay",
-                AgeUtilisateur = 25,
+                //AgeUtilisateur = 25,
                 PrenomUtilisateur = "Jérôme",
                 EMailUtilisateur = @"jeromelaquay@bidon.com",
                 MotDePasseUtilisateur = "123jer",
@@ -76,7 +76,7 @@ namespace IBMCampus
             var alex = new UtilisateurModel()
             {
                 NomUtilisateur = "Moorels",
-                AgeUtilisateur = 25,
+                //AgeUtilisateur = 25,
                 PrenomUtilisateur = "Alexis",
                 EMailUtilisateur = @"alex@bidon.com",
                 MotDePasseUtilisateur = "123alex",
@@ -88,7 +88,7 @@ namespace IBMCampus
             var aurel = new UtilisateurModel()
             {
                 NomUtilisateur = "Ducloy",
-                AgeUtilisateur = 21,
+                //AgeUtilisateur = 21,
                 PrenomUtilisateur = "Aurélien",
                 EMailUtilisateur = @"aurelien@bidon.com",
                 MotDePasseUtilisateur = "123aurel",
@@ -100,7 +100,7 @@ namespace IBMCampus
             var thibaut = new UtilisateurModel()
             {
                 NomUtilisateur = "Chauchoy",
-                AgeUtilisateur = 20,
+                //AgeUtilisateur = 20,
                 PrenomUtilisateur = "Thibaut",
                 EMailUtilisateur = @"choc@bidon.com",
                 MotDePasseUtilisateur = "123thib",

@@ -33,7 +33,8 @@ namespace IBMCampus
         public PageProfilUtilisateur()
         {
             InitializeComponent();
-            var repoApp = App.Current.BindingContext as FakeRepository;
+            var repoApp = App.Current.BindingContext as Repository;
+
             BindingContext = repoApp.User;
             UtilisateurModel utilisateur = repoApp.User;
         }

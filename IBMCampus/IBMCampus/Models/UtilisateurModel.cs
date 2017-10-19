@@ -15,7 +15,7 @@ namespace IBMCampus
 
         public string PrenomUtilisateur { get; set; }
 
-        public int AgeUtilisateur { get; set; }
+        //public int AgeUtilisateur { get; set; }
 
         public string TelephoneUtilisateur { get; set; }
 
@@ -38,7 +38,7 @@ namespace IBMCampus
 
         public UtilisateurModel()
         {
-            this.AgeUtilisateur = 0;
+            //this.AgeUtilisateur = 0;
             this.EMailUtilisateur = string.Empty;
             this.EvenementsUtilisateur = new List<EvenementsModel>();
             this.GroupesUtilisateur = new List<int>();

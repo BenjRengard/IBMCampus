@@ -12,7 +12,7 @@ namespace IBMCampus
     {
 
         //public FakeRepository Repo = new FakeRepository();
-        public UtilisateurModel Repo = new UtilisateurModel();
+        public Repository Repo = new Repository();
 
 
         public App()

@@ -59,24 +59,29 @@ namespace IBMCampus
             if (_utilisateur != null)
             {
                 if (MotDePasse.Text == _utilisateur.usr_password)
-
                 {
-                    var repo = App.Current.BindingContext as UtilisateurModel;
-                    repo.NomUtilisateur = _utilisateur.usr_firstname;
-                    repo.PrenomUtilisateur = _utilisateur.usr_lastname;
-                    repo.EMailUtilisateur = _utilisateur.usr_mail;
-                    repo.TelephoneUtilisateur = _utilisateur.usr_phonenumber;
-                    repo.LocalisationUtilisateur = _utilisateur.usr_office;
-                    repo.Vehicule = Convert.ToBoolean(_utilisateur.usr_driver);
+                    var repo = App.Current.BindingContext as Repository;
+                    repo.User.NomUtilisateur = _utilisateur.usr_firstname;
+                    repo.User.PrenomUtilisateur = _utilisateur.usr_lastname;
+                    repo.User.EMailUtilisateur = _utilisateur.usr_mail;
+                    repo.User.TelephoneUtilisateur = _utilisateur.usr_phonenumber;
+                    repo.User.LocalisationUtilisateur = _utilisateur.usr_office;
+                    repo.User.Vehicule = Convert.ToBoolean(_utilisateur.usr_driver);
 
                     await Navigation.PushModalAsync(new MasterDetailPage1());
                 }
+                else
+                {
+                    await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+                }
 
-                await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
 
             }
+            else
+            {
+                await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+            }
 
-            await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
         }
 
 
@@ -110,8 +115,6 @@ namespace IBMCampus
 
         private async void Button_Inscription(object sender, EventArgs e)
         {
-
-            //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
             await Navigation.PushAsync(new Inscription());
         }
     }
