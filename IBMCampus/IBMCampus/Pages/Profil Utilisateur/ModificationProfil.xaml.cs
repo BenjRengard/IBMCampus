@@ -24,7 +24,7 @@ namespace IBMCampus.Pages.Profil_Utilisateur
             NomUtilisateur.Text = user.NomUtilisateur;
             PrenomUtilisateur.Text = user.PrenomUtilisateur;
             EMailUtilisateur.Text = user.EMailUtilisateur;
-            AgeUser.Text = user.AgeUtilisateur.ToString();
+            //AgeUser.Text = user.AgeUtilisateur.ToString();
             Conducteur.IsToggled = user.Vehicule;
         }
 
@@ -41,23 +41,23 @@ namespace IBMCampus.Pages.Profil_Utilisateur
             if (user.EMailUtilisateur != EMailUtilisateur.Text)
                 user.EMailUtilisateur = EMailUtilisateur.Text;
 
-            if (user.AgeUtilisateur.ToString() != AgeUser.Text)
-            {
-                int age;
-                var result = int.TryParse(AgeUser.Text, out age);
-                if (result)
-                {
-                    if (age <= 0)
-                    {
-                        await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
-                    }
-                    user.AgeUtilisateur = age;
-                }
-                else
-                {
-                    await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
-                }
-            }
+            //if (user.AgeUtilisateur.ToString() != AgeUser.Text)
+            //{
+            //    int age;
+            //    var result = int.TryParse(AgeUser.Text, out age);
+            //    if (result)
+            //    {
+            //        if (age <= 0)
+            //        {
+            //            await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
+            //        }
+            //        user.AgeUtilisateur = age;
+            //    }
+            //    else
+            //    {
+            //        await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
+            //    }
+            //}
                 
 
             if (user.Vehicule != Conducteur.IsToggled)

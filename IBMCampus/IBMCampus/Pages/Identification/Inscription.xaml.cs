@@ -29,12 +29,6 @@ namespace IBMCampus
         private async void Button_Inscription(object sender, EventArgs e)
         {
 
-            int age;
-            var result = int.TryParse(AgeUser.Text, out age);
-            if (result == false)
-            {
-                age = 0;
-            }
 
             UtilisateurTestModel nouvelUser = new UtilisateurTestModel
             {

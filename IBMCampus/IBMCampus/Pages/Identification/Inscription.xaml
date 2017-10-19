@@ -34,8 +34,8 @@
             <Entry x:Name="MdpUser1" Placeholder="Mot de passe"/>
             <Label Text="Téléphone" FontSize="Small" TextColor="DeepSkyBlue"/>
             <Entry x:Name="TelephoneUtilisateur" Keyboard="Numeric" Placeholder="Votre numéro"/>
-            <Label Text="Age" FontSize="Small" TextColor="DeepSkyBlue"/>
-            <Entry x:Name="AgeUser" Placeholder="Entrez votre age"/>
+            <!--<Label Text="Age" FontSize="Small" TextColor="DeepSkyBlue"/>
+            <Entry x:Name="AgeUser" Placeholder="Entrez votre age"/>-->
             <Label Text="Conducteur Non/Oui" FontSize="Small" TextColor="DeepSkyBlue"/>
             <Switch x:Name="Conducteur"/>
             <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
