@@ -29,9 +29,9 @@
                         <Label Text="{Binding TelephoneUtilisateur, StringFormat='Tel :  {0:F0}'}"/>
                     </StackLayout>
                 </AbsoluteLayout>
-                <!--<StackLayout VerticalOptions="End" HorizontalOptions="End">
+                <StackLayout VerticalOptions="End" HorizontalOptions="End">
                     <Button Text="test" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
-                </StackLayout>-->
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

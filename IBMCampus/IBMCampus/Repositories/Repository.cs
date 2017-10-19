@@ -25,6 +25,8 @@ namespace IBMCampus
         /// </summary>
         public UtilisateurModel User = new UtilisateurModel();
 
+        public string MessageErreur { get; set; }
+
         #region Exemple pour utiliser les api
 
         /*
@@ -220,12 +222,27 @@ namespace IBMCampus
         /// Méthode pour lister les id des utilisateurs.
         /// </summary>
         /// <returns></returns>
-        public async void ListerIdUtilisateur(List<int> ListeId)
+        public async Task<ObservableCollection<int>> ListerIdUtilisateur()
         {
-            var Url = "http://mooguer.fr/VerifUserUnique.php";
-            var controle = await _client.GetStringAsync(Url);
-            var idUser = JsonConvert.DeserializeObject<List<int>>(controle);
-            ListeId = idUser;
+            try
+            {
+                var Url = "http://mooguer.fr/SelectIdUser.php";
+                var controle = await _client.GetStringAsync(Url);
+                var Users = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(controle);
+                //ListeId = idUser;
+                var idUsers = new ObservableCollection<int>();
+                foreach (var user in Users)
+                {
+                    idUsers.Add(Convert.ToInt32(user.usr_Id));
+                }
+                return idUsers;
+            }
+            catch (Exception)
+            {
+                MessageErreur = "Problème!";
+                return null;
+            }
+           
         }
 
         /// <summary>

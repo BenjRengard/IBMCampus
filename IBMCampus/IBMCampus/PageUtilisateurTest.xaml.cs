@@ -18,7 +18,8 @@ namespace IBMCampus
     {
         private const string Url = "http://mooguer.fr/api.php";
         private HttpClient _client = new HttpClient();
-        private ObservableCollection<UtilisateurProxy> _utilisateur;
+        private ObservableCollection<UtilisateurProxy> _utilisateur = new ObservableCollection<UtilisateurProxy>();
+
 
         public PageUtilisateurTest()
         {
@@ -28,19 +29,40 @@ namespace IBMCampus
 
         protected override async void OnAppearing()
         {
-            try
+            //try
+            //{
+            //    var content = await _client.GetStringAsync(Url);
+            //    var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(content);
+            //    _utilisateur = new ObservableCollection<UtilisateurProxy>(user);
+            //    liste.ItemsSource = _utilisateur;
+            //}
+            //catch (Exception )
+            //{
+            //    await DisplayAlert("Problème", "Problème de connexion au serveur", "OK");
+            //    //throw;
+            //}
+            Repository repo = new Repository();
+            //var listeId = new List<int>();
+            //await repo.ListerIdUtilisateur(listeId);
+            var listeId = await repo.ListerIdUtilisateur();
+            //if (repo.MessageErreur != null)
+            //{
+            //    await DisplayAlert("Méthode", repo.MessageErreur, "OK");
+            //}
+            if (listeId == null)
             {
-                var content = await _client.GetStringAsync(Url);
-                var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(content);
-                _utilisateur = new ObservableCollection<UtilisateurProxy>(user);
-                liste.ItemsSource = _utilisateur;
+                await DisplayAlert(repo.MessageErreur, "Problème de connexion au serveur", "OK");
+                _utilisateur.Add(new UtilisateurProxy() { usr_Id = "Aucun résultat" });
             }
-            catch (Exception )
+            else
             {
-                await DisplayAlert("Problème", "Problème de connexion au serveur", "OK");
-                //throw;
+                foreach (var id in listeId)
+                {
+                    _utilisateur.Add(new UtilisateurProxy() { usr_Id = id.ToString() });
+                }
             }
-           
+            liste.ItemsSource = _utilisateur;
+
 
             base.OnAppearing();
         }

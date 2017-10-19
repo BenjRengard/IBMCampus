@@ -51,40 +51,49 @@ namespace IBMCampus
         {
             // Ce code fonctionne mais plante arrivé sur la MasterDetailPage1 méthode initializeComponent..
             //J'ai pas compris pq
-
-            var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
-            var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(controle);
-
-            if (user.Count > 0)
+            try
             {
-                _utilisateur = user.First();
-            }
-            
-            if (_utilisateur != null)
-            {
-                if (MotDePasse.Text == _utilisateur.usr_password)
+                var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
+                var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(controle);
+
+                if (user.Count > 0)
                 {
-                    var repo = App.Current.BindingContext as Repository;
-                    repo.User.NomUtilisateur = _utilisateur.usr_firstname;
-                    repo.User.PrenomUtilisateur = _utilisateur.usr_lastname;
-                    repo.User.EMailUtilisateur = _utilisateur.usr_mail;
-                    repo.User.TelephoneUtilisateur = _utilisateur.usr_phonenumber;
-                    repo.User.LocalisationUtilisateur = _utilisateur.usr_office;
-                    repo.User.Vehicule = Convert.ToBoolean(_utilisateur.usr_driver);
+                    _utilisateur = user.First();
+                }
 
-                    await Navigation.PushModalAsync(new MasterDetailPage1());
+                if (_utilisateur != null)
+                {
+                    if (MotDePasse.Text == _utilisateur.usr_password)
+                    {
+                        var repo = App.Current.BindingContext as Repository;
+                        repo.User.NomUtilisateur = _utilisateur.usr_firstname;
+                        repo.User.PrenomUtilisateur = _utilisateur.usr_lastname;
+                        repo.User.EMailUtilisateur = _utilisateur.usr_mail;
+                        repo.User.TelephoneUtilisateur = _utilisateur.usr_phonenumber;
+                        repo.User.LocalisationUtilisateur = _utilisateur.usr_office;
+                        repo.User.Vehicule = Convert.ToBoolean(_utilisateur.usr_driver);
+
+                        await Navigation.PushModalAsync(new MasterDetailPage1());
+                    }
+                    else
+                    {
+                        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+                    }
+
+
                 }
                 else
                 {
                     await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
                 }
-
-
             }
-            else
+            catch (Exception)
             {
-                await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+
+                await DisplayAlert("Problème de connexion", "Pas de connexion internet", "Réessayer");
+
             }
+
 
         }
 

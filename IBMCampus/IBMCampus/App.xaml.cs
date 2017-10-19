@@ -23,6 +23,8 @@ namespace IBMCampus
             BindingContext = Repo;
 
             MainPage = new NavigationPage(new Connexion());
+            //MainPage = new PageUtilisateurTest();
+
             //MainPage = new MasterDetailPage1();
         }
 
