@@ -222,13 +222,13 @@ namespace IBMCampus
         /// Méthode pour lister les id des utilisateurs.
         /// </summary>
         /// <returns></returns>
-        public async Task<ObservableCollection<int>> ListerIdUtilisateur()
+        public async Task<ObservableCollection<int>> ListerTousLesIdUtilisateur()
         {
             try
             {
                 var Url = "http://mooguer.fr/SelectIdUser.php";
-                var controle = await _client.GetStringAsync(Url);
-                var Users = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(controle);
+                var resultat = await _client.GetStringAsync(Url);
+                var Users = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(resultat);
                 //ListeId = idUser;
                 var idUsers = new ObservableCollection<int>();
                 foreach (var user in Users)
@@ -249,17 +249,40 @@ namespace IBMCampus
         /// Méthode pour lister les id des groupes.
         /// </summary>
         /// <returns></returns>
-        public List<int> ListerIdGroupe()
+        public async Task<ObservableCollection<int>> ListerTousLesIdGroupe()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
+                var resultat = await _client.GetStringAsync(Url);
+                var idGroupeSport = JsonConvert.DeserializeObject<List<GroupeProxy>>(resultat);
+                var listeIdGroupeSport = new ObservableCollection<int>();
+                foreach (var id in idGroupeSport)
+                {
+                    listeIdGroupeSport.Add(id.gs_Id);
+                }
+                return listeIdGroupeSport;
+            }
+            catch (Exception)
+            {
+
+                MessageErreur = "Problème!";
+                return null;
+            }
+           
+
         }
 
         /// <summary>
         /// Méthode pour lister les id des évènements.
         /// </summary>
         /// <returns></returns>
-        public List<int> ListerIdEvenement()
+        public async Task<List<int>> ListerTousLesIdEvenement()
         {
+            var Url = "http://mooguer.fr/SelectIdGroupeSport.php";
+            var resultat = await _client.GetStringAsync(Url);
+
+            return null;
             throw new NotImplementedException();
         }
 

@@ -44,7 +44,7 @@ namespace IBMCampus
             Repository repo = new Repository();
             //var listeId = new List<int>();
             //await repo.ListerIdUtilisateur(listeId);
-            var listeId = await repo.ListerIdUtilisateur();
+            var listeId = await repo.ListerTousLesIdUtilisateur();
             //if (repo.MessageErreur != null)
             //{
             //    await DisplayAlert("Méthode", repo.MessageErreur, "OK");

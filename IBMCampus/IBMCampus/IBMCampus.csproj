@@ -114,6 +114,7 @@
     <Compile Include="Pages\Groupes\PageTousLesGroupes.xaml.cs">
       <DependentUpon>PageTousLesGroupes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\GroupeProxy.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Pages\Regroupement de pages\TabbedPageEvenements.xaml.cs">
       <DependentUpon>TabbedPageEvenements.xaml</DependentUpon>
