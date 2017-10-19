@@ -54,8 +54,12 @@ namespace IBMCampus
 
             var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
             var user = JsonConvert.DeserializeObject<List<UtilisateurTestModel>>(controle);
-            _utilisateur = user.First();
 
+            if (user.Count > 0)
+            {
+                _utilisateur = user.First();
+            }
+            
             if (_utilisateur != null)
             {
                 if (MotDePasse.Text == _utilisateur.usr_password)
