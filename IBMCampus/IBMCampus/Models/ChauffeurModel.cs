@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace IBMCampus.Models
+namespace IBMCampus
 {
     public class ChauffeurModel : ContentPage
     {

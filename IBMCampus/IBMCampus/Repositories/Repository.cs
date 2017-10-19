@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -9,10 +10,22 @@ using System.Threading.Tasks;
 
 namespace IBMCampus
 {
+    /// <summary>
+    /// Repository de la totalité de l'application. Possède des méthodes pour récupérer les informations des api et les objets de session pour l'application.
+    /// </summary>
     public class Repository
     {
+        /// <summary>
+        /// Client pour utilisation des api.
+        /// </summary>
         private HttpClient _client = new HttpClient();
+
+        /// <summary>
+        /// Utilisateur enregistré dans l'application après la connexion.
+        /// </summary>
         public UtilisateurModel User = new UtilisateurModel();
+
+        #region Exemple pour utiliser les api
 
         /*
          * 
@@ -104,7 +117,66 @@ namespace IBMCampus
         * 
         */
 
+        #endregion
 
+        /// <summary>
+        /// Méthode pour récupérer les groupes de l'utilisateur
+        /// </summary>
+        /// <param name="user">Utilisateur</param>
+        /// <returns>Liste en observablecollection de groupes models</returns>
+        public ObservableCollection<GroupeModel> RecupererGroupesUtilisateur(UtilisateurModel user)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer tous les groupes à afficher (on ne gèrera pas la limitation pour le moment)
+        /// </summary>
+        /// <returns>Liste en observablecollection de groupemodel</returns>
+        public ObservableCollection<GroupeModel> RecupererTousLesGroupes()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer tous les chauffeurs inscrits.
+        /// </summary>
+        /// <returns>Liste en observablecollection de chauffeurmodel.</returns>
+        public ObservableCollection<ChauffeurModel> RecupererTousChauffeurs()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer tous les évènements à afficher (on ne gèrera pas la limitation pour le moment).
+        /// </summary>
+        /// <returns>Liste en observablecollection d'evenementmodel.</returns>
+        public ObservableCollection<EvenementsModel> RecupererTousLesEvents()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer tous les évènements d'un utilisateur (on ne gèrera pas la limitation pour le moment).
+        /// </summary>
+        /// <param name="user">Utilisateur</param>
+        /// <returns>Liste en observablecollection d'evenementmodel. A ranger si possible du plus récent au plus ancien.</returns>
+        public ObservableCollection<EvenementsModel> RecupererEvenementUtilisateur(UtilisateurModel user)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer tous les évènements d'un groupe (on ne gèrera pas la limitation pour le moment).
+        /// </summary>
+        /// <param name="groupe">Groupe dont on veut récupérer les évènements.</param>
+        /// <returns>Liste en observablecollection d'evenementmodel. A ranger si possible du plus récent au plus ancien.</returns>
+        public ObservableCollection<EvenementsModel> RecupererEvenementGroupe(GroupeModel groupe)
+        {
+            throw new NotImplementedException();
+        }
+
+        
 
 
 
