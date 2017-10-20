@@ -29,7 +29,7 @@ namespace IBMCampus
 
         #region Repository de l'ancienne API
 
-       
+
 
         //#region Exemple pour utiliser les api
 
@@ -471,7 +471,7 @@ namespace IBMCampus
         //            MessageErreur = "Aucun utilisateur";
         //            result.Add(new UtilisateurModel());
         //        }
-                
+
         //    }
         //    catch (Exception)
         //    {
@@ -563,11 +563,46 @@ namespace IBMCampus
 
         #endregion
 
+        public async void ConnexionApplication(string email, string motDePasse)
+        {
+            var _utilisateur = new UtilisateurModel();
+            string UrlControle = "http://mooguer.fr/VerifUserUnique.php?";
 
-    }
+            var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + email + '"');
+            var user = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(controle);
+
+            if (user.Count > 0)
+            {
+                _utilisateur = user.First();
+            }
+
+            if (_utilisateur != null)
+            {
+                if (motDePasse == _utilisateur.MotDePasseUtilisateur)
+                {
+
+                    this.User.NomUtilisateur = _utilisateur.NomUtilisateur;
+                    this.User.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
+                    this.User.EMailUtilisateur = _utilisateur.EMailUtilisateur;
+                    this.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
+                    this.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
+                    this.User.Vehicule = _utilisateur.Vehicule;
+                    MessageErreur = null;
+
+                    //return _utilisateur;
+                }
+                else
+                {
+                    MessageErreur = "Le user ou le mot de passe est incorrect.";
+                }
+            }
+            else
+            {
+                MessageErreur = "Le user ou le mot de passe est incorrect.";
+            }
 
 
 
 
-}
+        }
 
