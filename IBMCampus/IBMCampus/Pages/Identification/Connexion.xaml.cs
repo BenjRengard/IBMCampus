@@ -53,41 +53,52 @@ namespace IBMCampus
 
             try
             {
-                var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
-                var user = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(controle);
+                repo.ConnexionApplication(EmailUtilisateur.Text, MotDePasse.Text);
 
-                if (user.Count > 0)
+                if (repo.MessageErreur != null)
                 {
-                    _utilisateur = user.First();
+                    await DisplayAlert("Problème de connexion", repo.MessageErreur, "Réessayer");
                 }
 
-                if (_utilisateur != null)
-                {
-                    if (MotDePasse.Text == _utilisateur.MotDePasseUtilisateur)
-                    {
+                #region Ancien code commenté
+                //var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
+                //var user = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(controle);
 
-                        repo.User.NomUtilisateur = _utilisateur.NomUtilisateur;
-                        repo.User.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
-                        repo.User.EMailUtilisateur = _utilisateur.EMailUtilisateur;
-                        repo.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
-                        repo.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
-                        repo.User.Vehicule = _utilisateur.Vehicule ;
+                //if (user.Count > 0)
+                //{
+                //    _utilisateur = user.First();
+                //}
 
-                        
+                //if (_utilisateur != null)
+                //{
+                //    if (MotDePasse.Text == _utilisateur.MotDePasseUtilisateur)
+                //    {
 
-                        await Navigation.PushModalAsync(new MasterDetailPage1());
-                    }
-                    else
-                    {
-                        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
-                    }
+                //        repo.User.NomUtilisateur = _utilisateur.NomUtilisateur;
+                //        repo.User.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
+                //        repo.User.EMailUtilisateur = _utilisateur.EMailUtilisateur;
+                //        repo.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
+                //        repo.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
+                //        repo.User.Vehicule = _utilisateur.Vehicule ;
 
 
-                }
-                else
-                {
-                    await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
-                }
+
+                //        await Navigation.PushModalAsync(new MasterDetailPage1());
+                //    }
+                //    else
+                //    {
+                //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+                //    }
+                //}
+                //    else
+                //    {
+                //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+                //    }
+                #endregion
+
+
+
+
             }
             catch (Exception ex)
             {
