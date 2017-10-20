@@ -12,7 +12,7 @@ namespace IBMCampus
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageGroupesDeLUtilisateur : ContentPage
     {
-        #region Filds de la page
+        #region Fields de la page
 
         /// <summary>
         /// Utilisateur si en consultation.
