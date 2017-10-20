@@ -63,7 +63,7 @@ namespace IBMCampus
             //        _utilisateur.Add(new UtilisateurProxy() { usr_Id = id });
             //    }
             //}
-
+            
 
             //liste.ItemsSource = _utilisateur;
 

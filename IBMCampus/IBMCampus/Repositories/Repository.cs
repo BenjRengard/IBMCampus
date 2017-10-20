@@ -564,6 +564,7 @@ namespace IBMCampus
         #endregion
 
 
+        
         public async Task<UtilisateurModel> ConnexionApplication(string email, string motDePasse)
         {
             try
@@ -605,6 +606,36 @@ namespace IBMCampus
                     MessageErreur = "Le user ou le mot de passe est incorrect.";
                     return null;
                 }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageErreur = "Problème lors de la récupération des données.";
+                return null;
+
+            }
+
+        }
+
+
+        public async Task<ObservableCollection<GroupeModel>> RecupererGroupeUser(string idUser)
+        {
+            try
+            {
+                var _groupe = new ObservableCollection<GroupeModel>();
+                string UrlControle = "http://mooguer.fr/SelectGroupeUser.php?";
+
+                var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUser + '"');
+                var groupe = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
+
+                if (groupe.Count > 0)
+                {
+                    _groupe = groupe;
+                }
+
+                return _groupe;
 
 
             }
