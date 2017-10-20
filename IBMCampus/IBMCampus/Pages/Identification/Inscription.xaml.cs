@@ -36,7 +36,7 @@ namespace IBMCampus
                 NomUtilisateur = NomUtilisateur.Text,
                 PrenomUtilisateur = PrenomUtilisateur.Text,
                 TelephoneUtilisateur = TelephoneUtilisateur.Text,
-                Vehicule = Conducteur.IsToggled
+                Vehicule = Conducteur.IsToggled.ToString()
             };
             //UtilisateurProxy nouvelUser = new UtilisateurProxy
             //{
@@ -63,7 +63,7 @@ namespace IBMCampus
             }
             else
             {
-                if (_utilisateur.Count > 0)
+                if (user.Count > 0)
                 {
                     await DisplayAlert("Problème", "Email déjà utilisé", "OK");
 
@@ -76,7 +76,7 @@ namespace IBMCampus
                 {
                     try
                     {
-                        int drive = (nouvelUser.Vehicule) ? 1 : 0;
+                        int drive = (Convert.ToBoolean(nouvelUser.Vehicule)) ? 1 : 0;
                         string content = JsonConvert.SerializeObject(nouvelUser);
                         string insert = UrlInsert + "prenom=" + nouvelUser.PrenomUtilisateur
                                           + "&nom=" + nouvelUser.NomUtilisateur

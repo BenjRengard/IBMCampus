@@ -18,15 +18,15 @@ namespace IBMCampus
         private const string UrlInsert = "http://mooguer.fr/inscription.php?";
         private const string UrlControle = "http://mooguer.fr/VerifUserUnique.php?";
         private HttpClient _client = new HttpClient();
-        private UtilisateurProxy _utilisateur;
+        private UtilisateurModel _utilisateur;
 
         //private string url = "http:/9.129.126.182/api/Profil";
         //private HttpClient _client = new HttpClient();
         public Connexion()
         {
             InitializeComponent();
-            EmailUtilisateur.Text = @"batman@batman.com";
-            MotDePasse.Text = "123bat";
+            EmailUtilisateur.Text = @"benjamin@test.com";
+            MotDePasse.Text = "0102030405";
 
         }
 
@@ -52,7 +52,7 @@ namespace IBMCampus
             try
             {
                 var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
-                var user = JsonConvert.DeserializeObject<List<UtilisateurProxy>>(controle);
+                var user = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(controle);
 
                 if (user.Count > 0)
                 {
@@ -61,15 +61,15 @@ namespace IBMCampus
 
                 if (_utilisateur != null)
                 {
-                    if (MotDePasse.Text == _utilisateur.usr_password)
+                    if (MotDePasse.Text == _utilisateur.MotDePasseUtilisateur)
                     {
-                        var repo = App.Current.BindingContext as Repository;
-                        repo.User.NomUtilisateur = _utilisateur.usr_firstname;
-                        repo.User.PrenomUtilisateur = _utilisateur.usr_lastname;
-                        repo.User.EMailUtilisateur = _utilisateur.usr_mail;
-                        repo.User.TelephoneUtilisateur = _utilisateur.usr_phonenumber;
-                        repo.User.LocalisationUtilisateur = _utilisateur.usr_office;
-                        repo.User.Vehicule = Convert.ToBoolean(_utilisateur.usr_driver);
+                        var repo = App.Current.BindingContext as UtilisateurModel;
+                        repo.NomUtilisateur = _utilisateur.NomUtilisateur;
+                        repo.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
+                        repo.EMailUtilisateur = _utilisateur.EMailUtilisateur;
+                        repo.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
+                        repo.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
+                        repo.Vehicule = _utilisateur.Vehicule ;
 
                         await Navigation.PushModalAsync(new MasterDetailPage1());
                     }
@@ -85,10 +85,10 @@ namespace IBMCampus
                     await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                await DisplayAlert("Problème de connexion", "Pas de connexion internet", "Réessayer");
+                
+                await DisplayAlert("Problème de connexion", ex.ToString(), "Réessayer");
 
             }
 

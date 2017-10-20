@@ -18,34 +18,33 @@ namespace IBMCampus
             Load();
         }
 
-        public PageGroupesDeLUtilisateur(FakeRepository repo)
+        public PageGroupesDeLUtilisateur(UtilisateurModel utilisateur)
         {
             InitializeComponent();
-            Load(repo);
+            Load(utilisateur);
         }
 
-        public PageGroupesDeLUtilisateur(UtilisateurModel user)
-        {
-            InitializeComponent();
-            var repo = App.Current.BindingContext as Repository;
+        //public PageGroupesDeLUtilisateur(UtilisateurModel user)
+        //{
+        //    InitializeComponent();
+        //    var repo = App.Current.BindingContext as UtilisateurModel;
 
-            //liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
-            liste.ItemsSource = new FakeRepository().RecupererGroupesUtilisateur(user);
-        }
+        //    //liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
+        //    //liste.ItemsSource = new FakeRepository().RecupererGroupesUtilisateur(user);
+        //}
 
         private void Load()
         {
-            var repo = App.Current.BindingContext as Repository;
-            var user = repo.User as UtilisateurModel;
+            var user = App.Current.BindingContext as UtilisateurModel;
             //liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
-            liste.ItemsSource = new FakeRepository().RecupererGroupesUtilisateur(user);
+            //liste.ItemsSource = new FakeRepository().RecupererGroupesUtilisateur(user);
         }
 
-        private void Load(FakeRepository repo)
+        private void Load(UtilisateurModel utilisateur)
         {
-            var user = repo.User as UtilisateurModel;
+            var user = utilisateur as UtilisateurModel;
             liste.ItemsSource = null;
-            liste.ItemsSource = repo.RecupererGroupesUtilisateur(user);
+            //liste.ItemsSource = utilisateur.RecupererGroupesUtilisateur(user);
         }
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)

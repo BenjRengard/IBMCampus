@@ -25,7 +25,7 @@ namespace IBMCampus.Pages.Profil_Utilisateur
             PrenomUtilisateur.Text = user.PrenomUtilisateur;
             EMailUtilisateur.Text = user.EMailUtilisateur;
             //AgeUser.Text = user.AgeUtilisateur.ToString();
-            Conducteur.IsToggled = user.Vehicule;
+            Conducteur.IsToggled = Convert.ToBoolean(user.Vehicule);
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -60,8 +60,8 @@ namespace IBMCampus.Pages.Profil_Utilisateur
             //}
                 
 
-            if (user.Vehicule != Conducteur.IsToggled)
-                user.Vehicule = Conducteur.IsToggled;
+            if (Convert.ToBoolean(user.Vehicule) != Conducteur.IsToggled)
+                user.Vehicule = Conducteur.IsToggled.ToString();
 
             await DisplayAlert("Modification du profil", "Votre profil a été modifié", "OK");
             await Navigation.PopAsync();

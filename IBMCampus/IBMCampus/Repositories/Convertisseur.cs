@@ -13,8 +13,8 @@ namespace IBMCampus
         {
             return new UtilisateurProxy()
             {
-                usr_city = model.LocalisationUtilisateur,
-                usr_driver = (model.Vehicule==true) ? 1 : 0,
+                usr_city = model.AdresseUtilisateur,
+                //usr_driver = (model.Vehicule==true) ? 1 : 0,
                 usr_firstname = model.PrenomUtilisateur,
                 usr_lastname = model.NomUtilisateur,
                 usr_mail = model.EMailUtilisateur,
