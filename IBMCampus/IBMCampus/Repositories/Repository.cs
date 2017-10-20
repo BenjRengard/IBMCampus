@@ -591,6 +591,7 @@ namespace IBMCampus
                         this.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
                         this.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
                         this.User.Vehicule = _utilisateur.Vehicule;
+                        this.User.IdUtilisateur = _utilisateur.IdUtilisateur;
                         MessageErreur = null;
 
                         return this.User;
