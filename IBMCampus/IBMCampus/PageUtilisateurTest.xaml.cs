@@ -28,7 +28,7 @@ namespace IBMCampus
 
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             //try
             //{
