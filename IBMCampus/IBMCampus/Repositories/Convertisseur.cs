@@ -4,6 +4,11 @@ namespace IBMCampus
 {
     public static class Convertisseur
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public static UtilisateurProxy ConvertirUtilisateurModelEnProxy(UtilisateurModel model)
         {
             return new UtilisateurProxy()
@@ -19,9 +24,20 @@ namespace IBMCampus
             
         }
 
+        /// <summary>
+        /// Uniquement avec EMAIL, ID, PRENOM et NOM
+        /// </summary>
+        /// <param name="proxy"></param>
+        /// <returns></returns>
         public static UtilisateurModel ConvertirUtilisateurProxyEnModel(UtilisateurProxy proxy)
         {
-            throw new NotImplementedException();
+            return new UtilisateurModel()
+            {
+                EMailUtilisateur = proxy.usr_mail,
+                IdUtilisateur = proxy.usr_Id,
+                PrenomUtilisateur = proxy.usr_firstname,
+                NomUtilisateur = proxy.usr_lastname
+            };
         }
 
         public static EvenementProxy ConvertirEvenementModelEnProxy(EvenementsModel model)
@@ -44,7 +60,13 @@ namespace IBMCampus
 
         public static GroupeModel ConvertirGroupeProxyEnModel(GroupeProxy proxy)
         {
-            throw new NotImplementedException();
+            return new GroupeModel()
+            {
+                IdGroupe = proxy.gs_Id,
+                NomGroupe = proxy.gs_Nom,
+                ParticipantsMax = proxy.gs_Nbr_Membre_Max,
+                
+            };
 
         }
     }

@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IBMCampus
+﻿namespace IBMCampus
 {
-    /// <summary>
-    /// Proxy table InscriptionGroupeSprot
-    /// </summary>
-    public class ListeGroupeUtilisateurProxy
+    public  class ListeGroupeUtilisateurProxy
     {
         /// <summary>
         /// identifiant inscription groupe
@@ -25,11 +16,5 @@ namespace IBMCampus
         /// identifiant du groupe de sport
         /// </summary>
         public int igs_gs_id { get; set; }
-
-        public ListeGroupeUtilisateurProxy()
-        {
-
-
-        }
     }
 }

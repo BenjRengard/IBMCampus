@@ -45,42 +45,42 @@ namespace IBMCampus
             Repository repo = new Repository();
             //var listeId = new List<int>();
             //await repo.ListerIdUtilisateur(listeId);
-            var listeIdUser = await repo.ListerTousLesIdUtilisateur();
-            var listeIdEvent = await repo.ListerTousLesIdEvenement();
+            //var listeIdUser = await repo.ListerTousLesIdUtilisateur();
+            //var listeIdEvent = await repo.ListerTousLesIdEvenement();
             //if (repo.MessageErreur != null)
             //{
             //    await DisplayAlert("Méthode", repo.MessageErreur, "OK");
             //}
-            if (listeIdUser == null)
-            {
-                await DisplayAlert(repo.MessageErreur, "Problème de connexion au serveur", "OK");
-                _utilisateur.Add(new UtilisateurProxy() { usr_Id = 0 });
-            }
-            else
-            {
-                foreach (var id in listeIdUser)
-                {
-                    _utilisateur.Add(new UtilisateurProxy() { usr_Id = id });
-                }
-            }
+            //if (listeIdUser == null)
+            //{
+            //    await DisplayAlert(repo.MessageErreur, "Problème de connexion au serveur", "OK");
+            //    _utilisateur.Add(new UtilisateurProxy() { usr_Id = 0 });
+            //}
+            //else
+            //{
+            //    foreach (var id in listeIdUser)
+            //    {
+            //        _utilisateur.Add(new UtilisateurProxy() { usr_Id = id });
+            //    }
+            //}
 
 
-            liste.ItemsSource = _utilisateur;
+            //liste.ItemsSource = _utilisateur;
 
-            if (listeIdEvent == null)
-            {
-                await DisplayAlert(repo.MessageErreur, "Problème de connexion au serveur", "OK");
-                _evenement.Add(new EvenementProxy() { es_Id = 0 });
-            }
-            else
-            {
-                foreach (var id in listeIdEvent)
-                {
-                    _evenement.Add(new EvenementProxy() { es_Id = id });
-                }
-            }
+            //if (listeIdEvent == null)
+            //{
+            //    await DisplayAlert(repo.MessageErreur, "Problème de connexion au serveur", "OK");
+            //    _evenement.Add(new EvenementProxy() { es_Id = 0 });
+            //}
+            //else
+            //{
+            //    foreach (var id in listeIdEvent)
+            //    {
+            //        _evenement.Add(new EvenementProxy() { es_Id = id });
+            //    }
+            //}
 
-            liste.ItemsSource = _evenement;
+            //liste.ItemsSource = _evenement;
             base.OnAppearing();
         }
 

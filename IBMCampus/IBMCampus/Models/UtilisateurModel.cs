@@ -25,7 +25,7 @@ namespace IBMCampus
 
         public List<int> SportsUtilisateur { get; set; }
 
-        public List<EvenementsModel> EvenementsUtilisateur { get; set; }
+        //public List<EvenementsModel> EvenementsUtilisateur { get; set; }
 
         public string LocalisationUtilisateur { get; set; }
 
@@ -40,7 +40,7 @@ namespace IBMCampus
         {
             //this.AgeUtilisateur = 0;
             this.EMailUtilisateur = string.Empty;
-            this.EvenementsUtilisateur = new List<EvenementsModel>();
+            //this.EvenementsUtilisateur = new List<EvenementsModel>();
             this.GroupesUtilisateur = new List<int>();
             this.LocalisationUtilisateur = string.Empty;
 

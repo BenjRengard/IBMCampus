@@ -30,6 +30,11 @@
         /// </summary>
         public string gs_Jour_Prefere { get; set; }
 
+        /// <summary>
+        /// Nom du groupe
+        /// </summary>
+        public string gs_Nom { get; set; }
+
         public GroupeProxy()
         {
 

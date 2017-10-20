@@ -41,7 +41,6 @@
     <Compile Include="Proxies\ItinairaireProxy.cs" />
     <Compile Include="Proxies\ListeChauffeursProxy.cs" />
     <Compile Include="Proxies\EvenementUtilisateur.cs" />
-    <Compile Include="Proxies\ListeGroupeUtilisateurProxy.cs" />
     <Compile Include="Proxies\PassagerVoitureProxy.cs" />
     <Compile Include="Proxies\VoitureProxy.cs" />
     <Compile Include="Proxies\SportProxy.cs" />
@@ -124,6 +123,7 @@
       <DependentUpon>PageTousLesGroupes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Proxies\GroupeProxy.cs" />
+    <Compile Include="Proxies\ListeGroupeUtilisateurProxy.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Pages\Regroupement de pages\TabbedPageEvenements.xaml.cs">
       <DependentUpon>TabbedPageEvenements.xaml</DependentUpon>
