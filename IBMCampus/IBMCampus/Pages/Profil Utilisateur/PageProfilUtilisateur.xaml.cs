@@ -33,10 +33,10 @@ namespace IBMCampus
         public PageProfilUtilisateur()
         {
             InitializeComponent();
-            var repoApp = App.Current.BindingContext as UtilisateurModel;
+            var repoApp = App.Current.BindingContext as Repository;
 
-            BindingContext = repoApp;
-            UtilisateurModel utilisateur = repoApp;
+            BindingContext = repoApp.User;
+            UtilisateurModel utilisateur = repoApp.User;
         }
 
         public PageProfilUtilisateur(UtilisateurModel user)

@@ -563,6 +563,7 @@ namespace IBMCampus
 
         #endregion
 
+
         public async void ConnexionApplication(string email, string motDePasse)
         {
             var _utilisateur = new UtilisateurModel();
@@ -605,4 +606,6 @@ namespace IBMCampus
 
 
         }
+    }
+}
 

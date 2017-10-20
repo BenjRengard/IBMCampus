@@ -95,8 +95,12 @@ namespace IBMCampus
                 //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
                 //    }
                 #endregion
+                else
+                {
+                    App.Current.BindingContext = repo;
+                    await Navigation.PushModalAsync(new MasterDetailPage1());
 
-
+                }
 
 
             }
