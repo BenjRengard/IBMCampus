@@ -59,6 +59,10 @@ namespace IBMCampus
                 {
                     await DisplayAlert("Problème de connexion", repo.MessageErreur, "Réessayer");
                 }
+                else
+                {
+                    await Navigation.PushModalAsync(new MasterDetailPage1());
+                }
 
                 #region Ancien code commenté
                 //var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
