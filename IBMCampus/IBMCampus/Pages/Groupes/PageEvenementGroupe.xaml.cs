@@ -41,7 +41,7 @@ namespace IBMCampus
         {
             var groupe = BindingContext as GroupeModel;
             var match = false;
-            foreach (var user in groupe.UtilisateursDuGroupe)
+            foreach (var user in groupe.UtilisateurGroupe)
             {
                 if (user == repo.User)
                 {

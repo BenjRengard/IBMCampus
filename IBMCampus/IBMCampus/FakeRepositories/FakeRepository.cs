@@ -60,7 +60,7 @@ namespace IBMCampus
                 NomEvenement = "Raclette",
                 DebutEvenement = new DateTime(2017, 11, 16, 12, 30, 00),
                 FinEvenement = new DateTime(2017, 11, 16, 12, 40, 00),
-                IsRecurentHebdo = true,
+                IsRecurentHebdo = false,
                 LocalisationEvenement = "Lomme",
                 Participants = new List<UtilisateurModel>()
                 {
@@ -95,8 +95,8 @@ namespace IBMCampus
             var groupe1 = new GroupeModel()
             {
                 NomGroupe = "Groupe de rugbymen d'IBM",
-                SportDuGroupe = new SportModel() { NomSport = "Rugby" },
-                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
+                SportGroupe = new SportModel() { NomSport = "Rugby" },
+                UtilisateurGroupe = new ObservableCollection<UtilisateurModel>()
                 {
                     benj,
                     cive,
@@ -106,11 +106,11 @@ namespace IBMCampus
                 },
                 IdGroupe = 1,
                 ParticipantsMax = 10,
-                LocalisationNumero = "120",
-                LocalisationTypeVoie = "Avenue de",
-                LocalisationNomRue = "Joie",
-                LocalisationCodePostal = "59000",
-                LocalisationVille = "Lille"
+                NumeroRueGroupe = "120",
+                TypeVoieGroupe = "Avenue de",
+                NomVoieGroupe = "Joie",
+                CodePostalGroupe = "59000",
+                VilleGroupe = "Lille"
 
             };
 
@@ -119,19 +119,19 @@ namespace IBMCampus
             var groupe2 = new GroupeModel()
             {
                 NomGroupe = "Groupe de mecs qui font du Bad",
-                SportDuGroupe = new SportModel() { NomSport = "Badminton" },
-                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
+                SportGroupe = new SportModel() { NomSport = "Badminton" },
+                UtilisateurGroupe = new ObservableCollection<UtilisateurModel>()
                 {
                     superman,
                     cive
                 },
                 IdGroupe = 2,
                 ParticipantsMax = 2,
-                LocalisationNumero = "12",
-                LocalisationTypeVoie = "Rue de",
-                LocalisationNomRue = "courbier",
-                LocalisationCodePostal = "59800",
-                LocalisationVille = "Lille"
+                NumeroRueGroupe = "12",
+                TypeVoieGroupe = "Rue de",
+                NomVoieGroupe = "courbier",
+                CodePostalGroupe = "59800",
+                VilleGroupe = "Lille"
 
 
             };
@@ -141,8 +141,8 @@ namespace IBMCampus
             var groupe3 = new GroupeModel()
             {
                 NomGroupe = "Les footeux",
-                SportDuGroupe = new SportModel() { NomSport = "Football" },
-                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
+                SportGroupe = new SportModel() { NomSport = "Football" },
+                UtilisateurGroupe = new ObservableCollection<UtilisateurModel>()
                 {
                    aurel,
                    thibaut,
@@ -158,8 +158,8 @@ namespace IBMCampus
             var groupe4 = new GroupeModel()
             {
                 NomGroupe = "Les joueurs",
-                SportDuGroupe = new SportModel() { NomSport = "Escrime" },
-                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>()
+                SportGroupe = new SportModel() { NomSport = "Escrime" },
+                UtilisateurGroupe = new ObservableCollection<UtilisateurModel>()
                 {
                    benj,
                    thibaut,

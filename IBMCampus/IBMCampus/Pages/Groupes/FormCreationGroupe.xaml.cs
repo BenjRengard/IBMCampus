@@ -34,18 +34,18 @@ namespace IBMCampus
             GroupeModel nouveauGroupe = new GroupeModel()
             {
                 NomGroupe = NomNouveauGroupe.Text,
-                SportDuGroupe = new SportModel()
+                SportGroupe = new SportModel()
                 {
                     NomSport = SportNouveauGroupe.Text
                 },
-                UtilisateursDuGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
+                UtilisateurGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
                 IdGroupe = (repo.ListeFauxGroupes.Count + 1),
                 ParticipantsMax = nbParticip,
-                LocalisationCodePostal = CodePostal.Text,
-                LocalisationNomRue = NomVoie.Text,
-                LocalisationNumero = NumeroVoie.Text,
-                LocalisationTypeVoie = TypeVoie.Text,
-                LocalisationVille = Ville.Text
+                CodePostalGroupe = CodePostal.Text,
+                NomVoieGroupe = NomVoie.Text,
+                NumeroRueGroupe = NumeroVoie.Text,
+                TypeVoieGroupe = TypeVoie.Text,
+                VilleGroupe = Ville.Text
 
             };
             repo.ListeFauxGroupes.Add(nouveauGroupe);

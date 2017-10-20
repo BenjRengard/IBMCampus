@@ -26,7 +26,7 @@ namespace IBMCampus
 
             
             utilisateur.GroupesUtilisateur.Add(groupeAffiche.IdGroupe);
-            groupeAffiche.UtilisateursDuGroupe.Add(utilisateur);
+            groupeAffiche.UtilisateurGroupe.Add(utilisateur);
 
             Load(groupeAffiche, utilisateur);
 
@@ -41,8 +41,8 @@ namespace IBMCampus
         {
 
             BindingContext = groupe;
-            listeUtilisateurGroupe.ItemsSource = groupe.UtilisateursDuGroupe;
-            if (!groupe.UtilisateursDuGroupe.Any())
+            listeUtilisateurGroupe.ItemsSource = groupe.UtilisateurGroupe;
+            if (!groupe.UtilisateurGroupe.Any())
             {
                 BoutonInscription.IsVisible = true;
                 BoutonDesinscription.IsVisible = false;
@@ -50,7 +50,7 @@ namespace IBMCampus
             else
             {
 
-                foreach (var user in groupe.UtilisateursDuGroupe)
+                foreach (var user in groupe.UtilisateurGroupe)
                 {
 
 
@@ -67,7 +67,7 @@ namespace IBMCampus
                     }
                 }
             }
-            if (groupe.ParticipantsActuels == groupe.ParticipantsMax)
+            if (groupe.ParticipantsActuelsGroupe == groupe.ParticipantsMax)
             {
                 BoutonInscription.IsVisible = false;
             }
@@ -77,7 +77,7 @@ namespace IBMCampus
         {
             var groupeAffiche = BindingContext as GroupeModel;
             var utilisateur = App.Current.BindingContext as UtilisateurModel;
-            groupeAffiche.UtilisateursDuGroupe.Remove(utilisateur);
+            groupeAffiche.UtilisateurGroupe.Remove(utilisateur);
             utilisateur.GroupesUtilisateur.Remove(groupeAffiche.IdGroupe);
 
             Load(groupeAffiche, utilisateur);

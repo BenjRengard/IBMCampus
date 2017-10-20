@@ -33,7 +33,7 @@ namespace IBMCampus
 
         public List<int> GroupesUtilisateur { get; set; }
 
-        public List<int> SportsUtilisateur { get; set; }
+        public List<int> EventUtilisateur { get; set; }
 
         public UtilisateurModel()
         {
