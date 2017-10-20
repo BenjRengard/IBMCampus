@@ -49,6 +49,8 @@ namespace IBMCampus
 
         private async void Button_Connexion(object sender, EventArgs e)
         {
+            var repo = App.Current.BindingContext as Repository;
+
             try
             {
                 var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
@@ -63,13 +65,15 @@ namespace IBMCampus
                 {
                     if (MotDePasse.Text == _utilisateur.MotDePasseUtilisateur)
                     {
-                        var repo = App.Current.BindingContext as UtilisateurModel;
-                        repo.NomUtilisateur = _utilisateur.NomUtilisateur;
-                        repo.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
-                        repo.EMailUtilisateur = _utilisateur.EMailUtilisateur;
-                        repo.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
-                        repo.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
-                        repo.Vehicule = _utilisateur.Vehicule ;
+
+                        repo.User.NomUtilisateur = _utilisateur.NomUtilisateur;
+                        repo.User.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
+                        repo.User.EMailUtilisateur = _utilisateur.EMailUtilisateur;
+                        repo.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
+                        repo.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
+                        repo.User.Vehicule = _utilisateur.Vehicule ;
+
+                        
 
                         await Navigation.PushModalAsync(new MasterDetailPage1());
                     }

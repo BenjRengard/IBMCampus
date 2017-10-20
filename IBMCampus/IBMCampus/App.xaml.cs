@@ -13,14 +13,14 @@ namespace IBMCampus
 
         //public FakeRepository Repo = new FakeRepository();
         public UtilisateurModel Utilisateur = new UtilisateurModel();
-
+        public Repository repo = new Repository();
 
         public App()
         {
             InitializeComponent();
              
             
-            BindingContext = Utilisateur;
+            BindingContext = repo;
 
             MainPage = new NavigationPage(new Connexion());
             //MainPage = new PageUtilisateurTest();
