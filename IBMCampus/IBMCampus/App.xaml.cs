@@ -11,17 +11,20 @@ namespace IBMCampus
     public partial class App : Application
     {
 
-        public FakeRepository Repo = new FakeRepository();
-        
+        //public FakeRepository Repo = new FakeRepository();
+        public UtilisateurModel Utilisateur = new UtilisateurModel();
+        public Repository repo = new Repository();
 
         public App()
         {
             InitializeComponent();
              
             
-            BindingContext = Repo;
+            BindingContext = repo;
 
             MainPage = new NavigationPage(new Connexion());
+            //MainPage = new PageUtilisateurTest();
+
             //MainPage = new MasterDetailPage1();
         }
 

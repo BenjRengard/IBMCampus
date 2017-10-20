@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IBMCampus.PageEvenementsPerso"
-             Title="Mes évèvements personnels">
+             Padding="10,20,10,10"
+             Title="Evèvements personnels">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Créer un évènement" Activated="ToolbarItem_Activated" Icon="Plus.png"/>
+        <ToolbarItem Text="Créer un évènement" Activated="ToolbarItem_Activated_1" Icon="Plus.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
 

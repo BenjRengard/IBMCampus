@@ -38,7 +38,21 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\UtilisateurTestModel.cs" />
+    <Compile Include="Proxies\ItinairaireProxy.cs" />
+    <Compile Include="Proxies\ListeChauffeursProxy.cs" />
+    <Compile Include="Proxies\EvenementUtilisateur.cs" />
+    <Compile Include="Proxies\PassagerVoitureProxy.cs" />
+    <Compile Include="Proxies\VoitureProxy.cs" />
+    <Compile Include="Proxies\SportProxy.cs" />
+    <Compile Include="Repositories\Convertisseur.cs" />
+    <Compile Include="Proxies\EvenementProxy.cs" />
+    <Compile Include="Proxies\UtilisateurProxy.cs" />
+    <Compile Include="Pages\Groupes\PageEvenementGroupe.xaml.cs">
+      <DependentUpon>PageEvenementGroupe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Evevnements\PageFormCreationEvent.xaml.cs">
+      <DependentUpon>PageFormCreationEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Covoiturage\CovoiturageChauffeur.xaml.cs">
       <DependentUpon>CovoiturageChauffeur.xaml</DependentUpon>
     </Compile>
@@ -52,17 +66,17 @@
     <Compile Include="Pages\Evevnements\PageDetailEvent.xaml.cs">
       <DependentUpon>PageDetailEvent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Evevnements\FormCreationEvent.xaml.cs">
-      <DependentUpon>FormCreationEvent.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Identification\Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
     <Compile Include="FakeRepositories\FakeUtilisateurs.cs" />
+    <Compile Include="Pages\Profil Utilisateur\ModificationProfil.xaml.cs">
+      <DependentUpon>ModificationProfil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageUtilisateurTest.xaml.cs">
       <DependentUpon>PageUtilisateurTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\GroupeTabbedPage.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\GroupeTabbedPage.xaml.cs">
       <DependentUpon>GroupeTabbedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Identification\Inscription.xaml.cs">
@@ -74,16 +88,16 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1.xaml.cs">
       <DependentUpon>MasterDetailPage1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1Detail.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Detail.xaml.cs">
       <DependentUpon>MasterDetailPage1Detail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1Master.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Master.xaml.cs">
       <DependentUpon>MasterDetailPage1Master.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\Menu\MasterDetailPage1MenuItem.cs" />
+    <Compile Include="Pages\Regroupement de pages\Menu\MasterDetailPage1MenuItem.cs" />
     <Compile Include="Models\ChauffeurModel.cs" />
     <Compile Include="Models\EvenementsModel.cs" />
     <Compile Include="Models\GroupeModel.cs" />
@@ -108,15 +122,20 @@
     <Compile Include="Pages\Groupes\PageTousLesGroupes.xaml.cs">
       <DependentUpon>PageTousLesGroupes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Proxies\GroupeProxy.cs" />
+    <Compile Include="Proxies\ListeGroupeUtilisateurProxy.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Regroupement de pages\TabbedPageEvenements.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\TabbedPageEvenements.xaml.cs">
       <DependentUpon>TabbedPageEvenements.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\TabbedPageInformationsPerso.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\TabbedPageInformationsPerso.xaml.cs">
       <DependentUpon>TabbedPageInformationsPerso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Regroupement de pages\TabbedPageUtilisateurAutre.xaml.cs">
+    <Compile Include="Pages\Regroupement de pages\TabbedPageUtilisateurAutre.xaml.cs">
       <DependentUpon>TabbedPageUtilisateurAutre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Regroupement de pages\TabbedPageDetailCompletGroupe.xaml.cs">
+      <DependentUpon>TabbedPageDetailCompletGroupe.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -211,37 +230,37 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\Menu\MasterDetailPage1.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\Menu\MasterDetailPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\Menu\MasterDetailPage1Master.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Master.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\Menu\MasterDetailPage1Detail.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\Menu\MasterDetailPage1Detail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\GroupeTabbedPage.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\GroupeTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\TabbedPageUtilisateurAutre.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageUtilisateurAutre.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\TabbedPageInformationsPerso.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageInformationsPerso.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -253,7 +272,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Regroupement de pages\TabbedPageEvenements.xaml">
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageEvenements.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -280,13 +299,31 @@
     <EmbeddedResource Include="FakeRepositories\profil.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Evevnements\FormCreationEvent.xaml">
+    <EmbeddedResource Include="Pages\Evevnements\PageDetailEvent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Evevnements\PageDetailEvent.xaml">
+    <EmbeddedResource Include="Pages\Profil Utilisateur\ModificationProfil.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Evevnements\PageFormCreationEvent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Regroupement de pages\TabbedPageDetailCompletGroupe.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Groupes\PageEvenementGroupe.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -298,10 +335,7 @@
       <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
-  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

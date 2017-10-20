@@ -15,34 +15,33 @@ namespace IBMCampus
 
         public string PrenomUtilisateur { get; set; }
 
-        public int AgeUtilisateur { get; set; }
-
-        public string TelephoneUtilisateur { get; set; }
+        //public int AgeUtilisateur { get; set; }
 
         public string EMailUtilisateur { get; set; }
 
-        public List<int> GroupesUtilisateur { get; set; }
+        public string TelephoneUtilisateur { get; set; }
 
-        public List<int> SportsUtilisateur { get; set; }
+        public string AdresseUtilisateur { get; set; }
 
-        public List<EvenementsModel> EvenementsUtilisateur { get; set; }
+        public string Vehicule { get; set; }
 
-        public string LocalisationUtilisateur { get; set; }
-
+        public int? NombrePlaceVoiture { get; set; }
 
         public string MotDePasseUtilisateur { get; set; }
 
-        public bool Vehicule { get; set; }
+        //public List<EvenementsModel> EvenementsUtilisateur { get; set; }
 
-        public int NombrePlaces { get; set; }
+        public List<int> GroupesUtilisateur { get; set; }
+
+        public List<int> EventUtilisateur { get; set; }
 
         public UtilisateurModel()
         {
-            this.AgeUtilisateur = 0;
+            //this.AgeUtilisateur = 0;
             this.EMailUtilisateur = string.Empty;
-            this.EvenementsUtilisateur = new List<EvenementsModel>();
-            this.GroupesUtilisateur = new List<int>();
-            this.LocalisationUtilisateur = string.Empty;
+            //this.EvenementsUtilisateur = new List<EvenementsModel>();
+            //this.GroupesUtilisateur = new List<int>();
+            this.AdresseUtilisateur = string.Empty;
 
         }
     }

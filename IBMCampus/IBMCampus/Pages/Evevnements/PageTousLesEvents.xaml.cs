@@ -1,5 +1,4 @@
-﻿using IBMCampus.Pages;
-using IBMCampus.Pages.Evevnements;
+﻿
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -43,7 +42,7 @@ namespace IBMCampus
 
         private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new FormCreationEvent());
+            await Navigation.PushAsync(new PageFormCreationEvent());
         }
 
         private void liste_Refreshing(object sender, EventArgs e)

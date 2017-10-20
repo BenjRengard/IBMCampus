@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace IBMCampus.Pages.Evevnements
+namespace IBMCampus
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PageDetailEvent : ContentPage

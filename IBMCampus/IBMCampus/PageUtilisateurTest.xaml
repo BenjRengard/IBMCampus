@@ -19,9 +19,10 @@
                                 <StackLayout HorizontalOptions="Start">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Nom : " TextColor="Gray" FontSize="Small"/>
-                                        <Label Text="{Binding usr_lastname}" FontSize="Small" />
+                                        <Label Text="{Binding usr_Id}" FontSize="Small" />
+                                        <Label Text="{Binding es_Id}" FontSize="Small" />
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
+                                    <!--<StackLayout Orientation="Horizontal">
                                         <Label Text="Prénom : " TextColor="Gray" FontSize="Small"/>
                                         <Label Text="{Binding usr_firstname}" TextColor="Gray" FontSize="Small"/>
                                     </StackLayout>
@@ -32,7 +33,7 @@
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Mail : " TextColor="Gray" FontSize="Small"/>
                                         <Label Text="{Binding usr_mail}" TextColor="Gray" FontSize="Small"/>
-                                    </StackLayout>
+                                    </StackLayout>-->
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

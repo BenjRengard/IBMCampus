@@ -11,7 +11,7 @@ namespace IBMCampus
     {
         public PageDetailGroupe(GroupeModel groupe)
         {
-            var AppData = App.Current.BindingContext as FakeRepository;
+            var AppData = App.Current.BindingContext as UtilisateurModel;
             var groupeAAfficher = groupe ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
             Load(groupeAAfficher, AppData);
@@ -21,14 +21,14 @@ namespace IBMCampus
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var groupeAffiche = BindingContext as GroupeModel;
-            var AppData = App.Current.BindingContext as FakeRepository;
+            var utilisateur = App.Current.BindingContext as UtilisateurModel;
             
 
             
-            AppData.User.GroupesUtilisateur.Add(groupeAffiche.IdGroupe);
-            groupeAffiche.UtilisateursDuGroupe.Add(AppData.User);
+            utilisateur.GroupesUtilisateur.Add(groupeAffiche.IdGroupe);
+            groupeAffiche.UtilisateursDuGroupe.Add(utilisateur);
 
-            Load(groupeAffiche, AppData);
+            Load(groupeAffiche, utilisateur);
 
 
             await DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
@@ -37,7 +37,7 @@ namespace IBMCampus
 
         }
 
-        public void Load(GroupeModel groupe, FakeRepository appData)
+        public void Load(GroupeModel groupe, UtilisateurModel utilisateur)
         {
 
             BindingContext = groupe;
@@ -54,7 +54,7 @@ namespace IBMCampus
                 {
 
 
-                    if (user == appData.User)
+                    if (user == utilisateur)
                     {
                         BoutonInscription.IsVisible = false;
                         BoutonDesinscription.IsVisible = true;
@@ -76,11 +76,11 @@ namespace IBMCampus
         private async void BoutonDesinscription_Clicked(object sender, EventArgs e)
         {
             var groupeAffiche = BindingContext as GroupeModel;
-            var AppData = App.Current.BindingContext as FakeRepository;
-            groupeAffiche.UtilisateursDuGroupe.Remove(AppData.User);
-            AppData.User.GroupesUtilisateur.Remove(groupeAffiche.IdGroupe);
+            var utilisateur = App.Current.BindingContext as UtilisateurModel;
+            groupeAffiche.UtilisateursDuGroupe.Remove(utilisateur);
+            utilisateur.GroupesUtilisateur.Remove(groupeAffiche.IdGroupe);
 
-            Load(groupeAffiche, AppData);
+            Load(groupeAffiche, utilisateur);
 
 
             await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");
@@ -102,9 +102,9 @@ namespace IBMCampus
         private void Refresh()
         {
             var groupeAffiche = BindingContext as GroupeModel;
-            var AppData = App.Current.BindingContext as FakeRepository;
+            var utilisateur = App.Current.BindingContext as UtilisateurModel;
             InitializeComponent();
-            Load(groupeAffiche, AppData);
+            Load(groupeAffiche, utilisateur);
         }
 
         

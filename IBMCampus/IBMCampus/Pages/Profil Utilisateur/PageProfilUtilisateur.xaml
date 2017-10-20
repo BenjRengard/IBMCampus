@@ -5,10 +5,13 @@
              Padding="10,20,10,10"
              x:Class="IBMCampus.PageProfilUtilisateur"
              Title="Profil">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Modifier Profil" Activated="ToolbarItem_Activated" Icon="iconPen.png" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
             <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White">
-                <Label Text="Informations du profil" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue" FontAttributes="Bold"/>
+                <Label Text="Nom et prénom" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue" FontAttributes="Bold"/>
 
                 <AbsoluteLayout>
                     <StackLayout Padding="20,10,20,0" >
@@ -18,11 +21,12 @@
                         <Label Text="Informations : " TextColor="DeepSkyBlue" FontSize="Medium"/>
                         <Label Text="{Binding NomUtilisateur}"/>
                         <Label Text="{Binding PrenomUtilisateur}"/>
-                        <Label Text="{Binding AgeUtilisateur, StringFormat='{0:F0} ans'}"/>
+                        <!--<Label Text="{Binding AgeUtilisateur, StringFormat='{0:F0} ans'}"/>-->
                     </StackLayout>
                     <StackLayout Padding="20,150,20,0">
                         <Label Text="Coordonnées : " TextColor="DeepSkyBlue" FontSize="Medium"/>
                         <Label Text="{Binding EMailUtilisateur, StringFormat='Mail :  {0:F0}'}"/>
+                        <Label Text="{Binding TelephoneUtilisateur, StringFormat='Tel :  {0:F0}'}"/>
                     </StackLayout>
                 </AbsoluteLayout>
                 <StackLayout VerticalOptions="End" HorizontalOptions="End">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IBMCampus.Pages.Profil_Utilisateur;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,14 +33,24 @@ namespace IBMCampus
         public PageProfilUtilisateur()
         {
             InitializeComponent();
-            var repoApp = App.Current.BindingContext as FakeRepository;
-            BindingContext = repoApp.User;
+            var repoApp = App.Current.BindingContext as UtilisateurModel;
+
+            BindingContext = repoApp;
+            UtilisateurModel utilisateur = repoApp;
         }
 
         public PageProfilUtilisateur(UtilisateurModel user)
         {
             InitializeComponent();
             BindingContext = user;
+            UtilisateurModel utilisateur = user;
+        }
+        
+
+        private async void ToolbarItem_Activated(object sender, EventArgs e)
+        {
+            var user = BindingContext as UtilisateurModel;
+            await Navigation.PushAsync(new ModificationProfil(user));
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
