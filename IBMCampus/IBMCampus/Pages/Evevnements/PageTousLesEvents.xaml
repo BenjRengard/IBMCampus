@@ -53,7 +53,7 @@
 
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Evènement hebdo : " TextColor="Gray" FontSize="Small"/>
-                                        <Label Text="{Binding IsRecurentHebdo}" TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding EventHebdo}" TextColor="Gray" FontSize="Small"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>

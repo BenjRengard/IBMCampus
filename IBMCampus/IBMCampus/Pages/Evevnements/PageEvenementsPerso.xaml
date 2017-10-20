@@ -56,7 +56,7 @@
 
                                 <StackLayout  Orientation="Horizontal">
                                     <Label Text="S'agit-il d'un évènement hebdomadaire ?" TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding IsRecurentHebdo}" TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding EventHebdo}" TextColor="Gray" FontSize="Small"/>
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
