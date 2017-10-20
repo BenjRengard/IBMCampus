@@ -53,7 +53,7 @@ namespace IBMCampus
 
             try
             {
-                repo.ConnexionApplication(EmailUtilisateur.Text, MotDePasse.Text);
+                var utilisateur = await repo.ConnexionApplication(EmailUtilisateur.Text, MotDePasse.Text);
 
                 if (repo.MessageErreur != null)
                 {
@@ -61,6 +61,7 @@ namespace IBMCampus
                 }
                 else
                 {
+                    repo.User = utilisateur;
                     await Navigation.PushModalAsync(new MasterDetailPage1());
                 }
 
@@ -99,12 +100,12 @@ namespace IBMCampus
                 //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
                 //    }
                 #endregion
-                else
-                {
-                    App.Current.BindingContext = repo;
-                    await Navigation.PushModalAsync(new MasterDetailPage1());
+                //else
+                //{
+                //    App.Current.BindingContext = repo;
+                //    await Navigation.PushModalAsync(new MasterDetailPage1());
 
-                }
+                //}
 
 
             }

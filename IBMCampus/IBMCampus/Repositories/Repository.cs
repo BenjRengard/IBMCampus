@@ -564,7 +564,7 @@ namespace IBMCampus
         #endregion
 
 
-        public async void ConnexionApplication(string email, string motDePasse)
+        public async Task<UtilisateurModel> ConnexionApplication(string email, string motDePasse)
         {
             try
             {
@@ -592,16 +592,18 @@ namespace IBMCampus
                         this.User.Vehicule = _utilisateur.Vehicule;
                         MessageErreur = null;
 
-                        //return _utilisateur;
+                        return this.User;
                     }
                     else
                     {
                         MessageErreur = "Le user ou le mot de passe est incorrect.";
+                        return null;
                     }
                 }
                 else
                 {
                     MessageErreur = "Le user ou le mot de passe est incorrect.";
+                    return null;
                 }
 
 
@@ -610,7 +612,7 @@ namespace IBMCampus
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
-                //        return null;
+                return null;
 
             }
 
