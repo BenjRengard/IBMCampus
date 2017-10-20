@@ -12,7 +12,7 @@ namespace IBMCampus
     {
 
         //public FakeRepository Repo = new FakeRepository();
-        public UtilisateurModel Utilisateur = new UtilisateurModel();
+        public Repository Data = new Repository();
 
 
         public App()
@@ -20,7 +20,7 @@ namespace IBMCampus
             InitializeComponent();
              
             
-            BindingContext = Utilisateur;
+            BindingContext = Data;
 
             MainPage = new NavigationPage(new Connexion());
             //MainPage = new PageUtilisateurTest();
