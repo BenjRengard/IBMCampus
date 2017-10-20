@@ -25,9 +25,12 @@ namespace IBMCampus
 
         public int IdEvent { get; set; }
 
-        public const string EvenHebdo = "Est un évènement hebdomadaire";
-
-        public const string EventNonHebdo = "N'est pas un évènement hébdomadaire";
+        public string EventHebdo
+        {
+            get { return IsRecurentHebdo ? "Oui" : "Non"; }
+            set { }
+        }
+        
 
         public EvenementsModel()
         {
@@ -40,6 +43,7 @@ namespace IBMCampus
             NombreParticipants = 0;
             IsRecurentHebdo = false;
             NomEvenement = string.Empty;
+            EventHebdo = string.Empty;
         }
     }
 }

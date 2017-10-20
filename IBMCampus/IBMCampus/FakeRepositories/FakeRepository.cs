@@ -60,7 +60,7 @@ namespace IBMCampus
                 NomEvenement = "Raclette",
                 DebutEvenement = new DateTime(2017, 11, 16, 12, 30, 00),
                 FinEvenement = new DateTime(2017, 11, 16, 12, 40, 00),
-                IsRecurentHebdo = true,
+                IsRecurentHebdo = false,
                 LocalisationEvenement = "Lomme",
                 Participants = new List<UtilisateurModel>()
                 {
