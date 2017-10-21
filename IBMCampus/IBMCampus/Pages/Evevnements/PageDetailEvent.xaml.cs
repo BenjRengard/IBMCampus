@@ -30,8 +30,44 @@ namespace IBMCampus
         public async Task Load(EvenementsModel evenement, UtilisateurModel utilisateur)
         {
             var LEvenement = BindingContext as EvenementsModel;
+            LEvenement.Participants = await repo.RecupererUtilisateursDunEvenement(LEvenement.IdEvent);
+            if (repo.MessageErreur != null)
+            {
+                await DisplayAlert("Participants", repo.MessageErreur, "OK");
+
+            }
 
             listeUtilisateurEvenement.ItemsSource = LEvenement.Participants;
+
+            if (!evenement.Participants.Any())
+            {
+                BoutonInscription.IsVisible = true;
+                BoutonDesinscription.IsVisible = false;
+            }
+            else
+            {
+
+                foreach (var user in evenement.Participants)
+                {
+
+
+                    if (user.IdUtilisateur == utilisateur.IdUtilisateur)
+                    {
+                        BoutonInscription.IsVisible = false;
+                        BoutonDesinscription.IsVisible = true;
+                        break;
+                    }
+                    else
+                    {
+                        BoutonInscription.IsVisible = true;
+                        BoutonDesinscription.IsVisible = false;
+                    }
+                }
+            }
+            if (evenement.NombreParticipants == evenement.NombreMaximumParticipant)
+            {
+                BoutonInscription.IsVisible = false;
+            }
         }
 
         private void Refresh()
@@ -42,9 +78,15 @@ namespace IBMCampus
             //Load(eventAffiche, AppData);
         }
 
-        private void listeUtilisateurEvenement_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void listeUtilisateurEvenement_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            if (listeUtilisateurEvenement.SelectedItem == null)
+            {
+                return;
+            }
+            var userSelected = e.SelectedItem as UtilisateurModel;
+            await Navigation.PushAsync(new TabbedPageUtilisateurAutre(userSelected));
+            listeUtilisateurEvenement.SelectedItem = null;
         }
 
         protected override async void OnAppearing()
@@ -52,6 +94,16 @@ namespace IBMCampus
             base.OnAppearing();
             var evenement = BindingContext as EvenementsModel;
             await Load(evenement, repo.User);
+        }
+
+        private void BoutonInscription_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BoutonDesinscription_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
