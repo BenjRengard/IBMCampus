@@ -63,10 +63,10 @@ namespace IBMCampus
                     {
                         DebutEvenement = DateFin.Date,
                         FinEvenement = DateFin.Date,
-                        NomEvenement = NomNouvelEvent.Text,
+                        //NomEvenement = NomNouvelEvent.Text,
                         IdGroupe = _groupeSelection.IdGroupe,
                         NombreParticipantsMax = nbParticip,
-                        IsRecurentHebdo = Switch.IsToggled,
+                        EventHebdo = Switch.IsToggled.ToString(),
                         VilleEvent = Ville.Text,
                         CodePostalEvent = CodePostal.Text,
                         NomVoieEvent = NomVoie.Text,

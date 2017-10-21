@@ -18,7 +18,7 @@ namespace IBMCampus
 
         public int NombreParticipantsMax { get; set; }
 
-        public bool IsRecurentHebdo { get; set; }
+        public int IsRecurentHebdo { get; set; }
 
         public string NumeroVoieEvent { get; set; }
 
@@ -42,11 +42,7 @@ namespace IBMCampus
         public string NomEvenement { get; set; }
         
 
-        public int EventHebdo
-        {
-            get { return IsRecurentHebdo ? 1 : 0; }
-            set { }
-        }
+        public string EventHebdo { get; set; }
         
 
         public EvenementsModel()

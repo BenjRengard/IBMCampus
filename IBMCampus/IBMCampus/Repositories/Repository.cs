@@ -1049,13 +1049,13 @@ namespace IBMCampus
             var UrlInsert = "http://mooguer.fr/InsertEventGroupe.php?";
             try
             {
-                
+                var recurence = (Convert.ToBoolean(nouvelEvenement.EventHebdo) ? 1 : 0);
                 string insert = UrlInsert + "DDebut=" + '"' 
                                   + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.DebutEvenement) + '"'
                                   + "&DFin=" + '"' + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement) +'"'
                                   + "&IdGrp=" + nouvelEvenement.IdGroupe
                                   + "&NbMax=" + nouvelEvenement.NombreParticipantsMax
-                                  + "&Hebdo=" + '"' + (nouvelEvenement.IsRecurentHebdo ? 1 : 0) + '"'
+                                  + "&Hebdo=" + '"' + recurence + '"'
                                   + "&NVoie=" + '"' + nouvelEvenement.NumeroVoieEvent + '"'
                                   + "&TVoie=" + '"' + nouvelEvenement.TypeVoieEvent + '"'
                                   + "&NomVoie=" + '"' + nouvelEvenement.NomVoieEvent + '"'
