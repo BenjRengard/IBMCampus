@@ -9,8 +9,8 @@
             <ScrollView>
                 <StackLayout>
                     <Label Text="Informations générales" FontSize="Large" TextColor="DeepSkyBlue"/>
-                    <Label Text="Nom de l'évènement" FontSize="Small" TextColor="DeepSkyBlue"/>
-                    <Entry x:Name="NomNouvelEvent" Placeholder="Entrer un nom d'évènement"/>
+                    <!--<Label Text="Nom de l'évènement" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="NomNouvelEvent" Placeholder="Entrer un nom d'évènement"/>-->
                     <Label Text="Groupe de l'évènement" FontSize="Small" TextColor="DeepSkyBlue"/>
                     <Picker Title="Groupe" SelectedIndexChanged="Picker_SelectedIndexChanged"  x:Name="DropDownGroupe">
                     </Picker>

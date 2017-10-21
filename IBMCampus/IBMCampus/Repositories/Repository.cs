@@ -1064,6 +1064,7 @@ namespace IBMCampus
 
                 var json = await _client.GetStringAsync(insert);
                 var nouveau = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
+
                 MessageErreur = null;
                 if (nouveau.Count == 0 || nouveau == null)
                 {
@@ -1072,7 +1073,9 @@ namespace IBMCampus
                 }
                 else
                 {
-                    return nouveau.First();
+                    var retour = nouveau.First();
+                    
+                    return retour;
                 }
 
             }
