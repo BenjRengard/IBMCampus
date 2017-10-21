@@ -82,7 +82,7 @@ namespace IBMCampus
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <returns></returns>
-        private async Task liste_Refreshing(object sender, EventArgs e)
+        private async void liste_Refreshing(object sender, EventArgs e)
         {
             await Load(user);
             liste.EndRefresh();
@@ -112,8 +112,15 @@ namespace IBMCampus
             }
 
             //Liste chargé avec un appel api.
-            liste.ItemsSource = await repo.RecupererGroupesUser(user.IdUtilisateur.ToString());
-            var test = 1;
+
+            var listeACharger = await repo.RecupererGroupesUser(user.IdUtilisateur.ToString());
+            
+            liste.ItemsSource = listeACharger;
+
+            if (listeACharger == null)
+            {
+                await DisplayAlert("Problème", repo.MessageErreur, "OK");
+            }
         }
 
         /// <summary>
@@ -121,7 +128,6 @@ namespace IBMCampus
         /// </summary>
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
             if (user == null)
             {
                 await Load();
@@ -131,6 +137,8 @@ namespace IBMCampus
             {
                 await Load(user);
             }
+            base.OnAppearing();
+
         }
         #endregion
 

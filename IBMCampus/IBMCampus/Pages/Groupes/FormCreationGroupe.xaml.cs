@@ -13,6 +13,12 @@ namespace IBMCampus
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FormCreationGroupe : ContentPage
     {
+        Repository repo = App.Current.BindingContext as Repository;
+
+        ObservableCollection<SportModel> _Sports = new ObservableCollection<SportModel>();
+
+        SportModel _sportSelection = null;
+
         public FormCreationGroupe()
         {
             InitializeComponent();
@@ -20,40 +26,79 @@ namespace IBMCampus
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            var repo = App.Current.BindingContext as FakeRepository;
 
             int nbParticip;
+
             var result = int.TryParse(NombreParticipantsMax.Text, out nbParticip);
 
-            if (!result)
-                nbParticip = 1;
-            
-            if (nbParticip <= 0)
-                nbParticip = 1;
-            
-            GroupeModel nouveauGroupe = new GroupeModel()
+            if (!result || nbParticip <= 0)
             {
-                NomGroupe = NomNouveauGroupe.Text,
-                SportGroupe = new SportModel()
+                await DisplayAlert("Nombre de participants", "Le nombre de participant entré est incorrect", "OK");
+            }
+            else
+            {
+                if (_sportSelection == null)
                 {
-                    NomSport = SportNouveauGroupe.Text
-                },
-                UtilisateurGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
-                IdGroupe = (repo.ListeFauxGroupes.Count + 1),
-                ParticipantsMax = nbParticip,
-                CodePostalGroupe = CodePostal.Text,
-                NomVoieGroupe = NomVoie.Text,
-                NumeroRueGroupe = NumeroVoie.Text,
-                TypeVoieGroupe = TypeVoie.Text,
-                VilleGroupe = Ville.Text
+                    await DisplayAlert("Sport du groupe", "Vous devez choisir un sport dans la liste pour finaliser la création", "OK");
 
-            };
-            repo.ListeFauxGroupes.Add(nouveauGroupe);
-            repo.User.GroupesUtilisateur.Add(nouveauGroupe.IdGroupe);
-            App.Current.BindingContext = repo;
-            //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-            await Navigation.PopAsync();
+                }
+                else
+                {
 
+                    GroupeModel nouveauGroupe = new GroupeModel()
+                    {
+                        NomGroupe = NomNouveauGroupe.Text,
+                        SportGroupe = _sportSelection,
+                        UtilisateurGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
+                        ParticipantsMax = nbParticip,
+                        CodePostalGroupe = CodePostal.Text,
+                        NomVoieGroupe = NomVoie.Text,
+                        NumeroRueGroupe = NumeroVoie.Text,
+                        TypeVoieGroupe = TypeVoie.Text,
+                        VilleGroupe = Ville.Text
+
+                    };
+                  
+                    await repo.CreerNouveauGroupe(nouveauGroupe);
+                    if (repo.MessageErreur != null)
+                    {
+                        await DisplayAlert("Problème!", repo.MessageErreur, "OK");
+                    }
+                    else
+                    {
+                        await repo.InscriptionGroupe(repo.User.IdUtilisateur);
+                        if (repo.MessageErreur != null)
+                        {
+                            await DisplayAlert("Problème!", repo.MessageErreur, "OK");
+                        }
+                        else
+                        {
+                        await Navigation.PopAsync();
+                        }
+
+                    }
+
+                }
+            }
+
+        }
+
+        private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var sportName = DropDownSport.Items[DropDownSport.SelectedIndex];
+
+            _sportSelection = new SportModel();
+            _sportSelection = _Sports.Single(sp => sp.NomSport == sportName);
+        }
+
+        protected override async void OnAppearing()
+        {
+            _Sports = await repo.RecupererAllSports();
+            foreach (var sport in _Sports)
+            {
+                DropDownSport.Items.Add(sport.NomSport);
+            }
+            base.OnAppearing();
         }
     }
 }

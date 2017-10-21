@@ -11,14 +11,15 @@
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
             <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White">
-                <Label Text="Nom et prénom" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue" FontAttributes="Bold"/>
+                <Label Text="Informations personnelles" HorizontalOptions="Center" FontSize="Large" TextColor="DeepSkyBlue" FontAttributes="Bold"/>
 
                 <AbsoluteLayout>
-                    <StackLayout Padding="20,10,20,0" >
-                        <Image Source="{local:ImageResource IBMCampus.FakeRepositories.profil.png}"/>
+                    <StackLayout HeightRequest="128"
+                                 WidthRequest="128">
+                        <Image Source="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/512/User-blue-icon.png"/>
                     </StackLayout>
                     <StackLayout Padding="150,10,20,0">
-                        <Label Text="Informations : " TextColor="DeepSkyBlue" FontSize="Medium"/>
+                        <Label Text="Nom et prénom : " TextColor="DeepSkyBlue" FontSize="Medium"/>
                         <Label Text="{Binding NomUtilisateur}"/>
                         <Label Text="{Binding PrenomUtilisateur}"/>
                         <!--<Label Text="{Binding AgeUtilisateur, StringFormat='{0:F0} ans'}"/>-->

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Forms.Internals;
 
 namespace IBMCampus
 {
@@ -29,6 +29,9 @@ namespace IBMCampus
         /// Message d'erreur retourné.
         /// </summary>
         public string MessageErreur { get; set; }
+
+        
+
 
         #region Repository de l'ancienne API
 
@@ -635,15 +638,16 @@ namespace IBMCampus
         /// <returns>Liste groupe utilisateur</returns>
         public async Task<ObservableCollection<GroupeModel>> RecupererGroupesUser(string idUser)
         {
+            var _groupe = new ObservableCollection<GroupeModel>();
+
             try
             {
-                var _groupe = new ObservableCollection<GroupeModel>();
                 string UrlControle = "http://mooguer.fr/SelectGroupeUser.php?";
 
                 var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUser + '"');
                 var groupe = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
 
-                if (groupe.Count > 0)
+                if (groupe.Count > 0 && groupe != null)
                 {
                     _groupe = groupe;
                 }
@@ -656,29 +660,30 @@ namespace IBMCampus
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
-                return null;
+                return _groupe = null;
 
             }
 
         }
 
 
-        public async Task<ObservableCollection<GroupeModel>> RecupererEvenementsGroupe(string idGroupe)
+        public async Task<ObservableCollection<EvenementsModel>> RecupererEvenementsGroupe(string idGroupe)
         {
+            var _evenement = new ObservableCollection<EvenementsModel>();
+
             try
             {
-                var _groupe = new ObservableCollection<GroupeModel>();
                 string UrlControle = "http://mooguer.fr/SelectEventGroupe.php?";
 
                 var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idGroupe + '"');
-                var groupe = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
+                var evenement = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(controle);
 
-                if (groupe.Count > 0)
+                if (evenement.Count > 0 && evenement != null)
                 {
-                    _groupe = groupe;
+                    _evenement = evenement;
                 }
 
-                return _groupe;
+                return _evenement;
 
 
             }
@@ -686,10 +691,111 @@ namespace IBMCampus
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
-                return null;
+                return _evenement = null;
 
             }
 
+        }
+
+        public async Task<ObservableCollection<SportModel>> RecupererAllSports()
+        {
+            //A commenter quand l'api sera opérationnelle.
+            #region Données de test
+            return new ObservableCollection<SportModel>
+            {
+                new SportModel()
+                {
+                    IdSport = 1,
+                    NomSport = "Rugby"
+                },
+                new SportModel()
+                {
+                    IdSport = 2,
+                    NomSport = "Football"
+                },
+                new SportModel()
+                {
+                    IdSport = 3,
+                    NomSport = "Badmington"
+                }
+            };
+            #endregion
+
+            //A décommenter quand l'api sera opérationnelle.
+            #region Véritable méthode
+
+            //var _sports = new ObservableCollection<SportModel>();
+
+            //try
+            //{
+            //    string UrlRecuperationSport = "http://mooguer.fr/SelectAllSports.php?";
+
+            //    var controle = await _client.GetStringAsync(UrlRecuperationSport);
+            //    var sports = JsonConvert.DeserializeObject<ObservableCollection<SportModel>>(controle);
+
+            //    if (sports.Count > 0 && sports != null)
+            //    {
+            //        _sports = sports;
+            //    }
+
+            //    return _sports;
+
+
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    MessageErreur = "Problème lors de la récupération des données.";
+            //    return _sports = null;
+
+            //}
+
+            #endregion
+        }
+
+        /// <summary>
+        /// Méthode d'insertion d'un groupe dans la base.
+        /// </summary>
+        /// <param name="nouveauGroupe">Groupe créé</param>
+        /// <returns></returns>
+        public async Task CreerNouveauGroupe(GroupeModel nouveauGroupe)
+        {
+            var UrlInsert = "http://mooguer.fr/insertGroupe.php?";
+            try
+            {
+                //int drive = (Convert.ToBoolean(nouvelUser.Vehicule)) ? 1 : 0;
+                string content = JsonConvert.SerializeObject(nouveauGroupe);
+                string insert = UrlInsert + "nom=" + nouveauGroupe.NomGroupe
+                                  + "&idSport=" + nouveauGroupe.SportGroupe.IdSport
+                                  + "&nbMax=" + nouveauGroupe.ParticipantsMax
+                                  + "&numRue=" + nouveauGroupe.NumeroRueGroupe
+                                  + "&typeVoie=" + nouveauGroupe.TypeVoieGroupe
+                                  + "&nomVoie=" + nouveauGroupe.NomVoieGroupe
+                                  + "&CP=" + nouveauGroupe.CodePostalGroupe
+                                  + "&ville=" + nouveauGroupe.VilleGroupe;
+
+                await _client.GetStringAsync(insert);
+                MessageErreur = null;
+
+            }
+            catch (Exception err)
+            {
+                Log.Warning("download", err.ToString());
+
+                MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer";
+                //await DisplayAlert("Problème", "Problème de connexion au serveur", "OK");
+                //throw;
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour inscrire le user à un groupe.
+        /// </summary>
+        /// <param name="idUtilisateur">Id de l'utilisateur de l'application.</param>
+        /// <returns></returns>
+        public async Task InscriptionGroupe(int idUtilisateur)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,38 +12,58 @@ namespace IBMCampus
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageEvenementGroupe : ContentPage
     {
-        private FakeRepository repo;
+        public UtilisateurModel User;
+
+        public GroupeModel Groupe;
+
+        Repository repo = App.Current.BindingContext as Repository;
 
         public PageEvenementGroupe(GroupeModel groupe)
         {
             InitializeComponent();
-            Load(groupe);
-           
+
             BindingContext = groupe;
         }
 
-        private void Load(GroupeModel groupe)
+        private async Task Load()
         {
-            this.repo = App.Current.BindingContext as FakeRepository;
-            liste.ItemsSource = repo.RecupererEvenementGroupe(groupe);
+            var groupe = BindingContext as GroupeModel;
+
+
+            var listeACharger = await repo.RecupererEvenementsGroupe(groupe.IdGroupe.ToString());
+            liste.ItemsSource = listeACharger;
+            if (listeACharger == null)
+            {
+                await DisplayAlert("Problème", repo.MessageErreur, "OK");
+            }
         }
 
-        private void liste_Refreshing(object sender, EventArgs e)
+        private async void liste_Refreshing(object sender, EventArgs e)
         {
+            await Load();
+            liste.IsRefreshing = false;
+        }
+
+        private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (liste.SelectedItem == null)
+            {
+                return;
+            }
+
+            var Event = e.SelectedItem as EvenementsModel;
+            await Navigation.PushAsync(new PageDetailEvent(Event));
+            liste.SelectedItem = null;
 
         }
-        
-        private void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
 
-        }
         private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
             var groupe = BindingContext as GroupeModel;
             var match = false;
             foreach (var user in groupe.UtilisateurGroupe)
             {
-                if (user == repo.User)
+                if (user.IdUtilisateur == repo.User.IdUtilisateur)
                 {
                     match = true;
                     break;
@@ -56,8 +76,16 @@ namespace IBMCampus
             else
             {
                 await Navigation.PushAsync(new PageFormCreationEvent(groupe));
-
             }
+        }
+
+
+        protected override async void OnAppearing()
+        {
+
+            await Load();
+
+            base.OnAppearing();
         }
     }
 }

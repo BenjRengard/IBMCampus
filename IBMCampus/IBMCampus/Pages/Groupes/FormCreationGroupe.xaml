@@ -5,28 +5,38 @@
              x:Class="IBMCampus.FormCreationGroupe"
              Title="Créer un groupe">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
-            <TableView Intent="Form">
-                <TableRoot>
-                    <TableSection Title="Informations générales">
-                        <EntryCell x:Name="NomNouveauGroupe" Label="Nom" Placeholder="Entrer un nom de groupe"/>
-                        <EntryCell x:Name="SportNouveauGroupe" Label="Sport" Placeholder="Entrer un nom d'un sport"/>
-                    </TableSection>
-                    <TableSection Title="Information membres">
-                        <EntryCell x:Name="NombreParticipantsMax" Label="Participants max" Placeholder="Nombre de participants" Keyboard="Numeric"/>
-                    </TableSection>
-                    <TableSection Title="Localisation privilégiée">
-                        <EntryCell x:Name="NumeroVoie" Label="Numéro de la voie" Placeholder="100"/>
-                        <EntryCell x:Name="TypeVoie" Label="Type de la voie" Placeholder="Rue de" />
-                        <EntryCell x:Name="NomVoie" Label="Nom de la voie" Placeholder="joie" />
-                        <EntryCell x:Name="CodePostal" Label="Code postal" Placeholder="75000" />
-                        <EntryCell x:Name="Ville" Label="Ville" Placeholder="Paris" />
-                    </TableSection>
-                </TableRoot>
-            </TableView>
-            <StackLayout VerticalOptions="End" HorizontalOptions="End">
-                <Button Text="Enregistrer" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+        <ScrollView VerticalOptions="FillAndExpand" BackgroundColor="White" Orientation="Vertical">
+            <StackLayout VerticalOptions="FillAndExpand">
+
+                <Label Text="Informations générales" FontSize="Large" TextColor="DeepSkyBlue"/>
+                <Label Text="Sport" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Picker Title="Sport" SelectedIndexChanged="Picker_SelectedIndexChanged" x:Name="DropDownSport">
+                </Picker>
+                <Label Text="Nom" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Entry x:Name="NomNouveauGroupe" Placeholder="Entrer un nom de groupe"/>
+
+
+                <Label Text="Participants" FontSize="Large" TextColor="DeepSkyBlue"/>
+                <Label Text="Nombre de participants maximum" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Entry x:Name="NombreParticipantsMax" Placeholder="Nombre de participants" Keyboard="Numeric"/>
+
+
+                <Label Text="Localisation privilégiée" FontSize="Large" TextColor="DeepSkyBlue"/>
+                <Label Text="Numéro de la voie" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Entry x:Name="NumeroVoie"  Placeholder="100"/>
+                <Label Text="Type de la voie" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Entry x:Name="TypeVoie" Placeholder="Rue de" />
+                <Label Text="Nom de la voie" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Entry x:Name="NomVoie" Placeholder="joie" />
+                <Label Text="Code Postal" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Entry x:Name="CodePostal" Placeholder="75000" />
+                <Label Text="Ville" FontSize="Small" TextColor="DeepSkyBlue"/>
+                <Entry x:Name="Ville" Placeholder="Paris" />
+
+                <StackLayout VerticalOptions="End" HorizontalOptions="End">
+                    <Button Text="Enregistrer" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
