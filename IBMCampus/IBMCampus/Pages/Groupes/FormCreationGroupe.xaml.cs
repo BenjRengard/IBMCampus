@@ -79,6 +79,8 @@ namespace IBMCampus
                         {
 
                             await repo.InscriptionGroupe(repo.User.IdUtilisateur, newGroupe.IdGroupe);
+
+
                             if (repo.MessageErreur != null)
                             {
                                 await DisplayAlert("Problème!", repo.MessageErreur, "OK");

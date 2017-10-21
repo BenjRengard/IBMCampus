@@ -782,19 +782,19 @@ namespace IBMCampus
             {
                 //N'a pas lieu d'être, puisqu'on ne passe pas ce json dans l'url.
                 //string content = JsonConvert.SerializeObject(nouveauGroupe);
-                string insert = UrlInsert + "NomGroupe=" + '"' + nouveauGroupe.NomGroupe + '"'  
+                string insert = UrlInsert + "NomGroupe=" + '"' + nouveauGroupe.NomGroupe + '"'
                                   + "&NbMax=" + nouveauGroupe.ParticipantsMax
-                                  + "&NRue=" + '"' + nouveauGroupe.NumeroRueGroupe + '"' 
-                                  + "&TVoie=" + '"' + nouveauGroupe.TypeVoieGroupe + '"' 
-                                  + "&NomVoie=" + '"' + nouveauGroupe.NomVoieGroupe +'"' 
-                                  + "&CP=" + '"' + nouveauGroupe.CodePostalGroupe +'"' 
-                                  + "&Ville=" + '"' + nouveauGroupe.VilleGroupe + '"' 
-                                  +"&IdSport=" + '"' + nouveauGroupe.IdSport + '"' ;
+                                  + "&NRue=" + '"' + nouveauGroupe.NumeroRueGroupe + '"'
+                                  + "&TVoie=" + '"' + nouveauGroupe.TypeVoieGroupe + '"'
+                                  + "&NomVoie=" + '"' + nouveauGroupe.NomVoieGroupe + '"'
+                                  + "&CP=" + '"' + nouveauGroupe.CodePostalGroupe + '"'
+                                  + "&Ville=" + '"' + nouveauGroupe.VilleGroupe + '"'
+                                  + "&IdSport=" + '"' + nouveauGroupe.IdSport + '"';
 
                 var json = await _client.GetStringAsync(insert);
                 var nouveau = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(json);
                 MessageErreur = null;
-                if (nouveau.Count == 0)
+                if (nouveau.Count == 0 || nouveau == null)
                 {
                     MessageErreur = "Problème lors de la récupération du nouveau groupe. Veuillez recharger la liste des groupes avant de réessayer.";
                     return null;
@@ -811,7 +811,7 @@ namespace IBMCampus
 
                 MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer";
                 return null;
-                
+
             }
         }
 
@@ -894,8 +894,8 @@ namespace IBMCampus
             var UrlInsert = "http://mooguer.fr/insertInscriptionGroupe.php?";
             try
             {
-                string insert = UrlInsert + "IdGroupe=" + idGroupe
-                                  + "&IdUser=" + idUtilisateur;
+                string insert = UrlInsert + "IdGroupe=" + '"' + idGroupe + '"'
+                                  + "&IdUser=" + '"' + idUtilisateur + '"';
 
                 await _client.GetStringAsync(insert);
                 MessageErreur = null;
@@ -905,8 +905,8 @@ namespace IBMCampus
             {
                 Log.Warning("download", err.ToString());
 
-                MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer.";
-                
+                MessageErreur = "Problème de connexion au serveur lors de l'inscription au groupe. Vérifier votre connexion. Veuillez réessayer.";
+
             }
         }
 
