@@ -949,6 +949,36 @@ namespace IBMCampus
             }
         }
 
+
+        /// <summary>
+        /// Méthode pour inscrire le user à un groupe.
+        /// </summary>
+        /// <param name="idUtilisateur">Id de l'utilisateur de l'application.</param>
+        /// <param name="idGroupe">Id du groupe auquel l'evenment est rattaché.</param>
+        /// <param name="idEvent">Id de l'évènement auquel l'utilisateur va être inscrit.</param>
+        /// <returns></returns>
+        public async Task InscriptionEvent(int idUtilisateur, int idGroupe, int idEvent)
+        {
+            var UrlInsert = "http://mooguer.fr/InsertInscriptionEvent.php?";
+            try
+            {
+                string insert = UrlInsert + "IdGroupe=" + idGroupe
+                                  + "&IdUser=" + idUtilisateur
+                                  + "&IdEvent=" + idEvent;
+
+                await _client.GetStringAsync(insert);
+                MessageErreur = null;
+
+            }
+            catch (Exception err)
+            {
+                Log.Warning("download", err.ToString());
+
+                MessageErreur = "Problème de connexion au serveur lors de l'inscription au groupe. Vérifier votre connexion. Veuillez réessayer.";
+
+            }
+        }
+
         /// <summary>
         /// Méthode pour désinscrire le user d'un groupe.
         /// </summary>
