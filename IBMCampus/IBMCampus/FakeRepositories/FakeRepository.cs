@@ -51,7 +51,7 @@ namespace IBMCampus
                 //    superman,
                 //    aurel
                 //},
-                NombreMaximumParticipant = 15,
+                NombreParticipantsMax = 15,
                 NombreParticipants = 5
             };
 
@@ -67,7 +67,7 @@ namespace IBMCampus
                 //    superman,
                 //    cive
                 //},
-                NombreMaximumParticipant = 5,
+                NombreParticipantsMax = 5,
                 NombreParticipants = 2
             };
 

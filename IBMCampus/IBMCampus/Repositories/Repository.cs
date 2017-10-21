@@ -1054,13 +1054,13 @@ namespace IBMCampus
                                   + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.DebutEvenement) + '"'
                                   + "&DFin=" + '"' + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement) +'"'
                                   + "&IdGrp=" + nouvelEvenement.IdGroupe
-                                  + "&NbMax=" + nouvelEvenement.NombreMaximumParticipant
+                                  + "&NbMax=" + nouvelEvenement.NombreParticipantsMax
                                   + "&Hebdo=" + '"' + (nouvelEvenement.IsRecurentHebdo ? 1 : 0) + '"'
-                                  + "&NVoie=" + '"' + nouvelEvenement.NumeroRueEvenement + '"'
-                                  + "&TVoie=" + '"' + nouvelEvenement.TypeVoieEvenement + '"'
-                                  + "&NomVoie=" + '"' + nouvelEvenement.NomVoieEvenement + '"'
-                                  +"&CP=" + '"' + nouvelEvenement.CodePostalEvenement + '"'
-                                  +"&Ville=" + '"' + nouvelEvenement.VilleEvenement + '"';
+                                  + "&NVoie=" + '"' + nouvelEvenement.NumeroVoieEvent + '"'
+                                  + "&TVoie=" + '"' + nouvelEvenement.TypeVoieEvent + '"'
+                                  + "&NomVoie=" + '"' + nouvelEvenement.NomVoieEvent + '"'
+                                  +"&CP=" + '"' + nouvelEvenement.CodePostalEvent + '"'
+                                  +"&Ville=" + '"' + nouvelEvenement.VilleEvent + '"';
 
                 var json = await _client.GetStringAsync(insert);
                 var nouveau = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
@@ -1099,7 +1099,7 @@ namespace IBMCampus
             {
                 string insert = UrlRemove + "IdGroupe=" + Evenement.IdGroupe
                                   + "&IdUser=" + IdUtilisateur
-                                  + "&IdEvent=" + Evenement.IdEvent;
+                                  + "&IdEvent=" + Evenement.IdEvenement;
 
                 await _client.GetStringAsync(insert);
                 MessageErreur = null;
