@@ -73,6 +73,7 @@ namespace IBMCampus
                     {
                         repo.User = utilisateur;
                         await Navigation.PushModalAsync(new MasterDetailPage1());
+                        BoutonClique = false;
                     }
 
                     #region Ancien code commenté
@@ -123,6 +124,7 @@ namespace IBMCampus
                 {
 
                     await DisplayAlert("Problème de connexion", ex.ToString(), "Réessayer");
+                    BoutonClique = false;
 
                 }
 
