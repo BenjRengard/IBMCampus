@@ -46,8 +46,8 @@ namespace IBMCampus
             {
                 return;
             }
-            var events = e.SelectedItem as EvenementsModel;
-            await Navigation.PushAsync(new PageDetailEvent(events));
+            var Event = e.SelectedItem as EvenementsModel;
+            await Navigation.PushAsync(new PageDetailEvent(Event));
             liste.SelectedItem = null;
         }
 

@@ -974,7 +974,7 @@ namespace IBMCampus
             {
                 Log.Warning("download", err.ToString());
 
-                MessageErreur = "Problème de connexion au serveur lors de l'inscription au groupe. Vérifier votre connexion. Veuillez réessayer.";
+                MessageErreur = "Problème de connexion au serveur lors de l'inscription à l'évènement. Vérifier votre connexion. Veuillez réessayer.";
 
             }
         }
@@ -1052,7 +1052,7 @@ namespace IBMCampus
                 
                 string insert = UrlInsert + "DDebut=" + '"' 
                                   + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.DebutEvenement) + '"'
-                                  + "&DFin=" + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement)
+                                  + "&DFin=" + '"' + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement) +'"'
                                   + "&IdGrp=" + nouvelEvenement.IdGroupe
                                   + "&NbMax=" + nouvelEvenement.NombreMaximumParticipant
                                   + "&Hebdo=" + '"' + (nouvelEvenement.IsRecurentHebdo ? 1 : 0) + '"'

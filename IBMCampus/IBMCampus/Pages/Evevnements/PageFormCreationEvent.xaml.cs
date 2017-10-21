@@ -84,7 +84,7 @@ namespace IBMCampus
                     else
                     {
 
-                        //await repo.InscriptionGroupe(repo.User.IdUtilisateur, newEvent.IdEvent);
+                        await repo.InscriptionEvent(repo.User.IdUtilisateur, newEvent.IdGroupe, newEvent.IdEvent);
 
 
                         if (repo.MessageErreur != null)
@@ -100,12 +100,6 @@ namespace IBMCampus
 
                     }
 
-
-                    //repo.ListeFauxEvent.Add(nouvelEvent);
-                    //repo.User.GroupesUtilisateur.Add(nouvelEvent.IdEvent);
-
-                    //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-                    //await Navigation.PopAsync();
                 }
 
             }

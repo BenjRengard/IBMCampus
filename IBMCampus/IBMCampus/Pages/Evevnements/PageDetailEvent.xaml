@@ -36,6 +36,25 @@
                     <Label Text="{Binding EventHebdo}" TextColor="Gray" FontSize="Small"/>
                 </StackLayout>
 
+                <StackLayout Padding="20, 10, 20, 10">
+                    <Label Text="Liste des utilisateurs: " FontSize="Medium" TextColor="DeepSkyBlue"/>
+                    <ListView x:Name="listeUtilisateurEvenement"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      ItemSelected="listeUtilisateurEvenement_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding NomUtilisateur} "/>
+                                        <Label Text="{Binding PrenomUtilisateur}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
