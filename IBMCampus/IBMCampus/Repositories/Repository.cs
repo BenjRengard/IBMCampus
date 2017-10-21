@@ -564,7 +564,15 @@ namespace IBMCampus
         #endregion
 
 
-        
+
+
+
+        /// <summary>
+        /// Méthode de récupération de tous les groupe d'un utilisateur
+        /// </summary>
+        /// <param name="email">Email utilisateur</param>
+        /// <param name="motDePasse">Passeword utilisateur</param>
+        /// <returns>utilisateur</returns>
         public async Task<UtilisateurModel> ConnexionApplication(string email, string motDePasse)
         {
             try
@@ -619,8 +627,42 @@ namespace IBMCampus
 
         }
 
+        /// <summary>
+        /// Méthode de récupération de tous les groupe d'un utilisateur
+        /// </summary>
+        /// <param name="idUser">id de l'utilisateur</param>
+        /// <returns>Liste groupe utilisateur</returns>
+        public async Task<ObservableCollection<GroupeModel>> RecupererGroupesUser(string idUser)
+        {
+            try
+            {
+                var _groupe = new ObservableCollection<GroupeModel>();
+                string UrlControle = "http://mooguer.fr/SelectGroupeUser.php?";
 
-        public async Task<ObservableCollection<GroupeModel>> RecupererGroupeUser(string idUser)
+                var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUser + '"');
+                var groupe = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
+
+                if (groupe.Count > 0)
+                {
+                    _groupe = groupe;
+                }
+
+                return _groupe;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageErreur = "Problème lors de la récupération des données.";
+                return null;
+
+            }
+
+        }
+
+
+        public async Task<ObservableCollection<GroupeModel>> RecupererEvenementsGroupe(string idUser)
         {
             try
             {
