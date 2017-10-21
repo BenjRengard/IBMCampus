@@ -1016,18 +1016,20 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task<EvenementsModel> CreerNouvelEvenement(EvenementsModel nouvelEvenement)
         {
-            var UrlInsert = "http://mooguer.fr/InsertGroupe.php?";
+            var UrlInsert = "http://mooguer.fr/InsertEventGroupe.php?";
             try
             {
                 
-                string insert = UrlInsert + "NomGroupe=" + '"' + nouvelEvenement.NomGroupe + '"'
-                                  + "&NbMax=" + nouvelEvenement.ParticipantsMaxGroupe
-                                  + "&NRue=" + '"' + nouvelEvenement.NumeroRueGroupe + '"'
-                                  + "&TVoie=" + '"' + nouvelEvenement.TypeVoieGroupe + '"'
-                                  + "&NomVoie=" + '"' + nouvelEvenement.NomVoieGroupe + '"'
-                                  + "&CP=" + '"' + nouvelEvenement.CodePostalGroupe + '"'
-                                  + "&Ville=" + '"' + nouvelEvenement.VilleGroupe + '"'
-                                  + "&IdSport=" + '"' + nouvelEvenement.SportGroupe.IdSport + '"';
+                string insert = UrlInsert + "DDebut=" + '"' + nouvelEvenement.DebutEvenement + '"'
+                                  + "&DFin=" + nouvelEvenement.FinEvenement
+                                  + "&IdGrp=" + nouvelEvenement.GroupeDeLevenement.IdGroupe
+                                  + "&NbMax=" + nouvelEvenement.NombreMaximumParticipant
+                                  //+ "&Hebdo=" + '"' + nouvelEvenement.IsRecurentHebdo ? 1 : 0 + '"'
+                                  + "&NVoie=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
+                                  + "&TVoie=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
+                                  + "&NomVoie=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
+                                  +"&CP=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
+                                  +"&Ville=" + '"' + nouvelEvenement.LocalisationEvenement + '"';
 
                 var json = await _client.GetStringAsync(insert);
                 var nouveau = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
