@@ -95,6 +95,10 @@ namespace IBMCampus
         protected override async void OnAppearing()
         {
             _Sports = await repo.RecupererAllSports();
+            if (_Sports == null || _Sports.Count <= 0)
+            {
+                await DisplayAlert("Problème", "Problème lors de la récupération des sports. Veuillez ressayer", "OK");
+            }
             foreach (var sport in _Sports)
             {
                 DropDownSport.Items.Add(sport.NomSport);

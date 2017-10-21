@@ -718,54 +718,54 @@ namespace IBMCampus
         {
             //A commenter quand l'api sera opérationnelle.
             #region Données de test
-            return new ObservableCollection<SportModel>
-            {
-                new SportModel()
-                {
-                    IdSport = 1,
-                    NomSport = "Rugby"
-                },
-                new SportModel()
-                {
-                    IdSport = 2,
-                    NomSport = "Football"
-                },
-                new SportModel()
-                {
-                    IdSport = 3,
-                    NomSport = "Badmington"
-                }
-            };
+            //return new ObservableCollection<SportModel>
+            //{
+            //    new SportModel()
+            //    {
+            //        IdSport = 1,
+            //        NomSport = "Rugby"
+            //    },
+            //    new SportModel()
+            //    {
+            //        IdSport = 2,
+            //        NomSport = "Football"
+            //    },
+            //    new SportModel()
+            //    {
+            //        IdSport = 3,
+            //        NomSport = "Badmington"
+            //    }
+            //};
             #endregion
 
             //A décommenter quand l'api sera opérationnelle.
             #region Véritable méthode
 
-            //var _sports = new ObservableCollection<SportModel>();
+            var _sports = new ObservableCollection<SportModel>();
 
-            //try
-            //{
-            //    string UrlRecuperationSport = "http://mooguer.fr/SelectAllSports.php?";
+            try
+            {
+                string UrlRecuperationSport = "http://mooguer.fr/SelectAllSport.php?";
 
-            //    var controle = await _client.GetStringAsync(UrlRecuperationSport);
-            //    var sports = JsonConvert.DeserializeObject<ObservableCollection<SportModel>>(controle);
+                var controle = await _client.GetStringAsync(UrlRecuperationSport);
+                var sports = JsonConvert.DeserializeObject<ObservableCollection<SportModel>>(controle);
 
-            //    if (sports.Count > 0 && sports != null)
-            //    {
-            //        _sports = sports;
-            //    }
+                if (sports.Count > 0 && sports != null)
+                {
+                    _sports = sports;
+                }
 
-            //    return _sports;
+                return _sports;
 
 
-            //}
-            //catch (Exception ex)
-            //{
+            }
+            catch (Exception ex)
+            {
 
-            //    MessageErreur = "Problème lors de la récupération des données.";
-            //    return _sports = null;
+                MessageErreur = "Problème lors de la récupération des données.";
+                return _sports = null;
 
-            //}
+            }
 
             #endregion
         }
