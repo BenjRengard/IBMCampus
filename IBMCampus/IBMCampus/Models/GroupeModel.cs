@@ -26,6 +26,8 @@ namespace IBMCampus
 
         public int IdSport { get; set; }
 
+        public string NomSport { get; set; }
+
         public string LocalisationComplete { get
             {
                 return string.Format("{0} {1} {2}\n{3} {4}", NumeroRueGroupe, TypeVoieGroupe, NomVoieGroupe, CodePostalGroupe, VilleGroupe);
