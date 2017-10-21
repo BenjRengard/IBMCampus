@@ -31,6 +31,45 @@ namespace IBMCampus
         /// Message d'erreur retourné.
         /// </summary>
         public string MessageErreur { get; set; }
+
+        public async Task<ObservableCollection<EvenementsModel>> RecupererEvenementsUtilisateur(int idUtilisateur)
+        {
+            var _evenements = new ObservableCollection<EvenementsModel>();
+
+            try
+            {
+                string UrlControle = "http://mooguer.fr/SelectGroupeUser.php?";
+
+                var json = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUtilisateur + '"');
+                var evenements = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
+
+                if (evenements.Count > 0 && evenements != null)
+                {
+                    _evenements = evenements;
+                    MessageErreur = null;
+                    //foreach (var groupe in _groupes)
+                    //{
+                    //    groupe.SportGroupe = await RecupererSportGroupe(groupe.IdGroupe);
+                    //}
+
+
+                }
+                else
+                {
+                    _evenements = null;
+                }
+                return _evenements;
+
+
+            }
+            catch (Exception)
+            {
+
+                MessageErreur = "Problème lors de la récupération des groupes.";
+                return _evenements;
+
+            }
+        }
         #endregion
 
         #region Repository de l'ancienne API
@@ -868,6 +907,11 @@ namespace IBMCampus
                 if (utilisateur.Count > 0 && utilisateur != null)
                 {
                     _utilisateurs = utilisateur;
+                    MessageErreur = null;
+                }
+                else
+                {
+                    MessageErreur = "Aucun participant pour ce groupe n'a été trouvé.";
                 }
 
                 return _utilisateurs;

@@ -105,10 +105,11 @@ namespace IBMCampus
             var LeGroupe = BindingContext as GroupeModel;
             LeGroupe.UtilisateurGroupe = await repo.RecupererUtilisateursDunGroupe(LeGroupe.IdGroupe);
             //groupe.UtilisateurGroupe = await repo.RecupererUtilisateursDunGroupe(groupe.IdGroupe);
-            if (LeGroupe.UtilisateurGroupe == null)
+            if (repo.MessageErreur != null)
             {
-                
+                await DisplayAlert("Participants", repo.MessageErreur, "OK");
             }
+
             listeUtilisateurGroupe.ItemsSource = LeGroupe.UtilisateurGroupe;
 
             if (!groupe.UtilisateurGroupe.Any())
