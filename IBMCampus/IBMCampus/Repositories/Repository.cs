@@ -789,7 +789,7 @@ namespace IBMCampus
                                   + "&NomVoie=" + '"' + nouveauGroupe.NomVoieGroupe + '"'
                                   + "&CP=" + '"' + nouveauGroupe.CodePostalGroupe + '"'
                                   + "&Ville=" + '"' + nouveauGroupe.VilleGroupe + '"'
-                                  + "&IdSport=" + '"' + nouveauGroupe.IdSport + '"';
+                                  + "&IdSport=" + '"' + nouveauGroupe.SportGroupe.IdSport + '"';
 
                 var json = await _client.GetStringAsync(insert);
                 var nouveau = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(json);
@@ -891,11 +891,11 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task InscriptionGroupe(int idUtilisateur, int idGroupe)
         {
-            var UrlInsert = "http://mooguer.fr/insertInscriptionGroupe.php?";
+            var UrlInsert = "http://mooguer.fr/InsertInscriptionGroupe.php?";
             try
             {
-                string insert = UrlInsert + "IdGroupe=" + '"' + idGroupe + '"'
-                                  + "&IdUser=" + '"' + idUtilisateur + '"';
+                string insert = UrlInsert + "IdGroupe="  + idGroupe 
+                                  + "&IdUser="  + idUtilisateur;
 
                 await _client.GetStringAsync(insert);
                 MessageErreur = null;
