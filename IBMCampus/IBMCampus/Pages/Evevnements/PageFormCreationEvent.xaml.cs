@@ -65,13 +65,13 @@ namespace IBMCampus
                         FinEvenement = DateFin.Date,
                         NomEvenement = NomNouvelEvent.Text,
                         IdGroupe = _groupeSelection.IdGroupe,
-                        NombreMaximumParticipant = nbParticip,
+                        NombreParticipantsMax = nbParticip,
                         IsRecurentHebdo = Switch.IsToggled,
-                        VilleEvenement = Ville.Text,
-                        CodePostalEvenement = CodePostal.Text,
-                        NomVoieEvenement = NomVoie.Text,
-                        NumeroRueEvenement = NumeroVoie.Text,
-                        TypeVoieEvenement = TypeVoie.Text,
+                        VilleEvent = Ville.Text,
+                        CodePostalEvent = CodePostal.Text,
+                        NomVoieEvent = NomVoie.Text,
+                        NumeroVoieEvent = NumeroVoie.Text,
+                        TypeVoieEvent = TypeVoie.Text,
                         Participants = new ObservableCollection<UtilisateurModel>() { repo.User }
 
                     };
@@ -84,7 +84,7 @@ namespace IBMCampus
                     else
                     {
 
-                        await repo.InscriptionEvent(repo.User.IdUtilisateur, newEvent.IdGroupe, newEvent.IdEvent);
+                        await repo.InscriptionEvent(repo.User.IdUtilisateur, newEvent.IdGroupe, newEvent.IdEvenement);
 
 
                         if (repo.MessageErreur != null)

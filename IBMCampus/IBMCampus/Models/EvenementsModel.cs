@@ -6,35 +6,41 @@ namespace IBMCampus
 {
     public class EvenementsModel
     {
+        public int IdEvenement { get; set; }
+
+        public string DateDebutEvent { get; set; }
+
+        public string DateFinEvent { get; set; }
+
+        public int IdGroupe { get; set; }
+
+        public int NombreParticipants { get; set; }
+
+        public int NombreParticipantsMax { get; set; }
+
+        public bool IsRecurentHebdo { get; set; }
+
+        public string NumeroVoieEvent { get; set; }
+
+        public string TypeVoieEvent { get; set; }
+
+        public string NomVoieEvent { get; set; }
+
+        public string CodePostalEvent { get; set; }
+
+        public string VilleEvent { get; set; }
+
         public DateTime DebutEvenement { get; set; }
 
         public DateTime FinEvenement { get; set; }
-
-        public int IdGroupe { get; set; }
+        
 
         public ObservableCollection<UtilisateurModel> Participants { get; set; }
 
         public string LocalisationEvenement { get; set; }
-
-        public int NombreMaximumParticipant { get; set; }
-
-        public int NombreParticipants { get; set; }
-
-        public bool IsRecurentHebdo { get; set; }
-
+        
         public string NomEvenement { get; set; }
-
-        public int IdEvent { get; set; }
-
-        public string NumeroRueEvenement { get; set; }
-
-        public string TypeVoieEvenement { get; set; }
-
-        public string NomVoieEvenement { get; set; }
-
-        public string CodePostalEvenement { get; set; }
-
-        public string VilleEvenement { get; set; }
+        
 
         public int EventHebdo
         {
@@ -50,7 +56,7 @@ namespace IBMCampus
             //GroupeDeLevenement = new GroupeModel();
             Participants = new ObservableCollection<UtilisateurModel>();
             LocalisationEvenement = string.Empty;
-            NombreMaximumParticipant = 0;
+            NombreParticipantsMax = 0;
             NombreParticipants = 0;
             IsRecurentHebdo = false;
             NomEvenement = string.Empty;
