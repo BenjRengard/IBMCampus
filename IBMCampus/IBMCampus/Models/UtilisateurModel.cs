@@ -34,7 +34,7 @@ namespace IBMCampus
 
         public ObservableCollection<GroupeModel> GroupesUtilisateur { get; set; }
 
-        public List<int> EventUtilisateur { get; set; }
+        public ObservableCollection<EvenementsModel> EventUtilisateur { get; set; }
 
         public UtilisateurModel()
         {
@@ -42,6 +42,7 @@ namespace IBMCampus
             this.EMailUtilisateur = string.Empty;
             //this.EvenementsUtilisateur = new List<EvenementsModel>();
             this.GroupesUtilisateur = new ObservableCollection<GroupeModel>();
+            this.EventUtilisateur = new ObservableCollection<EvenementsModel>();
             this.AdresseUtilisateur = string.Empty;
 
         }

@@ -29,30 +29,30 @@
 
                             <StackLayout HorizontalOptions="Start">
                                 
-                                <StackLayout Orientation="Horizontal">
+                                <!--<StackLayout Orientation="Horizontal">
                                     <Label Text="Nom de l'évènement : " TextColor="Gray" FontSize="Small"/>
                                     <Label Text="{Binding NomEvenement}" TextColor="Gray" FontSize="Small"/>
-                                </StackLayout>
+                                </StackLayout>-->
                                 
                                 <StackLayout Orientation="Horizontal">
                                     <!--<Label Text="Participants: " TextColor="Gray" FontSize="Small"/>-->
                                     <Label Text="Début de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding DebutEvenement}" TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding DateDebutEvent}" TextColor="Gray" FontSize="Small"/>
                                 </StackLayout>
                                 
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Fin de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding FinEvenement}}" TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding DateFinEvent}}" TextColor="Gray" FontSize="Small"/>
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Aura lieu à : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding LocalisationEvenement}" TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding LocalisationComplete}" TextColor="Gray" FontSize="Small"/>
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Nombre de participant(s) : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding NombreParticipants}" TextColor="Gray" FontSize="Small"/>
+                                    <Label Text="{Binding NombreParticipantsMax}" TextColor="Gray" FontSize="Small"/>
                                 </StackLayout>
 
                                 <StackLayout  Orientation="Horizontal">

@@ -38,14 +38,19 @@ namespace IBMCampus
 
             try
             {
-                string UrlControle = "http://mooguer.fr/SelectEventUser.php?";
+                string UrlControle = "http://mooguer.fr/SelectAllEventUser.php?";
 
-                var json = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUtilisateur + '"');
+                var json = await _client.GetStringAsync(UrlControle + "Id=" + idUtilisateur);
                 var evenements = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
 
                 if (evenements.Count > 0 && evenements != null)
                 {
                     _evenements = evenements;
+                    foreach (var even in _evenements)
+                    {
+                        even.DebutEvenement = Convert.ToDateTime(even.DateDebutEvent);
+                        even.FinEvenement = Convert.ToDateTime(even.DateFinEvent);
+                    }
                     MessageErreur = null;
 
                 }
@@ -57,8 +62,9 @@ namespace IBMCampus
 
 
             }
-            catch (Exception)
+            catch (Exception err)
             {
+                Log.Warning("Problème", err.Message);
 
                 MessageErreur = "Problème lors de la récupération des groupes.";
                 return _evenements;
@@ -722,12 +728,17 @@ namespace IBMCampus
             {
                 string UrlControle = "http://mooguer.fr/SelectEventGroupe.php?";
 
-                var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idGroupe + '"');
+                var controle = await _client.GetStringAsync(UrlControle + "Id=" + idGroupe);
                 var evenement = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(controle);
 
                 if (evenement.Count > 0 && evenement != null)
                 {
                     _evenement = evenement;
+                    foreach (var even in _evenement)
+                    {
+                        even.DebutEvenement = Convert.ToDateTime(even.DateDebutEvent);
+                        even.FinEvenement = Convert.ToDateTime(even.DateFinEvent);
+                    }
                 }
 
                 return _evenement;
@@ -1074,6 +1085,8 @@ namespace IBMCampus
                 else
                 {
                     var retour = nouveau.First();
+                    retour.DebutEvenement = Convert.ToDateTime(retour.DateDebutEvent);
+                    retour.FinEvenement = Convert.ToDateTime(retour.DateFinEvent);
                     
                     return retour;
                 }

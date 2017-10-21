@@ -41,7 +41,7 @@ namespace IBMCampus
                 NomEvenement = "Airsoft",
                 DebutEvenement = new DateTime(2017, 10, 16, 12, 05, 00),
                 FinEvenement = new DateTime(2017, 10, 16, 12, 05, 00),
-                IsRecurentHebdo = true,
+                //IsRecurentHebdo = true,
                 LocalisationEvenement = "Lambersart",
                 //Participants = new List<UtilisateurModel>()
                 //{
@@ -60,7 +60,7 @@ namespace IBMCampus
                 NomEvenement = "Raclette",
                 DebutEvenement = new DateTime(2017, 11, 16, 12, 30, 00),
                 FinEvenement = new DateTime(2017, 11, 16, 12, 40, 00),
-                IsRecurentHebdo = false,
+                //IsRecurentHebdo = false,
                 LocalisationEvenement = "Lomme",
                 //Participants = new List<UtilisateurModel>()
                 //{
