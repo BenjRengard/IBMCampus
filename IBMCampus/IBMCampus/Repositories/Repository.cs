@@ -25,6 +25,9 @@ namespace IBMCampus
         /// </summary>
         public UtilisateurModel User = new UtilisateurModel();
 
+        /// <summary>
+        /// Message d'erreur retourné.
+        /// </summary>
         public string MessageErreur { get; set; }
 
         #region Repository de l'ancienne API
@@ -564,15 +567,12 @@ namespace IBMCampus
         #endregion
 
 
-
-
-
         /// <summary>
-        /// Méthode de récupération de tous les groupe d'un utilisateur
+        /// Méthode pour connecter l'utilisateur et faire démarrer l'application.
         /// </summary>
-        /// <param name="email">Email utilisateur</param>
-        /// <param name="motDePasse">Passeword utilisateur</param>
-        /// <returns>utilisateur</returns>
+        /// <param name="email">Email renseigné dans la page de connexion.</param>
+        /// <param name="motDePasse">Mot de passe renseigner dans la page de connexion.</param>
+        /// <returns>Tache asynchrone récupérant un Utilisateur Model, qui représente l'utlisateur de l'application.</returns>
         public async Task<UtilisateurModel> ConnexionApplication(string email, string motDePasse)
         {
             try
@@ -599,6 +599,7 @@ namespace IBMCampus
                         this.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
                         this.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
                         this.User.Vehicule = _utilisateur.Vehicule;
+                        this.User.IdUtilisateur = _utilisateur.IdUtilisateur;
                         MessageErreur = null;
 
                         return this.User;

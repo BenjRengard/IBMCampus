@@ -25,8 +25,8 @@ namespace IBMCampus
         public Connexion()
         {
             InitializeComponent();
-            EmailUtilisateur.Text = @"benjamin@test.com";
-            MotDePasse.Text = "0102030405";
+            EmailUtilisateur.Text = @"batman@batman.com";
+            MotDePasse.Text = "123bat";
 
         }
 
