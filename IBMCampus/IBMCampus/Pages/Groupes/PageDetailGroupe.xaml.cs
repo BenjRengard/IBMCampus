@@ -124,7 +124,7 @@ namespace IBMCampus
                 {
 
 
-                    if (user == utilisateur)
+                    if (user.IdUtilisateur == utilisateur.IdUtilisateur)
                     {
                         BoutonInscription.IsVisible = false;
                         BoutonDesinscription.IsVisible = true;
