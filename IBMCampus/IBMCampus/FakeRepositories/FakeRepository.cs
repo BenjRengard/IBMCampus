@@ -43,14 +43,14 @@ namespace IBMCampus
                 FinEvenement = new DateTime(2017, 10, 16, 12, 05, 00),
                 IsRecurentHebdo = true,
                 LocalisationEvenement = "Lambersart",
-                Participants = new List<UtilisateurModel>()
-                {
-                    alex,
-                    benj,
-                    bat,
-                    superman,
-                    aurel
-                },
+                //Participants = new List<UtilisateurModel>()
+                //{
+                //    alex,
+                //    benj,
+                //    bat,
+                //    superman,
+                //    aurel
+                //},
                 NombreMaximumParticipant = 15,
                 NombreParticipants = 5
             };
@@ -62,11 +62,11 @@ namespace IBMCampus
                 FinEvenement = new DateTime(2017, 11, 16, 12, 40, 00),
                 IsRecurentHebdo = false,
                 LocalisationEvenement = "Lomme",
-                Participants = new List<UtilisateurModel>()
-                {
-                    superman,
-                    cive
-                },
+                //Participants = new List<UtilisateurModel>()
+                //{
+                //    superman,
+                //    cive
+                //},
                 NombreMaximumParticipant = 5,
                 NombreParticipants = 2
             };
