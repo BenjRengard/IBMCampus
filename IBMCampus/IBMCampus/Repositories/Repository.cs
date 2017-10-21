@@ -780,7 +780,6 @@ namespace IBMCampus
             var UrlInsert = "http://mooguer.fr/InsertGroupe.php?";
             try
             {
-                //int drive = (Convert.ToBoolean(nouvelUser.Vehicule)) ? 1 : 0;
                 string content = JsonConvert.SerializeObject(nouveauGroupe);
                 string insert = UrlInsert + "NomGroupe=" + '"' + nouveauGroupe.NomGroupe + '"'  
                                   + "&NbMax=" + nouveauGroupe.ParticipantsMax

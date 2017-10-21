@@ -19,14 +19,22 @@ namespace IBMCampus
 
         SportModel _sportSelection = null;
 
+        private bool EnregistrerClique = false;
+
         public FormCreationGroupe()
         {
             InitializeComponent();
+            EnregistrerClique = false;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-
+            if (EnregistrerClique)
+            {
+                await DisplayAlert("Enregistrement déjà effectué", @"Vous avez déjà essayer de créer le groupe. Veuillez vérifier si celui-ci n'existe pas déjà dans 'Tous les groupes'", "OK");
+                await Navigation.PopAsync();
+            }
+            EnregistrerClique = true;
             int nbParticip;
 
             var result = int.TryParse(NombreParticipantsMax.Text, out nbParticip);
@@ -58,7 +66,7 @@ namespace IBMCampus
                         VilleGroupe = Ville.Text
 
                     };
-                  
+
                     var newGroupe = await repo.CreerNouveauGroupe(nouveauGroupe);
                     if (repo.MessageErreur != null || newGroupe == null)
                     {
@@ -74,7 +82,9 @@ namespace IBMCampus
                         }
                         else
                         {
-                        await Navigation.PopAsync();
+                            await DisplayAlert("Enregistrement", string.Format("Le groupe {0} a bien été créé. Vous y êtes inscrit.", newGroupe.NomGroupe), "OK");
+                            await Navigation.PopAsync();
+                            EnregistrerClique = false;
                         }
 
                     }
