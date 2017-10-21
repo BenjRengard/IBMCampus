@@ -894,8 +894,8 @@ namespace IBMCampus
             var UrlInsert = "http://mooguer.fr/insertInscriptionGroupe.php?";
             try
             {
-                string insert = UrlInsert + "idGroupe=" + idGroupe
-                                  + "&idUtilisateur=" + idUtilisateur;
+                string insert = UrlInsert + "IdGroupe=" + idGroupe
+                                  + "&IdUser=" + idUtilisateur;
 
                 await _client.GetStringAsync(insert);
                 MessageErreur = null;
