@@ -1020,16 +1020,17 @@ namespace IBMCampus
             try
             {
                 
-                string insert = UrlInsert + "DDebut=" + '"' + nouvelEvenement.DebutEvenement + '"'
-                                  + "&DFin=" + nouvelEvenement.FinEvenement
-                                  + "&IdGrp=" + nouvelEvenement.GroupeDeLevenement.IdGroupe
+                string insert = UrlInsert + "DDebut=" + '"' 
+                                  + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.DebutEvenement) + '"'
+                                  + "&DFin=" + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement)
+                                  + "&IdGrp=" + nouvelEvenement.IdGroupe
                                   + "&NbMax=" + nouvelEvenement.NombreMaximumParticipant
-                                  //+ "&Hebdo=" + '"' + nouvelEvenement.IsRecurentHebdo ? 1 : 0 + '"'
-                                  + "&NVoie=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
-                                  + "&TVoie=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
-                                  + "&NomVoie=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
-                                  +"&CP=" + '"' + nouvelEvenement.LocalisationEvenement + '"'
-                                  +"&Ville=" + '"' + nouvelEvenement.LocalisationEvenement + '"';
+                                  + "&Hebdo=" + '"' + (nouvelEvenement.IsRecurentHebdo ? 1 : 0) + '"'
+                                  + "&NVoie=" + '"' + nouvelEvenement.NumeroRueEvenement + '"'
+                                  + "&TVoie=" + '"' + nouvelEvenement.TypeVoieEvenement + '"'
+                                  + "&NomVoie=" + '"' + nouvelEvenement.NomVoieEvenement + '"'
+                                  +"&CP=" + '"' + nouvelEvenement.CodePostalEvenement + '"'
+                                  +"&Ville=" + '"' + nouvelEvenement.VilleEvenement + '"';
 
                 var json = await _client.GetStringAsync(insert);
                 var nouveau = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);

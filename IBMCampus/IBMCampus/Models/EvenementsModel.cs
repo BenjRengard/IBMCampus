@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace IBMCampus
 {
@@ -9,9 +10,9 @@ namespace IBMCampus
 
         public DateTime FinEvenement { get; set; }
 
-        public GroupeModel GroupeDeLevenement { get; set; }
+        public int IdGroupe { get; set; }
 
-        public List<UtilisateurModel> Participants { get; set; }
+        public ObservableCollection<UtilisateurModel> Participants { get; set; }
 
         public string LocalisationEvenement { get; set; }
 
@@ -25,9 +26,19 @@ namespace IBMCampus
 
         public int IdEvent { get; set; }
 
-        public string EventHebdo
+        public string NumeroRueEvenement { get; set; }
+
+        public string TypeVoieEvenement { get; set; }
+
+        public string NomVoieEvenement { get; set; }
+
+        public string CodePostalEvenement { get; set; }
+
+        public string VilleEvenement { get; set; }
+
+        public int EventHebdo
         {
-            get { return IsRecurentHebdo ? "Oui" : "Non"; }
+            get { return IsRecurentHebdo ? 1 : 0; }
             set { }
         }
         
@@ -36,14 +47,14 @@ namespace IBMCampus
         {
             DebutEvenement = new DateTime();
             FinEvenement = new DateTime();
-            GroupeDeLevenement = new GroupeModel();
-            Participants = new List<UtilisateurModel>();
+            //GroupeDeLevenement = new GroupeModel();
+            Participants = new ObservableCollection<UtilisateurModel>();
             LocalisationEvenement = string.Empty;
             NombreMaximumParticipant = 0;
             NombreParticipants = 0;
             IsRecurentHebdo = false;
             NomEvenement = string.Empty;
-            EventHebdo = string.Empty;
+            //EventHebdo = string.Empty;
         }
     }
 }

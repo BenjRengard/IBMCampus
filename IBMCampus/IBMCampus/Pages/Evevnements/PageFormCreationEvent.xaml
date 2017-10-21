@@ -5,24 +5,40 @@
              Title="Créer un évènement">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
-            <TableView Intent="Form">
-                <TableRoot>
-                    <TableSection Title="Informations générales">
-                        <EntryCell x:Name="NomNouvelEvent" Label="Nom" Placeholder="Entrer un nom d'évènement"/>
-                        <EntryCell x:Name="GroupeEvent" Label="Groupe" Placeholder="Entrer le nom d'un groupe"/>
-                    </TableSection>
-                    <TableSection Title="Information membres">
-                        <EntryCell x:Name="NombreParticipantsMax" Label="Participants max" Placeholder="Nombre de participants" Keyboard="Numeric"/>
-                    </TableSection>
-                    <TableSection Title="Autres informations">
-                        <EntryCell x:Name="EventDebut" Label="Début de l'évènement" Placeholder="27/10/2057"/>
-                        <EntryCell x:Name="EventFin" Label="Type de la voie" Placeholder="28/10/2058"/>
-                        <EntryCell x:Name="Lieu" Label="Lieu" Placeholder="Lomme" />
-                        <!--<Label Text="Cet évènement est récurrent ?"/>
-                        <Switch x:Name="Hebdo" HorizontalOptions="Center"/>-->
-                    </TableSection>
-                </TableRoot>
-            </TableView>
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Informations générales" FontSize="Large" TextColor="DeepSkyBlue"/>
+                    <Label Text="Nom de l'évènement" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="NomNouvelEvent" Placeholder="Entrer un nom d'évènement"/>
+                    <Label Text="Groupe de l'évènement" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Picker Title="Groupe" SelectedIndexChanged="Picker_SelectedIndexChanged"  x:Name="DropDownGroupe">
+                    </Picker>
+                    <Label Text="Hebdo?" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Switch x:Name="Switch"/>
+
+                    <Label Text="Informations membres" FontSize="Large" TextColor="DeepSkyBlue"/>
+                    <Label Text="Nombre maximum de participants" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="NombreParticipantsMax" Placeholder="Nombre de participants max" Keyboard="Numeric"/>
+
+                    <Label Text="Informations dates" FontSize="Large" TextColor="DeepSkyBlue"/>
+                    <Label Text="Date de début" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <DatePicker x:Name="DateDebut" TextColor="DeepSkyBlue"></DatePicker>
+                    <Label Text="Date de fin" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <DatePicker x:Name="DateFin" TextColor="DeepSkyBlue"></DatePicker>
+
+                    <Label Text="Localisation" FontSize="Large" TextColor="DeepSkyBlue"/>
+                    <Label Text="Numéro de la voie" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="NumeroVoie"  Placeholder="100"/>
+                    <Label Text="Type de la voie" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="TypeVoie" Placeholder="Rue de" />
+                    <Label Text="Nom de la voie" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="NomVoie" Placeholder="joie" />
+                    <Label Text="Code Postal" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="CodePostal" Placeholder="75000" />
+                    <Label Text="Ville" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Entry x:Name="Ville" Placeholder="Paris" />
+                </StackLayout>
+            </ScrollView>
             <StackLayout VerticalOptions="End" HorizontalOptions="End">
                 <Button Text="Enregistrer" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" TextColor="White"/>
             </StackLayout>
