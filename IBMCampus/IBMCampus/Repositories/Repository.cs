@@ -1085,6 +1085,73 @@ namespace IBMCampus
 
             }
         }
+
+        /// <summary>
+        /// Méthode pour se désinscrire d'un évènement.
+        /// </summary>
+        /// <param name="IdUtilisateur">Id de l'utilisateur de l'application.</param>
+        /// <param name="Evenement">Objet evenement.</param>
+        /// <returns></returns>
+        public async Task DesinscriptionEvenement(int IdUtilisateur, EvenementsModel Evenement)
+        {
+            var UrlRemove = "http://mooguer.fr/DeleteInscriptionEvent.php?";
+            try
+            {
+                string insert = UrlRemove + "IdGroupe=" + Evenement.IdGroupe
+                                  + "&IdUser=" + IdUtilisateur
+                                  + "&IdEvent=" + Evenement.IdEvent;
+
+                await _client.GetStringAsync(insert);
+                MessageErreur = null;
+
+            }
+            catch (Exception err)
+            {
+                Log.Warning("download", err.ToString());
+
+                MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer.";
+
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer tous les utilisateurs d'un évènement.
+        /// </summary>
+        /// <param name="idEvenement">Id de l'évènement.</param>
+        /// <returns></returns>
+        public async Task<ObservableCollection<UtilisateurModel>> RecupererUtilisateursDunEvenement (int idEvenement)
+        {
+            var _utilisateurs = new ObservableCollection<UtilisateurModel>();
+
+            try
+            {
+                string UrlControle = "http://mooguer.fr/SelectAllUserEvent.php?";
+
+                var json = await _client.GetStringAsync(UrlControle + "Id=" + idEvenement);
+                var utilisateurs = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(json);
+
+                if (utilisateurs.Count > 0 && utilisateurs != null)
+                {
+                    _utilisateurs = utilisateurs;
+                    MessageErreur = null;
+                }
+                else
+                {
+                    MessageErreur = "Aucun participant pour ce groupe n'a été trouvé.";
+                }
+
+                return _utilisateurs;
+
+
+            }
+            catch (Exception)
+            {
+
+                MessageErreur = "Problème lors de la récupération des participants au groupe.";
+                return _utilisateurs;
+
+            }
+        }
     }
 }
 
