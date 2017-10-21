@@ -927,6 +927,39 @@ namespace IBMCampus
             }
         }
 
+        /// <summary>
+        /// Méthode pour récupérer tous les groupes en base (aucune limitation).
+        /// </summary>
+        /// <returns>La liste de tous les Groupes.</returns>
+        public async Task<ObservableCollection<GroupeModel>> RecupererAllGroupes()
+        {
+            var _groupes = new ObservableCollection<GroupeModel>();
+
+            try
+            {
+                string UrlRecuperationGroupe = "http://mooguer.fr/SelectAllGroupes.php?";
+
+                var controle = await _client.GetStringAsync(UrlRecuperationGroupe);
+                var groupes = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
+
+                if (groupes.Count > 0 && groupes != null)
+                {
+                    _groupes = groupes;
+                }
+
+                return _groupes;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageErreur = "Problème lors de la récupération des données.";
+                return _groupes = null;
+
+            }
+        }
+
     }
 }
 

@@ -13,23 +13,20 @@ namespace IBMCampus
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PageTousLesGroupes : ContentPage
 	{
+        #region Fields de la page
+
+        Repository repo = App.Current.BindingContext as Repository;
+        #endregion
+
+        #region Constructeurs de la page
 
         public PageTousLesGroupes ()
 		{
 			InitializeComponent ();
-            Load();
 		}
+        #endregion
 
-        /// <summary>
-        /// Constrcuteur obsolète
-        /// </summary>
-        /// <param name="repo"></param>
-        public PageTousLesGroupes(Repository repo)
-        {
-            InitializeComponent();
-
-            liste.ItemsSource = new FakeRepository().RecupererTousLesGroupes();
-        }
+        #region Méthodes d'action
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -48,23 +45,28 @@ namespace IBMCampus
             await Navigation.PushAsync(new FormCreationGroupe());
         }
 
-        private void liste_Refreshing(object sender, EventArgs e)
+        private async void liste_Refreshing(object sender, EventArgs e)
         {
-            Load();
+            await Load();
             liste.EndRefresh();
         }
 
-        public void Load()
+        #endregion
+
+        #region Méthodes de chargement
+
+        public async Task Load()
         {
-            var repo = App.Current.BindingContext as Repository;
+            
             liste.ItemsSource = null;
-            liste.ItemsSource = new FakeRepository().RecupererTousLesGroupes();
+            liste.ItemsSource = await repo.RecupererAllGroupes();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            Load();
+            await Load();
         }
+        #endregion
     }
 }
