@@ -112,7 +112,7 @@ namespace IBMCampus
             }
 
             //Liste chargé avec un appel api.
-            liste.ItemsSource = await repo.RecupererGroupeUser(user.IdUtilisateur.ToString());
+            liste.ItemsSource = await repo.RecupererGroupesUser(user.IdUtilisateur.ToString());
             var test = 1;
         }
 
