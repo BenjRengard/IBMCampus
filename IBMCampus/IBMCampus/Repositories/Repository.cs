@@ -780,7 +780,8 @@ namespace IBMCampus
             var UrlInsert = "http://mooguer.fr/InsertGroupe.php?";
             try
             {
-                string content = JsonConvert.SerializeObject(nouveauGroupe);
+                //N'a pas lieu d'être, puisqu'on ne passe pas ce json dans l'url.
+                //string content = JsonConvert.SerializeObject(nouveauGroupe);
                 string insert = UrlInsert + "NomGroupe=" + '"' + nouveauGroupe.NomGroupe + '"'  
                                   + "&NbMax=" + nouveauGroupe.ParticipantsMax
                                   + "&NRue=" + '"' + nouveauGroupe.NumeroRueGroupe + '"' 
