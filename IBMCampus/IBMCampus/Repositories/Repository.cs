@@ -15,6 +15,8 @@ namespace IBMCampus
     /// </summary>
     public class Repository
     {
+        #region Fields du repo
+
         /// <summary>
         /// Client pour utilisation des api.
         /// </summary>
@@ -29,9 +31,7 @@ namespace IBMCampus
         /// Message d'erreur retourné.
         /// </summary>
         public string MessageErreur { get; set; }
-
-
-
+        #endregion
 
         #region Repository de l'ancienne API
 
@@ -568,7 +568,6 @@ namespace IBMCampus
         //#endregion
 
         #endregion
-
 
         /// <summary>
         /// Méthode pour connecter l'utilisateur et faire démarrer l'application.
