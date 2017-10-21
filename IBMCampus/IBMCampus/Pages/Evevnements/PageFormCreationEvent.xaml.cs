@@ -48,8 +48,8 @@ namespace IBMCampus
 
 
 
-            repo.ListeFauxEvent.Add(nouvelEvent);
-            repo.User.GroupesUtilisateur.Add(nouvelEvent.IdEvent);
+            //repo.ListeFauxEvent.Add(nouvelEvent);
+            //repo.User.GroupesUtilisateur.Add(nouvelEvent.IdEvent);
             App.Current.BindingContext = repo;
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
             await Navigation.PopAsync();

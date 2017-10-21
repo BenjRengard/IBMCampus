@@ -20,7 +20,7 @@ namespace IBMCampus
                 //AgeUtilisateur = 30,
                 EMailUtilisateur = @"batman@batman.com",
                 MotDePasseUtilisateur = "123bat",
-                GroupesUtilisateur = new List<int> { 1, 4}
+                //GroupesUtilisateur = new List<int> { 1, 4}
             };
 
             Utilisateurs.Add(batman);
@@ -32,7 +32,7 @@ namespace IBMCampus
                 //AgeUtilisateur = 28,
                 EMailUtilisateur = @"superman@batman.com",
                 MotDePasseUtilisateur = "123sm",
-                GroupesUtilisateur = new List<int> { 2 }
+                //GroupesUtilisateur = new List<int> { 2 }
 
             };
             Utilisateurs.Add(superman);
@@ -44,7 +44,7 @@ namespace IBMCampus
                 PrenomUtilisateur = "Benjamin",
                 EMailUtilisateur = @"rengard.benjamin@fauxmail.fr",
                 MotDePasseUtilisateur = "123benj",
-                GroupesUtilisateur = new List<int> { 1, 4 }
+                //GroupesUtilisateur = new List<int> { 1, 4 }
 
             };
             Utilisateurs.Add(benj);
@@ -56,7 +56,7 @@ namespace IBMCampus
                 PrenomUtilisateur = "Jean",
                 EMailUtilisateur = @"jean.cive@test.com",
                 MotDePasseUtilisateur = "123cive",
-                GroupesUtilisateur = new List<int> { 1, 2 }
+                //GroupesUtilisateur = new List<int> { 1, 2 }
 
             };
             Utilisateurs.Add(cive);
@@ -68,7 +68,7 @@ namespace IBMCampus
                 PrenomUtilisateur = "Jérôme",
                 EMailUtilisateur = @"jeromelaquay@bidon.com",
                 MotDePasseUtilisateur = "123jer",
-                GroupesUtilisateur = new List<int> { 3 }
+                //GroupesUtilisateur = new List<int> { 3 }
 
             };
             Utilisateurs.Add(jerome);
@@ -80,7 +80,7 @@ namespace IBMCampus
                 PrenomUtilisateur = "Alexis",
                 EMailUtilisateur = @"alex@bidon.com",
                 MotDePasseUtilisateur = "123alex",
-                GroupesUtilisateur = new List<int> { 1 }
+                //GroupesUtilisateur = new List<int> { 1 }
 
             };
             Utilisateurs.Add(alex);
@@ -92,7 +92,7 @@ namespace IBMCampus
                 PrenomUtilisateur = "Aurélien",
                 EMailUtilisateur = @"aurelien@bidon.com",
                 MotDePasseUtilisateur = "123aurel",
-                GroupesUtilisateur = new List<int> { 3 }
+                //GroupesUtilisateur = new List<int> { 3 }
 
             };
             Utilisateurs.Add(aurel);
@@ -104,7 +104,7 @@ namespace IBMCampus
                 PrenomUtilisateur = "Thibaut",
                 EMailUtilisateur = @"choc@bidon.com",
                 MotDePasseUtilisateur = "123thib",
-                GroupesUtilisateur = new List<int> { 3, 4 }
+                //GroupesUtilisateur = new List<int> { 3, 4 }
 
             };
             Utilisateurs.Add(thibaut);

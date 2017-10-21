@@ -12,11 +12,15 @@ namespace IBMCampus
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageEvenementGroupe : ContentPage
     {
+        #region Fields de la page
+
         public UtilisateurModel User;
 
         public GroupeModel Groupe;
 
         Repository repo = App.Current.BindingContext as Repository;
+        #endregion
+        #region Constructeurs
 
         public PageEvenementGroupe(GroupeModel groupe)
         {
@@ -25,18 +29,9 @@ namespace IBMCampus
             BindingContext = groupe;
         }
 
-        private async Task Load()
-        {
-            var groupe = BindingContext as GroupeModel;
+        #endregion
 
-
-            var listeACharger = await repo.RecupererEvenementsGroupe(groupe.IdGroupe.ToString());
-            liste.ItemsSource = listeACharger;
-            if (listeACharger == null)
-            {
-                await DisplayAlert("Problème", repo.MessageErreur, "OK");
-            }
-        }
+        #region Méthodes d'action
 
         private async void liste_Refreshing(object sender, EventArgs e)
         {
@@ -78,7 +73,22 @@ namespace IBMCampus
                 await Navigation.PushAsync(new PageFormCreationEvent(groupe));
             }
         }
+        #endregion
 
+        #region Méthode de chargement
+
+        private async Task Load()
+        {
+            var groupe = BindingContext as GroupeModel;
+
+
+            var listeACharger = await repo.RecupererEvenementsGroupe(groupe.IdGroupe.ToString());
+            liste.ItemsSource = listeACharger;
+            if (listeACharger == null)
+            {
+                await DisplayAlert("Problème", repo.MessageErreur, "OK");
+            }
+        }
 
         protected override async void OnAppearing()
         {
@@ -87,5 +97,6 @@ namespace IBMCampus
 
             base.OnAppearing();
         }
+        #endregion
     }
 }

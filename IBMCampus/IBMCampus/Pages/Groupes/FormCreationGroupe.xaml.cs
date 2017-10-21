@@ -66,7 +66,8 @@ namespace IBMCampus
                     }
                     else
                     {
-                        await repo.InscriptionGroupe(repo.User.IdUtilisateur);
+                        
+                        //await repo.InscriptionGroupe(repo.User.IdUtilisateur);
                         if (repo.MessageErreur != null)
                         {
                             await DisplayAlert("Problème!", repo.MessageErreur, "OK");

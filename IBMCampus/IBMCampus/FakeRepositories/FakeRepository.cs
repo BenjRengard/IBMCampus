@@ -179,7 +179,7 @@ namespace IBMCampus
             var listeARetourner = new ObservableCollection<GroupeModel>();
             foreach (var idgroupe in user.GroupesUtilisateur)
             {
-                var groupe = ListeFauxGroupes.FirstOrDefault(g => g.IdGroupe == idgroupe);
+                var groupe = ListeFauxGroupes.FirstOrDefault(g => g.IdGroupe == idgroupe.IdGroupe);
                 listeARetourner.Add(groupe);
             }
             return listeARetourner;
