@@ -791,16 +791,16 @@ namespace IBMCampus
                                   +"&IdSport=" + '"' + nouveauGroupe.IdSport + '"' ;
 
                 var json = await _client.GetStringAsync(insert);
-                var nouveau = JsonConvert.DeserializeObject<GroupeModel>(json);
+                var nouveau = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(json);
                 MessageErreur = null;
-                if (nouveau == null)
+                if (nouveau.Count == 0)
                 {
                     MessageErreur = "Problème lors de la récupération du nouveau groupe. Veuillez recharger la liste des groupes avant de réessayer.";
                     return null;
                 }
                 else
                 {
-                    return nouveau;
+                    return nouveau.First();
                 }
 
             }
