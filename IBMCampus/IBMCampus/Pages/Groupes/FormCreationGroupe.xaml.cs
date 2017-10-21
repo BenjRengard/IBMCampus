@@ -34,64 +34,68 @@ namespace IBMCampus
                 await DisplayAlert("Enregistrement déjà effectué", @"Vous avez déjà essayer de créer le groupe. Veuillez vérifier si celui-ci n'existe pas déjà dans 'Tous les groupes'", "OK");
                 await Navigation.PopAsync();
             }
-            EnregistrerClique = true;
-            int nbParticip;
-
-            var result = int.TryParse(NombreParticipantsMax.Text, out nbParticip);
-
-            if (!result || nbParticip <= 0)
-            {
-                await DisplayAlert("Nombre de participants", "Le nombre de participant entré est incorrect", "OK");
-            }
             else
             {
-                if (_sportSelection == null)
-                {
-                    await DisplayAlert("Sport du groupe", "Vous devez choisir un sport dans la liste pour finaliser la création", "OK");
 
+                EnregistrerClique = true;
+                int nbParticip;
+
+                var result = int.TryParse(NombreParticipantsMax.Text, out nbParticip);
+
+                if (!result || nbParticip <= 0)
+                {
+                    await DisplayAlert("Nombre de participants", "Le nombre de participant entré est incorrect", "OK");
                 }
                 else
                 {
-
-                    GroupeModel nouveauGroupe = new GroupeModel()
+                    if (_sportSelection == null)
                     {
-                        NomGroupe = NomNouveauGroupe.Text,
-                        SportGroupe = _sportSelection,
-                        UtilisateurGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
-                        ParticipantsMax = nbParticip,
-                        CodePostalGroupe = CodePostal.Text,
-                        NomVoieGroupe = NomVoie.Text,
-                        NumeroRueGroupe = NumeroVoie.Text,
-                        TypeVoieGroupe = TypeVoie.Text,
-                        VilleGroupe = Ville.Text
+                        await DisplayAlert("Sport du groupe", "Vous devez choisir un sport dans la liste pour finaliser la création", "OK");
 
-                    };
-
-                    var newGroupe = await repo.CreerNouveauGroupe(nouveauGroupe);
-                    if (repo.MessageErreur != null || newGroupe == null)
-                    {
-                        await DisplayAlert("Problème!", repo.MessageErreur, "OK");
                     }
                     else
                     {
 
-                        await repo.InscriptionGroupe(repo.User.IdUtilisateur, newGroupe.IdGroupe);
-                        if (repo.MessageErreur != null)
+                        GroupeModel nouveauGroupe = new GroupeModel()
+                        {
+                            NomGroupe = NomNouveauGroupe.Text,
+                            SportGroupe = _sportSelection,
+                            UtilisateurGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
+                            ParticipantsMax = nbParticip,
+                            CodePostalGroupe = CodePostal.Text,
+                            NomVoieGroupe = NomVoie.Text,
+                            NumeroRueGroupe = NumeroVoie.Text,
+                            TypeVoieGroupe = TypeVoie.Text,
+                            VilleGroupe = Ville.Text
+
+                        };
+
+                        var newGroupe = await repo.CreerNouveauGroupe(nouveauGroupe);
+                        if (repo.MessageErreur != null || newGroupe == null)
                         {
                             await DisplayAlert("Problème!", repo.MessageErreur, "OK");
                         }
                         else
                         {
-                            await DisplayAlert("Enregistrement", string.Format("Le groupe {0} a bien été créé. Vous y êtes inscrit.", newGroupe.NomGroupe), "OK");
-                            await Navigation.PopAsync();
-                            EnregistrerClique = false;
+
+                            await repo.InscriptionGroupe(repo.User.IdUtilisateur, newGroupe.IdGroupe);
+                            if (repo.MessageErreur != null)
+                            {
+                                await DisplayAlert("Problème!", repo.MessageErreur, "OK");
+                            }
+                            else
+                            {
+                                await DisplayAlert("Enregistrement", string.Format("Le groupe {0} a bien été créé. Vous y êtes inscrit.", newGroupe.NomGroupe), "OK");
+                                await Navigation.PopAsync();
+                                EnregistrerClique = false;
+                            }
+
                         }
 
                     }
-
                 }
-            }
 
+            }
         }
 
         private void Picker_SelectedIndexChanged(object sender, EventArgs e)
