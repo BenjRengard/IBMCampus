@@ -110,7 +110,7 @@ namespace IBMCampus
             var groupeName = DropDownGroupe.Items[DropDownGroupe.SelectedIndex];
 
             _groupeSelection = new GroupeModel();
-            _groupeSelection = _groupes.Single(gp => gp.NomGroupe == groupeName);
+            _groupeSelection = _groupes.FirstOrDefault(gp => gp.NomGroupe == groupeName);
         }
 
         protected override async void OnAppearing()
