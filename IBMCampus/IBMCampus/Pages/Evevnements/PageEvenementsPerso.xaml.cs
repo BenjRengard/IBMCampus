@@ -21,7 +21,7 @@ namespace IBMCampus
 		{
 			InitializeComponent ();
             _utilisateur = repo.User;
-            Load();
+            //Load();
 		}
 
         public PageEvenementsPerso(UtilisateurModel user)
@@ -30,19 +30,22 @@ namespace IBMCampus
             _utilisateur = user;
         }
 
-        private void liste_Refreshing(object sender, EventArgs e)
+        private async void liste_Refreshing(object sender, EventArgs e)
         {
-            Load();
+            await Load();
             liste.EndRefresh();
         }
 
         public async Task Load()
         {
-            //var repo = App.Current.BindingContext as Repository;
             liste.ItemsSource = null;
             var Evenements = await repo.RecupererEvenementsUtilisateur(_utilisateur.IdUtilisateur);
-            //liste.ItemsSource = repo.RecupererTousLesEvents();
-            //liste.ItemsSource = new FakeRepository().RecupererEvenementUtilisateur(repo.User);
+            if (Evenements == null || Evenements.Count <=0)
+            {
+                await DisplayAlert("Evènements", "Aucun évènement trouvé", "OK");
+            }
+            liste.ItemsSource = Evenements;
+            
 
         }
 
@@ -58,14 +61,15 @@ namespace IBMCampus
             liste.SelectedItem = null;
         }
 
-        private void ToolbarItem_Activated(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new FormCreationEvent());
-        }
 
         private async void ToolbarItem_Activated_1(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PageFormCreationEvent());
+        }
+        protected override async  void OnAppearing()
+        {
+            base.OnAppearing();
+            await Load();
         }
     }
 }

@@ -38,7 +38,7 @@ namespace IBMCampus
 
             try
             {
-                string UrlControle = "http://mooguer.fr/SelectGroupeUser.php?";
+                string UrlControle = "http://mooguer.fr/SelectEventUser.php?";
 
                 var json = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUtilisateur + '"');
                 var evenements = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
@@ -47,11 +47,6 @@ namespace IBMCampus
                 {
                     _evenements = evenements;
                     MessageErreur = null;
-                    //foreach (var groupe in _groupes)
-                    //{
-                    //    groupe.SportGroupe = await RecupererSportGroupe(groupe.IdGroupe);
-                    //}
-
 
                 }
                 else
@@ -901,7 +896,7 @@ namespace IBMCampus
             {
                 string UrlControle = "http://mooguer.fr/SelectAllUserGroupe.php?";
 
-                var json = await _client.GetStringAsync(UrlControle + "id=" + '"' + idGroupe + '"');
+                var json = await _client.GetStringAsync(UrlControle + "Id=" + idGroupe);
                 var utilisateur = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(json);
 
                 if (utilisateur.Count > 0 && utilisateur != null)
@@ -962,11 +957,11 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task DesinscriptionGroupe(int idUtilisateur, int idGroupe)
         {
-            var UrlRemove = "http://mooguer.fr/removeInscriptionGroupe.php?";
+            var UrlRemove = "http://mooguer.fr/DeleteInscriptionUser.php?";
             try
             {
-                string insert = UrlRemove + "idGroupe=" + idGroupe
-                                  + "&idUtilisateur=" + idUtilisateur;
+                string insert = UrlRemove + "IdGroupe=" + idGroupe
+                                  + "&IdUser=" + idUtilisateur;
 
                 await _client.GetStringAsync(insert);
                 MessageErreur = null;
@@ -1014,6 +1009,49 @@ namespace IBMCampus
             }
         }
 
+        /// <summary>
+        /// Méthode d'insertion d'un evenement dans la base.
+        /// </summary>
+        /// <param name="nouvelEvenement">Evenement créé</param>
+        /// <returns></returns>
+        public async Task<EvenementsModel> CreerNouvelEvenement(EvenementsModel nouvelEvenement)
+        {
+            var UrlInsert = "http://mooguer.fr/InsertGroupe.php?";
+            try
+            {
+                
+                string insert = UrlInsert + "NomGroupe=" + '"' + nouvelEvenement.NomGroupe + '"'
+                                  + "&NbMax=" + nouvelEvenement.ParticipantsMaxGroupe
+                                  + "&NRue=" + '"' + nouvelEvenement.NumeroRueGroupe + '"'
+                                  + "&TVoie=" + '"' + nouvelEvenement.TypeVoieGroupe + '"'
+                                  + "&NomVoie=" + '"' + nouvelEvenement.NomVoieGroupe + '"'
+                                  + "&CP=" + '"' + nouvelEvenement.CodePostalGroupe + '"'
+                                  + "&Ville=" + '"' + nouvelEvenement.VilleGroupe + '"'
+                                  + "&IdSport=" + '"' + nouvelEvenement.SportGroupe.IdSport + '"';
+
+                var json = await _client.GetStringAsync(insert);
+                var nouveau = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
+                MessageErreur = null;
+                if (nouveau.Count == 0 || nouveau == null)
+                {
+                    MessageErreur = "Problème lors de la récupération du nouvel évènement. Veuillez recharger la liste des évènements avant de réessayer.";
+                    return null;
+                }
+                else
+                {
+                    return nouveau.First();
+                }
+
+            }
+            catch (Exception err)
+            {
+                Log.Warning("download", err.ToString());
+
+                MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer";
+                return null;
+
+            }
+        }
     }
 }
 
