@@ -663,14 +663,14 @@ namespace IBMCampus
         }
 
 
-        public async Task<ObservableCollection<GroupeModel>> RecupererEvenementsGroupe(string idUser)
+        public async Task<ObservableCollection<GroupeModel>> RecupererEvenementsGroupe(string idGroupe)
         {
             try
             {
                 var _groupe = new ObservableCollection<GroupeModel>();
-                string UrlControle = "http://mooguer.fr/SelectGroupeUser.php?";
+                string UrlControle = "http://mooguer.fr/SelectEventGroupe.php?";
 
-                var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUser + '"');
+                var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idGroupe + '"');
                 var groupe = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
 
                 if (groupe.Count > 0)
