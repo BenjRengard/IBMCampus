@@ -4,6 +4,18 @@ namespace IBMCampus
 {
     public static class Convertisseur
     {
+        public static string ConvertirDateTimeEnDateMySqlAvecHeure(DateTime dateAConvertir)
+        {
+            return dateAConvertir.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
+        public static string ConvertirDateTimeEnDateMySqlSansHeure(DateTime dateAConvertir)
+        {
+            return dateAConvertir.ToString("yyyy-MM-dd");
+        }
+
+
+
         /// <summary>
         /// 
         /// </summary>
