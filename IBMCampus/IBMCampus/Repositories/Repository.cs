@@ -777,19 +777,19 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task CreerNouveauGroupe(GroupeModel nouveauGroupe)
         {
-            var UrlInsert = "http://mooguer.fr/insertGroupe.php?";
+            var UrlInsert = "http://mooguer.fr/InsertGroupe.php?";
             try
             {
                 //int drive = (Convert.ToBoolean(nouvelUser.Vehicule)) ? 1 : 0;
                 string content = JsonConvert.SerializeObject(nouveauGroupe);
-                string insert = UrlInsert + "nom=" + nouveauGroupe.NomGroupe
-                                  + "&idSport=" + nouveauGroupe.SportGroupe.IdSport
-                                  + "&nbMax=" + nouveauGroupe.ParticipantsMax
-                                  + "&numRue=" + nouveauGroupe.NumeroRueGroupe
-                                  + "&typeVoie=" + nouveauGroupe.TypeVoieGroupe
-                                  + "&nomVoie=" + nouveauGroupe.NomVoieGroupe
-                                  + "&CP=" + nouveauGroupe.CodePostalGroupe
-                                  + "&ville=" + nouveauGroupe.VilleGroupe;
+                string insert = UrlInsert + "NomGroupe=" + '"' + nouveauGroupe.NomGroupe + '"'  
+                                  + "&NbMax=" + nouveauGroupe.ParticipantsMax
+                                  + "&NRue=" + '"' + nouveauGroupe.NumeroRueGroupe + '"' 
+                                  + "&TVoie=" + '"' + nouveauGroupe.TypeVoieGroupe + '"' 
+                                  + "&NomVoie=" + '"' + nouveauGroupe.NomVoieGroupe +'"' 
+                                  + "&CP=" + '"' + nouveauGroupe.CodePostalGroupe +'"' 
+                                  + "&Ville=" + '"' + nouveauGroupe.VilleGroupe + '"' 
+                                  +"&IdSport=" + '"' + nouveauGroupe.IdSport + '"' ;
 
                 await _client.GetStringAsync(insert);
                 MessageErreur = null;
