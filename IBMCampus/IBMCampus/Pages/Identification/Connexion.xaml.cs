@@ -19,12 +19,14 @@ namespace IBMCampus
         private const string UrlControle = "http://mooguer.fr/VerifUserUnique.php?";
         private HttpClient _client = new HttpClient();
         private UtilisateurModel _utilisateur;
+        private bool BoutonClique = false;
 
         //private string url = "http:/9.129.126.182/api/Profil";
         //private HttpClient _client = new HttpClient();
         public Connexion()
         {
             InitializeComponent();
+            BoutonClique = false;
             EmailUtilisateur.Text = @"batman@batman.com";
             MotDePasse.Text = "123bat";
 
@@ -49,73 +51,84 @@ namespace IBMCampus
 
         private async void Button_Connexion(object sender, EventArgs e)
         {
-            var repo = App.Current.BindingContext as Repository;
-
-            try
+            if (BoutonClique)
             {
-                var utilisateur = await repo.ConnexionApplication(EmailUtilisateur.Text, MotDePasse.Text);
+                await DisplayAlert("Patience", "Veuillez patienter le temps du chargement", "OK");
+            }
+            else
+            {
 
-                if (repo.MessageErreur != null)
+                BoutonClique = true;
+                var repo = App.Current.BindingContext as Repository;
+
+                try
                 {
-                    await DisplayAlert("Problème de connexion", repo.MessageErreur, "Réessayer");
+                    var utilisateur = await repo.ConnexionApplication(EmailUtilisateur.Text, MotDePasse.Text);
+
+                    if (repo.MessageErreur != null)
+                    {
+                        await DisplayAlert("Problème de connexion", repo.MessageErreur, "Réessayer");
+                    }
+                    else
+                    {
+                        repo.User = utilisateur;
+                        await Navigation.PushModalAsync(new MasterDetailPage1());
+                        BoutonClique = false;
+                    }
+
+                    #region Ancien code commenté
+                    //var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
+                    //var user = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(controle);
+
+                    //if (user.Count > 0)
+                    //{
+                    //    _utilisateur = user.First();
+                    //}
+
+                    //if (_utilisateur != null)
+                    //{
+                    //    if (MotDePasse.Text == _utilisateur.MotDePasseUtilisateur)
+                    //    {
+
+                    //        repo.User.NomUtilisateur = _utilisateur.NomUtilisateur;
+                    //        repo.User.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
+                    //        repo.User.EMailUtilisateur = _utilisateur.EMailUtilisateur;
+                    //        repo.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
+                    //        repo.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
+                    //        repo.User.Vehicule = _utilisateur.Vehicule ;
+
+
+
+                    //        await Navigation.PushModalAsync(new MasterDetailPage1());
+                    //    }
+                    //    else
+                    //    {
+                    //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+                    //    }
+                    //}
+                    //    else
+                    //    {
+                    //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
+                    //    }
+                    #endregion
+                    //else
+                    //{
+                    //    App.Current.BindingContext = repo;
+                    //    await Navigation.PushModalAsync(new MasterDetailPage1());
+
+                    //}
+
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    repo.User = utilisateur;
-                    await Navigation.PushModalAsync(new MasterDetailPage1());
+
+                    await DisplayAlert("Problème de connexion", ex.ToString(), "Réessayer");
+                    BoutonClique = false;
+
                 }
-
-                #region Ancien code commenté
-                //var controle = await _client.GetStringAsync(UrlControle + "mail=" + '"' + EmailUtilisateur.Text + '"');
-                //var user = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(controle);
-
-                //if (user.Count > 0)
-                //{
-                //    _utilisateur = user.First();
-                //}
-
-                //if (_utilisateur != null)
-                //{
-                //    if (MotDePasse.Text == _utilisateur.MotDePasseUtilisateur)
-                //    {
-
-                //        repo.User.NomUtilisateur = _utilisateur.NomUtilisateur;
-                //        repo.User.PrenomUtilisateur = _utilisateur.PrenomUtilisateur;
-                //        repo.User.EMailUtilisateur = _utilisateur.EMailUtilisateur;
-                //        repo.User.TelephoneUtilisateur = _utilisateur.TelephoneUtilisateur;
-                //        repo.User.AdresseUtilisateur = _utilisateur.AdresseUtilisateur;
-                //        repo.User.Vehicule = _utilisateur.Vehicule ;
-
-
-
-                //        await Navigation.PushModalAsync(new MasterDetailPage1());
-                //    }
-                //    else
-                //    {
-                //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
-                //    }
-                //}
-                //    else
-                //    {
-                //        await DisplayAlert("Problème de connexion", "Le user ou le mot de passe est incorrect", "Réessayer");
-                //    }
-                #endregion
-                //else
-                //{
-                //    App.Current.BindingContext = repo;
-                //    await Navigation.PushModalAsync(new MasterDetailPage1());
-
-                //}
-
 
             }
-            catch (Exception ex)
-            {
-                
-                await DisplayAlert("Problème de connexion", ex.ToString(), "Réessayer");
-
-            }
-
 
         }
 

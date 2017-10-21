@@ -775,7 +775,7 @@ namespace IBMCampus
         /// </summary>
         /// <param name="nouveauGroupe">Groupe créé</param>
         /// <returns></returns>
-        public async Task CreerNouveauGroupe(GroupeModel nouveauGroupe)
+        public async Task<GroupeModel> CreerNouveauGroupe(GroupeModel nouveauGroupe)
         {
             var UrlInsert = "http://mooguer.fr/InsertGroupe.php?";
             try
@@ -791,8 +791,18 @@ namespace IBMCampus
                                   + "&Ville=" + '"' + nouveauGroupe.VilleGroupe + '"' 
                                   +"&IdSport=" + '"' + nouveauGroupe.IdSport + '"' ;
 
-                await _client.GetStringAsync(insert);
+                var json = await _client.GetStringAsync(insert);
+                var nouveau = JsonConvert.DeserializeObject<GroupeModel>(json);
                 MessageErreur = null;
+                if (nouveau == null)
+                {
+                    MessageErreur = "Problème lors de la récupération du nouveau groupe. Veuillez recharger la liste des groupes avant de réessayer.";
+                    return null;
+                }
+                else
+                {
+                    return nouveau;
+                }
 
             }
             catch (Exception err)
@@ -800,8 +810,8 @@ namespace IBMCampus
                 Log.Warning("download", err.ToString());
 
                 MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer";
-                //await DisplayAlert("Problème", "Problème de connexion au serveur", "OK");
-                //throw;
+                return null;
+                
             }
         }
 
