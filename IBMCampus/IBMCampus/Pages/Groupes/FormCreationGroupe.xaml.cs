@@ -59,15 +59,15 @@ namespace IBMCampus
 
                     };
                   
-                    await repo.CreerNouveauGroupe(nouveauGroupe);
-                    if (repo.MessageErreur != null)
+                    var newGroupe = await repo.CreerNouveauGroupe(nouveauGroupe);
+                    if (repo.MessageErreur != null || newGroupe == null)
                     {
                         await DisplayAlert("Problème!", repo.MessageErreur, "OK");
                     }
                     else
                     {
-                        
-                        //await repo.InscriptionGroupe(repo.User.IdUtilisateur);
+
+                        await repo.InscriptionGroupe(repo.User.IdUtilisateur, newGroupe.IdGroupe);
                         if (repo.MessageErreur != null)
                         {
                             await DisplayAlert("Problème!", repo.MessageErreur, "OK");
