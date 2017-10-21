@@ -30,7 +30,7 @@ namespace IBMCampus
         /// </summary>
         public string MessageErreur { get; set; }
 
-        
+
 
 
         #region Repository de l'ancienne API
@@ -638,35 +638,49 @@ namespace IBMCampus
         /// <returns>Liste groupe utilisateur</returns>
         public async Task<ObservableCollection<GroupeModel>> RecupererGroupesUser(string idUser)
         {
-            var _groupe = new ObservableCollection<GroupeModel>();
+            var _groupes = new ObservableCollection<GroupeModel>();
 
             try
             {
                 string UrlControle = "http://mooguer.fr/SelectGroupeUser.php?";
 
                 var controle = await _client.GetStringAsync(UrlControle + "id=" + '"' + idUser + '"');
-                var groupe = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
+                var groupes = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);
 
-                if (groupe.Count > 0 && groupe != null)
+                if (groupes.Count > 0 && groupes != null)
                 {
-                    _groupe = groupe;
-                }
+                    _groupes = groupes;
+                    MessageErreur = null;
+                    foreach (var groupe in _groupes)
+                    {
+                        groupe.SportGroupe = await RecupererSportGroupe(groupe.IdGroupe);
+                    }
 
-                return _groupe;
+
+                }
+                else
+                {
+                    _groupes = null;
+                }
+                return _groupes;
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageErreur = "Problème lors de la récupération des données.";
-                return _groupe = null;
+                MessageErreur = "Problème lors de la récupération des groupes.";
+                return _groupes = null;
 
             }
 
         }
 
-
+        /// <summary>
+        /// Méthode de récupération des évènements d'un groupe
+        /// </summary>
+        /// <param name="idGroupe">Id du groupe dont on veut récupérer les évènements.</param>
+        /// <returns></returns>
         public async Task<ObservableCollection<EvenementsModel>> RecupererEvenementsGroupe(string idGroupe)
         {
             var _evenement = new ObservableCollection<EvenementsModel>();
@@ -697,6 +711,10 @@ namespace IBMCampus
 
         }
 
+        /// <summary>
+        /// Méthode pour récupérer tous les sports en base. Utilisé uniquement lors de la création d'un groupe pour le moment - possibilité d'en faire plus par la suite.
+        /// </summary>
+        /// <returns></returns>
         public async Task<ObservableCollection<SportModel>> RecupererAllSports()
         {
             //A commenter quand l'api sera opérationnelle.
@@ -789,14 +807,127 @@ namespace IBMCampus
         }
 
         /// <summary>
+        /// Méthode pour récupérer le sport d'un groupe.
+        /// </summary>
+        /// <param name="idGroupe">Id du groupe dont on veut récupérer le sport.</param>
+        /// <returns></returns>
+        public async Task<SportModel> RecupererSportGroupe(int idGroupe)
+        {
+            var _sport = new SportModel();
+            try
+            {
+                string UrlControle = "http://mooguer.fr/SportGroupe.php?";
+
+                var json = await _client.GetStringAsync(UrlControle + "idGroupe=" + '"' + idGroupe + '"');
+                var sport = JsonConvert.DeserializeObject<SportModel>(json);
+
+                if (sport != null)
+                {
+                    _sport = sport;
+                    MessageErreur = null;
+                }
+                else
+                {
+                    MessageErreur = "Problème lors de la récupération des données du sport du groupe.";
+                }
+                return _sport;
+            }
+            catch (Exception)
+            {
+
+                MessageErreur = "Problème lors de la récupération des données du sport du groupe.";
+                return _sport;
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour récupérer les utilisateurs inscrits à un groupe.
+        /// </summary>
+        /// <param name="idGroupe">Id du groupe dont on veut la liste des utilisateurs.</param>
+        /// <returns></returns>
+        public async Task<ObservableCollection<UtilisateurModel>> RecupererUtilisateursDunGroupe(int idGroupe)
+        {
+            var _utilisateurs = new ObservableCollection<UtilisateurModel>();
+
+            try
+            {
+                string UrlControle = "http://mooguer.fr/SelectUserGroupe.php?";
+
+                var json = await _client.GetStringAsync(UrlControle + "id=" + '"' + idGroupe + '"');
+                var utilisateur = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(json);
+
+                if (utilisateur.Count > 0 && utilisateur != null)
+                {
+                    _utilisateurs = utilisateur;
+                }
+
+                return _utilisateurs;
+
+
+            }
+            catch (Exception)
+            {
+
+                MessageErreur = "Problème lors de la récupération des participants au groupe.";
+                return _utilisateurs = null;
+
+            }
+        }
+
+        /// <summary>
         /// Méthode pour inscrire le user à un groupe.
         /// </summary>
         /// <param name="idUtilisateur">Id de l'utilisateur de l'application.</param>
+        /// <param name="idGroupe">Id du groupe auquel l'utilisateur va être inscrit.</param>
         /// <returns></returns>
-        public async Task InscriptionGroupe(int idUtilisateur)
+        public async Task InscriptionGroupe(int idUtilisateur, int idGroupe)
         {
-            throw new NotImplementedException();
+            var UrlInsert = "http://mooguer.fr/insertInscriptionGroupe.php?";
+            try
+            {
+                string insert = UrlInsert + "idGroupe=" + idGroupe
+                                  + "&idUtilisateur=" + idUtilisateur;
+
+                await _client.GetStringAsync(insert);
+                MessageErreur = null;
+
+            }
+            catch (Exception err)
+            {
+                Log.Warning("download", err.ToString());
+
+                MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer.";
+                
+            }
         }
+
+        /// <summary>
+        /// Méthode pour désinscrire le user d'un groupe.
+        /// </summary>
+        /// <param name="idUtilisateur">Id de l'utilisateur de l'application.</param>
+        /// <param name="idGroupe">Id du groupe auquel l'utilisateur va être désinscrit.</param>
+        /// <returns></returns>
+        public async Task DesinscriptionGroupe(int idUtilisateur, int idGroupe)
+        {
+            var UrlRemove = "http://mooguer.fr/removeInscriptionGroupe.php?";
+            try
+            {
+                string insert = UrlRemove + "idGroupe=" + idGroupe
+                                  + "&idUtilisateur=" + idUtilisateur;
+
+                await _client.GetStringAsync(insert);
+                MessageErreur = null;
+
+            }
+            catch (Exception err)
+            {
+                Log.Warning("download", err.ToString());
+
+                MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer.";
+
+            }
+        }
+
     }
 }
 

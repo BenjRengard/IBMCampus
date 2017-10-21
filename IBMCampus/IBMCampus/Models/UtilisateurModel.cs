@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace IBMCampus
 
         //public List<EvenementsModel> EvenementsUtilisateur { get; set; }
 
-        public List<int> GroupesUtilisateur { get; set; }
+        public ObservableCollection<GroupeModel> GroupesUtilisateur { get; set; }
 
         public List<int> EventUtilisateur { get; set; }
 
@@ -40,7 +41,7 @@ namespace IBMCampus
             //this.AgeUtilisateur = 0;
             this.EMailUtilisateur = string.Empty;
             //this.EvenementsUtilisateur = new List<EvenementsModel>();
-            //this.GroupesUtilisateur = new List<int>();
+            this.GroupesUtilisateur = new ObservableCollection<GroupeModel>();
             this.AdresseUtilisateur = string.Empty;
 
         }

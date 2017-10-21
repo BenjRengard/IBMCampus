@@ -9,38 +9,101 @@ namespace IBMCampus
 {
     public partial class PageDetailGroupe : ContentPage
     {
+        #region Fields de la page
+
+        Repository repo = App.Current.BindingContext as Repository;
+
+        #endregion
+
+        #region Constructeurs
+
         public PageDetailGroupe(GroupeModel groupe)
         {
-            var AppData = App.Current.BindingContext as UtilisateurModel;
             var groupeAAfficher = groupe ?? throw new ArgumentNullException("groupe");
             InitializeComponent();
-            Load(groupeAAfficher, AppData);
+            BindingContext = groupe;
 
         }
+        #endregion
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        #region Méthodes d'actions
+
+        private async void ButtonInscription_Clicked(object sender, EventArgs e)
         {
             var groupeAffiche = BindingContext as GroupeModel;
-            var utilisateur = App.Current.BindingContext as UtilisateurModel;
-            
 
-            
-            utilisateur.GroupesUtilisateur.Add(groupeAffiche.IdGroupe);
-            groupeAffiche.UtilisateurGroupe.Add(utilisateur);
+            await repo.InscriptionGroupe(repo.User.IdUtilisateur, groupeAffiche.IdGroupe);
 
-            Load(groupeAffiche, utilisateur);
+            if (repo.MessageErreur != null)
+            {
+                await DisplayAlert("Problème!", repo.MessageErreur, "OK");
+                await Refresh();
+            }
+            else
+            {
+
+                repo.User.GroupesUtilisateur.Add(groupeAffiche);
+                groupeAffiche.UtilisateurGroupe.Add(repo.User);
+
+                await DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
+
+                await Refresh();
+
+            }
+        }
 
 
-            await DisplayAlert("S'inscrire", string.Format("Vous avez été ajouté au groupe {0}", groupeAffiche.NomGroupe), "Retour");
+        private async void BoutonDesinscription_Clicked(object sender, EventArgs e)
+        {
+            var groupeAffiche = BindingContext as GroupeModel;
 
-            Refresh();
+            await repo.DesinscriptionGroupe(repo.User.IdUtilisateur, groupeAffiche.IdGroupe);
+
+            if (repo.MessageErreur != null)
+            {
+                await DisplayAlert("Problème!", repo.MessageErreur, "OK");
+                await Refresh();
+            }
+            else
+            {
+
+                groupeAffiche.UtilisateurGroupe.Remove(repo.User);
+                repo.User.GroupesUtilisateur.Remove(groupeAffiche);
+
+                await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");
+
+                await Refresh();
+            }
 
         }
 
-        public void Load(GroupeModel groupe, UtilisateurModel utilisateur)
+        private async void listeUtilisateurGroupe_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            if (listeUtilisateurGroupe.SelectedItem == null)
+            {
+                return;
+            }
+            var userSelected = e.SelectedItem as UtilisateurModel;
+            await Navigation.PushAsync(new TabbedPageUtilisateurAutre(userSelected));
+            listeUtilisateurGroupe.SelectedItem = null;
+        }
+        #endregion
 
-            BindingContext = groupe;
+        #region Méthode de chargements
+
+        private async Task Refresh()
+        {
+            var groupeAffiche = BindingContext as GroupeModel;
+
+            InitializeComponent();
+
+            await Load(groupeAffiche, repo.User);
+        }
+
+        public async Task Load(GroupeModel groupe, UtilisateurModel utilisateur)
+        {
+            groupe.UtilisateurGroupe = await repo.RecupererUtilisateursDunGroupe(groupe.IdGroupe);
+
             listeUtilisateurGroupe.ItemsSource = groupe.UtilisateurGroupe;
             if (!groupe.UtilisateurGroupe.Any())
             {
@@ -73,40 +136,13 @@ namespace IBMCampus
             }
         }
 
-        private async void BoutonDesinscription_Clicked(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            var groupeAffiche = BindingContext as GroupeModel;
-            var utilisateur = App.Current.BindingContext as UtilisateurModel;
-            groupeAffiche.UtilisateurGroupe.Remove(utilisateur);
-            utilisateur.GroupesUtilisateur.Remove(groupeAffiche.IdGroupe);
-
-            Load(groupeAffiche, utilisateur);
-
-
-            await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");
-            Refresh();
-
+            var groupe = BindingContext as GroupeModel;
+            await Load(groupe, repo.User);
+            base.OnAppearing();
         }
+        #endregion
 
-        private async void listeUtilisateurGroupe_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (listeUtilisateurGroupe.SelectedItem == null)
-            {
-                return;
-            }
-            var userSelected = e.SelectedItem as UtilisateurModel;
-            await Navigation.PushAsync(new TabbedPageUtilisateurAutre(userSelected));
-            listeUtilisateurGroupe.SelectedItem = null;
-        }
-
-        private void Refresh()
-        {
-            var groupeAffiche = BindingContext as GroupeModel;
-            var utilisateur = App.Current.BindingContext as UtilisateurModel;
-            InitializeComponent();
-            Load(groupeAffiche, utilisateur);
-        }
-
-        
     }
 }

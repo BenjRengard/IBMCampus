@@ -116,8 +116,13 @@ namespace IBMCampus
             var listeACharger = await repo.RecupererGroupesUser(user.IdUtilisateur.ToString());
             
             liste.ItemsSource = listeACharger;
+            repo.User.GroupesUtilisateur = listeACharger;
 
             if (listeACharger == null)
+            {
+                await DisplayAlert("Problème", repo.MessageErreur, "OK");
+            }
+            if (repo.MessageErreur != null)
             {
                 await DisplayAlert("Problème", repo.MessageErreur, "OK");
             }
