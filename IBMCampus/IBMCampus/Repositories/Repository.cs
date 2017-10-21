@@ -650,10 +650,10 @@ namespace IBMCampus
                 {
                     _groupes = groupes;
                     MessageErreur = null;
-                    foreach (var groupe in _groupes)
-                    {
-                        groupe.SportGroupe = await RecupererSportGroupe(groupe.IdGroupe);
-                    }
+                    //foreach (var groupe in _groupes)
+                    //{
+                    //    groupe.SportGroupe = await RecupererSportGroupe(groupe.IdGroupe);
+                    //}
 
 
                 }
@@ -783,7 +783,7 @@ namespace IBMCampus
                 //N'a pas lieu d'être, puisqu'on ne passe pas ce json dans l'url.
                 //string content = JsonConvert.SerializeObject(nouveauGroupe);
                 string insert = UrlInsert + "NomGroupe=" + '"' + nouveauGroupe.NomGroupe + '"'
-                                  + "&NbMax=" + nouveauGroupe.ParticipantsMax
+                                  + "&NbMax=" + nouveauGroupe.ParticipantsMaxGroupe
                                   + "&NRue=" + '"' + nouveauGroupe.NumeroRueGroupe + '"'
                                   + "&TVoie=" + '"' + nouveauGroupe.TypeVoieGroupe + '"'
                                   + "&NomVoie=" + '"' + nouveauGroupe.NomVoieGroupe + '"'
@@ -860,7 +860,7 @@ namespace IBMCampus
 
             try
             {
-                string UrlControle = "http://mooguer.fr/SelectUserGroupe.php?";
+                string UrlControle = "http://mooguer.fr/SelectAllUserGroupe.php?";
 
                 var json = await _client.GetStringAsync(UrlControle + "id=" + '"' + idGroupe + '"');
                 var utilisateur = JsonConvert.DeserializeObject<ObservableCollection<UtilisateurModel>>(json);
@@ -878,7 +878,7 @@ namespace IBMCampus
             {
 
                 MessageErreur = "Problème lors de la récupération des participants au groupe.";
-                return _utilisateurs = null;
+                return _utilisateurs;
 
             }
         }
@@ -947,7 +947,7 @@ namespace IBMCampus
 
             try
             {
-                string UrlRecuperationGroupe = "http://mooguer.fr/SelectAllGroupes.php?";
+                string UrlRecuperationGroupe = "http://mooguer.fr/SelectAllGroupe.php";
 
                 var controle = await _client.GetStringAsync(UrlRecuperationGroupe);
                 var groupes = JsonConvert.DeserializeObject<ObservableCollection<GroupeModel>>(controle);

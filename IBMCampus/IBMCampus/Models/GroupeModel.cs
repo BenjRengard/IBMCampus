@@ -12,7 +12,7 @@ namespace IBMCampus
 
         public int ParticipantsActuelsGroupe { get; set; }
 
-        public int ParticipantsMax { get; set; }
+        public int ParticipantsMaxGroupe { get; set; }
         
         public string NumeroRueGroupe { get; set; }
 

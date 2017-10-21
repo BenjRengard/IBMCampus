@@ -102,9 +102,15 @@ namespace IBMCampus
 
         public async Task Load(GroupeModel groupe, UtilisateurModel utilisateur)
         {
-            groupe.UtilisateurGroupe = await repo.RecupererUtilisateursDunGroupe(groupe.IdGroupe);
+            var LeGroupe = BindingContext as GroupeModel;
+            LeGroupe.UtilisateurGroupe = await repo.RecupererUtilisateursDunGroupe(LeGroupe.IdGroupe);
+            //groupe.UtilisateurGroupe = await repo.RecupererUtilisateursDunGroupe(groupe.IdGroupe);
+            if (LeGroupe.UtilisateurGroupe == null)
+            {
+                
+            }
+            listeUtilisateurGroupe.ItemsSource = LeGroupe.UtilisateurGroupe;
 
-            listeUtilisateurGroupe.ItemsSource = groupe.UtilisateurGroupe;
             if (!groupe.UtilisateurGroupe.Any())
             {
                 BoutonInscription.IsVisible = true;
@@ -130,7 +136,7 @@ namespace IBMCampus
                     }
                 }
             }
-            if (groupe.ParticipantsActuelsGroupe == groupe.ParticipantsMax)
+            if (groupe.ParticipantsActuelsGroupe == groupe.ParticipantsMaxGroupe)
             {
                 BoutonInscription.IsVisible = false;
             }
@@ -138,9 +144,10 @@ namespace IBMCampus
 
         protected override async void OnAppearing()
         {
+            
+            base.OnAppearing();
             var groupe = BindingContext as GroupeModel;
             await Load(groupe, repo.User);
-            base.OnAppearing();
         }
         #endregion
 

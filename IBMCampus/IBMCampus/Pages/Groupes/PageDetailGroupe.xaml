@@ -13,15 +13,15 @@
 
                 <StackLayout Padding="20,20,20,0">
                     <Label Text="Sport: " TextColor="DeepSkyBlue" FontSize="Medium"/>
-                    <Label Text="{Binding SportDuGroupe.NomSport}"/>
+                    <Label Text="{Binding NomSport}"/>
                 </StackLayout>
                 <StackLayout Padding="20,10,20,0">
                     <Label Text="Nombre de participants " TextColor="DeepSkyBlue" FontSize="Medium"/>
-                    <Label Text="{Binding ParticipantsActuels}"/>
+                    <Label Text="{Binding ParticipantsActuelsGroupe}"/>
                 </StackLayout>
                 <StackLayout Padding="20,10,20,0">
                     <Label Text="Nombre de participants maximum" TextColor="DeepSkyBlue" FontSize="Medium"/>
-                    <Label Text="{Binding ParticipantsMax}"/>
+                    <Label Text="{Binding ParticipantsMaxGroupe}"/>
                 </StackLayout>
                 <StackLayout Padding="20,10,20,0">
                     <Label Text="Localisation" TextColor="DeepSkyBlue" FontSize="Medium"/>

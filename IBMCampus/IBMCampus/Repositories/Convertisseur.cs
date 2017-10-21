@@ -64,7 +64,7 @@ namespace IBMCampus
             {
                 IdGroupe = proxy.gs_Id,
                 NomGroupe = proxy.gs_Nom,
-                ParticipantsMax = proxy.gs_Nbr_Membre_Max,
+                ParticipantsMaxGroupe = proxy.gs_Nbr_Membre_Max,
                 
             };
 

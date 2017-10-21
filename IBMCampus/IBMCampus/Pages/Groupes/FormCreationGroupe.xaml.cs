@@ -60,8 +60,9 @@ namespace IBMCampus
                         {
                             NomGroupe = NomNouveauGroupe.Text,
                             SportGroupe = _sportSelection,
+                            NomSport = _sportSelection.NomSport,
                             UtilisateurGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
-                            ParticipantsMax = nbParticip,
+                            ParticipantsMaxGroupe = nbParticip,
                             CodePostalGroupe = CodePostal.Text,
                             NomVoieGroupe = NomVoie.Text,
                             NumeroRueGroupe = NumeroVoie.Text,

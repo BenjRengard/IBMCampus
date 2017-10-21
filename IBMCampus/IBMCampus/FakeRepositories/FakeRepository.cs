@@ -105,7 +105,7 @@ namespace IBMCampus
                     
                 },
                 IdGroupe = 1,
-                ParticipantsMax = 10,
+                ParticipantsMaxGroupe = 10,
                 NumeroRueGroupe = "120",
                 TypeVoieGroupe = "Avenue de",
                 NomVoieGroupe = "Joie",
@@ -126,7 +126,7 @@ namespace IBMCampus
                     cive
                 },
                 IdGroupe = 2,
-                ParticipantsMax = 2,
+                ParticipantsMaxGroupe = 2,
                 NumeroRueGroupe = "12",
                 TypeVoieGroupe = "Rue de",
                 NomVoieGroupe = "courbier",
@@ -149,7 +149,7 @@ namespace IBMCampus
                    jerome
                 },
                 IdGroupe = 3,
-                ParticipantsMax = 10
+                ParticipantsMaxGroupe = 10
 
             };
 
@@ -166,7 +166,7 @@ namespace IBMCampus
                    bat
                 },
                 IdGroupe = 4,
-                ParticipantsMax = 10
+                ParticipantsMaxGroupe = 10
 
 
             };

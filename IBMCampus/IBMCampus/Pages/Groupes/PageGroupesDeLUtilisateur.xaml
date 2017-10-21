@@ -41,7 +41,7 @@
                                             <Label Text="{Binding ParticipantsActuels}" TextColor="Gray" FontSize="Small"/>
                                         </StackLayout>
                                         <StackLayout HorizontalOptions="End">
-                                            <Label Text="{Binding SportDuGroupe.NomSport}" TextColor="Gray" FontSize="Small"/>
+                                            <Label Text="{Binding NomSport}" TextColor="Gray" FontSize="Small"/>
                                         </StackLayout>
                                     </StackLayout>
                             </StackLayout>
