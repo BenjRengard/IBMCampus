@@ -30,13 +30,15 @@ namespace IBMCampus
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageProfilUtilisateur : ContentPage
     {
+        Repository repo = App.Current.BindingContext as Repository;
+
         public PageProfilUtilisateur()
         {
-            InitializeComponent();
-            var repoApp = App.Current.BindingContext as Repository;
 
-            BindingContext = repoApp.User;
-            UtilisateurModel utilisateur = repoApp.User;
+            InitializeComponent();
+
+            BindingContext = repo.User;
+            UtilisateurModel utilisateur = repo.User;
         }
 
         public PageProfilUtilisateur(UtilisateurModel user)
@@ -44,18 +46,28 @@ namespace IBMCampus
             InitializeComponent();
             BindingContext = user;
             UtilisateurModel utilisateur = user;
+
         }
-        
+
 
         private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
             var user = BindingContext as UtilisateurModel;
-            await Navigation.PushAsync(new ModificationProfil(user));
+
+            if (user.IdUtilisateur != repo.User.IdUtilisateur)
+            {
+                await DisplayAlert("Action non autorisée", "Vous ne pouvez modifier le profil de quelqu'un d'autre.", "OK");
+            }
+            else
+            {
+
+                await Navigation.PushAsync(new ModificationProfil(user));
+            }
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            
+
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
             await Navigation.PushAsync(new PageUtilisateurTest());
         }

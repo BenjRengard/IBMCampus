@@ -19,7 +19,7 @@ namespace IBMCampus.Pages.Profil_Utilisateur
 
 		public ModificationProfil (UtilisateurModel user)
 		{
-			InitializeComponent ();
+			InitializeComponent();
             BindingContext = user;
             NomUtilisateur.Text = user.NomUtilisateur;
             PrenomUtilisateur.Text = user.PrenomUtilisateur;
@@ -40,28 +40,11 @@ namespace IBMCampus.Pages.Profil_Utilisateur
 
             if (user.EMailUtilisateur != EMailUtilisateur.Text)
                 user.EMailUtilisateur = EMailUtilisateur.Text;
-
-            //if (user.AgeUtilisateur.ToString() != AgeUser.Text)
-            //{
-            //    int age;
-            //    var result = int.TryParse(AgeUser.Text, out age);
-            //    if (result)
-            //    {
-            //        if (age <= 0)
-            //        {
-            //            await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
-            //        }
-            //        user.AgeUtilisateur = age;
-            //    }
-            //    else
-            //    {
-            //        await DisplayAlert("Problème lors de la modification", "L'âge entré est incorrect", "OK");
-            //    }
-            //}
                 
-
             if (Convert.ToBoolean(user.Vehicule) != Conducteur.IsToggled)
                 user.Vehicule = Conducteur.IsToggled.ToString();
+
+
 
             await DisplayAlert("Modification du profil", "Votre profil a été modifié", "OK");
             await Navigation.PopAsync();
