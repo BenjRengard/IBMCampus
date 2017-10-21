@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,25 +10,34 @@ namespace IBMCampus
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageTousLesEvents : ContentPage
     {
+        #region Fields de la page
 
+        Repository repo = App.Current.BindingContext as Repository;
         EvenementsModel events = new EvenementsModel();
+        #endregion
+
+        #region Constructeurs
 
         public PageTousLesEvents()
         {
             InitializeComponent();
-            Load();
+            //Load();
 
         }
-        /// <summary>
-        /// Constrcuteur obsolète
-        /// </summary>
-        /// <param name="repo"></param>
-        public PageTousLesEvents(FakeRepository repo)
-        {
-            InitializeComponent();
 
-            liste.ItemsSource = repo.RecupererTousLesEvents();
-        }
+        ///// <summary>
+        ///// Constrcuteur obsolète
+        ///// </summary>
+        ///// <param name="repo"></param>
+        //public PageTousLesEvents(FakeRepository repo)
+        //{
+        //    InitializeComponent();
+
+        //    liste.ItemsSource = repo.RecupererTousLesEvents();
+        //}
+        #endregion
+
+        #region Méthodes d'action
 
         private async void liste_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -45,24 +56,56 @@ namespace IBMCampus
             await Navigation.PushAsync(new PageFormCreationEvent());
         }
 
-        private void liste_Refreshing(object sender, EventArgs e)
+        private async void liste_Refreshing(object sender, EventArgs e)
         {
-            Load();
+            await Load();
             liste.EndRefresh();
         }
+        #endregion
 
-        public void Load()
+        #region Méthodes de chargement
+
+        public async Task Load()
         {
-            var repo = App.Current.BindingContext as FakeRepository;
 
             liste.ItemsSource = null;
-            liste.ItemsSource = repo.RecupererTousLesEvents();
+            var listeAffiche = new ObservableCollection<EvenementsModel>();
+
+            var groupesUser = await repo.RecupererGroupesUser(repo.User.IdUtilisateur.ToString());
+            if (groupesUser == null || groupesUser.Count <= 0)
+            {
+                await DisplayAlert("Evènements", "Aucun évènement à afficher", "OK");
+            }
+            else
+            {
+
+                foreach (var groupe in groupesUser)
+                {
+                    var eventsDuGroupe = await repo.RecupererEvenementsGroupe(groupe.IdGroupe.ToString());
+                    if (eventsDuGroupe == null || eventsDuGroupe.Count <= 0)
+                    {
+                        await DisplayAlert("Evènements", "Problème lors de la récupération des évènements. Veuillez ressayer", "OK");
+                    }
+                    else
+                    {
+
+                        foreach (var evenement in eventsDuGroupe)
+                        {
+                            listeAffiche.Add(evenement);
+                        }
+                    }
+                }
+
+            }
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
+            await DisplayAlert("ATTENTION", "Le chargement de cette page peut prendre un certain temps. Veuillez patienter.", "Je suis prêt à patienter", "Je ne veux pas patienter");
+            await Load();
+
             base.OnAppearing();
-            Load();
         }
+        #endregion
     }
 }
