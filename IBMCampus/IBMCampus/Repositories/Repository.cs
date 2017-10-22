@@ -43,6 +43,9 @@ namespace IBMCampus
                 var json = await _client.GetStringAsync(UrlControle + "Id=" + idUtilisateur);
                 var evenements = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
 
+                var groupesDuUser = await RecupererGroupesUser(User.IdUtilisateur.ToString());
+
+
                 if (evenements.Count > 0 && evenements != null)
                 {
                     _evenements = evenements;
@@ -50,9 +53,14 @@ namespace IBMCampus
                     {
                         even.DebutEvenement = Convert.ToDateTime(even.DateDebutEvent);
                         even.FinEvenement = Convert.ToDateTime(even.DateFinEvent);
+                        foreach (var groupe in groupesDuUser)
+                        {
+                            if (even.IdGroupe == groupe.IdGroupe)
+                            {
+                                even.NomGroupeEvenement = groupe.NomGroupe;
+                            }
+                        }
                     }
-                    MessageErreur = null;
-
                 }
                 else
                 {
@@ -731,6 +739,9 @@ namespace IBMCampus
                 var controle = await _client.GetStringAsync(UrlControle + "Id=" + idGroupe);
                 var evenement = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(controle);
 
+                var groupesDuUser = await RecupererGroupesUser(User.IdUtilisateur.ToString());
+                
+
                 if (evenement.Count > 0 && evenement != null)
                 {
                     _evenement = evenement;
@@ -738,6 +749,13 @@ namespace IBMCampus
                     {
                         even.DebutEvenement = Convert.ToDateTime(even.DateDebutEvent);
                         even.FinEvenement = Convert.ToDateTime(even.DateFinEvent);
+                        foreach (var groupe in groupesDuUser)
+                        {
+                            if (even.IdGroupe == groupe.IdGroupe)
+                            {
+                                even.NomGroupeEvenement = groupe.NomGroupe;
+                            }
+                        }
                     }
                 }
 

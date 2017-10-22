@@ -65,6 +65,7 @@ namespace IBMCampus
                         FinEvenement = DateFin.Date,
                         //NomEvenement = NomNouvelEvent.Text,
                         IdGroupe = _groupeSelection.IdGroupe,
+                        NomGroupeEvenement = _groupeSelection.NomGroupe,
                         NombreParticipantsMax = nbParticip,
                         EventHebdo = Switch.IsToggled.ToString(),
                         VilleEvent = Ville.Text,

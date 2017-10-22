@@ -33,16 +33,33 @@ namespace IBMCampus
         public DateTime DebutEvenement { get; set; }
 
         public DateTime FinEvenement { get; set; }
-        
+
 
         public ObservableCollection<UtilisateurModel> Participants { get; set; }
 
         public string LocalisationEvenement { get; set; }
-        
+
         public string NomEvenement { get; set; }
-        
+
 
         public string EventHebdo { get; set; }
+
+        public string NomGroupeEvenement { get; set; }
+
+        public string Hebdomadaire
+        {
+            get
+            {
+                if (IsRecurentHebdo == 1)
+                {
+                    return "Oui";
+                }
+                else
+                {
+                    return "Non";
+                }
+            }
+        }
 
         public string LocalisationComplete
         {
@@ -65,7 +82,7 @@ namespace IBMCampus
             //IsRecurentHebdo = false;
             NomEvenement = string.Empty;
             //EventHebdo = string.Empty;
-            
+
         }
     }
 }
