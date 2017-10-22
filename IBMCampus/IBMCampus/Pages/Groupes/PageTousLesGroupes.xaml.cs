@@ -58,7 +58,7 @@ namespace IBMCampus
         public async Task Load()
         {
             
-            liste.ItemsSource = null;
+            //liste.ItemsSource = null;
             liste.ItemsSource = await repo.RecupererAllGroupes();
         }
 
