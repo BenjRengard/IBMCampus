@@ -10,19 +10,19 @@ using Xamarin.Forms.Xaml;
 
 namespace IBMCampus
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PageEvenementsPerso : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PageEvenementsPerso : ContentPage
+    {
         Repository repo = App.Current.BindingContext as Repository;
 
         UtilisateurModel _utilisateur = new UtilisateurModel();
 
-		public PageEvenementsPerso ()
-		{
-			InitializeComponent ();
+        public PageEvenementsPerso()
+        {
+            InitializeComponent();
             _utilisateur = repo.User;
             //Load();
-		}
+        }
 
         public PageEvenementsPerso(UtilisateurModel user)
         {
@@ -40,12 +40,12 @@ namespace IBMCampus
         {
             liste.ItemsSource = null;
             var Evenements = await repo.RecupererEvenementsUtilisateur(_utilisateur.IdUtilisateur);
-            if (Evenements == null || Evenements.Count <=0)
+            if (Evenements == null || Evenements.Count <= 0)
             {
                 await DisplayAlert("Evènements", "Aucun évènement trouvé", "OK");
             }
             liste.ItemsSource = Evenements;
-            
+
 
         }
 
@@ -64,9 +64,18 @@ namespace IBMCampus
 
         private async void ToolbarItem_Activated_1(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PageFormCreationEvent());
+            if (_utilisateur != repo.User)
+            {
+                await DisplayAlert("Action non autorisée", "Vous ne pouvez créer un évènement sur la page d'un autre utilisateur.", "OK");
+            }
+            else
+            {
+
+                await Navigation.PushAsync(new PageFormCreationEvent());
+            }
         }
-        protected override async  void OnAppearing()
+
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             await Load();
