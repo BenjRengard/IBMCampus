@@ -14,7 +14,6 @@ namespace IBMCampus
 
         Repository repo = App.Current.BindingContext as Repository;
         EvenementsModel events = new EvenementsModel();
-        bool IsAllEvent = true;
         #endregion
 
         #region Constructeurs
