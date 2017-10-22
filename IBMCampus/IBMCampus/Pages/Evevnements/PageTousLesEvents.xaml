@@ -38,7 +38,7 @@
 
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                         <Label Text="Date de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                                        <Label Text="{Binding DateDebutEvent}" TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding DateAffiche}" TextColor="Gray" FontSize="Small"/>
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Heure de début : " TextColor="Gray" FontSize="Small"/>

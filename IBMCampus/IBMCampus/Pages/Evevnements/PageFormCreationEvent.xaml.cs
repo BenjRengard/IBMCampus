@@ -74,8 +74,8 @@ namespace IBMCampus
                         NumeroVoieEvent = NumeroVoie.Text,
                         TypeVoieEvent = TypeVoie.Text,
                         Participants = new ObservableCollection<UtilisateurModel>() { repo.User },
-                        HeureDebut = HeureDebut.Time,
-                        HeureFin = HeureFin.Time
+                        HeureDebutTimeSpan = HeureDebut.Time,
+                        HeureFinTimeSpan = HeureFin.Time
                         
 
                     };

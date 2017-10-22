@@ -8,9 +8,13 @@ namespace IBMCampus
     {
         public int IdEvenement { get; set; }
 
-        public string DateDebutEvent { get; set; }
+        public string DateEvent { get; set; }
 
         public string DateFinEvent { get; set; }
+
+        public string HeureDebut { get; set; }
+
+        public string HeureFin { get; set; }
 
         public int IdGroupe { get; set; }
 
@@ -34,9 +38,9 @@ namespace IBMCampus
 
         public DateTime FinEvenement { get; set; }
 
-        public TimeSpan HeureDebut { get; set; }
+        public TimeSpan HeureDebutTimeSpan { get; set; }
 
-        public TimeSpan HeureFin { get; set; }
+        public TimeSpan HeureFinTimeSpan { get; set; }
 
 
         public ObservableCollection<UtilisateurModel> Participants { get; set; }
@@ -70,6 +74,14 @@ namespace IBMCampus
             get
             {
                 return string.Format("{0} {1} {2}\n{3} {4}", NumeroVoieEvent, TypeVoieEvent, NomVoieEvent, CodePostalEvent, VilleEvent);
+            }
+        }
+
+        public string DateAffiche
+        {
+            get
+            {
+                return DebutEvenement.ToString("dd/MM/yyyy");
             }
         }
 

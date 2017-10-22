@@ -51,8 +51,20 @@ namespace IBMCampus
                     _evenements = evenements;
                     foreach (var even in _evenements)
                     {
-                        even.DebutEvenement = Convert.ToDateTime(even.DateDebutEvent);
-                        even.FinEvenement = Convert.ToDateTime(even.DateFinEvent);
+                        even.DebutEvenement = Convert.ToDateTime(even.DateEvent);
+                        //retour.FinEvenement = Convert.ToDateTime(retour.DateFinEvent);
+                        TimeSpan HD;
+                        TimeSpan HF;
+                        var result1 = TimeSpan.TryParse(even.HeureDebut, out HD);
+                        if (result1)
+                        {
+                            even.HeureDebutTimeSpan = HD;
+                        }
+                        var result2 = TimeSpan.TryParse(even.HeureFin, out HF);
+                        if (result2)
+                        {
+                            even.HeureFinTimeSpan = HF;
+                        }
                         foreach (var groupe in groupesDuUser)
                         {
                             if (even.IdGroupe == groupe.IdGroupe)
@@ -668,7 +680,7 @@ namespace IBMCampus
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
@@ -747,8 +759,20 @@ namespace IBMCampus
                     _evenement = evenement;
                     foreach (var even in _evenement)
                     {
-                        even.DebutEvenement = Convert.ToDateTime(even.DateDebutEvent);
-                        even.FinEvenement = Convert.ToDateTime(even.DateFinEvent);
+                        even.DebutEvenement = Convert.ToDateTime(even.DateEvent);
+                        //retour.FinEvenement = Convert.ToDateTime(retour.DateFinEvent);
+                        TimeSpan HD;
+                        TimeSpan HF;
+                        var result1 = TimeSpan.TryParse(even.HeureDebut, out HD);
+                        if (result1)
+                        {
+                            even.HeureDebutTimeSpan = HD;
+                        }
+                        var result2 = TimeSpan.TryParse(even.HeureFin, out HF);
+                        if (result2)
+                        {
+                            even.HeureFinTimeSpan = HF;
+                        }
                         foreach (var groupe in groupesDuUser)
                         {
                             if (even.IdGroupe == groupe.IdGroupe)
@@ -763,7 +787,7 @@ namespace IBMCampus
 
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
@@ -823,7 +847,7 @@ namespace IBMCampus
 
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
@@ -1066,7 +1090,7 @@ namespace IBMCampus
 
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
@@ -1088,7 +1112,8 @@ namespace IBMCampus
                 var recurence = (Convert.ToBoolean(nouvelEvenement.EventHebdo) ? 1 : 0);
                 string insert = UrlInsert + "DDebut=" + '"'
                                   + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.DebutEvenement) + '"'
-                                  + "&DFin=" + '"' + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement) + '"'
+                                  + "&HDebut=" + '"' + nouvelEvenement.HeureDebutTimeSpan.ToString() + '"'
+                                  + "&HFin=" + '"' + nouvelEvenement.HeureFinTimeSpan.ToString() + '"'
                                   + "&IdGrp=" + nouvelEvenement.IdGroupe
                                   + "&NbMax=" + nouvelEvenement.NombreParticipantsMax
                                   + "&Hebdo=" + '"' + recurence + '"'
@@ -1110,8 +1135,20 @@ namespace IBMCampus
                 else
                 {
                     var retour = nouveau.First();
-                    retour.DebutEvenement = Convert.ToDateTime(retour.DateDebutEvent);
-                    retour.FinEvenement = Convert.ToDateTime(retour.DateFinEvent);
+                    retour.DebutEvenement = Convert.ToDateTime(retour.DateEvent);
+                    //retour.FinEvenement = Convert.ToDateTime(retour.DateFinEvent);
+                    TimeSpan HD;
+                    TimeSpan HF;
+                    var result1 = TimeSpan.TryParse(retour.HeureDebut, out HD);
+                    if (result1)
+                    {
+                        retour.HeureDebutTimeSpan = HD;
+                    }
+                    var result2 = TimeSpan.TryParse(retour.HeureFin, out HF);
+                    if (result2)
+                    {
+                        retour.HeureFinTimeSpan = HF;
+                    }
 
                     return retour;
                 }
