@@ -97,7 +97,7 @@ namespace IBMCampus
 
         protected override async void OnAppearing()
         {
-            await DisplayAlert("ATTENTION", "Le chargement de cette page peut prendre un certain temps. Veuillez patienter.", "Je suis prêt à patienter", "Je ne veux pas patienter");
+            //await DisplayAlert("ATTENTION", "Le chargement de cette page peut prendre un certain temps. Veuillez patienter.", "Je suis prêt à patienter", "Je ne veux pas patienter");
             await Load();
 
             base.OnAppearing();
