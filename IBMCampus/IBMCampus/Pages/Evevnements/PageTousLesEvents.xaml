@@ -4,8 +4,11 @@
              x:Class="IBMCampus.PageTousLesEvents"
              Padding="10,20,10,10"
              Title="Les Evènements">
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Créer" Activated="ToolbarItem_Activated" x:Name="boutonAjout" Order="Primary"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
+       
 
 
         <StackLayout BackgroundColor="White">

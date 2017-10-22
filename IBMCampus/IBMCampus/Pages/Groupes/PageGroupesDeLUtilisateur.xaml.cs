@@ -128,7 +128,7 @@ namespace IBMCampus
 
             if (listeACharger == null)
             {
-                await DisplayAlert("Problème", repo.MessageErreur, "OK");
+                await DisplayAlert("Information", "Aucune inscription à un groupe", "OK");
             }
             if (repo.MessageErreur != null)
             {
