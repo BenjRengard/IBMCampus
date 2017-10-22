@@ -22,10 +22,14 @@
                     <Entry x:Name="NombreParticipantsMax" Placeholder="Nombre de participants max" Keyboard="Numeric"/>
 
                     <Label Text="Informations dates" FontSize="Large" TextColor="DeepSkyBlue"/>
-                    <Label Text="Date de début" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <Label Text="Date" FontSize="Small" TextColor="DeepSkyBlue"/>
                     <DatePicker x:Name="DateDebut" TextColor="DeepSkyBlue"></DatePicker>
-                    <Label Text="Date de fin" FontSize="Small" TextColor="DeepSkyBlue"/>
-                    <DatePicker x:Name="DateFin" TextColor="DeepSkyBlue"></DatePicker>
+                    <!--<Label Text="Date de fin" FontSize="Small" TextColor="DeepSkyBlue"/>-->
+                    <!--<DatePicker x:Name="DateFin" TextColor="DeepSkyBlue"></DatePicker>-->
+                    <Label Text="Heure de début" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <TimePicker x:Name="HeureDebut" TextColor="DeepSkyBlue"></TimePicker>
+                    <Label Text="Heure de fin" FontSize="Small" TextColor="DeepSkyBlue"/>
+                    <TimePicker x:Name="HeureFin" TextColor="DeepSkyBlue"></TimePicker>
 
                     <Label Text="Localisation" FontSize="Large" TextColor="DeepSkyBlue"/>
                     <Label Text="Numéro de la voie" FontSize="Small" TextColor="DeepSkyBlue"/>

@@ -38,7 +38,7 @@
                                         
                                         <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                                             <Label Text="Participants: " TextColor="Gray" FontSize="Small"/>
-                                            <Label Text="{Binding ParticipantsActuels}" TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding ParticipantsActuelsGroupe}" TextColor="Gray" FontSize="Small"/>
                                         </StackLayout>
                                         <StackLayout HorizontalOptions="End">
                                             <Label Text="{Binding NomSport}" TextColor="Gray" FontSize="Small"/>

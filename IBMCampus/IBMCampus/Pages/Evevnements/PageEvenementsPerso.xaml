@@ -34,20 +34,17 @@
                                     <Label Text="{Binding NomGroupeEvenement, StringFormat='Groupe : {0:F0}'}" FontSize="Medium" TextColor="DeepSkyBlue"/>
 
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <!--<Label Text="Participants: " TextColor="Gray" FontSize="Small"/>-->
-                                        <Label Text="Début de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="Date de l'évènement : " TextColor="Gray" FontSize="Small"/>
                                         <Label Text="{Binding DateDebutEvent}" TextColor="Gray" FontSize="Small"/>
                                     </StackLayout>
-
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="Fin de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                                        <Label Text="{Binding DateFinEvent}}" TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="Heure de début : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding HeureDebut}" TextColor="Gray" FontSize="Small"/>
                                     </StackLayout>
-
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="Aura lieu à : " TextColor="Gray" FontSize="Small"/>
-                                        <Label Text="{Binding LocalisationComplete}" TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="Heure de fin : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding HeureFin}" TextColor="Gray" FontSize="Small"/>
                                     </StackLayout>
 
                                     <StackLayout Orientation="Horizontal">

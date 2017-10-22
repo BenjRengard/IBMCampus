@@ -17,14 +17,18 @@
 
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Label Text="Début de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                        <Label Text="Date de l'évènement : " TextColor="Gray" FontSize="Small"/>
                         <Label Text="{Binding DateDebutEvent}" TextColor="Gray" FontSize="Small"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Fin de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                        <Label Text="{Binding DateFinEvent}" TextColor="Gray" FontSize="Small"/>
+                        <Label Text="Heure de début : " TextColor="Gray" FontSize="Small"/>
+                        <Label Text="{Binding HeureDebut}" TextColor="Gray" FontSize="Small"/>
                     </StackLayout>
-                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Heure de fin : " TextColor="Gray" FontSize="Small"/>
+                        <Label Text="{Binding HeureFin}" TextColor="Gray" FontSize="Small"/>
+                    </StackLayout>
+
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Lieu : " TextColor="Gray" FontSize="Small"/>

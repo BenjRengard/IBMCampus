@@ -1054,6 +1054,12 @@ namespace IBMCampus
                 if (groupes.Count > 0 && groupes != null)
                 {
                     _groupes = groupes;
+                    //foreach (var groupe in _groupes)
+                    //{
+                    //    //groupe.NomSport =
+                    //        var sport =await RecupererSportGroupe(groupe.IdGroupe);
+                    //    groupe.NomSport = 
+                    //}
                 }
 
                 return _groupes;

@@ -19,7 +19,7 @@ namespace IBMCampus
 
         GroupeModel _groupeSelection = null;
 
-        private bool EnregistrerClique = false;
+        private bool EnregistrerClique;
 
 
         public PageFormCreationEvent()
@@ -58,11 +58,11 @@ namespace IBMCampus
                 else
                 {
 
-
+                    
                     EvenementsModel nouvelEvent = new EvenementsModel()
                     {
-                        DebutEvenement = DateFin.Date,
-                        FinEvenement = DateFin.Date,
+                        DebutEvenement = DateDebut.Date,
+                        //FinEvenement = DateFin.Date,
                         //NomEvenement = NomNouvelEvent.Text,
                         IdGroupe = _groupeSelection.IdGroupe,
                         NomGroupeEvenement = _groupeSelection.NomGroupe,
@@ -73,7 +73,10 @@ namespace IBMCampus
                         NomVoieEvent = NomVoie.Text,
                         NumeroVoieEvent = NumeroVoie.Text,
                         TypeVoieEvent = TypeVoie.Text,
-                        Participants = new ObservableCollection<UtilisateurModel>() { repo.User }
+                        Participants = new ObservableCollection<UtilisateurModel>() { repo.User },
+                        HeureDebut = HeureDebut.Time,
+                        HeureFin = HeureFin.Time
+                        
 
                     };
 
