@@ -627,7 +627,7 @@ namespace IBMCampus
 
                 if (user.Count > 0)
                 {
-                    _utilisateur = user.First();
+                    _utilisateur = user.FirstOrDefault();
                 }
 
                 if (_utilisateur != null)
@@ -648,13 +648,13 @@ namespace IBMCampus
                     }
                     else
                     {
-                        MessageErreur = "Le user ou le mot de passe est incorrect.";
+                        MessageErreur = "Le mot de passe est incorrect.";
                         return null;
                     }
                 }
                 else
                 {
-                    MessageErreur = "Le user ou le mot de passe est incorrect.";
+                    MessageErreur = "L'email est incorrect.";
                     return null;
                 }
 

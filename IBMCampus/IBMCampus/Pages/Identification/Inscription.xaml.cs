@@ -86,6 +86,8 @@ namespace IBMCampus
                                           + "&Vehicule=" + drive;
 
                         await _client.GetStringAsync(insert);
+                        await DisplayAlert("Création d'un profil", string.Format("Le profil de {0} {1} a bien été crée", nouvelUser.PrenomUtilisateur, nouvelUser.NomUtilisateur), "OK");
+                        await Navigation.PopAsync();
 
                     }
                     catch (Exception err)
@@ -97,7 +99,6 @@ namespace IBMCampus
                         //throw;
                     }
 
-                    await Navigation.PopAsync();
 
                 }
                 #region Code commenté

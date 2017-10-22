@@ -20,6 +20,8 @@ namespace IBMCampus
         private HttpClient _client = new HttpClient();
         private UtilisateurModel _utilisateur;
         private bool BoutonClique = false;
+        Repository repo = App.Current.BindingContext as Repository;
+
 
         //private string url = "http:/9.129.126.182/api/Profil";
         //private HttpClient _client = new HttpClient();
@@ -59,7 +61,6 @@ namespace IBMCampus
             {
 
                 BoutonClique = true;
-                var repo = App.Current.BindingContext as Repository;
 
                 try
                 {
