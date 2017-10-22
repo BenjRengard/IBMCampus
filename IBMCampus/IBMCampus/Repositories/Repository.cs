@@ -1168,6 +1168,38 @@ namespace IBMCampus
 
             }
         }
+
+        /// <summary>
+        /// Méthode pour modifier le profil de l'utilisateur en base.
+        /// </summary>
+        /// <param name="utilisateurModifie">Objet utilisateur modifié.</param>
+        /// <returns></returns>
+        public async Task ModifierProfilUtilisateur(UtilisateurModel utilisateurModifie)
+        {
+            try
+            {
+                //int drive = (Convert.ToBoolean(utilisateurModifie.Vehicule)) ? 1 : 0;
+                var UrlUpdate = "http://mooguer.fr/UpdateUser.php?";
+                string insert = UrlUpdate + "Id=" + utilisateurModifie.IdUtilisateur
+                                              + "&Nom=" + '"' + utilisateurModifie.NomUtilisateur + '"'
+                                              + "&Prenom=" + '"' + utilisateurModifie.PrenomUtilisateur + '"'
+                                              + "&Tel=" + '"' + utilisateurModifie.TelephoneUtilisateur + '"'
+                                              + "&Adresse=" + '"' + utilisateurModifie.AdresseUtilisateur + '"'
+                                              + "&Vehi=" + utilisateurModifie.Vehicule
+                                              + "&Nbplace=" + utilisateurModifie.NombrePlaceVoiture;
+
+                var json = await _client.GetStringAsync(insert);
+                //string retour = JsonConvert.DeserializeObject<string>(json);
+                MessageErreur = null;
+            }
+            catch (Exception)
+            {
+
+                MessageErreur = "Problème lors de la mise à jour des données.";
+            }
+            
+
+        }
     }
 }
 

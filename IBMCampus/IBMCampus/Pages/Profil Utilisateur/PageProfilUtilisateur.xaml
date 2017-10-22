@@ -28,6 +28,7 @@
                         <Label Text="Coordonnées : " TextColor="DeepSkyBlue" FontSize="Medium"/>
                         <Label Text="{Binding EMailUtilisateur, StringFormat='Mail :  {0:F0}'}"/>
                         <Label Text="{Binding TelephoneUtilisateur, StringFormat='Tel :  {0:F0}'}"/>
+                        <Label Text="{Binding AdresseUtilisateur, StringFormat='Bureau/Bâtiment : {0:F0}'}"/>
                     </StackLayout>
                 </AbsoluteLayout>
                 <!--<StackLayout VerticalOptions="End" HorizontalOptions="End">
