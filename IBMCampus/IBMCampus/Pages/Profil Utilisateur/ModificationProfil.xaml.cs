@@ -83,6 +83,7 @@ namespace IBMCampus.Pages.Profil_Utilisateur
             }
             else
             {
+                repo.User = utilisateurModifie;
                 await DisplayAlert("Modification du profil", "Votre profil a été modifié", "OK");
                 await Navigation.PopAsync();
             }

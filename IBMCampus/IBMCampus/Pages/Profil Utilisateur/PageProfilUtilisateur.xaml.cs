@@ -31,12 +31,13 @@ namespace IBMCampus
     public partial class PageProfilUtilisateur : ContentPage
     {
         Repository repo = App.Current.BindingContext as Repository;
+        bool IsCurrentUser;
 
         public PageProfilUtilisateur()
         {
 
             InitializeComponent();
-
+            IsCurrentUser = true;
             BindingContext = repo.User;
             UtilisateurModel utilisateur = repo.User;
         }
@@ -44,6 +45,7 @@ namespace IBMCampus
         public PageProfilUtilisateur(UtilisateurModel user)
         {
             InitializeComponent();
+            IsCurrentUser = false;
             BindingContext = user;
             UtilisateurModel utilisateur = user;
 
@@ -70,6 +72,18 @@ namespace IBMCampus
 
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
             await Navigation.PushAsync(new PageUtilisateurTest());
+        }
+
+        protected override void OnAppearing()
+        {
+            if (IsCurrentUser)
+            {
+                BindingContext = null;
+                BindingContext = repo.User;
+
+            }
+            base.OnAppearing();
+            
         }
     }
 }
