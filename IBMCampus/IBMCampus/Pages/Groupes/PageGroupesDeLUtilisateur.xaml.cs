@@ -34,7 +34,7 @@ namespace IBMCampus
         public PageGroupesDeLUtilisateur()
         {
             InitializeComponent();
-            user = null;
+            user = repo.User;
         }
 
         /// <summary>
@@ -73,7 +73,15 @@ namespace IBMCampus
         /// <param name="e"></param>
         private async void ToolbarItem_Activated(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new FormCreationGroupe());
+            if (user != repo.User)
+            {
+                await DisplayAlert("Action non autorisée", "Vous ne pouvez pas créer de groupe sur la page d'un autre utilisateur.", "OK");
+            }
+            else
+            {
+
+                await Navigation.PushAsync(new FormCreationGroupe());
+            }
         }
 
         /// <summary>
@@ -114,7 +122,7 @@ namespace IBMCampus
             //Liste chargé avec un appel api.
 
             var listeACharger = await repo.RecupererGroupesUser(user.IdUtilisateur.ToString());
-            
+
             liste.ItemsSource = listeACharger;
             repo.User.GroupesUtilisateur = listeACharger;
 
