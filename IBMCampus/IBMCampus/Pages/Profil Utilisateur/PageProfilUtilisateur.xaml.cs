@@ -61,7 +61,7 @@ namespace IBMCampus
             else
             {
 
-                await Navigation.PushAsync(new ModificationProfil(user));
+                await Navigation.PushAsync(new ModificationProfil(repo.User));
             }
         }
 

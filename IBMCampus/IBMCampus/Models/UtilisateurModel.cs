@@ -43,7 +43,11 @@ namespace IBMCampus
             //this.EvenementsUtilisateur = new List<EvenementsModel>();
             this.GroupesUtilisateur = new ObservableCollection<GroupeModel>();
             this.EventUtilisateur = new ObservableCollection<EvenementsModel>();
-            this.AdresseUtilisateur = string.Empty;
+            this.AdresseUtilisateur = "A modifier";
+            this.NombrePlaceVoiture = 0;
+            this.TelephoneUtilisateur = string.Empty;
+
+
 
         }
     }

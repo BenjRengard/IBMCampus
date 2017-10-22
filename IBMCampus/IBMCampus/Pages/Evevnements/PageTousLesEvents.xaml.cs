@@ -14,6 +14,7 @@ namespace IBMCampus
 
         Repository repo = App.Current.BindingContext as Repository;
         EvenementsModel events = new EvenementsModel();
+        bool IsAllEvent = true;
         #endregion
 
         #region Constructeurs
@@ -82,18 +83,14 @@ namespace IBMCampus
                 foreach (var groupe in groupesUser)
                 {
                     var eventsDuGroupe = await repo.RecupererEvenementsGroupe(groupe.IdGroupe.ToString());
-                    if (eventsDuGroupe == null || eventsDuGroupe.Count <= 0)
+                    if (eventsDuGroupe != null && eventsDuGroupe.Count > 0)
                     {
-                        await DisplayAlert("Evènements", "Problème lors de la récupération des évènements. Veuillez ressayer", "OK");
-                    }
-                    else
-                    {
-
                         foreach (var evenement in eventsDuGroupe)
                         {
                             listeAffiche.Add(evenement);
                         }
                     }
+              
                 }
                 liste.ItemsSource = listeAffiche;
             }
