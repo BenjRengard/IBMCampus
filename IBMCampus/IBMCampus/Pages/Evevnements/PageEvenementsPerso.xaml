@@ -8,62 +8,63 @@
         <ToolbarItem Text="Créer un évènement" Activated="ToolbarItem_Activated_1" Icon="Plus.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-
-
-        <ListView x:Name="liste" 
+        <StackLayout BackgroundColor="White">
+            <StackLayout>
+                <Label HorizontalOptions="Center" Text="Mes évènements" TextColor="DeepSkyBlue" FontSize="Large" FontAttributes="Bold"/>
+            </StackLayout>
+            <ListView x:Name="liste" 
                       HasUnevenRows="True" 
                       BackgroundColor="White" 
                       IsPullToRefreshEnabled="True"
                       Refreshing="liste_Refreshing"
                       ItemSelected="liste_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <!--<ViewCell.ContextActions>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<ViewCell.ContextActions>
                                 <MenuItem Text="Suivre"/>
                                 <MenuItem Text="Détails"/>
                             </ViewCell.ContextActions>-->
-                        <StackLayout Orientation="Vertical" 
+                            <StackLayout Orientation="Vertical" 
                                          HorizontalOptions="FillAndExpand"
                                          Padding="5,5,5,5">
 
-                            <StackLayout HorizontalOptions="Start">
-                                
-                                <!--<StackLayout Orientation="Horizontal">
-                                    <Label Text="Nom de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding NomEvenement}" TextColor="Gray" FontSize="Small"/>
-                                </StackLayout>-->
-                                
-                                <StackLayout Orientation="Horizontal">
-                                    <!--<Label Text="Participants: " TextColor="Gray" FontSize="Small"/>-->
-                                    <Label Text="Début de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding DateDebutEvent}" TextColor="Gray" FontSize="Small"/>
-                                </StackLayout>
-                                
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Fin de l'évènement : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding DateFinEvent}}" TextColor="Gray" FontSize="Small"/>
-                                </StackLayout>
+                                <StackLayout HorizontalOptions="Start">
 
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Aura lieu à : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding LocalisationComplete}" TextColor="Gray" FontSize="Small"/>
-                                </StackLayout>
+                                    <Label Text="{Binding NomGroupeEvenement, StringFormat='Groupe : {0:F0}'}" FontSize="Medium" TextColor="DeepSkyBlue"/>
 
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Nombre de participant(s) : " TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding NombreParticipantsMax}" TextColor="Gray" FontSize="Small"/>
-                                </StackLayout>
 
-                                <StackLayout  Orientation="Horizontal">
-                                    <Label Text="S'agit-il d'un évènement hebdomadaire ?" TextColor="Gray" FontSize="Small"/>
-                                    <Label Text="{Binding IsRecurentHebdo}" TextColor="Gray" FontSize="Small"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <!--<Label Text="Participants: " TextColor="Gray" FontSize="Small"/>-->
+                                        <Label Text="Début de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding DateDebutEvent}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Fin de l'évènement : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding DateFinEvent}}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Aura lieu à : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding LocalisationComplete}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Nombre de participant(s) : " TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding NombreParticipantsMax}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
+
+                                    <StackLayout  Orientation="Horizontal">
+                                        <Label Text="S'agit-il d'un évènement hebdomadaire ?" TextColor="Gray" FontSize="Small"/>
+                                        <Label Text="{Binding Hebdomadaire}" TextColor="Gray" FontSize="Small"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
