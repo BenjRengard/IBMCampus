@@ -749,6 +749,7 @@ namespace IBMCampus
             {
 
                 MessageErreur = "Problème lors de la récupération des données.";
+
                 return _evenement = null;
 
             }
@@ -944,8 +945,8 @@ namespace IBMCampus
             var UrlInsert = "http://mooguer.fr/InsertInscriptionGroupe.php?";
             try
             {
-                string insert = UrlInsert + "IdGroupe="  + idGroupe 
-                                  + "&IdUser="  + idUtilisateur;
+                string insert = UrlInsert + "IdGroupe=" + idGroupe
+                                  + "&IdUser=" + idUtilisateur;
 
                 await _client.GetStringAsync(insert);
                 MessageErreur = null;
@@ -1061,17 +1062,17 @@ namespace IBMCampus
             try
             {
                 var recurence = (Convert.ToBoolean(nouvelEvenement.EventHebdo) ? 1 : 0);
-                string insert = UrlInsert + "DDebut=" + '"' 
+                string insert = UrlInsert + "DDebut=" + '"'
                                   + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.DebutEvenement) + '"'
-                                  + "&DFin=" + '"' + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement) +'"'
+                                  + "&DFin=" + '"' + Convertisseur.ConvertirDateTimeEnDateMySqlSansHeure(nouvelEvenement.FinEvenement) + '"'
                                   + "&IdGrp=" + nouvelEvenement.IdGroupe
                                   + "&NbMax=" + nouvelEvenement.NombreParticipantsMax
                                   + "&Hebdo=" + '"' + recurence + '"'
                                   + "&NVoie=" + '"' + nouvelEvenement.NumeroVoieEvent + '"'
                                   + "&TVoie=" + '"' + nouvelEvenement.TypeVoieEvent + '"'
                                   + "&NomVoie=" + '"' + nouvelEvenement.NomVoieEvent + '"'
-                                  +"&CP=" + '"' + nouvelEvenement.CodePostalEvent + '"'
-                                  +"&Ville=" + '"' + nouvelEvenement.VilleEvent + '"';
+                                  + "&CP=" + '"' + nouvelEvenement.CodePostalEvent + '"'
+                                  + "&Ville=" + '"' + nouvelEvenement.VilleEvent + '"';
 
                 var json = await _client.GetStringAsync(insert);
                 var nouveau = JsonConvert.DeserializeObject<ObservableCollection<EvenementsModel>>(json);
@@ -1087,7 +1088,7 @@ namespace IBMCampus
                     var retour = nouveau.First();
                     retour.DebutEvenement = Convert.ToDateTime(retour.DateDebutEvent);
                     retour.FinEvenement = Convert.ToDateTime(retour.DateFinEvent);
-                    
+
                     return retour;
                 }
 
@@ -1135,7 +1136,7 @@ namespace IBMCampus
         /// </summary>
         /// <param name="idEvenement">Id de l'évènement.</param>
         /// <returns></returns>
-        public async Task<ObservableCollection<UtilisateurModel>> RecupererUtilisateursDunEvenement (int idEvenement)
+        public async Task<ObservableCollection<UtilisateurModel>> RecupererUtilisateursDunEvenement(int idEvenement)
         {
             var _utilisateurs = new ObservableCollection<UtilisateurModel>();
 
@@ -1197,7 +1198,7 @@ namespace IBMCampus
 
                 MessageErreur = "Problème lors de la mise à jour des données.";
             }
-            
+
 
         }
     }
