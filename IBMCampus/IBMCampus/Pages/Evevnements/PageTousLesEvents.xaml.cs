@@ -95,7 +95,7 @@ namespace IBMCampus
                         }
                     }
                 }
-
+                liste.ItemsSource = listeAffiche;
             }
         }
 

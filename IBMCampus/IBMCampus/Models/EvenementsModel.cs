@@ -18,7 +18,7 @@ namespace IBMCampus
 
         public int NombreParticipantsMax { get; set; }
 
-        public bool IsRecurentHebdo { get; set; }
+        public int IsRecurentHebdo { get; set; }
 
         public string NumeroVoieEvent { get; set; }
 
@@ -42,12 +42,16 @@ namespace IBMCampus
         public string NomEvenement { get; set; }
         
 
-        public int EventHebdo
+        public string EventHebdo { get; set; }
+
+        public string LocalisationComplete
         {
-            get { return IsRecurentHebdo ? 1 : 0; }
-            set { }
+            get
+            {
+                return string.Format("{0} {1} {2}\n{3} {4}", NumeroVoieEvent, TypeVoieEvent, NomVoieEvent, CodePostalEvent, VilleEvent);
+            }
         }
-        
+
 
         public EvenementsModel()
         {
@@ -58,9 +62,10 @@ namespace IBMCampus
             LocalisationEvenement = string.Empty;
             NombreParticipantsMax = 0;
             NombreParticipants = 0;
-            IsRecurentHebdo = false;
+            //IsRecurentHebdo = false;
             NomEvenement = string.Empty;
             //EventHebdo = string.Empty;
+            
         }
     }
 }

@@ -9,9 +9,9 @@ using Xamarin.Forms.Xaml;
 
 namespace IBMCampus
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PageDetailEvent : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PageDetailEvent : ContentPage
+    {
         Repository repo = App.Current.BindingContext as Repository;
 
 
@@ -70,12 +70,12 @@ namespace IBMCampus
             }
         }
 
-        private void Refresh()
+        public async Task Refresh()
         {
-            //var eventAffiche = BindingContext as EvenementsModel;
+            var eventAffiche = BindingContext as EvenementsModel;
             //var AppData = App.Current.BindingContext as FakeRepository;
-            //InitializeComponent();
-            //Load(eventAffiche, AppData);
+            InitializeComponent();
+            await Load(eventAffiche, repo.User);
         }
 
         private async void listeUtilisateurEvenement_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -96,14 +96,52 @@ namespace IBMCampus
             await Load(evenement, repo.User);
         }
 
-        private void BoutonInscription_Clicked(object sender, EventArgs e)
+        private async void BoutonInscription_Clicked(object sender, EventArgs e)
         {
+            var eventAAfficher = BindingContext as EvenementsModel;
 
+            await repo.InscriptionEvent(repo.User.IdUtilisateur, eventAAfficher.IdGroupe, eventAAfficher.IdEvenement);
+
+            if (repo.MessageErreur != null)
+            {
+                await DisplayAlert("Problème!", repo.MessageErreur, "OK");
+                await Refresh();
+            }
+            else
+            {
+
+                repo.User.EventUtilisateur.Add(eventAAfficher);
+                eventAAfficher.Participants.Add(repo.User);
+
+                await DisplayAlert("S'inscrire", "Vous avez été ajouté à l'évènement", "Retour");
+
+                await Refresh();
+            }
+
+            
         }
 
-        private void BoutonDesinscription_Clicked(object sender, EventArgs e)
+        private async void BoutonDesinscription_Clicked(object sender, EventArgs e)
         {
+            var eventAAfficher = BindingContext as EvenementsModel;
 
+            await repo.DesinscriptionEvenement(repo.User.IdUtilisateur, eventAAfficher);
+
+            if (repo.MessageErreur != null)
+            {
+                await DisplayAlert("Problème!", repo.MessageErreur, "OK");
+                await Refresh();
+            }
+            else
+            {
+
+                repo.User.EventUtilisateur.Remove(eventAAfficher);
+                eventAAfficher.Participants.Remove(repo.User);
+
+                await DisplayAlert("S'inscrire", "Vous avez été désinscrit de l'évènement", "Retour");
+
+                await Refresh();
+            }
         }
     }
 }
