@@ -5,7 +5,7 @@
              Title="Evenements du groupe"
              Padding="10,20,10,10">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Gréer un évènement au groupe" Activated="ToolbarItem_Activated" Icon="Plus.png" x:Name="boutonAjout"/>
+        <ToolbarItem Text="Créer" Activated="ToolbarItem_Activated" x:Name="boutonAjout" Order="Primary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
 

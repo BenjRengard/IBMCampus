@@ -5,7 +5,7 @@
              Padding="10,20,10,10"
              Title="Groupes perso">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Créer un groupe" Activated="ToolbarItem_Activated" Icon="Plus.png"/>
+        <ToolbarItem Text="Créer" Activated="ToolbarItem_Activated" Order="Primary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
 
