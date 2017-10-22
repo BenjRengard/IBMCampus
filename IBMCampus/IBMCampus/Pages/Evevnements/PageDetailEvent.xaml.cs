@@ -30,7 +30,7 @@ namespace IBMCampus
         public async Task Load(EvenementsModel evenement, UtilisateurModel utilisateur)
         {
             var LEvenement = BindingContext as EvenementsModel;
-            LEvenement.Participants = await repo.RecupererUtilisateursDunEvenement(LEvenement.IdEvent);
+            LEvenement.Participants = await repo.RecupererUtilisateursDunEvenement(LEvenement.IdEvenement);
             if (repo.MessageErreur != null)
             {
                 await DisplayAlert("Participants", repo.MessageErreur, "OK");
@@ -64,7 +64,7 @@ namespace IBMCampus
                     }
                 }
             }
-            if (evenement.NombreParticipants == evenement.NombreMaximumParticipant)
+            if (evenement.NombreParticipants == evenement.NombreParticipantsMax)
             {
                 BoutonInscription.IsVisible = false;
             }
