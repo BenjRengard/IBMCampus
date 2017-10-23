@@ -200,7 +200,10 @@
     <AndroidResource Include="Resources\Plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logo-ibm-2208x1242.png" />
+    <BundleResource Include="Resources\logo-ibm-750x1334-iloveimg-resized %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo-ibm-1242x2208-iloveimg-resized.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
