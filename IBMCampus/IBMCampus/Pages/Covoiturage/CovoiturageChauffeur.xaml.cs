@@ -20,23 +20,26 @@ namespace IBMCampus
 
         private async void Button_Enregistrer(object sender, EventArgs e)
         {
-            var chauffeur = new ChauffeurModel()
-            {
-                NombrePlace = Convert.ToInt32(NombreDePlace.Text),
-                Localisation = Batiment.Text,
-                HeureRdv = Convert.ToDateTime(Horaire.Text),
-                VisibiliteTelephone = TelephoneVisible.IsToggled
+            //var chauffeur = new ChauffeurModel()
+            //{
+            //    NombrePlace = Convert.ToInt32(NombreDePlace.Text),
+            //    Localisation = Batiment.Text,
+            //    HeureRdv = Convert.ToDateTime(Horaire.Text),
+            //    VisibiliteTelephone = TelephoneVisible.IsToggled
 
-            };
-            //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-            await DisplayAlert("Covoiturage", "Votre demande a bien été prise en compte", "Retour");
-            await Navigation.PopAsync();
+            //};
+            ////A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
+            //await DisplayAlert("Covoiturage", "Votre demande a bien été prise en compte", "Retour");
+            //await Navigation.PopAsync();
+            await DisplayAlert("Prochainement", "Bientôt disponible", "OK");
         }
 
         private async void Button_Annuler(object sender, EventArgs e)
         {
+            await DisplayAlert("Prochainement", "Bientôt disponible", "OK");
+
             //A ne pas faire. Il ne faut pas utiliser PushAsync, mais PopAsync. Ici, c'était uniquement pour le test.
-            await Navigation.PushAsync(new ListeChauffeursCovoiturage());
+            //await Navigation.PushAsync(new ListeChauffeursCovoiturage());
         }
 
 

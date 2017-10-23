@@ -9,6 +9,7 @@
             <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White">
                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
                     <Label Text="Enregistrement Chauffeur" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="DeepSkyBlue"/>
+                    <Label Text="Non disponible" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Red"/>
                     <StackLayout HeightRequest="25"></StackLayout>
                     <Label Text="Nombre de places" HorizontalOptions="Center" FontSize="Medium" />
                     <Entry x:Name="NombreDePlace" Placeholder="3" Keyboard="Text" HorizontalOptions="Center" HorizontalTextAlignment="Center" WidthRequest="200"/>
