@@ -46,6 +46,10 @@ namespace IBMCampus
         {
             InitializeComponent();
             IsCurrentUser = false;
+            if (string.IsNullOrWhiteSpace(user.AdresseUtilisateur))
+            {
+                user.AdresseUtilisateur = "N/C";
+            }
             BindingContext = user;
             UtilisateurModel utilisateur = user;
 

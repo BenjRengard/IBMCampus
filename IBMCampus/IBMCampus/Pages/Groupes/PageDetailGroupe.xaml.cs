@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,10 @@ namespace IBMCampus
             }
             else
             {
-
+                if (repo.User.GroupesUtilisateur == null)
+                {
+                    repo.User.GroupesUtilisateur = new ObservableCollection<GroupeModel>();
+                }
                 repo.User.GroupesUtilisateur.Add(groupeAffiche);
                 groupeAffiche.UtilisateurGroupe.Add(repo.User);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,7 +110,10 @@ namespace IBMCampus
             }
             else
             {
-
+                if (repo.User.EventUtilisateur == null)
+                {
+                    repo.User.EventUtilisateur = new ObservableCollection<EvenementsModel>();
+                }
                 repo.User.EventUtilisateur.Add(eventAAfficher);
                 eventAAfficher.Participants.Add(repo.User);
 

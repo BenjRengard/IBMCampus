@@ -69,10 +69,19 @@ namespace IBMCampus
                     if (repo.MessageErreur != null)
                     {
                         await DisplayAlert("Problème de connexion", repo.MessageErreur, "Réessayer");
+                        BoutonClique = false;
                     }
                     else
                     {
                         repo.User = utilisateur;
+                        if (repo.User.GroupesUtilisateur == null)
+                        {
+                            repo.User.GroupesUtilisateur = new ObservableCollection<GroupeModel>();
+                        }
+                        if (string.IsNullOrWhiteSpace(repo.User.AdresseUtilisateur))
+                        {
+                            repo.User.AdresseUtilisateur = "A modifier";
+                        }
                         await Navigation.PushModalAsync(new MasterDetailPage1());
                         BoutonClique = false;
                     }
