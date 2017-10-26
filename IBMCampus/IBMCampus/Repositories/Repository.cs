@@ -1041,10 +1041,21 @@ namespace IBMCampus
         /// <returns></returns>
         public async Task DesinscriptionGroupe(int idUtilisateur, int idGroupe)
         {
-            var UrlRemove = "http://mooguer.fr/DeleteInscriptionUser.php?";
+            var EventsDuGroupe = await RecupererEvenementsGroupe(idGroupe.ToString());
+
+            if (EventsDuGroupe != null || EventsDuGroupe.Count > 0)
+            {
+                foreach (var evenement in EventsDuGroupe)
+                {
+                    await DesinscriptionEvenement(idUtilisateur, evenement);
+                }
+            }
+           
+
+            var UrlRemoveGroupe = "http://mooguer.fr/DeleteInscriptionUser.php?";
             try
             {
-                string insert = UrlRemove + "IdGroupe=" + idGroupe
+                string insert = UrlRemoveGroupe + "IdGroupe=" + idGroupe
                                   + "&IdUser=" + idUtilisateur;
 
                 await _client.GetStringAsync(insert);
@@ -1056,6 +1067,17 @@ namespace IBMCampus
                 Log.Warning("download", err.ToString());
 
                 MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer.";
+
+                //Si la désinscription n'a pas fonctionnée, il faut réinscrire l'utilisateur.
+                if (EventsDuGroupe != null)
+                {
+                    foreach (var evenement in EventsDuGroupe || EventsDuGroupe.Count > 0)
+                    {
+                        await InscriptionEvent(idUtilisateur, idGroupe, evenement.IdEvenement);
+                    }
+
+                }
+               
 
             }
         }
