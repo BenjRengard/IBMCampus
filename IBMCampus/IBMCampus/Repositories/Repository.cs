@@ -1069,9 +1069,9 @@ namespace IBMCampus
                 MessageErreur = "Problème de connexion au serveur. Vérifier votre connexion. Veuillez réessayer.";
 
                 //Si la désinscription n'a pas fonctionnée, il faut réinscrire l'utilisateur.
-                if (EventsDuGroupe != null)
+                if (EventsDuGroupe != null || EventsDuGroupe.Count > 0)
                 {
-                    foreach (var evenement in EventsDuGroupe || EventsDuGroupe.Count > 0)
+                    foreach (var evenement in EventsDuGroupe)
                     {
                         await InscriptionEvent(idUtilisateur, idGroupe, evenement.IdEvenement);
                     }
