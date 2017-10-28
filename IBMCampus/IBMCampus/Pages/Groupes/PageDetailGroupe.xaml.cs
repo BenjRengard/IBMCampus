@@ -72,6 +72,13 @@ namespace IBMCampus
             {
 
                 groupeAffiche.UtilisateurGroupe.Remove(repo.User);
+                if (repo.User.EventUtilisateur != null && repo.User.EventUtilisateur.Count >0)
+                {
+                    foreach (var evenement in repo.User.EventUtilisateur)
+                    {
+                        repo.User.EventUtilisateur.Remove(evenement);
+                    }
+                }
                 repo.User.GroupesUtilisateur.Remove(groupeAffiche);
 
                 await DisplayAlert("Désinscription", string.Format("Vous avez été désinscris du groupe {0}", groupeAffiche.NomGroupe), "Retour");

@@ -137,6 +137,7 @@
     <Compile Include="Pages\Regroupement de pages\TabbedPageDetailCompletGroupe.xaml.cs">
       <DependentUpon>TabbedPageDetailCompletGroupe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\Varificateur.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Groupes\PageDetailGroupe.xaml">
