@@ -148,7 +148,7 @@ namespace IBMCampus
 
         private bool VerificationDesChamps()
         {
-            if (string.IsNullOrWhiteSpace(EMailUtilisateur.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(EMailUtilisateur.Text))
             {
                 ChampsEnErreur = "Vous devez renseigner une adresse e-mail";
                 return true;
@@ -160,7 +160,7 @@ namespace IBMCampus
                 return true;
             }
 
-            if (string.IsNullOrWhiteSpace(MdpUser.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(MdpUser.Text))
             {
                 ChampsEnErreur = "Vous devez renseigner un mot de passe";
                 return true;
@@ -171,19 +171,19 @@ namespace IBMCampus
                 return true;
             }
 
-            if (string.IsNullOrWhiteSpace(NomUtilisateur.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(NomUtilisateur.Text))
             {
                 ChampsEnErreur = "Vous devez renseigner votre nom";
                 return true;
             }
 
-            if (string.IsNullOrWhiteSpace(PrenomUtilisateur.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(PrenomUtilisateur.Text))
             {
                 ChampsEnErreur = "Vous devez renseigner votre prénom";
                 return true;
             }
 
-            if (string.IsNullOrWhiteSpace(TelephoneUtilisateur.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(TelephoneUtilisateur.Text))
             {
                 ChampsEnErreur = "Vous devez renseigner un numéro de téléphone.";
                 return true;
