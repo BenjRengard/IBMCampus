@@ -92,8 +92,9 @@ namespace IBMCampus
 
         protected override async void OnAppearing()
         {
-
+            liste.IsRefreshing = true;
             await Load();
+            liste.IsRefreshing = false;
 
             base.OnAppearing();
         }

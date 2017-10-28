@@ -141,14 +141,16 @@ namespace IBMCampus
         /// </summary>
         protected override async void OnAppearing()
         {
+            liste.IsRefreshing = true;
             if (user == null)
             {
                 await Load();
-
+                liste.IsRefreshing = false;
             }
             else
             {
                 await Load(user);
+                liste.IsRefreshing = false;
             }
             base.OnAppearing();
 

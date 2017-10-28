@@ -46,6 +46,10 @@ namespace IBMCampus
                 {
                     await DisplayAlert("Nombre de participants", "Le nombre de participant entré est incorrect", "OK");
                 }
+                if (string.IsNullOrWhiteSpace(NomNouveauGroupe.Text))
+                {
+                    await DisplayAlert("Nom du gorupe", "Vous devez renseigner un nom pour le groupe", "OK");
+                }
                 else
                 {
                     if (_sportSelection == null)
@@ -58,16 +62,16 @@ namespace IBMCampus
 
                         GroupeModel nouveauGroupe = new GroupeModel()
                         {
-                            NomGroupe = NomNouveauGroupe.Text,
+                            NomGroupe = NomNouveauGroupe.Text.Trim(),
                             SportGroupe = _sportSelection,
                             NomSport = _sportSelection.NomSport,
                             UtilisateurGroupe = new ObservableCollection<UtilisateurModel>() { repo.User },
                             ParticipantsMaxGroupe = nbParticip,
-                            CodePostalGroupe = CodePostal.Text,
-                            NomVoieGroupe = NomVoie.Text,
-                            NumeroRueGroupe = NumeroVoie.Text,
-                            TypeVoieGroupe = TypeVoie.Text,
-                            VilleGroupe = Ville.Text
+                            CodePostalGroupe = CodePostal.Text.Trim(),
+                            NomVoieGroupe = NomVoie.Text.Trim(),
+                            NumeroRueGroupe = NumeroVoie.Text.Trim(),
+                            TypeVoieGroupe = TypeVoie.Text.Trim(),
+                            VilleGroupe = Ville.Text.Trim()
 
                         };
 

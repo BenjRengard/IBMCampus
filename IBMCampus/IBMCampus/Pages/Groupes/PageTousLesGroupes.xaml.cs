@@ -65,7 +65,9 @@ namespace IBMCampus
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            liste.IsRefreshing = true;
             await Load();
+            liste.IsRefreshing = false;
         }
         #endregion
     }
